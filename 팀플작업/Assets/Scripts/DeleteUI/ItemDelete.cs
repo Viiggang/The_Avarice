@@ -3,26 +3,33 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using static UnityEditor.Progress;
 
-public class ItemDelete : MonoBehaviour,IEndDragHandler
+public class ItemDelete : MonoBehaviour, IDropHandler
 {
 
-    public void OnEndDrag(PointerEventData eventData)
+    public void OnDrop(PointerEventData eventData)
     {
-        var Item = eventData.pointerEnter.GetComponent<Item>(); //아이템 받아오기 <--임시 제네릭 인자
+        Debug.Log("ItemDelete 실행");
+        var Item = eventData.pointerDrag.GetComponent<Item>(); //아이템 받아오기 
         if(Item == null)
         {
-            Debug.Log("아이템 아님");
+            Debug.Log("ItemDelete 아이템 아님");
             return;
+        }
+        else
+        {
+            Debug.Log($"Item 이름:{Item.name}");
+            Debug.Log("OnPointerEnter 작동");
         }
         ///<summary>
         /// 이후 아이템의 값을 삭제
         /// 이미지 sprite null 처리
         /// 
         ///</summary>
-       
+
         Item.itemenum = ItemEnum.NULL;
         Item.equipmentEnum = equipmentEnum.NULL;
-
+        Item.itemImage.color= new Color(255,255,255);
     }
 }
