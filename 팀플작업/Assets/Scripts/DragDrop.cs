@@ -24,6 +24,7 @@ public class DragDrop : MonoBehaviour, IBeginDragHandler, IDragHandler
 
     public void OnDrag(PointerEventData eventData)
     {
+        
         // 현재 마우스 위치를 부모 기준으로 가져오기
         RectTransformUtility.ScreenPointToLocalPointInRectangle
         (

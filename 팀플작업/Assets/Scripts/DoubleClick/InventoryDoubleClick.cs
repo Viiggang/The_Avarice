@@ -9,11 +9,7 @@ public class InventoryDoubleClick : MonoBehaviour,IPointerClickHandler
     private float clickTime = 0f;
    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+   
     public void OnPointerClick(PointerEventData eventData)
     {
         if ((Time.time - clickTime) < interval)

@@ -14,7 +14,7 @@ public enum equipmentEnum
 {
     NULL =0,
     equipment_Weapon,// 무기
-
+    equipment_hat,//모자
 }
 
 //소비 타입 (회복 버프 등등 )

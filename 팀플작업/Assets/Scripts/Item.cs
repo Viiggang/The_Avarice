@@ -29,6 +29,52 @@ public class Item : MonoBehaviour
         if(itemenum == ItemEnum.equipment) //장비
         {
             Debug.Log("ItemEnum.equipment ");
+            foreach(var item in ItemWindowHandler.Instance.items)//아이템 창 순회
+            {
+                 if(item.equipmentEnum == equipmentEnum)//무기 슬롯을 찾으면
+                 {
+                    if(item.itemImage .color ==Color.white)//장비를 착용하고 있지 않다면
+                    {
+                        itemenum = ItemEnum.NULL;
+                        equipmentEnum = equipmentEnum.NULL;
+                        item.itemImage.color = itemImage.color;
+                        itemImage.color = new Color(255, 255, 255);
+                        return;
+                    }
+                    else
+                    {
+                         foreach(var item1 in InventoryHandler.items)
+                         {
+                            //w
+                            if(item1.itemenum ==ItemEnum.NULL)
+                            {
+                                ItemEnum A;
+                                equipmentEnum B;
+                                Color C;
+
+                                A = item.itemenum;
+                                B = item.equipmentEnum;
+                                C = item.itemImage.color;
+                                //장비창에서 인벤토리로
+                                item1.itemenum = A;
+                                item1.equipmentEnum = B;
+                                item1.itemImage.color= C;
+
+                                item.itemenum = itemenum;
+                                item.equipmentEnum = equipmentEnum;
+                                item.itemImage.color = itemImage.color;
+
+                                itemenum = ItemEnum.NULL;
+                                equipmentEnum = equipmentEnum.NULL;
+                                itemImage.color = new Color(255, 255, 255);
+                                return;
+                            }
+                         }
+                    }
+                  
+                 }
+            }
+            
 
         }
         else //소비
@@ -38,15 +84,10 @@ public class Item : MonoBehaviour
      
 
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         init_item();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
