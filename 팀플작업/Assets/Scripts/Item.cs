@@ -15,6 +15,7 @@ public class Item : MonoBehaviour
         equipmentEnum = equipmentEnum.equipment_Weapon;
         itemImage= GetComponentsInChildren<Image>()
               .FirstOrDefault(img => img.gameObject != this.gameObject);
+        itemImage.raycastTarget = false;
     }
 
     public void ItemUse()
