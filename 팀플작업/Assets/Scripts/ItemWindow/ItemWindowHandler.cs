@@ -6,6 +6,7 @@ public class ItemWindowHandler :Singleton<ItemWindowHandler>
 {
  
     public List<Item> items = new List<Item>();
+    public bool WeaponFlag = false;
 
     private void Start()
     {

@@ -33,16 +33,18 @@ public class Item : MonoBehaviour
             {
                  if(item.equipmentEnum == equipmentEnum)//무기 슬롯을 찾으면
                  {
-                    if(item.itemImage .color ==Color.white)//장비를 착용하고 있지 않다면
+                    if(ItemWindowHandler.Instance.WeaponFlag == false)//장비를 착용하고 있지 않다면
                     {
-                        itemenum = ItemEnum.NULL;
-                        equipmentEnum = equipmentEnum.NULL;
-                        item.itemImage.color = itemImage.color;
+                        itemenum = ItemEnum.NULL;// 현재 슬롯 타입 NULL
+                        equipmentEnum = equipmentEnum.NULL;//장비 타입 NULL
+                        item.itemImage.color = itemImage.color;//장비창에 현재 아이템 색을 입힌다.
                         itemImage.color = new Color(255, 255, 255);
+                        ItemWindowHandler.Instance.WeaponFlag = true;
                         return;
                     }
                     else
                     {
+
                          foreach(var item1 in InventoryHandler.items)
                          {
                             //w
@@ -67,6 +69,7 @@ public class Item : MonoBehaviour
                                 itemenum = ItemEnum.NULL;
                                 equipmentEnum = equipmentEnum.NULL;
                                 itemImage.color = new Color(255, 255, 255);
+                                
                                 return;
                             }
                          }
