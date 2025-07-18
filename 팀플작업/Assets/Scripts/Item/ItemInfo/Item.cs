@@ -4,6 +4,9 @@ using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
+
+using Inventory;
+using ItemWindow;
 public class Item : MonoBehaviour
 {
     public ItemEnum itemenum;
