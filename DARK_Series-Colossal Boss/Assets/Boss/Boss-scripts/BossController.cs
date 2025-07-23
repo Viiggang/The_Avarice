@@ -3,25 +3,36 @@ using System.Collections.Generic;
 using System.Xml;
 using Unity.IO.LowLevel.Unsafe;
 using UnityEngine;
+ 
 
 public class BossController : MonoBehaviour
 {
     private IBossState currentState;
+    public static BossController instance;
+
+    [SerializeField] public SpriteRenderer spriteRenderer;
+    [SerializeField]private BoxCollider2D HitBox;
 
     public Transform target;
     public BoxCollider2D Collider;
     public Animator animator;
-    public float chaseRange = 5f;
-    public float attackRange = 2f;
-    public float moveSpeed = 2f;
+   
+   
+    private void Awake()
+    {
+        HitBoxSet();
+        CreateSingleton();
+    }
 
     void Start()
     {
+       
         ChangeState(new SleepState());
     }
 
     void Update()
     {
+        FlipState();
         currentState?.Execute(this);
     }
 
@@ -32,9 +43,37 @@ public class BossController : MonoBehaviour
         currentState?.Enter(this);
     }
 
-    // 예: 체력 감소 등에서 상태 전환 가능
-    public void Die()
+  
+
+    private void HitBoxSet()
     {
-        ChangeState(new DeadState());
+        float offset_x = -0.06602305f;
+        float offset_y = -0.05332156f;
+
+        float Size_x = 0.6748698f;
+        float Size_y = 0.6786369f;
+        HitBox.offset = new Vector2(offset_x, offset_y);
+        HitBox.size = new Vector2(Size_x, Size_y);
+        HitBox.isTrigger = true;
+
+    }
+
+    private void CreateSingleton()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else if (instance != this)
+        {
+            Debug.Log("BossController 중복 발생 하여 삭제함");
+            Destroy(gameObject);
+        }
+    }
+    public void FlipState()
+    {
+        if (target == null) { return; }
+        float dir = Mathf.Sign(target.position.x - transform.position.x);
+        spriteRenderer.flipX = dir == -1f ? true : false;
     }
 }
