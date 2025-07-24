@@ -27,13 +27,53 @@ public class AttackRay : MonoBehaviour
 
         if(hit !=null)
         {
-            Debug.Log($"{hit.collider.name}");
+            Debug.Log($"SuperAttack{hit.collider.name}");
         }
-      
-      
+
+        idlestate();
+    }
+    public void RangeAttack()
+    {
+        bool flipx = BossController.instance.spriteRenderer.flipX;
+        pos = flipx?   new Vector2(-3.43f, -0.97f): new Vector2(3.85f, -0.97f); //true(오른쪽)
+        size = new Vector2(3.68f, 1.98f);
+        RaycastHit2D hit = Physics2D.BoxCast(
+        BossController.instance.transform.position + pos,      // 시작 위치
+         size,//크기
+        0f,//각도
+        BossController.instance.transform.right,//방향
+        distance,//거리
+        Player);//레이어 마스크
+
+        if (hit != null)
+        {
+            Debug.Log($"RangeAttack:{hit.collider.name}");
+        }
+        idlestate();
+    }
+    public void MeleeAttack()
+    {
+        pos = new Vector2(-0.17f, -0.97f);
+        size = new Vector2(6.74f, 1.98f);
+      RaycastHit2D hit = Physics2D.BoxCast(
+      BossController.instance.transform.position + pos,      // 시작 위치
+      size,//크기
+      0f,//각도
+       BossController.instance.transform.right,//방향
+      distance,//거리
+      Player);//레이어 마스크
+        if (hit != null)
+        {
+            Debug.Log($"MeleeAttack{hit.collider.name}");
+        }
+        idlestate();
     }
     public void BossDead()
     {
         Destroy(BossController.instance.gameObject);
+    }
+    private void idlestate()
+    {
+        BossController.instance.ChangeState(new IdleState());
     }
 }

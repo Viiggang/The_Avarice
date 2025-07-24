@@ -16,10 +16,14 @@ public class BossController : MonoBehaviour
     public Transform target;
     public BoxCollider2D Collider;
     public Animator animator;
-   
+
+    public readonly float MaxHp =100;
+    public float HP;
+    public const string BossName = "Boss";
    
     private void Awake()
     {
+        HP = MaxHp;
         HitBoxSet();
         CreateSingleton();
     }

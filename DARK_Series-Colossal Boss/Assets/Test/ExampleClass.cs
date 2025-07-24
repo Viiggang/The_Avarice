@@ -15,7 +15,7 @@ public class ExampleClass : MonoBehaviour
             //// 구체 시각화 (중심 위치와 반지름)
             Gizmos.color = Color.green;
             Gizmos.DrawWireSphere(this.transform.position, radius);
-            //Gizmos.DrawCube(this.transform.position+pos, size);
+            Gizmos.DrawCube(this.transform.position+pos, size);
     }
     private void Update()
     {

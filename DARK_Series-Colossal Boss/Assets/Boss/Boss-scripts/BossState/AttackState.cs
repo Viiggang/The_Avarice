@@ -12,7 +12,7 @@ public class AttackState :  IBossState
     {
        
         boss.animator.SetTrigger("SuperAttack");
-        boss.ChangeState(new chaseState());
+        
     }
     public void Execute(BossController boss)
     {

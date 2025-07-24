@@ -39,9 +39,27 @@ public class chaseState :IBossState
             Vector2 direction = (boss.target.position - boss.transform.position).normalized;
             boss.transform.position += new Vector3(direction.x, 0f, 0f) * moveSpeed * Time.deltaTime;
         }
-        else
+        else //근거리면
         {
-            boss.ChangeState(new DeadState());
+            float halfHp = (boss.MaxHp / 2);
+            if (boss.HP < halfHp)//반피 이하면
+            {
+                boss.ChangeState(new AttackState());//반피 이하면 슈퍼 공격
+            }
+            else//반피 이상이면 일반 공격
+            {
+                float num = UnityEngine.Random.Range(1, 3);
+                switch (num)
+                {
+                    case 1:
+                        boss.ChangeState(new MeleeAttack());
+                        break;
+                    case 2:
+                        boss.ChangeState(new RangeAttack());
+                        break;
+                }
+
+            }
         }
     }
 }

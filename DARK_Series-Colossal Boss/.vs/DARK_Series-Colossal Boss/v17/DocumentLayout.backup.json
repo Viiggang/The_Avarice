@@ -1,0 +1,207 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\assets\\boss\\boss-scripts\\bosscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|solutionrelative:assets\\boss\\boss-scripts\\bosscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\assets\\boss\\boss-scripts\\bossstate\\idlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|solutionrelative:assets\\boss\\boss-scripts\\bossstate\\idlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|c:\\users\\phyco\\documents\\github\\the_avarice\\dark_series-colossal boss\\assets\\boss\\boss-scripts\\bossstate\\ranageattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|solutionrelative:assets\\boss\\boss-scripts\\bossstate\\ranageattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\assets\\boss\\boss-scripts\\bossstate\\attackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|solutionrelative:assets\\boss\\boss-scripts\\bossstate\\attackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\assets\\boss\\boss-scripts\\bossstate\\wakestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|solutionrelative:assets\\boss\\boss-scripts\\bossstate\\wakestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|c:\\users\\phyco\\documents\\github\\the_avarice\\dark_series-colossal boss\\assets\\boss\\boss-scripts\\bossstate\\meleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|solutionrelative:assets\\boss\\boss-scripts\\bossstate\\meleeattack.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\assets\\test\\exampleclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|solutionrelative:assets\\test\\exampleclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\assets\\boss\\boss-scripts\\bossstate\\chasestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|solutionrelative:assets\\boss\\boss-scripts\\bossstate\\chasestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\assets\\boss\\boss-scripts\\bossstate\\deadstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|solutionrelative:assets\\boss\\boss-scripts\\bossstate\\deadstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\assets\\boss\\boss-scripts\\bossstate\\sleepstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|solutionrelative:assets\\boss\\boss-scripts\\bossstate\\sleepstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\assets\\boss\\other-scripts\\attackray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BD34AAC6-CD2A-3AF7-712D-E2A64BE8DA1E}|Assembly-CSharp.csproj|solutionrelative:assets\\boss\\other-scripts\\attackray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 9,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RanageAttack.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\RanageAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss\\Boss-scripts\\BossState\\RanageAttack.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\RanageAttack.cs",
+              "RelativeToolTip": "Assets\\Boss\\Boss-scripts\\BossState\\RanageAttack.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwQAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T01:24:58.922Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MeleeAttack.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\MeleeAttack.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss\\Boss-scripts\\BossState\\MeleeAttack.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\MeleeAttack.cs",
+              "RelativeToolTip": "Assets\\Boss\\Boss-scripts\\BossState\\MeleeAttack.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwkAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T01:23:28.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ExampleClass.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Test\\ExampleClass.cs",
+              "RelativeDocumentMoniker": "Assets\\Test\\ExampleClass.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Test\\ExampleClass.cs",
+              "RelativeToolTip": "Assets\\Test\\ExampleClass.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAADwvyMAAAA0AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T00:31:30.047Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AttackRay.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\other-Scripts\\AttackRay.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss\\other-Scripts\\AttackRay.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\other-Scripts\\AttackRay.cs",
+              "RelativeToolTip": "Assets\\Boss\\other-Scripts\\AttackRay.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAACIAAAAVAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T00:31:14.836Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "WakeState.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\WakeState.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss\\Boss-scripts\\BossState\\WakeState.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\WakeState.cs",
+              "RelativeToolTip": "Assets\\Boss\\Boss-scripts\\BossState\\WakeState.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAACAAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T00:29:03.723Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SleepState.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\SleepState.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss\\Boss-scripts\\BossState\\SleepState.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\SleepState.cs",
+              "RelativeToolTip": "Assets\\Boss\\Boss-scripts\\BossState\\SleepState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T00:28:49.696Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DeadState.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\DeadState.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss\\Boss-scripts\\BossState\\DeadState.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\DeadState.cs",
+              "RelativeToolTip": "Assets\\Boss\\Boss-scripts\\BossState\\DeadState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvxYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T00:28:59.946Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "chaseState.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\chaseState.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss\\Boss-scripts\\BossState\\chaseState.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\chaseState.cs",
+              "RelativeToolTip": "Assets\\Boss\\Boss-scripts\\BossState\\chaseState.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACsAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T00:28:58.449Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AttackState.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\AttackState.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss\\Boss-scripts\\BossState\\AttackState.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\AttackState.cs",
+              "RelativeToolTip": "Assets\\Boss\\Boss-scripts\\BossState\\AttackState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T00:28:56.926Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "BossController.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossController.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss\\Boss-scripts\\BossController.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossController.cs",
+              "RelativeToolTip": "Assets\\Boss\\Boss-scripts\\BossController.cs",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAABMAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T00:28:46.204Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IdleState.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\IdleState.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss\\Boss-scripts\\BossState\\IdleState.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\DARK_Series-Colossal Boss\\Assets\\Boss\\Boss-scripts\\BossState\\IdleState.cs",
+              "RelativeToolTip": "Assets\\Boss\\Boss-scripts\\BossState\\IdleState.cs",
+              "ViewState": "AgIAACcAAAAAAAAAAAAAAC0AAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-24T00:24:16.889Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
