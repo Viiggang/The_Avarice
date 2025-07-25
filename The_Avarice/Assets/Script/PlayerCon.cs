@@ -24,66 +24,27 @@ public class PlayerCon : MonoBehaviour
     private bool input_y = false;
     private bool jump = true;
     
-    enum Attack_Type
-    {
-        Charge,
-        Combo
-    };
-    [Space, Header("-Attack")]
-    [SerializeField]
-    Attack_Type AtkType;
-
-    enum Range_Type //공격 사거리
-    {
-        Wide,
-        Colse
-    };
-
-    [SerializeField]
-    Range_Type RangeType;
-
+  
 
     Animator animator;
     Rigidbody2D rigid2D;
     Collider2D collider2D;
-    Player_Atk P_atk;
 
     public void OnEnable()
     {
         animator = GetComponent<Animator>();
         rigid2D = GetComponent<Rigidbody2D>();
         collider2D = GetComponent<Collider2D>();
-        P_atk = GetComponent<Player_Atk>();
         Speed = nomal_Speed;
     }
 
     public void Update()
     {
 
+
+        
         input_x = Input.GetAxisRaw("Horizontal");
         input_Movement(input_x); // 움직임 입력처리
-        if (AtkType == Attack_Type.Charge) // 일반공격 차지
-        {
-            //none
-            if (Input.GetKey(KeyCode.C))
-            {
-                P_atk.OnCharging();
-            }
-        }
-        else
-        {
-            if (Input.GetKeyDown(KeyCode.C))// 일반공격 콤보
-            {
-                if (!jump)
-                {
-                    P_atk.OnAirAttack();
-                }
-                else
-                {
-                    P_atk.OnAttack();
-                }
-            }
-        }
 
         if (Input.GetButtonUp("Horizontal"))
         {
@@ -150,7 +111,6 @@ public class PlayerCon : MonoBehaviour
             }
         }
 
-
     }
 
     private void output_Movement() //이동처리 함수
@@ -172,8 +132,5 @@ public class PlayerCon : MonoBehaviour
         }
     }
 
-    private void input_Attack()
-    {
-
-    }
+    
 }
