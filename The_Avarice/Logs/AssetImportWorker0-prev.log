@@ -1,0 +1,777 @@
+Using pre-set license
+Built from '2022.3/release' branch; Version is '2022.3.61f1 (6c53ebaf375d) revision 7099371'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22631) 64bit Core' Language: 'ko' Physical Memory: 16005 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Unity\2022.3.61f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/82108/Desktop/code/The_Avarice
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+49841
+Successfully changed project path to: C:/Users/82108/Desktop/code/The_Avarice
+C:/Users/82108/Desktop/code/The_Avarice
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [23932]  Target information:
+
+Player connection [23932]  * "[IP] 192.168.123.144 [Port] 0 [Flags] 2 [Guid] 3693471897 [EditorId] 3693471897 [Version] 1048832 [Id] WindowsEditor(7,LAPTOP-FH2JES9U) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+
+Player connection [23932] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [23932] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Input System module state changed to: Initialized.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+Refreshing native plugins compatible for Editor in 1681.19 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.61f1 (6c53ebaf375d)
+[Subsystems] Discovering subsystems at path C:/Unity/2022.3.61f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/82108/Desktop/code/The_Avarice/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3060 Laptop GPU (ID=0x2520)
+    Vendor:   NVIDIA
+    VRAM:     5996 MB
+    Driver:   32.0.15.6119
+Initialize mono
+Mono path[0] = 'C:/Unity/2022.3.61f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Unity/2022.3.61f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Unity/2022.3.61f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56968
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Unity/2022.3.61f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.159661 seconds.
+- Loaded All Assemblies, in  9.130 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.345 seconds
+Domain Reload Profiling: 9472ms
+	BeginReloadAssembly (7114ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (522ms)
+	RebuildNativeTypeToScriptingClass (9ms)
+	initialDomainReloadingComplete (218ms)
+	LoadAllAssembliesAndSetupDomain (1264ms)
+		LoadAssemblies (7110ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (1262ms)
+			TypeCache.Refresh (1261ms)
+				TypeCache.ScanAssembly (970ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (0ms)
+	FinalizeReload (346ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (287ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (9ms)
+			SetLoadedEditorAssemblies (9ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (3ms)
+			ProcessInitializeOnLoadAttributes (196ms)
+			ProcessInitializeOnLoadMethodAttributes (70ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  8.855 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.902 seconds
+Domain Reload Profiling: 9752ms
+	BeginReloadAssembly (155ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (21ms)
+	RebuildCommonClasses (33ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (49ms)
+	LoadAllAssembliesAndSetupDomain (8605ms)
+		LoadAssemblies (8103ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (589ms)
+			TypeCache.Refresh (534ms)
+				TypeCache.ScanAssembly (441ms)
+			ScanForSourceGeneratedMonoScriptInfo (40ms)
+			ResolveRequiredComponents (13ms)
+	FinalizeReload (902ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (721ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (3ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (107ms)
+			ProcessInitializeOnLoadAttributes (486ms)
+			ProcessInitializeOnLoadMethodAttributes (110ms)
+			AfterProcessingInitializeOnLoad (8ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.09 seconds
+Refreshing native plugins compatible for Editor in 8.07 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5632 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 33 unused Assets / (346.9 KB). Loaded Objects now: 6100.
+Memory consumption went from 218.7 MB to 218.4 MB.
+Total: 3.928700 ms (FindLiveObjects: 0.527200 ms CreateObjectMapping: 0.335400 ms MarkObjects: 2.844300 ms  DeleteObjects: 0.220000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 4473.401109 seconds.
+  path: Assets/Script/Mgrs/PlayerMgr.cs
+  artifactKey: Guid(df33d5edcc2051d42b0a4ac5eda13228) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/Mgrs/PlayerMgr.cs using Guid(df33d5edcc2051d42b0a4ac5eda13228) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '43e612b4c8bc5da2417dd4acb6086a14') in 0.003986 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 661.539311 seconds.
+  path: Assets/Sprites/paladin/Pal_Con.controller
+  artifactKey: Guid(502f02f4242b16b4da3a0e0e71c24a08) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Pal_Con.controller using Guid(502f02f4242b16b4da3a0e0e71c24a08) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'b490bc198434ac80c104e9ab6dfd9ee9') in 0.227391 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 103
+========================================================================
+Received Import Request.
+  Time since last request: 4953.957884 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped
+  artifactKey: Guid(d5e192ebec7981e40b5637b882c6177f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped using Guid(d5e192ebec7981e40b5637b882c6177f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '18cb04127adcb8788e44b8f85452be9f') in 0.001839 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 1.343689 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All
+  artifactKey: Guid(8668520e1b3fbbf4b90493284a686a35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All using Guid(8668520e1b3fbbf4b90493284a686a35) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'a329693c14fd4f9f484928de69691077') in 0.001026 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.053975 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop1.png
+  artifactKey: Guid(b1e3a08ab66a60248ae1fa4199866429) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop1.png using Guid(b1e3a08ab66a60248ae1fa4199866429) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '69ffdd53c022b96103ef411343f2d9e8') in 0.153046 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.002094 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop6.png
+  artifactKey: Guid(097573f8d733bb348921fe86c6b3c5e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop6.png using Guid(097573f8d733bb348921fe86c6b3c5e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '775d02b90cf1e773468dcaf1910c3e39') in 0.029960 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop4.png
+  artifactKey: Guid(ee22a903e06d87748aaa17b801bed4d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop4.png using Guid(ee22a903e06d87748aaa17b801bed4d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'fa013b594c0c79476d0ac457d8564206') in 0.024958 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop8.png
+  artifactKey: Guid(29a717e1d0d502c46b9b0c57384cfbe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop8.png using Guid(29a717e1d0d502c46b9b0c57384cfbe0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '6a14d086d3964adb9c72325ece13c50b') in 0.013382 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop9.png
+  artifactKey: Guid(4be80daebe7e14d48946219e00a27c7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop9.png using Guid(4be80daebe7e14d48946219e00a27c7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '50cbca443af8f979a91a305ad9da6125') in 0.031216 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop7.png
+  artifactKey: Guid(53bf04d0eada0734896f41f979cfdfb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop7.png using Guid(53bf04d0eada0734896f41f979cfdfb0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'f409d0cfd98fd569b3aaa60b47244e1c') in 0.012542 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop16.png
+  artifactKey: Guid(1dd7974e8ceb72842a3985d6c9178a6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop16.png using Guid(1dd7974e8ceb72842a3985d6c9178a6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '35055d406252d83487377316bfcf18af') in 0.027992 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop17.png
+  artifactKey: Guid(884733fdf08bdc645a623d53a557377f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop17.png using Guid(884733fdf08bdc645a623d53a557377f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '8d3f2de35e6f0898bb0724d88bc87e35') in 0.023110 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000092 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop15.png
+  artifactKey: Guid(8fba3afa7c7a1cb4497dfbff1a1a4869) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop15.png using Guid(8fba3afa7c7a1cb4497dfbff1a1a4869) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '809c5fb02b4bbec3fd75c5d49a178a1c') in 0.024326 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop12.png
+  artifactKey: Guid(6396c6839b96c3d4fb58b73d2dec007e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop12.png using Guid(6396c6839b96c3d4fb58b73d2dec007e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '4a23d3162a18d1eea0bfacd70bc714df') in 0.012994 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop10.png
+  artifactKey: Guid(727223f517323af47bc7482352b2fa44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/GuardedAtkLoop10.png using Guid(727223f517323af47bc7482352b2fa44) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '9a6eacdfdc5d0077bcbea868a507f54b') in 0.021953 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 1.606043 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted
+  artifactKey: Guid(77ff150feaeb8964a9f521db076a4c89) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted using Guid(77ff150feaeb8964a9f521db076a4c89) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'b95623254b47509e8d19cb2a83bd3827') in 0.000911 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.046314 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted1.png
+  artifactKey: Guid(d1d323ffafd041d4ea90584cf112cf71) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted1.png using Guid(d1d323ffafd041d4ea90584cf112cf71) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'afebf43e0cc8a46a7872aa576f94ba69') in 0.010415 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted3.png
+  artifactKey: Guid(bbd866fddfcbdfa4cac90a1b896bc555) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted3.png using Guid(bbd866fddfcbdfa4cac90a1b896bc555) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'ed8455a7acdb0c750a6c1729e2ad2f9c') in 0.009203 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted6.png
+  artifactKey: Guid(0518879ff6ea92b4aa33591e5c409a69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted6.png using Guid(0518879ff6ea92b4aa33591e5c409a69) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'fbcc022d9bc584326acfef10cbcc4aab') in 0.010009 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted10.png
+  artifactKey: Guid(915f468a2b75197419b716ee42f1027a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted10.png using Guid(915f468a2b75197419b716ee42f1027a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'bc583b5367f213ca814576aaac8db336') in 0.012990 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted9.png
+  artifactKey: Guid(ec3c14174c35db441b1892545a042751) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted9.png using Guid(ec3c14174c35db441b1892545a042751) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '73b8141719049facf732579eeba05d78') in 0.019085 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted13.png
+  artifactKey: Guid(25323ec1fee625d4cb4be3d9a40c6152) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted13.png using Guid(25323ec1fee625d4cb4be3d9a40c6152) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '4e29904727d7e7fe995f44ba2d105b2d') in 0.019153 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted4.png
+  artifactKey: Guid(2a1ed6941eb10e5489f8a7b50a747bbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/Shorted/GuardedAtkShorted4.png using Guid(2a1ed6941eb10e5489f8a7b50a747bbe) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'db087fdfd8d72ac647052a7646f1304d') in 0.019803 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 3.828650 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2
+  artifactKey: Guid(61ef3edd0fe7c2c4f825d18ca88ef8ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2 using Guid(61ef3edd0fe7c2c4f825d18ca88ef8ca) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '8345d0eabca537c34fc83a97ea645373') in 0.002446 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.047112 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)1.png
+  artifactKey: Guid(9d0e561ec25ade047a9190bf98418229) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)1.png using Guid(9d0e561ec25ade047a9190bf98418229) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'f3ec8330d1248b7a57e842840a67e57f') in 0.011231 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)4.png
+  artifactKey: Guid(fce70bfbbfc03044dadb3914e014dc16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)4.png using Guid(fce70bfbbfc03044dadb3914e014dc16) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '2e1842a159d043749b44614d1ed49f3f') in 0.015142 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)9.png
+  artifactKey: Guid(e083477e7f1ba044b8aebade893f0661) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)9.png using Guid(e083477e7f1ba044b8aebade893f0661) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'd5fdd693672c22bc3b96de07710258a2') in 0.016619 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)14.png
+  artifactKey: Guid(a065e47b1c11ea2419cab5f35806b19d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)14.png using Guid(a065e47b1c11ea2419cab5f35806b19d) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'aaf22299bea5a14990f0a2c660ed4ce9') in 0.028170 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)12.png
+  artifactKey: Guid(4b1815e1c2decc046beee37fa78af913) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)12.png using Guid(4b1815e1c2decc046beee37fa78af913) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '66dd2dcfe9cad60a4d7a0e83e37b66be') in 0.026234 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)7.png
+  artifactKey: Guid(00107b5818d9bdb4390a30c2a648f258) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)7.png using Guid(00107b5818d9bdb4390a30c2a648f258) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '0821f25ec3f4c744bd741696c6fd6899') in 0.032565 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000300 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)8.png
+  artifactKey: Guid(8458da32a1dffe94eb47e2b5a51be36c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/All/FX2/GuardedAtkLoop(FX2)8.png using Guid(8458da32a1dffe94eb47e2b5a51be36c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '7e0d3f9ea72fd1f5eed1af6bcd22f334') in 0.028758 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 4.101897 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/1/GuardedAtkMidle2.png
+  artifactKey: Guid(612d7c8dfb023a74a9c392100dec044b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/1/GuardedAtkMidle2.png using Guid(612d7c8dfb023a74a9c392100dec044b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '899173d36f4ab09bbdd37e21a8212e93') in 0.014138 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/1/GuardedAtkMidle6.png
+  artifactKey: Guid(a937021582026e54bbc00290c589bac5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/1/GuardedAtkMidle6.png using Guid(a937021582026e54bbc00290c589bac5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'c779ffd82968526a625d7716b6b37621') in 0.018520 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 8.789508 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/2/GuardedAtkUP2.png
+  artifactKey: Guid(efb257cbe3fb8ab4dba8f54188dd0f80) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/2/GuardedAtkUP2.png using Guid(efb257cbe3fb8ab4dba8f54188dd0f80) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'fc69bf64c24b88f1b8aad713203adda9') in 0.010617 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.004158 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/2/GuardedAtkUP6.png
+  artifactKey: Guid(11b56e201a4278a4a92166345d173439) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/2/GuardedAtkUP6.png using Guid(11b56e201a4278a4a92166345d173439) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '84d9c737a7012f3a75cb195785bc3e19') in 0.013489 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 2.024738 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/3/GuardedAtkDown2.png
+  artifactKey: Guid(bd5aca040f010c844a7aab761e496934) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/3/GuardedAtkDown2.png using Guid(bd5aca040f010c844a7aab761e496934) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '8fa1f32f71ff54ab038e083487bde1d3') in 0.012620 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000485 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/3/GuardedAtkDown6.png
+  artifactKey: Guid(d09d4800b07be2248b410e13fc82fdd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/GuardedAtk/Looped/3/GuardedAtkDown6.png using Guid(d09d4800b07be2248b410e13fc82fdd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '8a93336a9ff499f01c64d7bd3586fc69') in 0.017803 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 644.138651 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose2/AirHeavyAtkHit
+  artifactKey: Guid(a034516ec6535bf4291d9e9312e373c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose2/AirHeavyAtkHit using Guid(a034516ec6535bf4291d9e9312e373c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'f84712964a129d24887fe278dbe98869') in 0.000993 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 23.121912 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full
+  artifactKey: Guid(d36c0c9c86987104b88e742b6839add6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full using Guid(d36c0c9c86987104b88e742b6839add6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'fed46f4915769e14266a310758ee7bee') in 0.000835 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.100236 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full/AirHeavyAtk7.png
+  artifactKey: Guid(23576c99b43f1a247b53a01461e94d09) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full/AirHeavyAtk7.png using Guid(23576c99b43f1a247b53a01461e94d09) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '6f10e33dd5c8950f9c66f33c0924562b') in 0.043383 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.006322 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full/AirHeavyAtk10.png
+  artifactKey: Guid(41d90a72e81afce48ae6a6cd0f0867db) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full/AirHeavyAtk10.png using Guid(41d90a72e81afce48ae6a6cd0f0867db) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '2bde7d322b2c3790ccddadc0522a8f19') in 0.027359 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full/AirHeavyAtk16.png
+  artifactKey: Guid(a7ac04d8033be074c8e23124a495908e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full/AirHeavyAtk16.png using Guid(a7ac04d8033be074c8e23124a495908e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '859b4f461b760436640bc36a92cbf24f') in 0.031096 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000948 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full/AirHeavyAtk12.png
+  artifactKey: Guid(e10fa18f8257fe0458bb8024f9e89d7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full/AirHeavyAtk12.png using Guid(e10fa18f8257fe0458bb8024f9e89d7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'a57822525e2a89ad1c56dadc3fe84d47') in 0.033547 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full/AirHeavyAtk13.png
+  artifactKey: Guid(ebb45cab672d5b94c9be499a5a56d7e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full/AirHeavyAtk13.png using Guid(ebb45cab672d5b94c9be499a5a56d7e7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: 'c038ed002f74df705a9c1fb072c7667e') in 0.021611 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full/AirHeavyAtk14.png
+  artifactKey: Guid(57d9bdf04b5de014bad2d046eff3029e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/Full/AirHeavyAtk14.png using Guid(57d9bdf04b5de014bad2d046eff3029e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '348f769efaae61f6e51c96e601bbfb26') in 0.021612 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 3.981505 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/OnAirHeavyAtk
+  artifactKey: Guid(fed7438de42e29a4aa1717e78405ad0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/OnAirHeavyAtk using Guid(fed7438de42e29a4aa1717e78405ad0c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '7e613a93c549126b5bb49d0d218954d1') in 0.001207 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 0
+========================================================================
+Received Import Request.
+  Time since last request: 0.103557 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/OnAirHeavyAtk/OnAirHeavyAtk1.png
+  artifactKey: Guid(63dec919468a7e644ad6407abb01ce3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/OnAirHeavyAtk/OnAirHeavyAtk1.png using Guid(63dec919468a7e644ad6407abb01ce3f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '28dd3d7be90b98e66498a7cd32964155') in 0.021652 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/OnAirHeavyAtk/OnAirHeavyAtk3.png
+  artifactKey: Guid(18c4cd0f1fc7eb94da9dec8d9c06915b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Sprites/paladin/Paladin/Sprites/Attacks/AirHeavyAtk/Pose1/OnAirHeavyAtk/OnAirHeavyAtk3.png using Guid(18c4cd0f1fc7eb94da9dec8d9c06915b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) [PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+[PhysX] Initialized MultithreadedTaskDispatcher with 16 workers.
+ -> (artifact id: '682985336060a79f7e49a17076156c2a') in 0.021589 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.672 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.765 seconds
+Domain Reload Profiling: 2433ms
+	BeginReloadAssembly (1166ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (900ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (101ms)
+	RebuildCommonClasses (34ms)
+	RebuildNativeTypeToScriptingClass (13ms)
+	initialDomainReloadingComplete (45ms)
+	LoadAllAssembliesAndSetupDomain (408ms)
+		LoadAssemblies (467ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (56ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (30ms)
+			ResolveRequiredComponents (14ms)
+	FinalizeReload (766ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (553ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (8ms)
+			SetLoadedEditorAssemblies (12ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (105ms)
+			ProcessInitializeOnLoadAttributes (299ms)
+			ProcessInitializeOnLoadMethodAttributes (118ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (19ms)
+Refreshing native plugins compatible for Editor in 6.37 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5479 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (316.5 KB). Loaded Objects now: 6114.
+Memory consumption went from 196.7 MB to 196.4 MB.
+Total: 4.743900 ms (FindLiveObjects: 0.409500 ms CreateObjectMapping: 0.344100 ms MarkObjects: 3.920500 ms  DeleteObjects: 0.068800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Caller must complete domain reload
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.697 seconds
+Native extension for WindowsStandalone target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.319 seconds
+Domain Reload Profiling: 2007ms
+	BeginReloadAssembly (198ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (12ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (38ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (18ms)
+	initialDomainReloadingComplete (58ms)
+	LoadAllAssembliesAndSetupDomain (377ms)
+		LoadAssemblies (465ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (19ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (12ms)
+	FinalizeReload (1320ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (476ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (6ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (84ms)
+			ProcessInitializeOnLoadAttributes (280ms)
+			ProcessInitializeOnLoadMethodAttributes (90ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (16ms)
+Refreshing native plugins compatible for Editor in 8.15 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 5479 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 20 unused Assets / (316.6 KB). Loaded Objects now: 6119.
+Memory consumption went from 196.7 MB to 196.4 MB.
+Total: 5.681100 ms (FindLiveObjects: 0.514700 ms CreateObjectMapping: 0.450900 ms MarkObjects: 4.609300 ms  DeleteObjects: 0.105200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-codec-MediaFoundation-h265: 746d11721c4dcdbdad8f713fa42b33f4 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 72b91833f83ae208fae7752999fa3104 -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
