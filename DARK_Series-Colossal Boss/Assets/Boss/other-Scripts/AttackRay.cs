@@ -10,6 +10,8 @@ public class AttackRay : MonoBehaviour
     public Vector3 size;
     public float distance = 1f;
     public LayerMask Player;
+
+    bool hasCollider;
     public void SuperAttack()
     {
         bool flipx = BossController.instance.spriteRenderer.flipX;
@@ -24,10 +26,10 @@ public class AttackRay : MonoBehaviour
          BossController.instance.transform.right,//방향
         distance,//거리
         Player);//레이어 마스크
-
-        if(hit !=null)
+        hasCollider = hit.collider == null ? false : true;
+        if (hasCollider)
         {
-            Debug.Log($"SuperAttack{hit.collider.name}");
+            Debug.Log($"{hit.collider.name}");
         }
 
         idlestate();
@@ -45,9 +47,10 @@ public class AttackRay : MonoBehaviour
         distance,//거리
         Player);//레이어 마스크
 
-        if (hit != null)
+        hasCollider = hit.collider == null ? false : true;
+        if (hasCollider)
         {
-            Debug.Log($"RangeAttack:{hit.collider.name}");
+            Debug.Log($"{hit.collider.name}");
         }
         idlestate();
     }
@@ -62,9 +65,11 @@ public class AttackRay : MonoBehaviour
        BossController.instance.transform.right,//방향
       distance,//거리
       Player);//레이어 마스크
-        if (hit != null)
+
+        hasCollider= hit.collider == null ? false : true;
+        if (hasCollider)
         {
-            Debug.Log($"MeleeAttack{hit.collider.name}");
+            Debug.Log($"{hit.collider.name}");
         }
         idlestate();
     }
