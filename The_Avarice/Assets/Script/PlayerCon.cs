@@ -30,29 +30,29 @@ public class PlayerCon : MonoBehaviour
     Rigidbody2D rigid2D;
     Collider2D collider2D;
 
+    Player_Atk P_Atk;
+
     public void OnEnable()
     {
         animator = GetComponent<Animator>();
         rigid2D = GetComponent<Rigidbody2D>();
         collider2D = GetComponent<Collider2D>();
+        P_Atk = GetComponent<Player_Atk>();
         Speed = nomal_Speed;
     }
 
     public void Update()
     {
-
-
-        
         input_x = Input.GetAxisRaw("Horizontal");
         input_Movement(input_x); // 움직임 입력처리
-
         if (Input.GetButtonUp("Horizontal"))
         {
             rigid2D.velocity = new Vector2(rigid2D.velocity.normalized.x * 0.2f, rigid2D.velocity.y); //미끄러짐 방지
         }
-
-
-
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            P_Atk.input_Atk();
+        }
 
     }
     public void FixedUpdate() //물리적 처리
