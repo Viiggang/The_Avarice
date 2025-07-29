@@ -5,14 +5,16 @@ using UnityEngine;
 
 public class Player_Atk : MonoBehaviour //일반공격
 {
-    public Animator animator;
+    private Animator animator;
     [SerializeField, Range(0.5f, 2.5f)]
-    private float attackSpeed = 1.0f;
+    private float attackSpeed = 1.0f; // 공격속도
+    [SerializeField]
+    private int MaxComdo = 3; //최대 콤보수
 
-    private int comboStep = 0;
-    private bool comboWindowOpen = false;
-    private bool bufferedInput = false;
-    private bool isAttacking = false;
+    private int comboStep = 0; //현재 진행중인 콤보
+    private bool comboWindowOpen = false; // 다음콤보입력
+    private bool bufferedInput = false;// 입력버퍼
+    private bool isAttacking = false; // 공격키 활성화 여부
 
     void Start()
     {
@@ -23,16 +25,19 @@ public class Player_Atk : MonoBehaviour //일반공격
     {
         if (!isAttacking)
         {
-            PlayAttack(1); // 첫 공격 시작
+            PlayAttack(1); // 첫 공격 시작;
         }
-        else if (comboWindowOpen && comboStep < 3)
+        else if (comboWindowOpen && comboStep < MaxComdo)
         {
             PlayAttack(comboStep + 1); // 콤보 연결
         }
+        else if (comboStep == MaxComdo)
+        {
+            isAttacking = true;
+        }
         else
         {
-            bufferedInput = true; // 콤보 윈도우 밖 입력은 버퍼에 저장
-            Debug.Log("Buffered input");
+            bufferedInput = true; 
         }
     }
 
@@ -40,9 +45,14 @@ public class Player_Atk : MonoBehaviour //일반공격
     {
         comboStep = step;
         string triggerName = $"Attack{step}Trigger";
-        animator.ResetTrigger("Attack1Trigger");
-        animator.ResetTrigger("Attack2Trigger");
-        animator.ResetTrigger("Attack3Trigger");
+        string ressettriggerName = $"Attack{step}Trigger";
+
+        for (int i = 1; i < MaxComdo; i++)
+        {
+            ressettriggerName = $"Attack{i}Trigger";
+            animator.ResetTrigger(triggerName);
+        }
+      
         animator.SetTrigger(triggerName);
         animator.speed = attackSpeed;
 
@@ -50,26 +60,21 @@ public class Player_Atk : MonoBehaviour //일반공격
         isAttacking = true;
         bufferedInput = false;
 
-        Debug.Log($"Play Combo {step} (Speed: {attackSpeed})");
     }
 
-    // 애니메이션 중간에 호출 (Animation Event)
+    // 애니메이션 이벤트
     public void OpenComboWindow()
     {
         comboWindowOpen = true;
-        Debug.Log("Combo Window Open");
 
-        // 윈도우가 열린 순간, 입력 버퍼가 있다면 즉시 다음 공격
         if (bufferedInput && comboStep < 3)
         {
             PlayAttack(comboStep + 1);
         }
     }
 
-    // 마지막 애니메이션 끝에 호출 (Animation Event)
     public void EndCombo()
     {
-        Debug.Log("Combo End");
         comboStep = 0;
         comboWindowOpen = false;
         bufferedInput = false;

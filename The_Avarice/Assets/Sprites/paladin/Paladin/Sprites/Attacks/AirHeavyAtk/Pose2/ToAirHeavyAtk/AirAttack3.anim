@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AirAttack1
+  m_Name: AirAttack3
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,23 +21,25 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: d420b0d77af2a9346a7b08d45ef0579a, type: 3}
+      value: {fileID: 21300000, guid: 31d2f715e5fb4a2419f5294cdb208a3f, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: 5b78224f15b5b864e8b11b07c0899a67, type: 3}
+      value: {fileID: 21300000, guid: c9125ab2fb7e782449a989cce5f737d2, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 6b439f148f330954985e2639607c9866, type: 3}
+      value: {fileID: 21300000, guid: a25fdc4a6eec153489cd7cf93ed272e7, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 47fdd37f87813a8438264b1f5fece9db, type: 3}
+      value: {fileID: 21300000, guid: 2a0c4afeb0a611545922734f3608f44b, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: 0090ee3eda6603e4ebcccb2b0526cca5, type: 3}
+      value: {fileID: 21300000, guid: 5390b2cf5b6de3549b1df44509bc2f5f, type: 3}
     - time: 0.41666666
-      value: {fileID: 21300000, guid: e2868938fe1690446bb6218d729f6e2c, type: 3}
+      value: {fileID: 21300000, guid: 75e9e783f16df2c4685cf10da012400e, type: 3}
     - time: 0.5
-      value: {fileID: 21300000, guid: 19c73f6936810684187e0d0dfea51d81, type: 3}
+      value: {fileID: 21300000, guid: ea4f2cb37e2a52c418ef096a93be479f, type: 3}
     - time: 0.5833333
-      value: {fileID: 21300000, guid: d77c999a77b873c41905dfcff924f190, type: 3}
+      value: {fileID: 21300000, guid: faf9d9528ac5e264ca6645fd69624329, type: 3}
     - time: 0.6666667
-      value: {fileID: 21300000, guid: 61a1a6becdf35ab40a0eb110dd724d53, type: 3}
+      value: {fileID: 21300000, guid: 33106e6b77e32ba4cbaaf649cc81e425, type: 3}
+    - time: 0.75
+      value: {fileID: 21300000, guid: 264dbdbfc6d974649807e4ffc0f4ff3d, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -60,21 +62,22 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: d420b0d77af2a9346a7b08d45ef0579a, type: 3}
-    - {fileID: 21300000, guid: 5b78224f15b5b864e8b11b07c0899a67, type: 3}
-    - {fileID: 21300000, guid: 6b439f148f330954985e2639607c9866, type: 3}
-    - {fileID: 21300000, guid: 47fdd37f87813a8438264b1f5fece9db, type: 3}
-    - {fileID: 21300000, guid: 0090ee3eda6603e4ebcccb2b0526cca5, type: 3}
-    - {fileID: 21300000, guid: e2868938fe1690446bb6218d729f6e2c, type: 3}
-    - {fileID: 21300000, guid: 19c73f6936810684187e0d0dfea51d81, type: 3}
-    - {fileID: 21300000, guid: d77c999a77b873c41905dfcff924f190, type: 3}
-    - {fileID: 21300000, guid: 61a1a6becdf35ab40a0eb110dd724d53, type: 3}
+    - {fileID: 21300000, guid: 31d2f715e5fb4a2419f5294cdb208a3f, type: 3}
+    - {fileID: 21300000, guid: c9125ab2fb7e782449a989cce5f737d2, type: 3}
+    - {fileID: 21300000, guid: a25fdc4a6eec153489cd7cf93ed272e7, type: 3}
+    - {fileID: 21300000, guid: 2a0c4afeb0a611545922734f3608f44b, type: 3}
+    - {fileID: 21300000, guid: 5390b2cf5b6de3549b1df44509bc2f5f, type: 3}
+    - {fileID: 21300000, guid: 75e9e783f16df2c4685cf10da012400e, type: 3}
+    - {fileID: 21300000, guid: ea4f2cb37e2a52c418ef096a93be479f, type: 3}
+    - {fileID: 21300000, guid: faf9d9528ac5e264ca6645fd69624329, type: 3}
+    - {fileID: 21300000, guid: 33106e6b77e32ba4cbaaf649cc81e425, type: 3}
+    - {fileID: 21300000, guid: 264dbdbfc6d974649807e4ffc0f4ff3d, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.75
+    m_StopTime: 0.8333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -98,13 +101,6 @@ AnimationClip:
     functionName: OnAirAtk
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 0736df4f36364c444987f8cfee28c5a8, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.16666667
-    functionName: OpenComboWindow
-    data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 6a51984571719de408f7171aefa5f585, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
