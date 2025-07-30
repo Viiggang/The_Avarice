@@ -70,6 +70,7 @@ public class PlayerCon : MonoBehaviour
         // 공격 입력
         if (Input.GetKeyDown(KeyCode.C))
         {
+            rigid2D.velocity = new Vector2(rigid2D.velocity.normalized.x * 0.2f, rigid2D.velocity.y);
             P_Atk.input_Atk();
         }
     }
@@ -83,9 +84,7 @@ public class PlayerCon : MonoBehaviour
         }
 
         // 땅 체크
-        RaycastHit2D hit = Physics2D.Raycast(
-            rigid2D.position, Vector2.down, 0.5f, LayerMask.GetMask("Platform")
-        );
+        RaycastHit2D hit = Physics2D.Raycast(rigid2D.position, Vector2.down, 0.5f, LayerMask.GetMask("Platform"));
         Debug.DrawRay(rigid2D.position, Vector2.down * 0.5f, Color.red);
 
         if (hit.collider != null)
