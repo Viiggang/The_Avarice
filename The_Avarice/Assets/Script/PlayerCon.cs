@@ -1,44 +1,43 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Burst.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCon : MonoBehaviour
 {
-    //속도(물리력) 관련 함수
-    [Header("-Movement")]
-    [Range(20f, 50f)]
-    public float Dash_Speed = 30f;
-    [Range(2f, 10f)]
-    public float nomal_Speed = 5f;
-    [Range(5f,20f)]
-    public float JumpPower = 10f;
-    
-    //방향
-    private bool Direction = true;
-    
-    //가로 이동
-    private float Move_x = 0f;
-    private float input_x = 0f;
+    [Header("- Movement Settings")]
+    [SerializeField,Range(20f, 50f)] 
+    private float Dash_Speed = 30f;
 
-    //점프
+    [SerializeField, Range(2f, 10f)] 
+    private float nomal_Speed = 5f;
+
+    [SerializeField, Range(5f, 20f)]
+    private float JumpPower = 10f;
+
+    [Header("- Dash Settings")]
+    public float dashDuration = 0.1f;
+    public float dashCooldown = 1f;
+
+    // 상태 플래그
+    private bool Direction = true;
+    private float input_x = 0f;
     private bool input_y = false;
     private bool jump = true;
 
-    //대쉬
-    private bool Dash = true;
-    private bool Dash_x = false;
+    private bool isDashing = false;
+    private bool canDash = true;
 
     private bool donMove = false; // 움직임 제어용
 
-    Animator animator;
-    Rigidbody2D rigid2D;
-    Collider2D collider2D;
+    // 코루틴 내부 사용
+    private Vector2 dashDirection;
 
-    Player_Atk P_Atk;
+    // 컴포넌트
+    private Animator animator;
+    private Rigidbody2D rigid2D;
+    private Collider2D collider2D;
+    private Player_Atk P_Atk;
 
-    public void OnEnable()
+    private void OnEnable()
     {
         animator = GetComponent<Animator>();
         rigid2D = GetComponent<Rigidbody2D>();
@@ -46,139 +45,152 @@ public class PlayerCon : MonoBehaviour
         P_Atk = GetComponent<Player_Atk>();
     }
 
-    public void Update()
+    private void Update()
     {
-        if (!donMove)
+        if (!donMove && !isDashing)
         {
+            // 수평 입력 처리
             input_x = Input.GetAxisRaw("Horizontal");
-            input_Movement(input_x); // 움직임 입력처리
+            input_Movement(input_x);
+
             if (Input.GetButtonUp("Horizontal"))
             {
-                rigid2D.velocity = new Vector2(rigid2D.velocity.normalized.x * 0.2f, rigid2D.velocity.y); //미끄러짐 방지
+                // 미끄러짐 방지
+                rigid2D.velocity = new Vector2(rigid2D.velocity.normalized.x * 0.2f, rigid2D.velocity.y);
+            }
+
+            // 대시 입력
+            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && Input.GetButton("Horizontal"))
+            {
+                dashDirection = new Vector2(Direction ? 1f : -1f, 0f);
+                StartCoroutine(DashCoroutine());
             }
         }
-       
+
+        // 공격 입력
         if (Input.GetKeyDown(KeyCode.C))
         {
             P_Atk.input_Atk();
         }
-
     }
-    public void FixedUpdate() //물리적 처리
+
+    private void FixedUpdate()
     {
-        //이동
-        output_Movement(); // 움직임 동작처리
+        // 이동, 점프 물리 처리
+        if (!isDashing && !donMove)
+        {
+            output_Movement();
+        }
 
-        //점프 판정채크
-        RaycastHit2D raycastHit = Physics2D.Raycast(rigid2D.position, Vector3.down,0.5f, LayerMask.GetMask("Platform"));
-        Debug.DrawRay(rigid2D.position, Vector3.down * 0.5f, Color.red);
+        // 땅 체크
+        RaycastHit2D hit = Physics2D.Raycast(
+            rigid2D.position, Vector2.down, 0.5f, LayerMask.GetMask("Platform")
+        );
+        Debug.DrawRay(rigid2D.position, Vector2.down * 0.5f, Color.red);
 
-        if (raycastHit.collider != null)
+        if (hit.collider != null)
         {
             animator.SetBool("isJump", false);
             input_y = false;
             jump = true;
         }
         else
-        { 
+        {
             animator.SetBool("isJump", true);
             jump = false;
         }
-
-       
     }
-    private void input_Movement(float input_x) // 이동관련
-    {
 
+    private void input_Movement(float input_x)
+    {
+        // 이동 애니메이션
         if (input_x != 0f)
-        //좌우이동 애니매이션
-        {
             animator.SetBool("isMove", true);
-        }
-        else if (!Input.GetKey(KeyCode.RightArrow) | !Input.GetKey(KeyCode.LeftArrow))
-        {
+        else
             animator.SetBool("isMove", false);
-        }
 
-        if (input_x < 0f && Direction)
+        // 방향 전환
+        if (!isDashing)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
-            Direction = false;
-        }
-        else if (input_x > 0f && !Direction)
-        {
-            transform.localScale = new Vector3(1, 1, 1);
-            Direction = true;
-        }
-
-
-        transform.Translate(Move_x, 0f, 0f);
-
-        if (Input.GetKeyDown(KeyCode.Space) && jump)// 점프
-        {
-            if (!input_y)
+            if (input_x < 0f && Direction)
             {
-                input_y = true;
+                transform.localScale = new Vector3(-1, 1, 1);
+                Direction = false;
+            }
+            else if (input_x > 0f && !Direction)
+            {
+                transform.localScale = new Vector3(1, 1, 1);
+                Direction = true;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && Dash)
+        // 점프 입력
+        if (Input.GetKeyDown(KeyCode.Space) && jump)
         {
-            if (!Dash_x)
-            {
-                Dash_x = true;
-            }
-
+            input_y = true;
         }
     }
 
-    private void output_Movement() //이동처리 함수
+    private void output_Movement()
     {
-        if (!donMove)
-        {
-            //좌우 이동
-            if (input_x > 0f)
-            {
-                rigid2D.velocity = new Vector2(nomal_Speed, rigid2D.velocity.y);
-            }
-            else if (input_x < 0f)
-            {
-                rigid2D.velocity = new Vector2(-nomal_Speed, rigid2D.velocity.y);
-            }
+        // 좌우 이동
+        if (input_x > 0f)
+            rigid2D.velocity = new Vector2(nomal_Speed, rigid2D.velocity.y);
+        else if (input_x < 0f)
+            rigid2D.velocity = new Vector2(-nomal_Speed, rigid2D.velocity.y);
 
-            //점프
-            if (input_y == true)
-            {
-                rigid2D.velocity = new Vector2(rigid2D.velocity.x, JumpPower);
-            }
+        // 점프
+        if (input_y)
+        {
+            rigid2D.velocity = new Vector2(rigid2D.velocity.x, JumpPower);
+            input_y = false;
         }
     }
 
-
-    private void isOnDash()
+    private IEnumerator DashCoroutine()
     {
+        isDashing = true;
+        canDash = false;
+        donMove = true;
 
+        // 무적 처리 가능 (원한다면)
+        animator.SetTrigger("Dash");
+
+        // 대시 이동
+        rigid2D.velocity = dashDirection * Dash_Speed;
+        rigid2D.gravityScale = 0f;
+
+        yield return new WaitForSeconds(dashDuration);
+
+        // 대시 후 제어 복구
+        rigid2D.gravityScale = 2f;
+        rigid2D.velocity = Vector2.zero;
+        donMove = false;
+        isDashing = false;
+
+        // 쿨다운
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 
-    // 공격 이벤트용 함수
-    #region
-    private void OnAirAtk() // 공중공격 시작
+    #region // 공격 이벤트
+    private void OnAirAtk()
     {
         donMove = true;
-        rigid2D.gravityScale = -0f;
+        rigid2D.gravityScale = 0f;
         rigid2D.velocity = Vector2.zero;
     }
 
-    private void OffAirAtk() // 공중 공격끝
+    private void OffAirAtk()
     {
-        donMove=false;
+        donMove = false;
         rigid2D.gravityScale = 2f;
     }
 
-    private void OutAirAtk() // 공중콤보 마지막
+    private void OutAirAtk()
     {
         donMove = true;
-        rigid2D.gravityScale = 2.8f;
+        rigid2D.gravityScale = 3.4f;
     }
 
     private void onAtk()
@@ -191,5 +203,4 @@ public class PlayerCon : MonoBehaviour
         donMove = false;
     }
     #endregion
-
 }

@@ -21,7 +21,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     [Header("Player_Info")]
     public int Plyer_Atk = 0;
     public float plyer_Speed = 0;
-    public int Atk_Delay = 0;
+
     
 
     public void Start()

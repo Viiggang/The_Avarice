@@ -8,6 +8,7 @@ public class Player_Atk : MonoBehaviour //일반공격
     private Animator animator;
     [SerializeField, Range(0.5f, 2.5f)]
     private float attackSpeed = 1.0f; // 공격속도
+    private float nomal_Speed = 1.0f; // 공격속도
     [SerializeField]
     private int MaxComdo = 3; //최대 콤보수
 
@@ -79,5 +80,6 @@ public class Player_Atk : MonoBehaviour //일반공격
         comboWindowOpen = false;
         bufferedInput = false;
         isAttacking = false;
+        animator.speed = nomal_Speed;
     }
 }
