@@ -77,16 +77,30 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
+    functionName: EndCombo
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 6a51984571719de408f7171aefa5f585, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.083333336
     functionName: OffAirAtk
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 0736df4f36364c444987f8cfee28c5a8, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0
-    functionName: EndCombo
+  - time: 0.16666667
+    functionName: OffAirAtk
     data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 6a51984571719de408f7171aefa5f585, type: 3}
+    objectReferenceParameter: {fileID: 11500000, guid: 0736df4f36364c444987f8cfee28c5a8, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.25
+    functionName: OffAirAtk
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 0736df4f36364c444987f8cfee28c5a8, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

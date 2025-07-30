@@ -554,14 +554,14 @@ AnimatorStateMachine:
     m_Position: {x: -460, y: -120, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5375172144202753715}
-    m_Position: {x: -1100, y: 180, z: 0}
+    m_Position: {x: -1090, y: 150, z: 0}
   m_ChildStateMachines:
   - serializedVersion: 1
     m_StateMachine: {fileID: 7514961501595548833}
     m_Position: {x: -880, y: -130, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: 3161219879508543860}
-    m_Position: {x: -1160, y: -60, z: 0}
+    m_Position: {x: -1260, y: -50, z: 0}
   - serializedVersion: 1
     m_StateMachine: {fileID: -6556770194039004865}
     m_Position: {x: -1060, y: -240, z: 0}
@@ -573,17 +573,17 @@ AnimatorStateMachine:
   m_EntryTransitions:
   - {fileID: -8024614993207859008}
   m_StateMachineTransitions:
+  - first: {fileID: 7514961501595548833}
+    second:
+    - {fileID: -729354985232936192}
+    - {fileID: 3912658751235723702}
   - first: {fileID: 3161219879508543860}
     second:
     - {fileID: 7560795243945873375}
     - {fileID: 7891268475308842670}
     - {fileID: 717132118902043236}
-  - first: {fileID: 7514961501595548833}
-    second:
-    - {fileID: -729354985232936192}
-    - {fileID: 3912658751235723702}
   m_StateMachineBehaviours: []
-  m_AnyStatePosition: {x: -1050, y: -130, z: 0}
+  m_AnyStatePosition: {x: -1090, y: -110, z: 0}
   m_EntryPosition: {x: 20, y: -140, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
@@ -750,9 +750,9 @@ AnimatorStateTransition:
   m_Mute: 0
   m_IsExit: 0
   serializedVersion: 3
-  m_TransitionDuration: 0.25
+  m_TransitionDuration: 0
   m_TransitionOffset: 0
-  m_ExitTime: 0.75
+  m_ExitTime: 0.7499999
   m_HasExitTime: 0
   m_HasFixedDuration: 1
   m_InterruptionSource: 0
@@ -1475,7 +1475,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DashAtk
-  m_Speed: 1
+  m_Speed: 2
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: -6926775064393670580}

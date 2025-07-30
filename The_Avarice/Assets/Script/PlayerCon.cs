@@ -4,18 +4,18 @@ using UnityEngine;
 public class PlayerCon : MonoBehaviour
 {
     [Header("- Movement Settings")]
-    [SerializeField,Range(20f, 50f)] 
-    private float Dash_Speed = 30f;
-
     [SerializeField, Range(2f, 10f)] 
     private float nomal_Speed = 5f;
-
     [SerializeField, Range(5f, 20f)]
     private float JumpPower = 10f;
 
     [Header("- Dash Settings")]
-    public float dashDuration = 0.1f;
-    public float dashCooldown = 1f;
+    [SerializeField, Range(20f, 50f)]
+    private float Dash_Speed = 30f;
+    [SerializeField, Range(0.05f, 0.3f)]
+    private float dashDuration = 0.1f;
+    [SerializeField, Range(0.2f, 3f)]
+    private float dashCooldown = 1f;
 
     // 상태 플래그
     private bool Direction = true;
