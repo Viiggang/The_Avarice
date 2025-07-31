@@ -10,12 +10,18 @@ public class PlayerCon : MonoBehaviour
     private float JumpPower = 10f;
 
     [Header("- Dash Settings")]
+    [SerializeField]
+    private Collider2D HitBox;
     [SerializeField, Range(20f, 50f)]
     private float Dash_Speed = 30f;
     [SerializeField, Range(0.05f, 0.3f)]
     private float dashDuration = 0.1f;
     [SerializeField, Range(0.2f, 3f)]
     private float dashCooldown = 1f;
+    [SerializeField, Range(0.02f, 0.15f)]
+    private float dashDodge = 0.05f;
+    [SerializeField]
+    private GameObject DashHitBox;
 
     // 상태 플래그
     private bool Direction = true;
@@ -27,6 +33,9 @@ public class PlayerCon : MonoBehaviour
     private bool canDash = true;
 
     private bool donMove = false; // 움직임 제어용
+    private bool hurt = false;
+
+    private bool Dead = false;
 
     // 코루틴 내부 사용
     private Vector2 dashDirection;
@@ -37,48 +46,69 @@ public class PlayerCon : MonoBehaviour
     private Collider2D collider2D;
     private Player_Atk P_Atk;
 
+    [SerializeField, Space]
+    private ScriptableObject[] Skills;
+ 
+
     private void OnEnable()
     {
         animator = GetComponent<Animator>();
         rigid2D = GetComponent<Rigidbody2D>();
         collider2D = GetComponent<Collider2D>();
         P_Atk = GetComponent<Player_Atk>();
+
+      /*  if(Skills.Length > 0) 
+        {
+            for (int i = 0; i < Skills.Length; i++)
+            {
+                TryGetComponent<ScriptableObject>(out Skills[i]);
+            }
+        }*/
     }
 
     private void Update()
     {
-        if (!donMove && !isDashing)
+        if (!isDashing && !hurt && !Dead)//대쉬중이 아닐때 && 공격받지않았을때 && 죽지않았을때
         {
-            // 수평 입력 처리
-            input_x = Input.GetAxisRaw("Horizontal");
-            input_Movement(input_x);
-
-            if (Input.GetButtonUp("Horizontal"))
+            if (!donMove) // 움직일수있을때
             {
-                // 미끄러짐 방지
+                // 수평 입력 처리
+                input_x = Input.GetAxisRaw("Horizontal");
+                input_Movement(input_x);
+
+                if (Input.GetButtonUp("Horizontal"))
+                {
+                    // 미끄러짐 방지
+                    rigid2D.velocity = new Vector2(rigid2D.velocity.normalized.x * 0.2f, rigid2D.velocity.y);
+                }
+
+                // 대시 입력
+                if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && Input.GetButton("Horizontal"))
+                {
+                    dashDirection = new Vector2(Direction ? 1f : -1f, 0f);
+                    StartCoroutine(DashCoroutine());
+                }
+            }
+
+            // 공격 입력
+            if (Input.GetKeyDown(KeyCode.C))
+            {
                 rigid2D.velocity = new Vector2(rigid2D.velocity.normalized.x * 0.2f, rigid2D.velocity.y);
+                P_Atk.input_Atk();
             }
 
-            // 대시 입력
-            if (Input.GetKeyDown(KeyCode.LeftShift) && canDash && Input.GetButton("Horizontal"))
+            // 스킬입력
+            if(Input.GetKey(KeyCode.A))
             {
-                dashDirection = new Vector2(Direction ? 1f : -1f, 0f);
-                StartCoroutine(DashCoroutine());
-            }
-        }
 
-        // 공격 입력
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            rigid2D.velocity = new Vector2(rigid2D.velocity.normalized.x * 0.2f, rigid2D.velocity.y);
-            P_Atk.input_Atk();
+            }
         }
     }
 
     private void FixedUpdate()
     {
         // 이동, 점프 물리 처리
-        if (!isDashing && !donMove)
+        if (!isDashing && !donMove && !hurt && !Dead)
         {
             output_Movement();
         }
@@ -152,27 +182,31 @@ public class PlayerCon : MonoBehaviour
         canDash = false;
         donMove = true;
 
-        // 무적 처리 가능 (원한다면)
+        HitBox.enabled = false;  // 무적 처리
+
         animator.SetTrigger("Dash");
 
         // 대시 이동
         rigid2D.velocity = dashDirection * Dash_Speed;
         rigid2D.gravityScale = 0f;
+        DashHitBox.SetActive(true);
 
-        yield return new WaitForSeconds(dashDuration);
+        yield return new WaitForSeconds(dashDodge);//무적시간
+        HitBox.enabled = true;
 
-        // 대시 후 제어 복구
+        yield return new WaitForSeconds(dashDuration - dashDodge);// 대시 후 제어 복구
+        DashHitBox.SetActive(false);
         rigid2D.gravityScale = 2f;
         rigid2D.velocity = Vector2.zero;
         donMove = false;
         isDashing = false;
-
+    
         // 쿨다운
         yield return new WaitForSeconds(dashCooldown);
         canDash = true;
     }
 
-    #region // 공격 이벤트
+    #region - Animator Events
     private void OnAirAtk()
     {
         donMove = true;
@@ -200,6 +234,17 @@ public class PlayerCon : MonoBehaviour
     private void offAtk()
     {
         donMove = false;
+    }
+
+    private void onHit()
+    {
+        hurt = true;
+        rigid2D.velocity = new Vector2(rigid2D.velocity.normalized.x * 0.2f, rigid2D.velocity.y);
+    }
+
+    private void offHit()
+    {
+        hurt = false;
     }
     #endregion
 }

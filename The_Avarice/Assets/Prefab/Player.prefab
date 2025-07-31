@@ -146,6 +146,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6073897313580074419}
+  - component: {fileID: 3485964017757785003}
   - component: {fileID: 8394099111301552529}
   m_Layer: 0
   m_Name: HitBox
@@ -169,6 +170,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2473305759622805789}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3485964017757785003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403754336609924176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5673601c168aab544a1ddf11acc4f9d6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 6820058824111334696}
 --- !u!70 &8394099111301552529
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -255,11 +269,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0736df4f36364c444987f8cfee28c5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dash_Speed: 20
   nomal_Speed: 5
   JumpPower: 10
+  Dash_Speed: 20
   dashDuration: 0.1
   dashCooldown: 1
+  dashDodge: 0.1
+  Skills: []
+  HitBox: {fileID: 8394099111301552529}
 --- !u!114 &4693372238942071044
 MonoBehaviour:
   m_ObjectHideFlags: 0

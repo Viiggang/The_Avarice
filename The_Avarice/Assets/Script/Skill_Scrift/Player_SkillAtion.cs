@@ -1,18 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Player_SkillAtion : MonoBehaviour
+using static System.Net.WebRequestMethods;
+[CreateAssetMenu(fileName = "Skill Data", menuName = "Scriptable Object/Skill Data", order = int.MaxValue)]
+public class Player_SkillAtion : ScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
+    enum Skill_Type
     {
-        
+        Active,
+        Passive
+    };
+    enum Skilll_input
+    {
+        Down,
+        charge,
+        none
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [Header("- Skill_Info")]
+    [SerializeField]
+    private Skill_Type skillType;
+    [SerializeField]
+    private Skilll_input inputType;
+    [Space]
+    public float Damage;
+    public float CoolDown;
+    public float Duration;
+    [Space]
+    public string Skill_Trigger;
+    public Sprite icon;
+
+
 }

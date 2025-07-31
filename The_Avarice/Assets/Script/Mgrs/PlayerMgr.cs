@@ -19,8 +19,8 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     [Space]
     [Header("Player_Info")]
-    public int Plyer_Atk = 0;
-    public float plyer_Speed = 0;
+    public int Plyer_Atk = 5;
+    public float plyer_Speed = 5;
 
     
 
