@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static System.Net.WebRequestMethods;
 [CreateAssetMenu(fileName = "Skill Data", menuName = "Scriptable Object/Skill Data", order = int.MaxValue)]
-public class Player_SkillAtion : ScriptableObject
+public class Skill_Info : ScriptableObject
 {
     enum Skill_Type
     {
@@ -13,8 +12,9 @@ public class Player_SkillAtion : ScriptableObject
     enum Skilll_input
     {
         Down,
-        charge,
-        none
+        Charge,
+        Hold,
+        None
     }
 
     [Header("- Skill_Info")]
@@ -26,9 +26,14 @@ public class Player_SkillAtion : ScriptableObject
     public float Damage;
     public float CoolDown;
     public float Duration;
+    public float value;
     [Space]
-    public string Skill_Trigger;
+    public string Skill_Trigger;//애니메이션 재생용
     public Sprite icon;
-
+    //[Space]
+   /* [SerializeReference] 
+    public List<ISkillModule> activeModules;
+    [SerializeReference] 
+    public List<IPassiveModule> passiveModules;*/
 
 }

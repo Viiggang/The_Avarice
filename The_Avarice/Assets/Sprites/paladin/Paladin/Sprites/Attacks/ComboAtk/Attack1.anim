@@ -95,13 +95,6 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
-    functionName: onAtk
-    data: 
-    objectReferenceParameter: {fileID: 11500000, guid: 0736df4f36364c444987f8cfee28c5a8, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0
     functionName: OpenComboWindow
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 6a51984571719de408f7171aefa5f585, type: 3}

@@ -13,11 +13,6 @@ public class EnemyHitTester : MonoBehaviour, IDamage
     public void OnHitDamage(float damage) //피격 인터페이스
     {
         StartCoroutine(OnHit());
-        Debug.Log("Enemy_hurt1 {0}" + damage);
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        Debug.LogFormat("[Hitbox Trigger]: {0}", other.gameObject.name);
     }
     IEnumerator OnHit()
     {

@@ -14,7 +14,7 @@ public class Player_Hit : MonoBehaviour, IDamage
     }
     public void OnHitDamage(float damage) //피격 인터페이스
     {
-        animator.SetTrigger("Hurt");
-        Debug.Log("hurt1");
+        animator.SetTrigger("Hurt"); // 피격중 이동안되도록
+
     }
 }

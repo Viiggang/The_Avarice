@@ -2,9 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pal_nomalAtk : MonoBehaviour
+public class CommonAtk : MonoBehaviour
 {
-    // Start is called before the first frame update
     private void OnEnable()
     {
         StartCoroutine(offRange());
