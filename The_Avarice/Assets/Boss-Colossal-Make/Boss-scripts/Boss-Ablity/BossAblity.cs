@@ -5,12 +5,12 @@ namespace Boss_Colossal
 {
     public class BossAblity : MonoBehaviour
     {
-        private const int MaxHp = 1000;
+        public readonly float MaxHp = 1000f;
 
         [Leein.InspectorName("이름")][SerializeField]private string Name;
 
-        [Leein.InspectorName("보스 체력")][SerializeField] public int Hp;
-        [Leein.InspectorName("보스 공격력")][SerializeField] public int Damage;
+        [Leein.InspectorName("보스 체력")][SerializeField] public float Hp;
+        [Leein.InspectorName("보스 공격력")][SerializeField] public float Damage;
 
 
         private void InitAblity()

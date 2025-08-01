@@ -47,8 +47,8 @@ public class SearchRange : MonoBehaviour
     {
         Debug.Log("플레이어 접근 상태 전환");
 
-        BossController.instance.target = colliders.GetComponent<Transform>();
-        BossController.instance?.ChangeState(new WakeState());
+        BossController.Instance.target = colliders.GetComponent<Transform>();
+        BossController.Instance?.ChangeState(new WakeState());
       
        Destroy(this.gameObject);
     }

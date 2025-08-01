@@ -32,36 +32,26 @@ namespace Boss_Colossal
         {
 
         }
+
         public void Chase(BossController boss)
         {
-            float distanceX = Mathf.Abs(boss.Boss_Pos.transform.position.x - boss.target.position.x);
-            if (distanceX > stopDistance)//거리가 멀면
+            boss.FlipState();
+           
+            if (IsPlayerFar(boss))//거리가 멀면
             {
                 Vector2 direction = (boss.target.position - boss.Boss_Pos.transform.position).normalized;
                 boss.Boss_Pos.transform.position += new Vector3(direction.x, 0f, 0f) * moveSpeed * Time.deltaTime;
             }
             else //근거리면
             {
-                float halfHp = (boss.BossAblity.Hp / 2);
-                if (boss.BossAblity.Hp < halfHp)//반피 이하면
-                {
-                    boss.ChangeState(new AttackState());//반피 이하면 슈퍼 공격
-                }
-                else//반피 이상이면 일반 공격
-                {
-                    float num = UnityEngine.Random.Range(1, 3);
-                    switch (num)
-                    {
-                        case 1:
-                            boss.ChangeState(new MeleeAttack());
-                            break;
-                        case 2:
-                            boss.ChangeState(new RangeAttack());
-                            break;
-                    }
-
-                }
+                boss.ChangeState(new IdleState());
             }
+        }
+        private bool IsPlayerFar(BossController boss)
+        {
+
+            float distanceX = Mathf.Abs(boss.transform.position.x - boss.target.position.x);
+            return (distanceX > stopDistance);
         }
     }
 }

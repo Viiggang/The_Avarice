@@ -18,5 +18,6 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     public virtual  void ThisObjectDestroy()//캐릭터 생성되면 파괴용
     {
         Destroy(gameObject);
+        Instance = null;
     }
 }

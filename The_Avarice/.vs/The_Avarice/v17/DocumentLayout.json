@@ -3,64 +3,80 @@
   "WorkspaceRootPath": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|c:\\users\\phyco\\documents\\github\\the_avarice\\the_avarice\\assets\\boss-colossal-make\\other-scripts\\animationevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\other-scripts\\animationevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\other-scripts\\searchrange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\other-scripts\\searchrange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\other-scripts\\attackray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\boss-colossal-make\\other-scripts\\attackray.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\boss-scripts\\bosscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\bosscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|c:\\users\\phyco\\documents\\github\\the_avarice\\the_avarice\\assets\\boss-colossal-make\\other-scripts\\serchrange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\boss-colossal-make\\other-scripts\\serchrange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|c:\\users\\phyco\\documents\\github\\the_avarice\\the_avarice\\assets\\boss-colossal-make\\boss-scripts\\bossstate\\idlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\bossstate\\idlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\boss-scripts\\bossstate\\chasestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\bossstate\\chasestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\test\\exampleclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\test\\exampleclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\main\\scripts\\characters\\selectchartor\\characterselectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\main\\scripts\\characters\\selectchartor\\characterselectioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\boss-scripts\\bossstate\\idlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\bossstate\\idlestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\FlipChange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Boss-Colossal-Make\\other-Scripts\\FlipChange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\boss-scripts\\bossstate\\attackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\bossstate\\attackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|c:\\users\\phyco\\documents\\github\\the_avarice\\the_avarice\\assets\\main\\scripts\\dontdestroy_singleton\\singleton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\main\\scripts\\dontdestroy_singleton\\singleton.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\boss-scripts\\other-scripts\\animationevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\other-scripts\\animationevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\boss-scripts\\bossstate\\statesevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\bossstate\\statesevents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\boss-scripts\\boss-ablity\\bossablity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\boss-ablity\\bossablity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\main\\scripts\\ui\\scene_ui\\findobjectsoftype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\main\\scripts\\ui\\scene_ui\\findobjectsoftype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\boss-scripts\\bosscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\bosscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|c:\\users\\phyco\\documents\\github\\the_avarice\\the_avarice\\assets\\boss-colossal-make\\boss-scripts\\other-scripts\\searchrange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\other-scripts\\searchrange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|c:\\users\\phyco\\documents\\github\\the_avarice\\the_avarice\\assets\\boss-colossal-make\\boss-scripts\\boss-takedamage\\bossdamagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\boss-takedamage\\bossdamagehandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\test\\exampleclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\test\\exampleclass.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\SerchRange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Boss-Colossal-Make\\other-Scripts\\SerchRange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\SearchRange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Boss-Colossal-Make\\other-Scripts\\SearchRange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\AnimationEvents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Boss-Colossal-Make\\other-Scripts\\AnimationEvents.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\boss-scripts\\bossstate\\wakestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\bossstate\\wakestate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\boss-scripts\\bossstate\\sleepstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\bossstate\\sleepstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\boss-scripts\\bossstate\\attackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\bossstate\\attackstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\other-scripts\\flipchange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\boss-colossal-make\\other-scripts\\flipchange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\AttackRay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\Boss-Colossal-Make\\other-Scripts\\AttackRay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\assets\\boss-colossal-make\\boss-scripts\\bossstate\\sleepstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B163C8EF-9BD1-06EF-DDA7-A0A29462EA34}|Assembly-CSharp.csproj|solutionrelative:assets\\boss-colossal-make\\boss-scripts\\bossstate\\sleepstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -75,140 +91,194 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "AnimationEvents.cs",
-              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\AnimationEvents.cs",
-              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\other-Scripts\\AnimationEvents.cs",
-              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\AnimationEvents.cs",
-              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\other-Scripts\\AnimationEvents.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAABAAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T11:16:05.243Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SearchRange.cs",
-              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\SearchRange.cs",
-              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\other-Scripts\\SearchRange.cs",
-              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\SearchRange.cs",
-              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\other-Scripts\\SearchRange.cs",
-              "ViewState": "AgIAAC0AAAAAAAAAAADwv0IAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T11:11:18.754Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SerchRange.cs",
-              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\SerchRange.cs",
-              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\other-Scripts\\SerchRange.cs",
-              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\SerchRange.cs",
-              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\other-Scripts\\SerchRange.cs",
-              "ViewState": "AgIAACoAAAAAAAAAAAAAAD4AAAAsAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T10:32:16.68Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "FlipChange.cs",
-              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\FlipChange.cs",
-              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\other-Scripts\\FlipChange.cs",
-              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\FlipChange.cs",
-              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\other-Scripts\\FlipChange.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T10:31:30.341Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CharacterSelectionController.cs",
-              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Main\\Scripts\\Characters\\SelectChartor\\CharacterSelectionController.cs",
-              "RelativeDocumentMoniker": "Assets\\Main\\Scripts\\Characters\\SelectChartor\\CharacterSelectionController.cs",
-              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Main\\Scripts\\Characters\\SelectChartor\\CharacterSelectionController.cs",
-              "RelativeToolTip": "Assets\\Main\\Scripts\\Characters\\SelectChartor\\CharacterSelectionController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwwAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T10:27:15.921Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "FindObjectsOfType.cs",
-              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Main\\Scripts\\UI\\Scene_UI\\FindObjectsOfType.cs",
-              "RelativeDocumentMoniker": "Assets\\Main\\Scripts\\UI\\Scene_UI\\FindObjectsOfType.cs",
-              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Main\\Scripts\\UI\\Scene_UI\\FindObjectsOfType.cs",
-              "RelativeToolTip": "Assets\\Main\\Scripts\\UI\\Scene_UI\\FindObjectsOfType.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAADwvxgAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T10:21:14.947Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "chaseState.cs",
-              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\chaseState.cs",
-              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\chaseState.cs",
-              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\chaseState.cs",
-              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\chaseState.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAC0AAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T10:11:59.412Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
               "Title": "IdleState.cs",
               "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\IdleState.cs",
               "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\IdleState.cs",
               "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\IdleState.cs",
               "RelativeToolTip": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\IdleState.cs",
-              "ViewState": "AgIAABYAAAAAAAAAAAAuwCwAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T10:11:50.458Z"
+              "WhenOpened": "2025-07-29T10:11:50.458Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Singleton.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Main\\Scripts\\Dontdestroy_Singleton\\Singleton.cs",
+              "RelativeDocumentMoniker": "Assets\\Main\\Scripts\\Dontdestroy_Singleton\\Singleton.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Main\\Scripts\\Dontdestroy_Singleton\\Singleton.cs",
+              "RelativeToolTip": "Assets\\Main\\Scripts\\Dontdestroy_Singleton\\Singleton.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T12:59:17.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SearchRange.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\other-Scripts\\SearchRange.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Boss-scripts\\other-Scripts\\SearchRange.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\other-Scripts\\SearchRange.cs",
+              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\Boss-scripts\\other-Scripts\\SearchRange.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAMwDEAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T13:03:07.408Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "BossDamageHandler.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\Boss-TakeDamage\\BossDamageHandler.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Boss-scripts\\Boss-TakeDamage\\BossDamageHandler.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\Boss-TakeDamage\\BossDamageHandler.cs",
+              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\Boss-scripts\\Boss-TakeDamage\\BossDamageHandler.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAADwvxQAAAAcAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T13:02:58.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "StatesEvents.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\StatesEvents.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\StatesEvents.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\StatesEvents.cs",
+              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\StatesEvents.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T09:08:05.349Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AnimationEvents.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\other-Scripts\\AnimationEvents.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Boss-scripts\\other-Scripts\\AnimationEvents.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\other-Scripts\\AnimationEvents.cs",
+              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\Boss-scripts\\other-Scripts\\AnimationEvents.cs",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAQwGAAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-30T09:07:00.032Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "AnimationEvents.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\AnimationEvents.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\other-Scripts\\AnimationEvents.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\AnimationEvents.cs",
+              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\other-Scripts\\AnimationEvents.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T11:16:05.243Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SearchRange.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\SearchRange.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\other-Scripts\\SearchRange.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\SearchRange.cs",
+              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\other-Scripts\\SearchRange.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T11:11:18.754Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 12,
+              "Title": "SerchRange.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\SerchRange.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\other-Scripts\\SerchRange.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\SerchRange.cs",
+              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\other-Scripts\\SerchRange.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T10:32:16.68Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "FlipChange.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\FlipChange.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\other-Scripts\\FlipChange.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\FlipChange.cs",
+              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\other-Scripts\\FlipChange.cs",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T10:31:30.341Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CharacterSelectionController.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Main\\Scripts\\Characters\\SelectChartor\\CharacterSelectionController.cs",
+              "RelativeDocumentMoniker": "Assets\\Main\\Scripts\\Characters\\SelectChartor\\CharacterSelectionController.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Main\\Scripts\\Characters\\SelectChartor\\CharacterSelectionController.cs",
+              "RelativeToolTip": "Assets\\Main\\Scripts\\Characters\\SelectChartor\\CharacterSelectionController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwgAAAAxAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T10:27:15.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "chaseState.cs",
+              "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\chaseState.cs",
+              "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\chaseState.cs",
+              "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\chaseState.cs",
+              "RelativeToolTip": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\chaseState.cs",
+              "ViewState": "AgIAABIAAAAAAAAAAAAMwB8AAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-29T10:11:59.412Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
               "Title": "WakeState.cs",
               "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\WakeState.cs",
               "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\WakeState.cs",
               "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\WakeState.cs",
               "RelativeToolTip": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\WakeState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADAAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAABkAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T10:11:27.6Z"
+              "WhenOpened": "2025-07-29T10:11:27.6Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 16,
               "Title": "AttackState.cs",
               "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\AttackState.cs",
               "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\AttackState.cs",
               "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\AttackState.cs",
               "RelativeToolTip": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\AttackState.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T10:11:16.552Z"
+              "WhenOpened": "2025-07-29T10:11:16.552Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 7,
               "Title": "BossAblity.cs",
               "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\Boss-Ablity\\BossAblity.cs",
               "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Boss-scripts\\Boss-Ablity\\BossAblity.cs",
               "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\Boss-Ablity\\BossAblity.cs",
               "RelativeToolTip": "Assets\\Boss-Colossal-Make\\Boss-scripts\\Boss-Ablity\\BossAblity.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA+AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T10:06:04.8Z"
+              "WhenOpened": "2025-07-29T10:06:04.8Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 18,
               "Title": "SleepState.cs",
               "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\SleepState.cs",
               "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossState\\SleepState.cs",
@@ -220,31 +290,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "BossController.cs",
               "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossController.cs",
               "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossController.cs",
               "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Boss-scripts\\BossController.cs",
               "RelativeToolTip": "Assets\\Boss-Colossal-Make\\Boss-scripts\\BossController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAAACkAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T09:50:10.774Z"
+              "WhenOpened": "2025-07-29T09:50:10.774Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 11,
               "Title": "ExampleClass.cs",
               "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Test\\ExampleClass.cs",
               "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\Test\\ExampleClass.cs",
               "ToolTip": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\Test\\ExampleClass.cs",
               "RelativeToolTip": "Assets\\Boss-Colossal-Make\\Test\\ExampleClass.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACgAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAAAnwCoAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-29T08:26:47.607Z"
+              "WhenOpened": "2025-07-29T08:26:47.607Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 17,
               "Title": "AttackRay.cs",
               "DocumentMoniker": "C:\\Users\\phyco\\Documents\\GitHub\\The_Avarice\\The_Avarice\\Assets\\Boss-Colossal-Make\\other-Scripts\\AttackRay.cs",
               "RelativeDocumentMoniker": "Assets\\Boss-Colossal-Make\\other-Scripts\\AttackRay.cs",

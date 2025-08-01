@@ -34,8 +34,8 @@ namespace Boss_Colossal
         {
             Debug.Log("플레이어 접근 상태 전환");
 
-            BossController.instance.target = colliders[0].GetComponent<Transform>();
-            BossController.instance?.ChangeState(new WakeState());
+            BossController.Instance.target = colliders[0].GetComponent<Transform>();
+            BossController.Instance?.ChangeState(new WakeState());
             var item = GetComponent<ExampleClass>();
             Destroy(this.gameObject);
         }

@@ -7,8 +7,7 @@ namespace Boss_Colossal
 {
     public class AttackState : IBossState
     {
-        public Vector3 pos;
-        public Vector3 size;
+        
         public void Enter(BossController boss)
         {
 
