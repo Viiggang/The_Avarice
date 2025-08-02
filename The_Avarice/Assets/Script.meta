@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:The_Avarice/Assets/Script.meta
 guid: 45f21bd1a592b834a8769b6585922962
+========
+guid: 514fefeb318ed424695ff3f6d1006d63
+>>>>>>>> feature/UI:The_Avarice/Assets/NewStartGameStartScene/CharatorChoice_Scripts.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

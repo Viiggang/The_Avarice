@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:The_Avarice/Assets/Sprites/paladin/Paladin/GuardedAtk/Looped/All/FX2/Pal_Count.anim.meta
 guid: 0bf36d031c473634d9b2b3678719ce7a
+========
+guid: db6fe38f2a780b84798bf4039254fe37
+>>>>>>>> feature/UI:The_Avarice/Assets/NewStartGameStartScene/CharatorChoice_Scripts/Ani/1.anim.meta
 NativeFormatImporter:
   externalObjects: {}
   mainObjectFileID: 7400000

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:The_Avarice/Assets/Script/Mgrs/IActiveSkillModule.cs.meta
+guid: 2e0c1654040e6d743a88fd8ef92d1ce8
+========
+guid: d35fb8b39e11cbc49a0ab1d0c589f912
+>>>>>>>> feature/UI:The_Avarice/Assets/NewStartGameStartScene/MainScene/ButtonHover.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
