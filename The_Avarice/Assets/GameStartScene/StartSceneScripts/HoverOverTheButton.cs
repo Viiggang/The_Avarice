@@ -13,7 +13,7 @@ public class HoverOverTheButton : MonoBehaviour, IPointerEnterHandler, IPointerE
     [SerializeField] private Sprite changedSprite;
     void Awake()
     {
-        tempSprite = gameObject.GetComponent<Image>().sprite;
+        tempSprite = gameObject.GetComponent<Image>()?.sprite;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
