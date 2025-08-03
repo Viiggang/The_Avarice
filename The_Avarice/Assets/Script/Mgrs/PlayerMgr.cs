@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using CharacterSelect;
+public enum Player_Type//enum클래스 바깥쪽 뺌
+{
+    Paladin,
+    WindBreaker,
+    Ignis,
+    SoulEater,
+    NULL=9999 //추가
+};
 public class PlayerMgr : BaseMgr<PlayerMgr>
 {
-    enum Player_Type
-    {
-        Paladin,
-        WindBreaker,
-        Ignis,
-        SoulEater
-    };
+ 
     [Header ("-Player_Select")]
     [SerializeField]
     Player_Type playerType;
@@ -23,13 +25,14 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     public float plyer_Speed = 5;
 
     
-
+    
     public void Start()
     {
         for (int i = 0; i < Player.Length; i++)
         {
             Player[i].SetActive(false);
         }
+        SetPlayerType();
     }
 
     public void Update()
@@ -45,5 +48,20 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
                 Player[i].SetActive(false);
             }
         }
+    }
+
+    void SetPlayerType()//추가
+    {
+        if(CharacterSelector.Instance.player_Type == Player_Type.NULL)
+        {
+            Debug.Log("문제 발생");
+        }
+        else
+        {
+            Debug.Log("정상작동");
+            Debug.Log($"선택 캐릭터 이름:{CharacterSelector.Instance.player_Type}");
+            playerType = CharacterSelector.Instance.player_Type;
+        }
+      
     }
 }
