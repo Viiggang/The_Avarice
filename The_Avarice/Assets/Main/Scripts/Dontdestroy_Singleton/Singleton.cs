@@ -4,7 +4,7 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     public static T Instance { get; private set; }
 
-    protected virtual void Awake()
+    protected virtual void Awake()//UI
     {
         if (Instance != null && Instance != this)
         {
@@ -19,5 +19,15 @@ public class Singleton<T> : MonoBehaviour where T : MonoBehaviour
     {
         Destroy(gameObject);
         Instance = null;
+    }
+    protected virtual void Init()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(gameObject); // 이미 인스턴스가 있다면 중복 제거
+            return;
+        }
+
+        Instance = this as T;
     }
 }
