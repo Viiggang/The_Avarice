@@ -7,7 +7,8 @@ public class NodeMachine : Singleton<NodeMachine>
 {
      
     public BaseState Status { private get; set; }
-    public Colossal colossal;
+    public BaseState firstnode { get; set; }
+    public ColossalGraph colossalGraph;
     private NodePort port;
     private void Awake()
     {
@@ -15,14 +16,15 @@ public class NodeMachine : Singleton<NodeMachine>
     }
     void Start()
     {
-        Status = colossal.nodes[0] as BaseState;
+        firstnode = colossalGraph.nodes[2] as BaseState;
+        Status = colossalGraph.nodes[0] as BaseState;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Status.Excute();
-    }
+        Status?.Excute();
+    } 
     
     public void SetNextState(string portName)
     {
@@ -37,7 +39,10 @@ public class NodeMachine : Singleton<NodeMachine>
         }
         else
         {
-            Debug.LogWarning($"포트 {portName}에 연결된 상태 없음");
+            Status?.Exit();
+            Status = firstnode;
+            Status?.Enter();
+            //Debug.LogWarning($"포트 {portName}에 연결된 상태 없음");
         }
     }
 }

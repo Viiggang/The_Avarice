@@ -4,9 +4,10 @@ using UnityEditor.Timeline.Actions;
 using UnityEngine;
 using XNode;
 
+ 
 public class StartNode : BaseState
 {
-
+   
     [Output] public BaseState next;
     public override void Enter() 
     {
@@ -20,7 +21,16 @@ public class StartNode : BaseState
     }
     public override void Exit()
     {
-        NodeMachine.Instance.Invoke("ssd", 0.1f);
+        Debug.Log("StartNodeExit");
     }
-    
+    //public override object GetValue(NodePort port)
+    //{
+    //    if (port.fieldName == "next")
+    //    {
+    //        Debug.Log($"StartNode->{port.fieldName}");
+    //        return this; // 자기 자신 반환
+    //    }
+    //    Debug.Log($"StartNode->{port.fieldName}");
+    //    return null;
+    //}
 }
