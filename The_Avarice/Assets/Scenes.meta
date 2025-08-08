@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+<<<<<<< HEAD
+guid: 2e1e60c1f8834f345ad6ea3d25a82cdf
+=======
+<<<<<<<< HEAD:The_Avarice/Assets/Scenes.meta
+guid: 109e9bdd0fcc649c5bc59085c35bdc83
+========
+guid: 483aeb46186bdb743a3a02b7c910e742
+>>>>>>>> feature/UI:The_Avarice/Assets/NewStartGameStartScene/testFont.meta
+>>>>>>> develop
+folderAsset: yes
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

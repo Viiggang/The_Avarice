@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:The_Avarice/Assets/Script/Mgrs/BaseMgr.cs.meta
+guid: 7fbf36d292bbf4a47b663b370f1aff28
+========
+guid: 9697fbf83a5e46f4f87f04264281ff32
+>>>>>>>> feature/UI:The_Avarice/Assets/NewStartGameStartScene/MainScene/ButtonEvents.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
