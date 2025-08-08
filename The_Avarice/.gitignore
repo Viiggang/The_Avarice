@@ -7,3 +7,5 @@ Assembly-CSharp.csproj
 The_Avarice.sln
 XNode.csproj
 XNodeEditor.csproj
+obj
+.vs
