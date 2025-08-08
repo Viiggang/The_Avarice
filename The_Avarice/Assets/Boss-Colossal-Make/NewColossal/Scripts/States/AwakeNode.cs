@@ -6,6 +6,8 @@ using XNode;
 
 public class AwakeNode :BaseState
 {
+    public Sprite[] sprites;
+   
     [Input] public BaseState Input;
     [Output] public BaseState next;
    

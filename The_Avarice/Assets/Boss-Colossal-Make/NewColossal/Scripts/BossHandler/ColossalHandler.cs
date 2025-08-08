@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class ColossalHandler :Singleton<ColossalHandler>
 {
-     public IAblity ablity;
+    public IAblity ablity;
+    public ColliderManager colliderManager;
+    public  AniManager animanager;
     private void init()
     {
+        
         ablity = new ClossalAblity();
     }
     void Start()

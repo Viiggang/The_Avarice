@@ -1,16 +1,14 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using XNode;
 
-[NodeTint("#ff367f")]
-public class Dead : BaseState
+public class spinAttackNode : BaseState
 {
     public Sprite[] sprites;
-    [Input]public  BaseState input;
+    [Input] public BaseState input;
     public override void Enter()
     {
-
+       // ColossalHandler.Instance;
     }
     public override void Excute()
     {

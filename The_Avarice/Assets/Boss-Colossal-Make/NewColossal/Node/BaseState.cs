@@ -5,9 +5,9 @@ using XNode;
 
 public abstract class BaseState : Node
 {
-
-	// Use this for initialization
-	protected override void Init()
+   
+    // Use this for initialization
+    protected override void Init()
     {
 		base.Init();
 		

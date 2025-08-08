@@ -10,6 +10,7 @@ public class IdleNode : BaseState
     [Output] public BaseState page2;
     [Output] public BaseState Dead;
     [Output] public BaseState Chase;
+    public Sprite[] sprites;
     private string Next;
     private bool flag = true; //
     public override void Enter()
