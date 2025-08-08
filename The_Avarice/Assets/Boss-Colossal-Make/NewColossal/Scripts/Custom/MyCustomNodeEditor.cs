@@ -12,12 +12,13 @@ public class MyCustomNodeEditor : NodeEditor
     {
       
         GUI.color = Color.white; // 원하는 색상으로 설정
-
+ 
         GUILayout.Label(target.name, NodeEditorResources.styles.nodeHeader, GUILayout.Height(30));
 
-      
        
+
+
     }
 }
- 
 
+ 

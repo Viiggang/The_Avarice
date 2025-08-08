@@ -10,29 +10,68 @@ public interface IAnimaction
 
     }
 }
-
-public class Attack1: IAnimaction
+namespace Colossal
 {
-    public Animator Animation { get; set; }
-    public Attack1(Animator Animation)
-    {
-        this.Animation = Animation;
-    }
-    public void Excute()
-    {
-        Animation.SetTrigger("Attack");
-    }
-}
 
-public class Attack2 : IAnimaction
-{
-    public Animator Animation { get; set; }
-    public Attack2(Animator Animation)
+    public class blowingAttack : IAnimaction
     {
-        this.Animation = Animation;
+        public Animator Animation { get; set; }
+        public blowingAttack(Animator Animation)
+        {
+            this.Animation = Animation;
+        }
+        public void Excute()
+        {
+            Animation.SetTrigger("blowing");
+        }
     }
-    public void Excute()
+
+    public class slamDownAttack : IAnimaction
     {
-        Animation.SetTrigger("Attack2");
+        public Animator Animation { get; set; }
+        public slamDownAttack(Animator Animation)
+        {
+            this.Animation = Animation;
+        }
+        public void Excute()
+        {
+            Animation.SetTrigger("slamDown");
+        }
+    }
+    public class purgeShotAttack : IAnimaction
+    {
+        public Animator Animation { get; set; }
+        public purgeShotAttack(Animator Animation)
+        {
+            this.Animation = Animation;
+        }
+        public void Excute()
+        {
+            Animation.SetTrigger("purgeShot");
+        }
+    }
+    public class purgeCannonAttack : IAnimaction
+    {
+        public Animator Animation { get; set; }
+        public purgeCannonAttack(Animator Animation)
+        {
+            this.Animation = Animation;
+        }
+        public void Excute()
+        {
+            Animation.SetTrigger("purgeCannon");
+        }
+    }
+    public class SpinAttack :IAnimaction
+    {
+        public Animator Animation { get; set; }
+        public SpinAttack(Animator Animation)
+        {
+            this.Animation = Animation;
+        }
+        public void Excute()
+        {
+            Animation.SetTrigger("SpinAttack");
+        }
     }
 }

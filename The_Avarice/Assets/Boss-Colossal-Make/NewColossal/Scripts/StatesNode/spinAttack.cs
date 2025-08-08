@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class pattern1 :BaseState
+public class spinAttackNode : BaseState
 {
+    public Sprite[] sprites;
     [Input] public BaseState input;
-    [Output] public BaseState Attack1;
-    [Output] public BaseState Attack2;
-    [Output] public BaseState Attack3;
     public override void Enter()
     {
-
+        Debug.Log("spinAttackNode¡¯¿‘");
+        ColossalHandler.Instance.animanager.Actions[1].Excute();
     }
     public override void Excute()
     {
-
+        NodeMachine.Instance.SetNextState("Next");
     }
-
     public override void Exit()
     {
 
