@@ -6,18 +6,28 @@ public class blowing :BaseState
 {
     [Input] public BaseState input;
     public Sprite[] sprites;
+    private AniManager Manager;
     public override void Enter()
     {
         Debug.Log("blowing¡¯¿‘");
-        ColossalHandler.Instance.animanager.Actions[3].Excute();
+        Managereference();
+        Attack();
     }
 
     public override void Excute()
     {
-        NodeMachine.Instance.SetNextState("Next");
+       // NodeMachine.Instance.SetNextState("Next");
     }
     public override void Exit()
     {
 
+    }
+    private void Managereference()
+    {
+        Manager = ColossalHandler.Instance.animanager;
+    }
+    private void Attack()
+    {
+        Manager.Actions["blowing"].Excute();
     }
 }

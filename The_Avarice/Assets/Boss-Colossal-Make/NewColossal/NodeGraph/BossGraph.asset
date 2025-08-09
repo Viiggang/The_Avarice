@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Start
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1992, y: 632}
+  position: {x: -1448, y: 152}
   ports:
     keys:
     - next
@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: Purge Cannon
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -152, y: 808}
+  position: {x: 392, y: 328}
   ports:
     keys:
     - input
@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: Delay
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1000, y: 504}
+  position: {x: -456, y: 24}
   ports:
     keys:
     - input
@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Name: Slam Down
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -168, y: 232}
+  position: {x: 376, y: -248}
   ports:
     keys:
     - input
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_Name: Pattern 2
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -552, y: 744}
+  position: {x: -8, y: 264}
   ports:
     keys:
     - input
@@ -311,7 +311,7 @@ MonoBehaviour:
   m_Name: Purge Shot
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -152, y: 936}
+  position: {x: 392, y: 456}
   ports:
     keys:
     - input
@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Name: Slam Down
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -152, y: 552}
+  position: {x: 392, y: 72}
   ports:
     keys:
     - input
@@ -419,7 +419,7 @@ MonoBehaviour:
   m_Name: Idle
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1416, y: 632}
+  position: {x: -872, y: 152}
   ports:
     keys:
     - input
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Name: Dead
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1992, y: 376}
+  position: {x: -1448, y: -104}
   ports:
     keys:
     - input
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Name: Pattern 1
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -552, y: 296}
+  position: {x: -8, y: -184}
   ports:
     keys:
     - input
@@ -657,7 +657,7 @@ MonoBehaviour:
   m_Name: Delay
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1000, y: 296}
+  position: {x: -456, y: -184}
   ports:
     keys:
     - input
@@ -703,7 +703,7 @@ MonoBehaviour:
   m_Name: Awake
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1704, y: 632}
+  position: {x: -1160, y: 152}
   ports:
     keys:
     - Input
@@ -761,7 +761,7 @@ MonoBehaviour:
   m_Name: Spin Attack
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -168, y: 8}
+  position: {x: 376, y: -472}
   ports:
     keys:
     - input
@@ -800,7 +800,7 @@ MonoBehaviour:
   m_Name: Chase
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -1000, y: 760}
+  position: {x: -456, y: 280}
   ports:
     keys:
     - input
@@ -856,7 +856,7 @@ MonoBehaviour:
   m_Name: Blowing
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -168, y: 120}
+  position: {x: 376, y: -360}
   ports:
     keys:
     - input
@@ -901,7 +901,7 @@ MonoBehaviour:
   m_Name: Blowing
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -152, y: 680}
+  position: {x: 392, y: 200}
   ports:
     keys:
     - input

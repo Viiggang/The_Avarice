@@ -14,8 +14,8 @@ public class ChaseNode : BaseState
     {
         speed = 0.5f;
         Debug.Log("ChaseNodeEnter");
-        boss = ColossalHandler.Instance.Boss;
-        Player = ColossalHandler.Instance.targetPlayer;
+        boss = ColossalHandler.Instance.transformManager.Boss;
+        Player = ColossalHandler.Instance.transformManager.Player;
     }
     public override void Excute()
     {
@@ -28,12 +28,30 @@ public class ChaseNode : BaseState
         {
 
             Vector3 direction = (Player.position - boss.transform.position).normalized;
-            boss.transform.position += new Vector3(direction.x, 0f, 0f) * speed * Time.deltaTime; 
+            if(direction.x<0)
+            {
+                ColossalHandler.Instance.spriteManager.spriteRenderer.flipX = true;
+            }
+            else
+            {
+                ColossalHandler.Instance.spriteManager.spriteRenderer.flipX = false;
+            }
+            boss.transform.position += direction * speed * Time.deltaTime; 
 
         }
     }
     public override void Exit()
     {
-
+        Debug.Log("ChaseNodeExit");
     }
+    //IEnumerator TryFindPlayerRoutine()
+    //{
+    //    while (Player == null)
+    //    {
+    //        TryFindPlayer();  // 플레이어 찾기 시도 함수
+    //        yield return new WaitForSeconds(1f);  // 1초마다 반복
+    //    }
+    //    // 플레이어 찾으면 추격 시작 가능
+    //}
+   
 }

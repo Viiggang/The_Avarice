@@ -12,7 +12,7 @@ public class DelayNode  : BaseState
   
     public override void Enter()
     {
-        Debug.Log($"µÙ∑π¿Ã Ω√∞£{DelayTime}");
+         Debug.Log($"µÙ∑π¿Ã Ω√∞£{DelayTime}");
         saveTime = DelayTime;
     }
     public override void Excute()

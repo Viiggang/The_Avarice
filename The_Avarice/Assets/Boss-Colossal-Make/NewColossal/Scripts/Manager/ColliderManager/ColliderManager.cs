@@ -6,7 +6,6 @@ using UnityEngine;
 public class ColliderManager : MonoBehaviour
 {
     public BoxCollider2D footCollider;
-    public BoxCollider2D DetectionZone;
     public BoxCollider2D HitBox;
 
     private Dictionary<string, ICollider> colliders;
@@ -18,25 +17,12 @@ public class ColliderManager : MonoBehaviour
         public Vector2 offset;
     }
     public SizeAndOffset footColliderData;
-    public SizeAndOffset detectionZoneData;
     public SizeAndOffset hitBoxData;
 
    
-   
-    private void setCollideSizeAndOffset()
-    {
-        colliders["Foot"].SetColliderSizeAndOffset(footColliderData.size, footColliderData.offset);
-        colliders["DetectionZone"].SetColliderSizeAndOffset(detectionZoneData.size, detectionZoneData.offset);
-        colliders["HitBox"].SetColliderSizeAndOffset(hitBoxData.size, hitBoxData.offset);
-    }
     private void Awake()
     {
-        colliders = new Dictionary<string, ICollider>()
-        {
-               { "Foot", new Foot(footCollider) },
-               { "DetectionZone", new DetectionZone(DetectionZone) },
-               { "HitBox", new HitBox(HitBox) }
-        };
+        InitDictionary();
 
     }
     void Start()
@@ -44,6 +30,18 @@ public class ColliderManager : MonoBehaviour
         setCollideSizeAndOffset();
         
     }
+    private void setCollideSizeAndOffset()//콜라이더 사이즈와 간격 설정 값들은 인스펙트창에서 보면서 조정
+    {
+        colliders["Foot"].SetColliderSizeAndOffset(footColliderData.size, footColliderData.offset);
+        colliders["HitBox"].SetColliderSizeAndOffset(hitBoxData.size, hitBoxData.offset);
+    }
+    private void InitDictionary()
+    {
+        colliders = new Dictionary<string, ICollider>()
+        {
+               { "Foot", new Foot(footCollider) },
+               { "HitBox", new HitBox(HitBox) }
+        };
+    }
 
-    
 }

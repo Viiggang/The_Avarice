@@ -13,19 +13,19 @@ public class AwakeNode :BaseState
     
     public override void Enter()
     {
-        Debug.Log("AwakeNodeEnter");
-        // GetValueFromStartNode(); // 여기서 호출
+       
+        
      
     }
     public override void Excute()
     {
-        Debug.Log("AwakeNodeExcute");
+       
         
-       // NodeMachine.Instance.SetNextState("next");
+      
     }
     public override void Exit()
     {
-        Debug.Log("AwakeNodeExit");
+        
     }
   
      

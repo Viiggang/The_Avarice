@@ -4,19 +4,23 @@ using System.Linq.Expressions;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
-
+public enum Stage
+{
+    Defult=0,
+    Stage1,
+    Stage2
+}
 public class ColossalHandler :Singleton<ColossalHandler>
 {
     public IAblity ablity;
     public ColliderManager colliderManager;
+    public SpriteManager spriteManager;
     public  AniManager animanager;
-    public Transform targetPlayer;
-    public Transform Boss ;
-    private void init()
-    {
-       
-        ablity = new ClossalAblity();
-    }
+    public TransformManager transformManager;
+
+    public bool Near;
+    public Stage currentStage;
+    
     private void Awake()
     {
         base.Awake();
@@ -24,10 +28,6 @@ public class ColossalHandler :Singleton<ColossalHandler>
     void Start()
     {
         init();
-        Debug.Log($"보스 이름: {ablity.Name}");
-        Debug.Log($"멕스체력:{ablity.MaxHp}");
-        Debug.Log($"체력:{ablity.Hp}");
-       
     }
 
    public bool IsBelowHalfHp()//보스 체력 반피 이하 인지 체크하는 함수
@@ -43,9 +43,12 @@ public class ColossalHandler :Singleton<ColossalHandler>
     
     public bool IsNear()//플레이어 근접에 있는지
     {
-         
-        bool near=true;
-        near = (Mathf.Abs(Boss.transform.position.x-targetPlayer.position.x)<0.3f)? true:false;  
-        return near;
+
+        return Near;
+    }
+    private void init()
+    {
+        currentStage = Stage.Defult;
+        ablity = new ClossalAblity();
     }
 }

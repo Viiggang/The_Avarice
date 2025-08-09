@@ -15,6 +15,8 @@ public class IdleNode : BaseState
     private bool IsHalfHp = true; //
     private bool IsDead = false;
     private bool IsNear = false;
+
+ 
     public override void Enter()
     {
         Debug.Log("IdleNode eEnter");
@@ -28,13 +30,13 @@ public class IdleNode : BaseState
                                    "page1";
 
         Debug.Log($"Next:{Next}");
-      
-        
+        NodeMachine.Instance.SetNextState(Next);
+
     }
     public override void Excute()
     {
         Debug.Log("IdleNode Excute");
-        NodeMachine.Instance.SetNextState(Next);
+        
     }
     public override void Exit()
     {
