@@ -364,18 +364,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3850005901565959380}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ed01bae977ae4442b52a0fea0ea101a, type: 3}
+  m_Script: {fileID: 11500000, guid: b2818a6aa130aff4fbc7ddd8d943ff7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boss: {fileID: 2550149167605527510}
-  colliders: {fileID: 0}
-  pos: {x: -2.35, y: 0.02, z: 0}
-  size: {x: -0.47, y: 0.47, z: 0}
-  Player:
-    serializedVersion: 2
-    m_Bits: 2048
-  Attackflag: 0
-  visible: 1
+  PlayerCollider: {fileID: 0}
 --- !u!1 &5105276073270327283
 GameObject:
   m_ObjectHideFlags: 0
