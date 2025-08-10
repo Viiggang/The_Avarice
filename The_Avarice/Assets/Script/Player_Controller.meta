@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:The_Avarice/Assets/Script/Player_Controller.meta
 guid: 74dce2c146d6fc84f973d69c9a9a84ec
+========
+guid: c45697016eb3ee846a355f8ef495aaac
+>>>>>>>> develop:The_Avarice/Assets/Script/Skill_Scrift.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}
