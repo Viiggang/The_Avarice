@@ -6,7 +6,7 @@ public class TransformManager : MonoBehaviour
 {
     public Transform Boss;
     public Transform Player;
-    public int targetLayer = 11;
+    public int targetLayer = 6;
     private void Awake()
     {
         GameObject[] allObjects = FindObjectsOfType<GameObject>();

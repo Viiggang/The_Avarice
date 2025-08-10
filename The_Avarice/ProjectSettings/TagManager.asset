@@ -3,9 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags:
-  - Button
-  - Players
+  tags: []
   layers:
   - Default
   - TransparentFX
@@ -13,11 +11,6 @@ TagManager:
   - 
   - Water
   - UI
-  - UI_GameStart
-  - UI_GameOption
-  - UI_exit
-  - TitleText
-  - BackGround_Image
   - Player
   - 
   - 
@@ -38,7 +31,12 @@ TagManager:
   - 
   - 
   - 
-  - Boss
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   m_SortingLayers:
   - name: Default
     uniqueID: 0

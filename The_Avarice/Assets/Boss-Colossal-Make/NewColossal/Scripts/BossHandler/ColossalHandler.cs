@@ -24,10 +24,11 @@ public class ColossalHandler :Singleton<ColossalHandler>
     private void Awake()
     {
         base.Awake();
+        init();
     }
     void Start()
     {
-        init();
+        
     }
 
    public bool IsBelowHalfHp()//보스 체력 반피 이하 인지 체크하는 함수

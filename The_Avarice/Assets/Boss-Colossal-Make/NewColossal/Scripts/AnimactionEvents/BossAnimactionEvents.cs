@@ -83,7 +83,7 @@ public class BossAnimactionEvents : MonoBehaviour
     public void SlamDown()//meleeAttack
     {
         SetPosAndSize(new Vector3(-0.36f, -0.145f, 0), new Vector3(0.38f, -0.52f, 0));
-
+        //이거 보스 flip상태 봐서 공격 범위 바꿔야 함 아직 수정 안함
         var hit = Physics2D.OverlapBox(
                        BossPos.position + pos,//시작위치
                        size,
