@@ -33,7 +33,7 @@ public class pattern1 :BaseState
         if (ColossalHandler.Instance.currentStage == Stage.Stage1) return;
         ColossalHandler.Instance.currentStage = Stage.Stage1;
         ColossalHandler.Instance.animanager.SetAnimaction();
-        DetectionRange.Instance.SetRecognitionRange();
+        //DetectionRange.Instance.SetRecognitionRange();
     }
     private void RandomAttack()
     {

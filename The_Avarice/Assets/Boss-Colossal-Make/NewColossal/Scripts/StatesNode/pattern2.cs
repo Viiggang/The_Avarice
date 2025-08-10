@@ -28,7 +28,7 @@ public class pattern2 :BaseState
         if (ColossalHandler.Instance.currentStage == Stage.Stage2) return; 
         ColossalHandler.Instance.currentStage = Stage.Stage2;//현재 스테이지를 설정
         ColossalHandler.Instance.animanager.SetAnimaction();//현재 스테이 기준으로 애니메이션 다시 설정
-        DetectionRange.Instance.SetRecognitionRange();//현재 스테이 기준으로 인식범위 다시 설정
+        //DetectionRange.Instance.SetRecognitionRange();//현재 스테이 기준으로 인식범위 다시 설정
     }
     private void RandomAttack()
     {
