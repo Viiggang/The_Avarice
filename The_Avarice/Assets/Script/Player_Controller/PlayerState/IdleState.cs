@@ -15,6 +15,8 @@ public class IdleState : IpController
 
     public void Enter()
     {
+        player.Anim.SetBool("isJump", false);
+        player.CanMove = true;
         player.Anim.SetBool("isMove", false);
     }
 
@@ -22,19 +24,19 @@ public class IdleState : IpController
 
     public void HandleInput()
     {
-      if (Mathf.Abs(player.InputX) > 0.01f)
+        if (Mathf.Abs(player.InputX) > 0.01f)
         {
             stateMachine.ChangeState(player.MoveState);
         }
-        else if (player.JumpInput)
+        if (player.JumpInput)
         {
             stateMachine.ChangeState(player.JumpState);
         }
-        else if (Input.GetKeyDown(KeyCode.LeftShift) && player.CanDash && Mathf.Abs(player.InputX) > 0.01f)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && player.CanDash && Mathf.Abs(player.InputX) > 0.01f)
         {
             stateMachine.ChangeState(player.DashState);
         }
-        else if (Input.GetKeyDown(KeyCode.C))
+        if (Input.GetKeyDown(KeyCode.C))
         {
             stateMachine.ChangeState(player.AttackState);
         }
@@ -42,6 +44,20 @@ public class IdleState : IpController
 
     public void LogicUpdate()
     {
+        if (!player.IsGrounded())
+        {
+            stateMachine.ChangeState(player.AirState);
+            return;
+        }
+
+        if (Mathf.Abs(player.InputX) > 0.01f)
+        {
+            stateMachine.ChangeState(player.MoveState);
+        }
+        else if (player.JumpInput)
+        {
+            stateMachine.ChangeState(player.JumpState);
+        }
         // Idle에서는 수평 속도 0 유지
         player.MoveHorizontally(0);
     }

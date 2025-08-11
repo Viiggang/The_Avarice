@@ -32,6 +32,7 @@ public class PlayerCon : MonoBehaviour
     public IdleState IdleState { get; private set; }
     public MoveState MoveState { get; private set; }
     public JumpState JumpState { get; private set; }
+    public AirState AirState { get; private set; }
     public DashState DashState { get; private set; }
     public AttackState AttackState { get; private set; }
 
@@ -64,9 +65,13 @@ public class PlayerCon : MonoBehaviour
         ControlMachine = new Player_ControllMachine();
         IdleState = new IdleState(this, ControlMachine);
         MoveState = new MoveState(this, ControlMachine);
+        AirState = new AirState(this, ControlMachine); // 새로 추가
         JumpState = new JumpState(this, ControlMachine);
         DashState = new DashState(this, ControlMachine);
         AttackState = new AttackState(this, ControlMachine);
+
+        // 여기서 바로 IdleState로 초기화
+        ControlMachine.Initialize(IdleState);
     }
 
     private void OnEnable()
@@ -77,11 +82,14 @@ public class PlayerCon : MonoBehaviour
     private void Update()
     {
         // 입력 업데이트
-        InputX = Input.GetAxisRaw("Horizontal");
-        JumpInput = Input.GetKeyDown(KeyCode.Space);
-
+        if (CanMove == true)
+        {
+            InputX = Input.GetAxisRaw("Horizontal");
+            JumpInput = Input.GetKeyDown(KeyCode.Space);
+        }
         ControlMachine.CurrentState.HandleInput();
         ControlMachine.CurrentState.LogicUpdate();
+ 
     }
 
     private void FixedUpdate()
@@ -122,6 +130,11 @@ public class PlayerCon : MonoBehaviour
     public void Jump()
     {
         Rigid.velocity = new Vector2(Rigid.velocity.x, jumpPower);
+    }
+    public bool IsGrounded()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, 0.4f, LayerMask.GetMask("Platform"));
+        return hit.collider != null;
     }
 
     public void MoveHorizontally(float speed)

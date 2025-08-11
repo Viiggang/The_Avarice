@@ -15,7 +15,9 @@ public class MoveState : IpController
 
     public void Enter()
     {
+        player.Anim.SetBool("isJump", false);
         player.Anim.SetBool("isMove", true);
+        player.CanMove = true;
     }
 
     public void Exit()
@@ -25,6 +27,8 @@ public class MoveState : IpController
 
     public void HandleInput()
     {
+
+        // 이동 입력 없으면 Idle
         if (Mathf.Abs(player.InputX) < 0.01f)
         {
             stateMachine.ChangeState(player.IdleState);
@@ -45,11 +49,28 @@ public class MoveState : IpController
 
     public void LogicUpdate()
     {
-        // 이동 처리
-        float speed = player.InputX > 0 ? player.GetNormalSpeed() : -player.GetNormalSpeed();
-        player.MoveHorizontally(speed);
+        if (!player.IsGrounded())
+        {
+            stateMachine.ChangeState(player.AirState);
+            return;
+        }
+        // 방향 전환
         player.SetDirection(player.InputX);
     }
 
-    public void PhysicsUpdate() { }
+    public void PhysicsUpdate() 
+    {
+        if (player.CanMove == false)
+        {
+            player.Rigid.velocity = new Vector2(0, player.Rigid.velocity.y);
+
+        }
+        else
+        {
+            float speed = player.InputX > 0 ? player.GetNormalSpeed() : -player.GetNormalSpeed();
+            player.MoveHorizontally(speed);
+        }
+       
+    }
+
 }

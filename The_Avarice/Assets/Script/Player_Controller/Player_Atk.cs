@@ -26,6 +26,7 @@ public class Player_Atk : MonoBehaviour //일반공격
     [SerializeField]
     private GameObject[] HitRange2;
 
+    private Rigidbody2D rb;
 
     private int comboStep = 0; //현재 진행중인 콤보
     private int currentHitIndex = 0;
@@ -36,6 +37,7 @@ public class Player_Atk : MonoBehaviour //일반공격
     void Start()
     {
         animator = GetComponent<Animator>();
+        rb = GetComponent<Rigidbody2D>();
     }
 
     public void input_Atk()
@@ -61,16 +63,15 @@ public class Player_Atk : MonoBehaviour //일반공격
     void PlayAttack(int step)
     {
         comboStep = step;
-        string triggerName = $"Attack{step}Trigger";
-        string ressettriggerName = $"Attack{step}Trigger";
 
-        for (int i = 1; i < MaxComdo; i++)
+        for (int i = 0; i < MaxComdo; i++)
         {
-            ressettriggerName = $"Attack{i}Trigger";
-            animator.ResetTrigger(triggerName);
+            animator.ResetTrigger($"Attack{i}Trigger");
         }
-      
+
+        string triggerName = $"Attack{step}Trigger";
         animator.SetTrigger(triggerName);
+
         animator.speed = attackSpeed;
 
         comboWindowOpen = false;
@@ -90,6 +91,8 @@ public class Player_Atk : MonoBehaviour //일반공격
         }
     }
 
+      public bool IsAttacking() => isAttacking;
+
     public void EndCombo()
     {
         comboStep = 0;
@@ -98,7 +101,28 @@ public class Player_Atk : MonoBehaviour //일반공격
         isAttacking = false;
         animator.speed = nomal_Speed;
 
+        // FSM에서 이동 가능하도록 복구
+        var playerCon = GetComponent<PlayerCon>();
+        if (playerCon != null)
+            playerCon.CanMove = true;
+
+        var rb = GetComponent<Rigidbody2D>();
+        if (rb != null)
+            rb.gravityScale = 2f; // 기본값 복원
     }
+
+    public void OnAirAtk()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, 0f);
+        rb.gravityScale = 0f;
+    }
+
+    public void OutAirAtk()
+    {
+        rb.gravityScale = 3f;
+        
+    }
+
 
     public void OnHitRange(int type) // 공격 범위 호출용 애니메이션 이벤트
     {
