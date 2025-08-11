@@ -12,7 +12,7 @@ namespace ElectricSphere
         [Output] public BaseState output;
         public override void Enter()
         {
-
+            ElectricSphereMachine.Instance.SetNextState("output");
         }
         public override void Excute()
         {

@@ -4,13 +4,18 @@ using UnityEngine;
 using XNode;
 namespace ElectricSphere
 {
-    [CreateNodeMenu("ElectricSphere/ElectricAttack2")]
-    public class ElectricAttack2 : BaseState
+    [CreateNodeMenu("ElectricSphere/ElectricAttack1")]
+    public class ElectricAttack1 : BaseState
 	{
         [Input] public BaseState input;
+        private ElectAniManager manager;
         public override void Enter()
         {
-
+            manager = ElectHandler.Instance.ElectAniManager;
+            if(manager !=null)
+            {
+                manager.Manager.SetTrigger("Attack1");
+            }
         }
         public override void Excute()
         {

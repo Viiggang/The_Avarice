@@ -19,6 +19,7 @@ public class ElectricSphereMachine : Singleton<ElectricSphereMachine>
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Status.name);
         Status.Excute();
     }
     public void SetNextState(string portName)

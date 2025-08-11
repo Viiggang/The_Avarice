@@ -10,7 +10,8 @@ namespace ElectricSphere
         [Input] public BaseState input;
         public override void Enter()
         {
-
+            var manager = ElectHandler.Instance.ElectAniManager.Manager;
+            manager.SetTrigger("death");
         }
         public override void Excute()
         {
