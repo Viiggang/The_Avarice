@@ -26,6 +26,7 @@ public class DetectionRange : Singleton<DetectionRange>
     {
         if (!ShowGizmos) return;
         Gizmos.color = Color.red;
+      
         boxSize = Manager.HitBox.bounds.size;
         center = Manager.HitBox.bounds.center;
 
@@ -33,6 +34,7 @@ public class DetectionRange : Singleton<DetectionRange>
         GizmosSize = boxSize + size;
         Gizmos.DrawWireCube(GizmosCenter, GizmosSize);
         CreateRange();
+       
     }
     public void SetRecognitionRange()
     {
@@ -55,6 +57,7 @@ public class DetectionRange : Singleton<DetectionRange>
         }
         else
         {
+            PlayerCollider = null;
             ColossalHandler.Instance.Near = false;
         }
     }
