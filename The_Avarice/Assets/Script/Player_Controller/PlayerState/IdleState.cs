@@ -28,17 +28,21 @@ public class IdleState : IpController
         {
             stateMachine.ChangeState(player.MoveState);
         }
-        if (player.JumpInput)
+        else if (player.JumpInput)
         {
             stateMachine.ChangeState(player.JumpState);
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift) && player.CanDash && Mathf.Abs(player.InputX) > 0.01f)
+        else if (Input.GetKeyDown(KeyCode.LeftShift) && player.CanDash && Mathf.Abs(player.InputX) > 0.01f)
         {
             stateMachine.ChangeState(player.DashState);
         }
-        if (Input.GetKeyDown(KeyCode.C))
+        else if (Input.GetKeyDown(KeyCode.C))
         {
             stateMachine.ChangeState(player.AttackState);
+        }
+        else if(Input.GetKeyDown(KeyCode.A))
+        {
+            stateMachine.ChangeState(player.Skill1State);
         }
     }
 

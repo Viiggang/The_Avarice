@@ -25,6 +25,10 @@ public class Player_Atk : MonoBehaviour //일반공격
     private GameObject[] HitRange1;
     [SerializeField]
     private GameObject[] HitRange2;
+    [SerializeField]
+    private GameObject[] HitSkillRange1;
+    [SerializeField]
+    private GameObject[] HitSkillRange2;
 
     private Rigidbody2D rb;
 
@@ -102,10 +106,12 @@ public class Player_Atk : MonoBehaviour //일반공격
         animator.speed = nomal_Speed;
 
         // FSM에서 이동 가능하도록 복구
-        var playerCon = GetComponent<PlayerCon>();
-        if (playerCon != null)
-            playerCon.CanMove = true;
-
+        var player = GetComponent<PlayerCon>();
+        var stateMachine = GetComponent<Player_ControllMachine>();
+        if (player != null)
+            player.CanMove = true;
+        if (stateMachine != null)
+        stateMachine.ChangeState(Mathf.Abs(player.InputX) > 0.01f ? player.MoveState : player.IdleState);
         var rb = GetComponent<Rigidbody2D>();
         if (rb != null)
             rb.gravityScale = 2f; // 기본값 복원
@@ -135,6 +141,10 @@ public class Player_Atk : MonoBehaviour //일반공격
             else if (type == 1 && currentHitIndex < HitRange2.Length)
             {
                 HitRange2[currentHitIndex].SetActive(true);
+            }
+            else if(type == 2 && currentHitIndex < HitRange2.Length)
+            {
+                HitSkillRange1[currentHitIndex].SetActive(true);
             }
         }
     }

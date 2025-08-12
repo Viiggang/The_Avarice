@@ -45,6 +45,10 @@ public class MoveState : IpController
         {
             stateMachine.ChangeState(player.AttackState);
         }
+        else if(Input.GetKeyDown(KeyCode.A))
+        {
+            stateMachine.ChangeState(player.Skill1State);
+        }
     }
 
     public void LogicUpdate()

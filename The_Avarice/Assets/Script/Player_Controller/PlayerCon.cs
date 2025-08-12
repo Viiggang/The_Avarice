@@ -17,15 +17,16 @@ public class PlayerCon : MonoBehaviour
     private float dashSpeed = 30f;
     [SerializeField, Range(0.05f, 0.3f)]
     private float dashDuration = 0.1f;
+    [SerializeField, Range(1f, 3f)]
+    private float Skill1Duration = 1f;
     [SerializeField, Range(0.2f, 3f)]
     private float dashCooldown = 1f;
+    [SerializeField, Range(0.5f, 3.5f)]
+    private float skill1Cooldown = 1f;
     [SerializeField, Range(0.02f, 0.15f)]
     private float dashDodge = 0.05f;
     [SerializeField]
     private GameObject dashHitBox;
-
-    [SerializeField, Space]
-    private ScriptableObject[] skills;
 
     //FSM 상태관리
     public Player_ControllMachine ControlMachine { get; private set; }
@@ -35,17 +36,21 @@ public class PlayerCon : MonoBehaviour
     public AirState AirState { get; private set; }
     public DashState DashState { get; private set; }
     public AttackState AttackState { get; private set; }
+    public Skill1State Skill1State { get; private set; }
 
     //컴포넌트 접근용
     public Rigidbody2D Rigid { get; private set; }
     public Animator Anim { get; private set; }
     public Collider2D Collider { get; private set; }
     public Player_Atk Attack { get; private set; }
+    public Pal_LightCut LightCut { get; private set; }
 
     //제어용 변수
     public bool Direction { get; private set; } = true; // 바라보는 방향
     public bool CanDash { get; set; } = true;
+    public bool CanSkill1 { get; set; } = true;
     public bool IsDashing { get; set; } = false;
+    public bool IsSkill1 { get; set; } = false;
     public bool IsHurt { get; set; } = false;
     public bool IsDead { get; private set; } = false;
     public bool CanMove { get; set; } = true;
@@ -65,13 +70,12 @@ public class PlayerCon : MonoBehaviour
         ControlMachine = new Player_ControllMachine();
         IdleState = new IdleState(this, ControlMachine);
         MoveState = new MoveState(this, ControlMachine);
-        AirState = new AirState(this, ControlMachine); // 새로 추가
+        AirState = new AirState(this, ControlMachine);
         JumpState = new JumpState(this, ControlMachine);
         DashState = new DashState(this, ControlMachine);
         AttackState = new AttackState(this, ControlMachine);
+        Skill1State = new Skill1State(this, ControlMachine);
 
-        // 여기서 바로 IdleState로 초기화
-        ControlMachine.Initialize(IdleState);
     }
 
     private void OnEnable()
@@ -146,7 +150,9 @@ public class PlayerCon : MonoBehaviour
     public float GetJumpPower() => jumpPower;
     public float GetDashSpeed() => dashSpeed;
     public float GetDashDuration() => dashDuration;
+    public float GetSkill1Duration() => Skill1Duration;
     public float GetDashCooldown() => dashCooldown;
+    public float GetSkill1Cooldown() => skill1Cooldown;
     public float GetDashDodge() => dashDodge;
     #endregion
 }

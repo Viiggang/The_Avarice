@@ -14,10 +14,6 @@ public class EnemyHitTester : MonoBehaviour, IDamage
     {
         StartCoroutine(OnHit());
     }
-   /* public void OnTriggerEnter2D(Collider2D collision)
-    {
-        Debug.Log("Pal I Hit : : : : : " + collision.name);
-    }*/
     IEnumerator OnHit()
     {
         mat.color = Color.red;

@@ -23,4 +23,6 @@ public class Player_ControllMachine : MonoBehaviour
         CurrentState = newState;
         CurrentState.Enter();
     }
+
+    public bool IsState(IpController state) => currentState == state;
 }
