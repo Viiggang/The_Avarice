@@ -5,7 +5,7 @@ using static UnityEngine.GraphicsBuffer;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10f; // ÃÑ¾Ë ¼Óµµ
+    public float speed; // ÃÑ¾Ë ¼Óµµ
     public Transform target;
     public Vector3 dir;
     float angle;
@@ -20,5 +20,9 @@ public class Bullet : MonoBehaviour
     void Update()
     {
         transform.Translate(dir * speed * Time.deltaTime, Space.World);
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        Destroy(this.gameObject);
     }
 }

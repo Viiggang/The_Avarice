@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class WildBoardeath : IState
 {
+    private WildBoarManager manager;
+    public WildBoardeath(WildBoarManager manager)
+    {
+        this.manager = manager;
+    }
     public void Enter()
     {
 

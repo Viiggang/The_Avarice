@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class WildBoarAttack : IState
 {
+    private WildBoarManager manager;
+    public WildBoarAttack(WildBoarManager manager)
+    {
+        this.manager = manager;
+    }
     public void Enter()
     {
-
+        manager.aniManager.Play_Attack();
     }
     public void Update()
     {

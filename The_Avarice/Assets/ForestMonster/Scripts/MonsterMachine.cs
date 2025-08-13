@@ -17,9 +17,6 @@ public class MonsterMachine
         // 새 상태 진입
         currentState.Enter();
     }
-
-
-    // Update is called once per frame
    public void Update()
     {
         currentState.Update();
