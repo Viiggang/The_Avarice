@@ -18,22 +18,31 @@ public class BoarStatus : MonoBehaviour,IDamage
     [SerializeField]private Vector2 offsetX;
     private Vector2 defaultOffset;
 
-   [SerializeField] private bool lockOffset = false;
+    [SerializeField] private BoarAniManager BoarAniManager;
+    [SerializeField] private bool lockGizmos = true;
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
-        //인스펙트 창에서 실시간 업데이트 보려서
+        if(lockGizmos)
+        {
+            //인스펙트 창에서 실시간 업데이트 보려서
+            BoarHp = monsterData.Hp;
+            BoarDamage = monsterData.Damage;
+            movespeed = monsterData.MoveSpeed;
+            patrolTime = monsterData.PatrolTime;
+            IdleTime = monsterData.IdleTime;
+        }
+       
+    }
+#endif
+    private void Start()
+    {
+        lockGizmos = false;
         BoarHp = monsterData.Hp;
         BoarDamage = monsterData.Damage;
         movespeed = monsterData.MoveSpeed;
         patrolTime = monsterData.PatrolTime;
         IdleTime = monsterData.IdleTime;
-    }
-#endif
-    private void Start()
-    {
-        BoarHp = monsterData.Hp;
-        BoarDamage = monsterData.Damage;
         defaultOffset = collider2D.offset;
     }
     private void Update()
@@ -50,8 +59,12 @@ public class BoarStatus : MonoBehaviour,IDamage
     }
     public void OnHitDamage(float Damage)
     {
-        monsterData.Hp = Damage;
-        BoarHp = monsterData.Hp;
+
+        BoarHp -= Damage;
+        if (BoarHp <0)
+        {
+            BoarAniManager.Play_Death();
+        }
     }
 }
  

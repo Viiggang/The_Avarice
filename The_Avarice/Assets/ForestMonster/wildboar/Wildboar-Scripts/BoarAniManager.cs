@@ -5,25 +5,25 @@ using UnityEngine;
 public class BoarAniManager : MonoBehaviour
 {
     public Animator aniManager;
-    private string playname;
+    [Leein.InspectorName("공격")][SerializeField]private WbAniData Attack;
+    [Leein.InspectorName("대기")][SerializeField]private WbAniData Idle;
+    [Leein.InspectorName("움직임")][SerializeField]private WbAniData Move;
+    [Leein.InspectorName("죽음")][SerializeField]private WbAniData death;
+  
     public void Play_Idle()
     {
-        playname = "Idle";
-        aniManager.SetTrigger(playname);
+        Idle.Play(aniManager);
     }
     public void Play_Move()
     {
-        playname = "move";
-        aniManager.SetTrigger(playname);
+        Move.Play(aniManager);
     }
     public void Play_Attack()
     {
-        playname = "Attack";
-        aniManager.SetTrigger(playname);
+        Attack.Play(aniManager);
     }
     public void Play_Death()
     {
-        playname = "death";
-        aniManager.SetTrigger(playname);
+        death.Play(aniManager);
     }
 }

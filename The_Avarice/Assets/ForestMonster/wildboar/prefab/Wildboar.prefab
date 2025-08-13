@@ -121,6 +121,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   aniManager: {fileID: 1445033652489126845}
+  Attack: {fileID: 11400000, guid: ebf2b21c86f0181409bb508f9379e4e9, type: 2}
+  Idle: {fileID: 11400000, guid: a9fd93dd25d20ef48955ecef46cf44ec, type: 2}
+  Move: {fileID: 11400000, guid: a17af8c0f4492d64fb952c573edf4274, type: 2}
+  death: {fileID: 11400000, guid: 82e1286d0709e314b890742f2406b7e1, type: 2}
 --- !u!114 &4508710559428509004
 MonoBehaviour:
   m_ObjectHideFlags: 0

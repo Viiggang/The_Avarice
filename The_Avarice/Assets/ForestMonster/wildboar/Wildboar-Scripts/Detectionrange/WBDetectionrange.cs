@@ -13,9 +13,11 @@ public class WBDetectionrange : MonoBehaviour
 
     private Vector3 detectionCenter;
     private Vector3 center;
+    [SerializeField]private bool gizmos=true;
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
+        if (!gizmos) return;
          Gizmos.color = Color.red;
         if (BoarCollider == null) return;
         if (renderer == null) return;
@@ -35,10 +37,12 @@ public class WBDetectionrange : MonoBehaviour
 #endif
     private void Start()
     {
-          center = BoarCollider.bounds.center;
+         gizmos = false;
+         
     }
     private void Update()
     {
+        center = BoarCollider.bounds.center;
         detectionCenter = renderer.flipX ? center - right : center + right;
         var hit = Physics2D.OverlapBox(detectionCenter, size, 0f, playerLayer);
         if (hit == null)
