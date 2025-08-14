@@ -13,6 +13,7 @@ public class BoarStatus : MonoBehaviour,IDamage
     [Leein.InspectorName("맷돼지 이동속도")]public float movespeed;
     [Leein.InspectorName("맷돼지 순찰 시간")] public float patrolTime;
     [Leein.InspectorName("맷돼지 대기 시간")] public float IdleTime;
+    [Leein.InspectorName("맷돼지 공격 거리")] public float AttckDistance;
     [SerializeField] public BoxCollider2D collider2D;
     [SerializeField]private SpriteRenderer spriteRenderer;
     [SerializeField]private Vector2 offsetX;
@@ -31,6 +32,8 @@ public class BoarStatus : MonoBehaviour,IDamage
             movespeed = monsterData.MoveSpeed;
             patrolTime = monsterData.PatrolTime;
             IdleTime = monsterData.IdleTime;
+            AttckDistance = monsterData.AttackDistance;
+           
         }
        
     }
@@ -38,6 +41,7 @@ public class BoarStatus : MonoBehaviour,IDamage
     private void Start()
     {
         lockGizmos = false;
+        AttckDistance = monsterData.AttackDistance;
         BoarHp = monsterData.Hp;
         BoarDamage = monsterData.Damage;
         movespeed = monsterData.MoveSpeed;

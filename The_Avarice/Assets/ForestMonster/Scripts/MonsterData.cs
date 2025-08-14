@@ -11,6 +11,11 @@ public class MonsterData : ScriptableObject
     [SerializeField] private float movespeed;
     [SerializeField] private float patroltime;
     [SerializeField] private float idletime;
+    [SerializeField] private float attackdistance;
+    public float AttackDistance
+    {
+        get { return attackdistance; }
+    }
     public float Hp
     {
         get { return hp; }

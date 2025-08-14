@@ -6,7 +6,7 @@ public class WildBoarChase : IState
 {
     private WildBoarManager manager;
     private Transform target;
-    
+    private float AttackDistance = 0;
     public WildBoarChase(WildBoarManager manager)
     {
         this.manager = manager;
@@ -14,6 +14,7 @@ public class WildBoarChase : IState
     public void Enter()
     {
         manager.aniManager.Play_Move();
+        AttackDistance = manager.statusManager.AttckDistance;
         var PlayerCollider = manager.WBDetectionrange.findcollider;
         if(PlayerCollider !=null)
         {
@@ -30,7 +31,7 @@ public class WildBoarChase : IState
             manager.MonsterMachine.ChangeState(manager.patrol);
         }
         //공격 범위 안에 들었는가? 거리 좁히기
-        else if(Mathf.Abs(manager.BoarTrans.position.x-target.position.x)<0.3f)
+        else if(Mathf.Abs(manager.BoarTrans.position.x-target.position.x)< AttackDistance)
         {
             Debug.Log("공격");
             manager.MonsterMachine.ChangeState(manager.attack);
