@@ -40,7 +40,7 @@ public class IdleState : IpController
         {
             stateMachine.ChangeState(player.AttackState);
         }
-        else if(Input.GetKeyDown(KeyCode.A))
+        else if(Input.GetKey(KeyCode.A))
         {
             stateMachine.ChangeState(player.Skill1State);
         }
@@ -62,7 +62,7 @@ public class IdleState : IpController
         {
             stateMachine.ChangeState(player.JumpState);
         }
-        // Idle¿¡¼­´Â ¼öÆò ¼Óµµ 0 À¯Áö
+        // Idleï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ 0 ï¿½ï¿½ï¿½ï¿½
         player.MoveHorizontally(0);
     }
 
