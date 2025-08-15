@@ -7,11 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class ButtonEvents : MonoBehaviour
 {
-    private const string NextScene = "CharatorChoice";
     [SerializeField]private GameObject OptionUI;
     public void GameStart()
     {
-        SceneManager.LoadScene(NextScene);
+        SceneLoader.Instance.LoadScene("CharatorChoice");
     }
     public void OptionActive()
     { 
@@ -28,5 +27,10 @@ public class ButtonEvents : MonoBehaviour
 #endif
 
         Application.Quit();
+    }
+
+    public void CharacterChoice()
+    {
+        SceneLoader.Instance.LoadScene("VillageScene");
     }
 }
