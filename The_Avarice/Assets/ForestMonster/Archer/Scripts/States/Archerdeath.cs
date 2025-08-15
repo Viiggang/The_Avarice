@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Archerdeath : MonoBehaviour
+[CreateAssetMenu(fileName = "death", menuName = "ArcherStates/death")]
+public class Archerdeath : MonsterStates
 {
-    // Start is called before the first frame update
-    void Start()
+   
+    public override void Enter(ArcherManager manager)
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    }
+    public override void Update()
     {
-        
+
+    }
+    public override void Exit()
+    {
+
     }
 }

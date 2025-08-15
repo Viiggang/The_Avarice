@@ -5,10 +5,10 @@ using UnityEngine;
 public class BoarAniManager : MonoBehaviour
 {
     public Animator aniManager;
-    [Leein.InspectorName("공격")][SerializeField]private WbAniData Attack;
-    [Leein.InspectorName("대기")][SerializeField]private WbAniData Idle;
-    [Leein.InspectorName("움직임")][SerializeField]private WbAniData Move;
-    [Leein.InspectorName("죽음")][SerializeField]private WbAniData death;
+    [Leein.InspectorName("공격")][SerializeField]private MonserAniData Attack;
+    [Leein.InspectorName("대기")][SerializeField]private MonserAniData Idle;
+    [Leein.InspectorName("움직임")][SerializeField]private MonserAniData Move;
+    [Leein.InspectorName("죽음")][SerializeField]private MonserAniData death;
   
     public void Play_Idle()
     {

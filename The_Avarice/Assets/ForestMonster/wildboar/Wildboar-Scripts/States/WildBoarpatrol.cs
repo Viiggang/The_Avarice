@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WildBoarpatrol : IState
 {
+    public string name { get; set; }
     private float movespeed;
     private float patrolTime;
     private float time;

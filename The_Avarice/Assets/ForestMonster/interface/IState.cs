@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IState
 {
-
+    public string name { get; }
     public void Enter();
     public void Update();
     public void Exit();

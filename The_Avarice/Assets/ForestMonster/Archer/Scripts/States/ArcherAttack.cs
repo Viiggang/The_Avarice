@@ -1,18 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class ArcherAttack : MonoBehaviour
+[CreateAssetMenu(fileName = "attack",menuName = "ArcherStates/Attack")]
+public class ArcherAttack : MonsterStates
 {
-    // Start is called before the first frame update
-    void Start()
+  
+    public override void Enter(ArcherManager manager)
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
+    }
+    public override void Update()
     {
-        
+
+    }
+    public override void Exit()
+    {
+
     }
 }

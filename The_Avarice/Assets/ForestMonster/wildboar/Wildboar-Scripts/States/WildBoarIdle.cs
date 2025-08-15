@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WildBoarIdle : IState
 {
+    public string name { get; set; }
     private WildBoarManager manager;
     private float delaytime;
     private float time = 0;

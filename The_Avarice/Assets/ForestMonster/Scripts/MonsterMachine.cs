@@ -23,3 +23,28 @@ public class MonsterMachine
     }
   
 }
+public class MonsterMachine2
+{
+    ArcherManager manager;
+    public MonsterStates currentState;
+    public MonsterMachine2(ArcherManager manager)
+    {
+        this.manager= manager;
+    }
+    public void ChangeState(MonsterStates newState)
+    {
+        // 기존 상태 종료
+        currentState?.Exit();
+
+        // 상태 변경
+        currentState = newState;
+
+        // 새 상태 진입
+        currentState.Enter(manager);
+    }
+    public void Update()
+    {
+        currentState.Update();
+    }
+
+}

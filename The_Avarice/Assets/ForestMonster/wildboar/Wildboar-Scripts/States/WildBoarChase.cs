@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WildBoarChase : IState
 {
+    public string name { get; set; }
     private WildBoarManager manager;
     private Transform target;
     private float AttackDistance = 0;

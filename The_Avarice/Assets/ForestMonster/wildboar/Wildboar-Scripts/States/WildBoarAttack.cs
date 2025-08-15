@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WildBoarAttack : IState
 {
+    public string name { get; set; }
     private WildBoarManager manager;
     public WildBoarAttack(WildBoarManager manager)
     {
