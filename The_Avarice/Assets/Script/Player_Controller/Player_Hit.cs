@@ -14,9 +14,9 @@ public class Player_Hit : MonoBehaviour, IDamage
         animator = GetComponentInParent<Animator>();
         player = GetComponentInParent<PlayerCon>();
     }
-    public void OnHitDamage(float damage) //피격 인터페이스
+    public void OnHitDamage(float damage) 
     {
-        animator.SetTrigger("Hurt"); // 피격중 이동안되도록
+        animator.SetTrigger("Hurt");
         player.CanMove = false;
     }
 }
