@@ -1,48 +1,78 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEngine;
 
-public class WildBoarpatrol : IState
+[CreateAssetMenu(
+    fileName = "NewWildBoarState",     // 생성될 에셋 기본 이름
+    menuName = "WildBoarStates/patrol" // 메뉴 경로
+ 
+)]
+public class WildBoarpatrol : MonsterStates<MonsterManager>
 {
-    public string name { get; set; }
+  
     private float movespeed;
     private float patrolTime;
     private float time;
     private Vector3 moveDir;
-    private WildBoarManager manager;
-    public WildBoarpatrol(WildBoarManager manager)
-    {
-        this.manager = manager;
-        movespeed= this.manager.statusManager.movespeed;
-        patrolTime = this.manager.statusManager.patrolTime;
-    }
-    public void Enter()
+    private MonsterManager manager;
+    private Dictionary<string, MonsterStates<MonsterManager>> WildBoarState;
+    [Leein.InspectorName("WildBoarpatrol->NextState")][SerializeField] private string NextState;
+    [SerializeField] private string PlayAnimaction;
+    
+    public override void Enter(MonsterManager manager)
     {
         Debug.Log("WildBoarpatrol 시작");
-        manager.aniManager.Play_Move();
+        Initialize(manager);
+        PlayMove();
+        SetDirection();
+    }
+    public override void Update()
+    {
+        HandlePatrolTime(patrolTime);//순찰 끝났는지 체크
+        CheckDetectionAndTransition();//플레이어 감지 체크
+        MovePatrol(moveDir, movespeed);//이동 동작 실행
+    }
+    public override void Exit()
+    {
+
+    }
+    public override void Initialize(MonsterManager manager)
+    {
+        this.manager = manager;
+        movespeed = this.manager.statusManager.movespeed;
+        patrolTime = this.manager.statusManager.patrolTime;
+        WildBoarState = this.manager.State;
+        time = 0;
+    }
+    private void PlayMove()
+    {
+        this.manager.aniManager.Play(PlayAnimaction);
+    }
+    private void SetDirection()
+    {
         moveDir = Random.value < 0.5f ? Vector3.right : Vector3.left;
     }
-    public void Update()
+    private void HandlePatrolTime(float patrolTime)
     {
-        if((patrolTime-time)<0)
+        if ((patrolTime - time) < 0)
         {
             Debug.Log("순찰 끝");
             time = 0;
-            manager.MonsterMachine.ChangeState(manager.Idle);
-        }
-        else
-        {
-            if (manager.WBDetectionrange.findcollider != null)
-            {
-                manager.MonsterMachine.ChangeState(manager.Idle);
-            }
-            manager.WBDetectionrange.renderer.flipX = moveDir.x > 0? false : true;
-            manager.BoarTrans.position += moveDir * movespeed * Time.deltaTime;
-            time += Time.deltaTime;
+            manager.MonsterMachine.ChangeState(WildBoarState[NextState], manager);
         }
     }
-    public void Exit()
+    private void CheckDetectionAndTransition()
     {
-
+        if (manager.Detectionrange.findcollider != null)
+        {
+            manager.MonsterMachine.ChangeState(WildBoarState[NextState], manager);
+        }
+    }
+    private void MovePatrol(Vector3 moveDir, float moveSpeed)
+    {
+        manager.Detectionrange.renderer.flipX = moveDir.x > 0 ? false : true;
+        manager.MonsterTrans.position += moveDir * moveSpeed * Time.deltaTime;
+        time += Time.deltaTime;
     }
 }

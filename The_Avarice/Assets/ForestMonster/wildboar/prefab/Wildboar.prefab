@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 1350483521933529562}
   - component: {fileID: 1445033652489126845}
   - component: {fileID: 1501112907139602045}
-  - component: {fileID: 2840454034023394014}
   - component: {fileID: 4508710559428509004}
   m_Layer: 0
   m_Name: Animaction
@@ -108,23 +107,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2840454034023394014
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 217893234599156477}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 876f3df192e7d1e4d970f25dd23cfd09, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aniManager: {fileID: 1445033652489126845}
-  Attack: {fileID: 11400000, guid: ebf2b21c86f0181409bb508f9379e4e9, type: 2}
-  Idle: {fileID: 11400000, guid: a9fd93dd25d20ef48955ecef46cf44ec, type: 2}
-  Move: {fileID: 11400000, guid: a17af8c0f4492d64fb952c573edf4274, type: 2}
-  death: {fileID: 11400000, guid: 82e1286d0709e314b890742f2406b7e1, type: 2}
 --- !u!114 &4508710559428509004
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -137,92 +119,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f760ab1c8a8ff224a97616eca2bdc735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Boar: {fileID: 7626391573478840674}
+  Boar: {fileID: 4717685758444784146}
   rigid: {fileID: 2025273265661324037}
-  manager: {fileID: 7025488035448782689}
+  manager: {fileID: 5311418271767008338}
   player:
     serializedVersion: 2
     m_Bits: 256
   dashForce: 4
   jumpForce: 4
   Gizmosflag: 0
---- !u!1 &2152426232781137366
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5025668577792763170}
-  - component: {fileID: 2934303901999293774}
-  m_Layer: 0
-  m_Name: FootCollider
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5025668577792763170
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2152426232781137366}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 781909500300294737}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!61 &2934303901999293774
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2152426232781137366}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.007097721, y: -0.14413498}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 0.40964222, y: 0.02767995}
-  m_EdgeRadius: 0
 --- !u!1 &4717685758444784146
 GameObject:
   m_ObjectHideFlags: 0
@@ -250,7 +155,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 5.71, y: -0.09605713, z: 0.0014781395}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 781909500300294737}
@@ -327,15 +232,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88dbc2c4da0d5241a6c256bd77f4bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoarCollider: {fileID: 9090037077588271677}
-  size: {x: 1.06, y: 0.58, z: 0}
-  right: {x: 0.66, y: 0, z: 0}
+  BoarCollider: {fileID: 2615466633250083738}
+  size: {x: 0.45, y: 0.25, z: 0}
+  offset: {x: 0.34, y: 0, z: 0}
   renderer: {fileID: 1501112907139602045}
   playerLayer:
     serializedVersion: 2
     m_Bits: 256
   findcollider: {fileID: 0}
---- !u!1 &7264433644437977463
+  MonsterTrans: {fileID: 327966733255566153}
+  gizmos: 0
+--- !u!1 &7380109566037637666
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -343,60 +250,185 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1792484370852188868}
-  - component: {fileID: 3007841416038035221}
-  - component: {fileID: 9090037077588271677}
+  - component: {fileID: 7170969085624189136}
+  - component: {fileID: 7994504139602881406}
   m_Layer: 6
-  m_Name: Status
+  m_Name: FootCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &1792484370852188868
+--- !u!4 &7170969085624189136
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7264433644437977463}
+  m_GameObject: {fileID: 7380109566037637666}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 781909500300294737}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3007841416038035221
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7264433644437977463}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 12551e9fba6235243a5e066a7b010b7d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monsterData: {fileID: 11400000, guid: 5956fd05306210946bd9003157ddd9f3, type: 2}
-  BoarHp: 555
-  BoarDamage: 100
-  movespeed: 0.5
-  patrolTime: 5
-  IdleTime: 2
-  collider2D: {fileID: 9090037077588271677}
-  spriteRenderer: {fileID: 1501112907139602045}
-  offsetX: {x: -0.08, y: 0}
-  lockOffset: 1
---- !u!61 &9090037077588271677
+--- !u!61 &7994504139602881406
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7264433644437977463}
+  m_GameObject: {fileID: 7380109566037637666}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.07, y: -0.14413498}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.25, y: 0.02767995}
+  m_EdgeRadius: 0
+--- !u!1 &7626391573478840674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 781909500300294737}
+  - component: {fileID: 5311418271767008338}
+  - component: {fileID: 2635995796372295449}
+  - component: {fileID: 1618041431434294531}
+  - component: {fileID: 2615466633250083738}
+  m_Layer: 6
+  m_Name: BoarHandler
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &781909500300294737
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626391573478840674}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1350483521933529562}
+  - {fileID: 5533191970366197225}
+  - {fileID: 7170969085624189136}
+  m_Father: {fileID: 327966733255566153}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5311418271767008338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626391573478840674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49bc7e9d5de70584898f2f21976f915d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aniManager: {fileID: 2635995796372295449}
+  statusManager: {fileID: 1618041431434294531}
+  Detectionrange: {fileID: 2511503004705953948}
+  MonsterTrans: {fileID: 327966733255566153}
+  StartState: idle
+  StatesList:
+  - {fileID: 11400000, guid: d44a6e866d4116d42b288708b45b96df, type: 2}
+  - {fileID: 11400000, guid: 781396b4543c66047a3604cc1a707270, type: 2}
+  - {fileID: 11400000, guid: 8617392e56b1beb4496a811c2efb2fb7, type: 2}
+  - {fileID: 11400000, guid: f049fd2611bc3f9419d61879979130c1, type: 2}
+  - {fileID: 11400000, guid: d42ede92a9dcb7c4c8c2cf4ac22cb356, type: 2}
+--- !u!114 &2635995796372295449
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626391573478840674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0e47da56c2a10f4dabdf548db16acbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MonsterAniList:
+  - {fileID: 11400000, guid: ebf2b21c86f0181409bb508f9379e4e9, type: 2}
+  - {fileID: 11400000, guid: 82e1286d0709e314b890742f2406b7e1, type: 2}
+  - {fileID: 11400000, guid: a9fd93dd25d20ef48955ecef46cf44ec, type: 2}
+  - {fileID: 11400000, guid: a17af8c0f4492d64fb952c573edf4274, type: 2}
+  animator: {fileID: 1445033652489126845}
+--- !u!114 &1618041431434294531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626391573478840674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96eddc31146f70b4a89394d8d0de262d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monsterData: {fileID: 11400000, guid: 5956fd05306210946bd9003157ddd9f3, type: 2}
+  BoarHp: 434
+  BoarDamage: 3
+  movespeed: 0.5
+  patrolTime: 4
+  IdleTime: 2
+  AttckDistance: 1
+  collider2D: {fileID: 2615466633250083738}
+  spriteRenderer: {fileID: 1501112907139602045}
+  offsetX: {x: -0.07, y: 0}
+  AniManager: {fileID: 2635995796372295449}
+  lockGizmos: 0
+--- !u!61 &2615466633250083738
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626391573478840674}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -422,7 +454,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.036414772, y: 0}
+  m_Offset: {x: 0.03641477, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -433,57 +465,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.47576636, y: 0.31644535}
+  m_Size: {x: 0.4757664, y: 0.3164454}
   m_EdgeRadius: 0
---- !u!1 &7626391573478840674
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 781909500300294737}
-  - component: {fileID: 7025488035448782689}
-  m_Layer: 0
-  m_Name: BoarHandler
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &781909500300294737
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7626391573478840674}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 1350483521933529562}
-  - {fileID: 1792484370852188868}
-  - {fileID: 5533191970366197225}
-  - {fileID: 5025668577792763170}
-  m_Father: {fileID: 327966733255566153}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7025488035448782689
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7626391573478840674}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 00f02fcf23ab0e84c8451b068ab7589a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  aniManager: {fileID: 2840454034023394014}
-  statusManager: {fileID: 3007841416038035221}
-  WBDetectionrange: {fileID: 2511503004705953948}
-  BoarTrans: {fileID: 327966733255566153}

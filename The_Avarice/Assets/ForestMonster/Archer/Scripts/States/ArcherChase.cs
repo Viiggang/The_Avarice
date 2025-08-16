@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "Chase", menuName = "ArcherStates/Chase")]
-public class ArcherChase : MonsterStates
+public class ArcherChase : MonsterStates<MonsterManager>
 {
-
-    public override void Enter(ArcherManager manager)
+    private MonsterManager manager;
+    public override void Enter(MonsterManager manager)
     {
-
+        this.manager = manager;
     }
     public override void Update()
     {

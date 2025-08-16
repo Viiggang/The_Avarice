@@ -6,14 +6,14 @@ using static UnityEngine.GraphicsBuffer;
 
 public class WB_AniEvents : MonoBehaviour
 {
-    [SerializeField]private GameObject Boar;
-    [SerializeField] private Rigidbody2D rigid;
-    [SerializeField] private WildBoarManager manager;
-    [SerializeField] private LayerMask player;
+    [Leein.InspectorName("죽었을 때 지울 자신(최상위 오브젝트)")][SerializeField]private GameObject Boar;
+    [Leein.InspectorName("몬스터 rigidbody 주입")][SerializeField] private Rigidbody2D rigid;
+    [Leein.InspectorName("몬스터 매니저 주입")][SerializeField] private MonsterManager manager;
+    [Leein.InspectorName("플레이어 Layer로 설정")][SerializeField] private LayerMask player;//찾을 레이어
    [Leein.InspectorName("돌진 힘")] public float dashForce; // 돌진 힘
    [Leein.InspectorName("점프 힘")] public float jumpForce;//// 점프 힘
     private bool HitFlag = false;
-    [Leein.InspectorName("공격 범위 기즈모 보기")][SerializeField] private bool Gizmosflag = true;
+    [HideInInspector]public bool Gizmosflag=false;
     public void Death()
     {
         Destroy(Boar);
@@ -26,16 +26,16 @@ public class WB_AniEvents : MonoBehaviour
     {
         if (!Gizmosflag) return;
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(manager.BoarTrans.position, manager.statusManager.collider2D.bounds.size);
+        Gizmos.DrawWireCube(manager.MonsterTrans.position, manager.statusManager.collider2D.bounds.size);
     }
     public void attack()
     {
         const float left = -1;
         const float right = 1;
-        float dirX = manager.WBDetectionrange.renderer.flipX ? left : right;
+        float dirX = manager.Detectionrange.renderer.flipX ? left : right;
         rigid.AddForce(new Vector2(dirX * dashForce, jumpForce), ForceMode2D.Impulse);
 
-        var hit=Physics2D.OverlapBox(manager.BoarTrans.position, manager.statusManager.collider2D.bounds.size,0f,player);
+        var hit=Physics2D.OverlapBox(manager.MonsterTrans.position, manager.statusManager.collider2D.bounds.size,0f,player);
         
         if (hit == null) return;
         var damage = hit.GetComponent<IDamage>();
@@ -45,7 +45,12 @@ public class WB_AniEvents : MonoBehaviour
     }
     public void AttackToIdle()
     {
-        manager.MonsterMachine.ChangeState(manager.Idle);
+        Dictionary<string, MonsterStates<MonsterManager>> WildBoarState= manager.State;
+        string CurrentState= manager.StartState;
+        MonsterMachine<MonsterManager> MonsterMachine= manager.MonsterMachine;
+       
+        MonsterMachine.ChangeState(WildBoarState[CurrentState], manager);
+      
     }
    
     
@@ -60,14 +65,16 @@ public class WB_AniEventsEditor : Editor
         // 기본 인스펙터 그리기
         DrawDefaultInspector();
 
-        WB_AniEvents script = (WB_AniEvents)target;
-        string buttonText = clicked ? "호출 완료" : "Test Event 호출";
+        WB_AniEvents obj = (WB_AniEvents)target;
+        string buttonText = obj.Gizmosflag ? "공격범위 기즈모 활성화 상태" : "공격범위 기즈모 비활성화 상태";
         // 버튼 추가
         if (GUILayout.Button(buttonText))
         {
-           
-           clicked = !clicked; // 클릭 후 상태 변경
+            obj.Gizmosflag = !clicked;
+            clicked = !clicked; // 클릭 후 상태 변경
+            SceneView.RepaintAll();
         }
-
+        
     }
+
 }

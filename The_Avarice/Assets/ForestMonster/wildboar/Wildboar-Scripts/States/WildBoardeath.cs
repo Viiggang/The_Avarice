@@ -1,24 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[CreateAssetMenu(
+    fileName = "NewWildBoarState",     // 생성될 에셋 기본 이름
+    menuName = "WildBoarStates/death" // 메뉴 경로
 
-public class WildBoardeath : IState
+)]
+public class WildBoardeath : MonsterStates<MonsterManager>
 {
-    public string name { get; set; }
-    private WildBoarManager manager;
-    public WildBoardeath(WildBoarManager manager)
+    private MonsterManager manager;
+  
+    public override void Enter(MonsterManager manager)
     {
         this.manager = manager;
     }
-    public void Enter()
+    public override void Update()
     {
 
     }
-    public void Update()
+    public override  void Exit()
     {
 
     }
-    public void Exit()
+    public override void Initialize(MonsterManager manager)
     {
 
     }

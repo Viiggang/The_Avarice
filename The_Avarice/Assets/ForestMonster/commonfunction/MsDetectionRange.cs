@@ -1,14 +1,16 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine;
 
-public class WBDetectionrange : MonoBehaviour
+public class MsDetectionRange : MonoBehaviour
 {
     [SerializeField]private Collider2D BoarCollider;
     [SerializeField]private Vector3 size;
-    [SerializeField]private Vector3 right;
+    [SerializeField]private Vector3 offset;
     [SerializeField]public SpriteRenderer renderer;
     [SerializeField]private LayerMask playerLayer;
     [SerializeField]public Collider2D findcollider;
@@ -17,8 +19,8 @@ public class WBDetectionrange : MonoBehaviour
     private Vector3 center;
     private Vector2 scaledSize;
     private Vector3 scaledRight;
-   [SerializeField]private Transform wildbar;
-    [SerializeField]private bool gizmos=true;
+   [SerializeField]private Transform MonsterTrans;
+    [HideInInspector]public bool gizmos=false;
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
@@ -36,9 +38,9 @@ public class WBDetectionrange : MonoBehaviour
         
         // 로컬 오프셋 right에 스케일 반영
          scaledRight = new Vector3(
-            right.x * transform.lossyScale.x,
-            right.y * transform.lossyScale.y,
-            right.z * transform.lossyScale.z
+            offset.x * transform.lossyScale.x,
+            offset.y * transform.lossyScale.y,
+            offset.z * transform.lossyScale.z
         );
 
         // detectionCenter 계산 (월드 좌표)
@@ -64,9 +66,9 @@ public class WBDetectionrange : MonoBehaviour
 
         // 로컬 오프셋 right에 스케일 반영
         scaledRight = new Vector3(
-           right.x * transform.lossyScale.x,
-           right.y * transform.lossyScale.y,
-           right.z * transform.lossyScale.z
+           offset.x * transform.lossyScale.x,
+           offset.y * transform.lossyScale.y,
+           offset.z * transform.lossyScale.z
             );
     }
     private void Update()
@@ -81,6 +83,30 @@ public class WBDetectionrange : MonoBehaviour
             return;
         }
         findcollider = hit;
+    }
+
+}
+[CustomEditor(typeof(MsDetectionRange))]
+public class MsDetectionRangeEditor : Editor
+{
+    private bool clicked = false; // 버튼 클릭 상태 저장
+    
+    public override void OnInspectorGUI()
+    {
+        // 기본 인스펙터 그리기
+        DrawDefaultInspector();
+
+        MsDetectionRange obj = (MsDetectionRange)target;
+        string buttonText = obj.gizmos ? "인지 범위 활성화 상태" : "인지 범위 비활성화 상태";
+        // 버튼 추가
+        if (GUILayout.Button(buttonText))
+        {
+          
+            obj.gizmos = !clicked;
+            clicked = !clicked; // 클릭 후 상태 변경
+            SceneView.RepaintAll();
+        }
+      
     }
 
 }

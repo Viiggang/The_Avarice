@@ -1,25 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+[CreateAssetMenu(
+    fileName = "NewWildBoarState",     // 생성될 에셋 기본 이름
+    menuName = "WildBoarStates/Attack" // 메뉴 경로
 
-public class WildBoarAttack : IState
+)]
+public class WildBoarAttack : MonsterStates<MonsterManager>
 {
-    public string name { get; set; }
-    private WildBoarManager manager;
-    public WildBoarAttack(WildBoarManager manager)
+    [SerializeField]private string PlayAnimaction;
+    private MonsterManager manager;
+    public override void Enter(MonsterManager manager)
     {
-        this.manager = manager;
+        Initialize(manager);
+        PlayAttack();
     }
-    public void Enter()
-    {
-        manager.aniManager.Play_Attack();
-    }
-    public void Update()
+    public override void Update()
     {
 
     }
-    public void Exit()
+    public override void Exit()
     {
 
+    }
+    public override void Initialize(MonsterManager manager)
+    {
+        if (this.manager == null)
+        {
+            this.manager = manager;
+        }
+    }
+    private void PlayAttack()
+    {
+        manager.aniManager.Play(PlayAnimaction);
     }
 }
