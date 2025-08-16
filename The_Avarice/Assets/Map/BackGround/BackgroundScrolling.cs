@@ -8,10 +8,14 @@ public class BackgroundScrolling : MonoBehaviour
     [SerializeField] private Transform[] backgrounds;
     [SerializeField] private float backgroundWidth;
     [SerializeField] private Transform cameraTransform;
+    [SerializeField, Range(0f, 0.1f)] private float parallaxFactor = 0.1f;
 
     private int leftIndex = 0;
     private int rightIndex;
     private PixelPerfectCamera ppc;
+
+
+    private Vector3 lastCameraPos;
 
     private void Awake()
     {
@@ -22,9 +26,20 @@ public class BackgroundScrolling : MonoBehaviour
         {
             ppc = cam.GetComponent<PixelPerfectCamera>();
         }
+
+        lastCameraPos = cameraTransform.position;
     }
     private void Update()
     {
+        Vector3 pos = cameraTransform.position - lastCameraPos;
+        lastCameraPos = cameraTransform.position;
+
+        for (int i = 0; i < backgrounds.Length; i++)
+        {
+            Vector3 newPos = backgrounds[i].position - new Vector3(pos.x * parallaxFactor, pos.y * parallaxFactor, 0f);
+            backgrounds[i].position = SnapToPixel(newPos);
+        }
+
         // 카메라가 오른쪽 끝으로 넘어갈 경우
         if (cameraTransform.position.x >= backgrounds[rightIndex].position.x - (backgroundWidth / 2f))
         {
