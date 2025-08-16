@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: AirAttack3
+  m_Name: Skill1_2
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -21,25 +21,21 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
-      value: {fileID: 21300000, guid: 31d2f715e5fb4a2419f5294cdb208a3f, type: 3}
+      value: {fileID: 21300000, guid: 3784087d0bffa3e41bf3dd9657e1f65f, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: c9125ab2fb7e782449a989cce5f737d2, type: 3}
+      value: {fileID: 21300000, guid: 4c4fd5084d8734b4ba891d1da3147fbf, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: a25fdc4a6eec153489cd7cf93ed272e7, type: 3}
+      value: {fileID: 21300000, guid: b13ed6d15d155904e8e6236ce5710add, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 2a0c4afeb0a611545922734f3608f44b, type: 3}
+      value: {fileID: 21300000, guid: 7d28c000209b4cd489f0dfbefa20bc6e, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: 5390b2cf5b6de3549b1df44509bc2f5f, type: 3}
+      value: {fileID: 21300000, guid: 7c30b5f95c34f7d44aa30e810385fa9e, type: 3}
     - time: 0.41666666
-      value: {fileID: 21300000, guid: 75e9e783f16df2c4685cf10da012400e, type: 3}
+      value: {fileID: 21300000, guid: 27b75664ad2bb3f428136e95a2dadbba, type: 3}
     - time: 0.5
-      value: {fileID: 21300000, guid: ea4f2cb37e2a52c418ef096a93be479f, type: 3}
+      value: {fileID: 21300000, guid: 4addadf0f8528c847b49084ffdaf05da, type: 3}
     - time: 0.5833333
-      value: {fileID: 21300000, guid: faf9d9528ac5e264ca6645fd69624329, type: 3}
-    - time: 0.6666667
-      value: {fileID: 21300000, guid: 33106e6b77e32ba4cbaaf649cc81e425, type: 3}
-    - time: 0.75
-      value: {fileID: 21300000, guid: 264dbdbfc6d974649807e4ffc0f4ff3d, type: 3}
+      value: {fileID: 21300000, guid: dad2b3ca8219cea45ac428ef5494f336, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -62,22 +58,20 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
     pptrCurveMapping:
-    - {fileID: 21300000, guid: 31d2f715e5fb4a2419f5294cdb208a3f, type: 3}
-    - {fileID: 21300000, guid: c9125ab2fb7e782449a989cce5f737d2, type: 3}
-    - {fileID: 21300000, guid: a25fdc4a6eec153489cd7cf93ed272e7, type: 3}
-    - {fileID: 21300000, guid: 2a0c4afeb0a611545922734f3608f44b, type: 3}
-    - {fileID: 21300000, guid: 5390b2cf5b6de3549b1df44509bc2f5f, type: 3}
-    - {fileID: 21300000, guid: 75e9e783f16df2c4685cf10da012400e, type: 3}
-    - {fileID: 21300000, guid: ea4f2cb37e2a52c418ef096a93be479f, type: 3}
-    - {fileID: 21300000, guid: faf9d9528ac5e264ca6645fd69624329, type: 3}
-    - {fileID: 21300000, guid: 33106e6b77e32ba4cbaaf649cc81e425, type: 3}
-    - {fileID: 21300000, guid: 264dbdbfc6d974649807e4ffc0f4ff3d, type: 3}
+    - {fileID: 21300000, guid: 3784087d0bffa3e41bf3dd9657e1f65f, type: 3}
+    - {fileID: 21300000, guid: 4c4fd5084d8734b4ba891d1da3147fbf, type: 3}
+    - {fileID: 21300000, guid: b13ed6d15d155904e8e6236ce5710add, type: 3}
+    - {fileID: 21300000, guid: 7d28c000209b4cd489f0dfbefa20bc6e, type: 3}
+    - {fileID: 21300000, guid: 7c30b5f95c34f7d44aa30e810385fa9e, type: 3}
+    - {fileID: 21300000, guid: 27b75664ad2bb3f428136e95a2dadbba, type: 3}
+    - {fileID: 21300000, guid: 4addadf0f8528c847b49084ffdaf05da, type: 3}
+    - {fileID: 21300000, guid: dad2b3ca8219cea45ac428ef5494f336, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.8333333
+    m_StopTime: 0.6666666
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -97,8 +91,15 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0
-    functionName: OnAirAtk
+  - time: 0.083333336
+    functionName: OnHitRange
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 6a51984571719de408f7171aefa5f585, type: 3}
+    floatParameter: 0
+    intParameter: 2
+    messageOptions: 0
+  - time: 0.5833333
+    functionName: EndCombo
     data: 
     objectReferenceParameter: {fileID: 11500000, guid: 6a51984571719de408f7171aefa5f585, type: 3}
     floatParameter: 0
