@@ -5,6 +5,7 @@ using UnityEngine;
 public class Pal_LightCut : MonoBehaviour
 {
     [Header("Hitbox Points")]
+<<<<<<< Updated upstream
     public Transform startPoint;   // ¾Ö´Ï¸ÞÀÌ¼Ç¿¡¼­ ½ÃÀÛ À§Ä¡
     public Transform endPoint;     // ¾Ö´Ï¸ÞÀÌ¼Ç¿¡¼­ ³¡ À§Ä¡
 
@@ -18,6 +19,21 @@ public class Pal_LightCut : MonoBehaviour
 
     public float minLength = 0.1f;  // ÃÖ¼Ò Ãæµ¹ ±æÀÌ
     public float maxLength = 2f;    // ÃÖ´ë Ãæµ¹ ±æÀÌ
+=======
+    public Transform startPoint;   // ï¿½Ö´Ï¸ï¿½ï¿½Ì¼Ç¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡
+    public Transform endPoint;     // ï¿½Ö´Ï¸ï¿½ï¿½Ì¼Ç¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡
+
+    [Header("Hitbox Settings")]
+    public float thickness = 0.2f; // ï¿½ï¿½ï¿½ï¿½ ï¿½Î²ï¿½
+    public LayerMask targetLayer;  // Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ì¾ï¿½
+    public float activeTime = 0.05f; // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ã°ï¿½ (ï¿½ï¿½)
+
+    public Animator animator;
+    public string attackStateName = "Pal_LightCut"; // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½Â¸ï¿½
+
+    public float minLength = 0.1f;  // ï¿½Ö¼ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½
+    public float maxLength = 2f;    // ï¿½Ö´ï¿½ ï¿½æµ¹ ï¿½ï¿½ï¿½ï¿½
+>>>>>>> Stashed changes
 
     private bool isActive = false;
     private float timer = 0f;
@@ -47,7 +63,11 @@ public class Pal_LightCut : MonoBehaviour
         AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
         if (clipInfo.Length > 0)
         {
+<<<<<<< Updated upstream
             activeTime = clipInfo[0].clip.length;  // ¾Ö´Ï¸ÞÀÌ¼Ç ÀüÃ¼ ±æÀÌ·Î ¼¼ÆÃ
+=======
+            activeTime = clipInfo[0].clip.length;  // ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½Ì·ï¿½ ï¿½ï¿½ï¿½ï¿½
+>>>>>>> Stashed changes
         }
         isActive = true;
         timer = activeTime;
@@ -61,7 +81,11 @@ public class Pal_LightCut : MonoBehaviour
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         if (!stateInfo.IsName(attackStateName)) return;
 
+<<<<<<< Updated upstream
         // ¾Ö´Ï¸ÞÀÌ¼Ç ÁøÇà·ü¿¡ speedMultiplier Àû¿ë ÈÄ 0~1·Î Å¬·¥ÇÁ
+=======
+        // ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ speedMultiplier ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ 0~1ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½
+>>>>>>> Stashed changes
         float progress = Mathf.Clamp01((stateInfo.normalizedTime % 1) * speedMultiplier);
 
         currentLength = Mathf.Lerp(minLength, maxLength, progress);
