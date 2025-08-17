@@ -50,7 +50,7 @@ public class MonsterStatesEditor : Editor
     public override void OnInspectorGUI()
     {
         // 현재 상태 SO 참조
-        var state = target as MonsterStates<MonsterManager>; // object로 캐스팅 (편법)
+        var state = target as MonsterStates<MonsterController>; // object로 캐스팅 (편법)
 
         if (state == null) return;
 

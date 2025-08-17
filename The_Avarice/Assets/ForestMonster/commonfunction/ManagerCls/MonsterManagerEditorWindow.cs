@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class MonsterManagerEditorWindow : EditorWindow
 {
-    private MonsterManager targetManager;
+    private MonsterController targetManager;
     private SerializedObject serializedManager;
 
     [MenuItem("Window/Monster Manager Editor")]
@@ -15,8 +15,8 @@ public class MonsterManagerEditorWindow : EditorWindow
     private void OnGUI()
     {
         // 1. MonsterManager 객체 드래그 & 드롭
-        targetManager = (MonsterManager)EditorGUILayout.ObjectField(
-            "Target Monster", targetManager, typeof(MonsterManager), true);
+        targetManager = (MonsterController)EditorGUILayout.ObjectField(
+            "Target Monster", targetManager, typeof(MonsterController), true);
 
         if (targetManager != null)
         {

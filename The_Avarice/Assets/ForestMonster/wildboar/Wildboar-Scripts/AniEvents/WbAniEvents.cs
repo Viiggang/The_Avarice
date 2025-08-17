@@ -8,7 +8,7 @@ public class WB_AniEvents : MonoBehaviour
 {
     [Leein.InspectorName("죽었을 때 지울 자신(최상위 오브젝트)")][SerializeField]private GameObject Boar;
     [Leein.InspectorName("몬스터 rigidbody 주입")][SerializeField] private Rigidbody2D rigid;
-    [Leein.InspectorName("몬스터 매니저 주입")][SerializeField] private MonsterManager manager;
+    [Leein.InspectorName("몬스터 매니저 주입")][SerializeField] private MonsterController manager;
     [Leein.InspectorName("플레이어 Layer로 설정")][SerializeField] private LayerMask player;//찾을 레이어
    [Leein.InspectorName("돌진 힘")] public float dashForce; // 돌진 힘
    [Leein.InspectorName("점프 힘")] public float jumpForce;//// 점프 힘
@@ -45,9 +45,9 @@ public class WB_AniEvents : MonoBehaviour
     }
     public void AttackToIdle()
     {
-        Dictionary<string, MonsterStates<MonsterManager>> WildBoarState= manager.State;
+        Dictionary<string, MonsterStates<MonsterController>> WildBoarState= manager.State;
         string CurrentState= manager.StartState;
-        MonsterMachine<MonsterManager> MonsterMachine= manager.MonsterMachine;
+        MonsterMachine<MonsterController> MonsterMachine= manager.MonsterMachine;
        
         MonsterMachine.ChangeState(WildBoarState[CurrentState], manager);
       

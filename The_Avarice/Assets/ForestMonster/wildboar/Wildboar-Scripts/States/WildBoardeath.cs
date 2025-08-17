@@ -6,11 +6,11 @@ using UnityEngine;
     menuName = "WildBoarStates/death" // 메뉴 경로
 
 )]
-public class WildBoardeath : MonsterStates<MonsterManager>
+public class WildBoardeath : MonsterStates<MonsterController>
 {
-    private MonsterManager manager;
+    private MonsterController manager;
   
-    public override void Enter(MonsterManager manager)
+    public override void Enter(MonsterController manager)
     {
         this.manager = manager;
     }
@@ -22,7 +22,7 @@ public class WildBoardeath : MonsterStates<MonsterManager>
     {
 
     }
-    public override void Initialize(MonsterManager manager)
+    public override void Initialize(MonsterController manager)
     {
 
     }

@@ -7,22 +7,22 @@ using UnityEngine;
     menuName = "WildBoarStates/Idle" // 메뉴 경로
     
 )]
-public class WildBoarIdle : MonsterStates<MonsterManager>
+public class WildBoarIdle : MonsterStates<MonsterController>
 {
     [SerializeField] private string PlayAnimaction;
-    private MonsterManager manager;
+    private MonsterController manager;
     private float delaytime;
     private float time = 0;
 
-    private Dictionary<string, MonsterStates<MonsterManager>> WildBoarState;
+    private Dictionary<string, MonsterStates<MonsterController>> WildBoarState;
     [Leein.InspectorName("Idle->Chase")][SerializeField] private string Chase;
     [Leein.InspectorName("Idle->Patrol")][SerializeField] private string Patrol;
   
-    public override void Enter(MonsterManager manager)
+    public override void Enter(MonsterController manager)
     {
         Debug.Log("WildBoarIdle");
         Initialize(manager);
-        //PlayIdle();
+        PlayIdle();
     }
     public override void Update()
     {
@@ -32,7 +32,7 @@ public class WildBoarIdle : MonsterStates<MonsterManager>
     {
        
     }
-    public override void Initialize(MonsterManager manager)
+    public override void Initialize(MonsterController manager)
     {
         this.manager = manager;
         delaytime = this.manager.statusManager.IdleTime;

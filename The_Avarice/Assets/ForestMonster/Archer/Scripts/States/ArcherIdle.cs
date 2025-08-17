@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(fileName = "idle", menuName = "ArcherStates/idle")]
-public class ArcherIdle :MonsterStates<MonsterManager>
+public class ArcherIdle :MonsterStates<MonsterController>
 {
     
 
-    private MonsterManager manager;
-    public override  void Enter(MonsterManager manager)
+    private MonsterController manager;
+    public override  void Enter(MonsterController manager)
     {
         Debug.Log("ArcherIdle_Enter");
         this.manager=manager;

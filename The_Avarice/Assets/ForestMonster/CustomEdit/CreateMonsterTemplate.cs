@@ -3,7 +3,7 @@ using UnityEditor;
 
 public class CreateMonsterTemplate : EditorWindow
 {
-    MonsterManager manager;
+    MonsterController manager;
     MonsterAniManager aniManager;
     MonsterData data;
 
@@ -94,7 +94,7 @@ public class CreateMonsterTemplate : EditorWindow
         childObj_MonsterHandler.transform.SetParent(cloneRoot.transform, false);
         childObj_MonsterHandler.layer = 6;
 
-        var managerComp = childObj_MonsterHandler.AddComponent<MonsterManager>();
+        var managerComp = childObj_MonsterHandler.AddComponent<MonsterController>();
         var aniManagerComp = childObj_MonsterHandler.AddComponent<MonsterAniManager>();
         var statusComp = childObj_MonsterHandler.AddComponent<MonsterStatus>();
         var handlerCollider = childObj_MonsterHandler.AddComponent<BoxCollider2D>();
