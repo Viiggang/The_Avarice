@@ -22,7 +22,7 @@ public class WildBoarIdle : MonsterStates<MonsterManager>
     {
         Debug.Log("WildBoarIdle");
         Initialize(manager);
-        PlayIdle();
+        //PlayIdle();
     }
     public override void Update()
     {

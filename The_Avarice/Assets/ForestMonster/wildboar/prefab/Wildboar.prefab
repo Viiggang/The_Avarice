@@ -124,7 +124,7 @@ MonoBehaviour:
   manager: {fileID: 5311418271767008338}
   player:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   dashForce: 4
   jumpForce: 4
   Gizmosflag: 0
@@ -232,13 +232,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88dbc2c4da0d5241a6c256bd77f4bcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BoarCollider: {fileID: 2615466633250083738}
+  Collider: {fileID: 2615466633250083738}
   size: {x: 0.45, y: 0.25, z: 0}
   offset: {x: 0.34, y: 0, z: 0}
   renderer: {fileID: 1501112907139602045}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
   findcollider: {fileID: 0}
   MonsterTrans: {fileID: 327966733255566153}
   gizmos: 0
@@ -332,7 +332,7 @@ GameObject:
   - component: {fileID: 2635995796372295449}
   - component: {fileID: 1618041431434294531}
   - component: {fileID: 2615466633250083738}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: BoarHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -375,11 +375,11 @@ MonoBehaviour:
   MonsterTrans: {fileID: 327966733255566153}
   StartState: idle
   StatesList:
-  - {fileID: 11400000, guid: d44a6e866d4116d42b288708b45b96df, type: 2}
-  - {fileID: 11400000, guid: 781396b4543c66047a3604cc1a707270, type: 2}
-  - {fileID: 11400000, guid: 8617392e56b1beb4496a811c2efb2fb7, type: 2}
-  - {fileID: 11400000, guid: f049fd2611bc3f9419d61879979130c1, type: 2}
-  - {fileID: 11400000, guid: d42ede92a9dcb7c4c8c2cf4ac22cb356, type: 2}
+  - {fileID: 11400000, guid: e2d60f94c8f5d784c8635d575ea47f7f, type: 2}
+  - {fileID: 11400000, guid: d75356545a412f444a4039114dac02e3, type: 2}
+  - {fileID: 11400000, guid: a79b6afbb1fd05f448c2ec7160f5ed02, type: 2}
+  - {fileID: 11400000, guid: d22470bbc98bf244d9125e7ae6b78b14, type: 2}
+  - {fileID: 11400000, guid: 6e034fbc21444024eb76158c2616cea7, type: 2}
 --- !u!114 &2635995796372295449
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,10 +393,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MonsterAniList:
-  - {fileID: 11400000, guid: ebf2b21c86f0181409bb508f9379e4e9, type: 2}
-  - {fileID: 11400000, guid: 82e1286d0709e314b890742f2406b7e1, type: 2}
-  - {fileID: 11400000, guid: a9fd93dd25d20ef48955ecef46cf44ec, type: 2}
-  - {fileID: 11400000, guid: a17af8c0f4492d64fb952c573edf4274, type: 2}
+  - {fileID: 11400000, guid: a0ba7c3d3d7d5344489740ae45f7cc38, type: 2}
+  - {fileID: 11400000, guid: c3adb3bafc0f6ef49b004c7319d3e1f5, type: 2}
+  - {fileID: 11400000, guid: 047b2f29b10e883418a1e1493d0469c6, type: 2}
+  - {fileID: 11400000, guid: 17f43f01320af36468f904e4ad9da926, type: 2}
   animator: {fileID: 1445033652489126845}
 --- !u!114 &1618041431434294531
 MonoBehaviour:
@@ -410,14 +410,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96eddc31146f70b4a89394d8d0de262d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterData: {fileID: 11400000, guid: 5956fd05306210946bd9003157ddd9f3, type: 2}
-  BoarHp: 434
-  BoarDamage: 3
-  movespeed: 0.5
-  patrolTime: 4
+  monsterData: {fileID: 11400000, guid: 7d865fbd1319b5142807740d7e2b5c0b, type: 2}
+  monsterHp: 0
+  BoarDamage: 4
+  movespeed: 4
+  patrolTime: 5
   IdleTime: 2
   AttckDistance: 1
-  collider2D: {fileID: 2615466633250083738}
+  BoxCollider2D: {fileID: 2615466633250083738}
   spriteRenderer: {fileID: 1501112907139602045}
   offsetX: {x: -0.07, y: 0}
   AniManager: {fileID: 2635995796372295449}

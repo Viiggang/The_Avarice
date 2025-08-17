@@ -6,7 +6,7 @@ using UnityEngine;
 public class MonsterAniManager : MonoBehaviour
 {
     [SerializeField] private List<MonserAniData> MonsterAniList;
-    [SerializeField] private Animator animator;
+    [SerializeField] public Animator animator;
     private Dictionary<string, MonserAniData> Ani;
     private void Awake()
     {

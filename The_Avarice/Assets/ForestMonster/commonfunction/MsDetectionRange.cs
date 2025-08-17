@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class MsDetectionRange : MonoBehaviour
 {
-    [SerializeField]private Collider2D BoarCollider;
+    [SerializeField]public Collider2D Collider;
     [SerializeField]private Vector3 size;
     [SerializeField]private Vector3 offset;
     [SerializeField]public SpriteRenderer renderer;
@@ -19,17 +19,17 @@ public class MsDetectionRange : MonoBehaviour
     private Vector3 center;
     private Vector2 scaledSize;
     private Vector3 scaledRight;
-   [SerializeField]private Transform MonsterTrans;
+   [SerializeField]public Transform MonsterTrans;
     [HideInInspector]public bool gizmos=false;
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         if (!gizmos) return;
          Gizmos.color = UnityEngine.Color.red;
-        if (BoarCollider == null) return;
+        if (Collider == null) return;
         if (renderer == null) return;
 
-        center = BoarCollider.bounds.center;
+        center = Collider.bounds.center;
         
          scaledSize = new Vector2(
         size.x * transform.lossyScale.x,
@@ -74,7 +74,7 @@ public class MsDetectionRange : MonoBehaviour
     private void Update()
     {
 
-        center = BoarCollider.bounds.center;
+        center = Collider.bounds.center;
         detectionCenter = renderer.flipX ? (center - scaledRight) : (center + scaledRight);
         var hit   = Physics2D.OverlapBox(detectionCenter, scaledSize, 0f, playerLayer);
         if (hit == null)

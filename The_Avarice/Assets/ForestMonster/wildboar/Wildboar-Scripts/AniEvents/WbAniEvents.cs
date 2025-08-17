@@ -26,7 +26,7 @@ public class WB_AniEvents : MonoBehaviour
     {
         if (!Gizmosflag) return;
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(manager.MonsterTrans.position, manager.statusManager.collider2D.bounds.size);
+        Gizmos.DrawWireCube(manager.MonsterTrans.position, manager.statusManager.BoxCollider2D.bounds.size);
     }
     public void attack()
     {
@@ -35,7 +35,7 @@ public class WB_AniEvents : MonoBehaviour
         float dirX = manager.Detectionrange.renderer.flipX ? left : right;
         rigid.AddForce(new Vector2(dirX * dashForce, jumpForce), ForceMode2D.Impulse);
 
-        var hit=Physics2D.OverlapBox(manager.MonsterTrans.position, manager.statusManager.collider2D.bounds.size,0f,player);
+        var hit=Physics2D.OverlapBox(manager.MonsterTrans.position, manager.statusManager.BoxCollider2D.bounds.size,0f,player);
         
         if (hit == null) return;
         var damage = hit.GetComponent<IDamage>();
