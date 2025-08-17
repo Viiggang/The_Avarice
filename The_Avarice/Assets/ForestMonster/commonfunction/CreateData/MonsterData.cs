@@ -15,6 +15,7 @@ public class MonsterData : ScriptableObject
     public float AttackDistance
     {
         get { return attackdistance; }
+        set { attackdistance = value; }
     }
     public float Hp
     {
@@ -24,24 +25,26 @@ public class MonsterData : ScriptableObject
     public float Damage
     {
         get {return damage;}
-       
+       set{ damage = Mathf.Round(value);}
     }
     public string Monstername
     {
         get { return monstername; }
-       
+       set { monstername = value; }
     }
     public float MoveSpeed
     {
         get { return movespeed; }
-        
+        set { movespeed = value; }
     }
     public float PatrolTime
     {
         get { return patroltime; }
+        set { patroltime = value; }
     }
     public float IdleTime
     {
         get { return idletime; }
+        set { idletime = value; }
     }
 }
