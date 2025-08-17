@@ -26,7 +26,7 @@ public class BaseMgr<T> : MonoBehaviour where T : MonoBehaviour
                     Instance = obj.GetComponent<T>();
                 }
             }
-            return instance;
+            return Instance;
         }
 
     }

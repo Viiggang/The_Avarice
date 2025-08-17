@@ -1,0 +1,964 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-9092155664283377276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 711458590b33b504988d3edd99e62b18, type: 3}
+  m_Name: Start
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1448, y: 152}
+  ports:
+    keys:
+    - next
+    values:
+    - _fieldName: next
+      _node: {fileID: -9092155664283377276}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Input
+        node: {fileID: 5468738655974514006}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  next: {fileID: 0}
+--- !u!114 &-4753585302978025436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59a3219563196c341aabe57cbddae020, type: 3}
+  m_Name: Purge Cannon
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 392, y: 328}
+  ports:
+    keys:
+    - input
+    values:
+    - _fieldName: input
+      _node: {fileID: -4753585302978025436}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Attack3
+        node: {fileID: 1345946745086618040}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  sprites:
+  - {fileID: 1727786236, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: -210390527, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: -944513306, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: -224460539, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: 1919607422, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: -1727106012, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: 2016199066, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: -796377775, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: -331605551, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: -728963812, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: -107660418, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: 166432958, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: 631908066, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: -189411385, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: -1902990613, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: -108479967, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: 1204174455, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+  - {fileID: 1777833046, guid: 2263fab4ce175a446b7ce9e91d88ce19, type: 3}
+--- !u!114 &-3559836187397677625
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8045065b48c06044c95b07503eb63f68, type: 3}
+  m_Name: Delay
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -456, y: 24}
+  ports:
+    keys:
+    - input
+    - Next
+    values:
+    - _fieldName: input
+      _node: {fileID: -3559836187397677625}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: page2
+        node: {fileID: 2762685627725764455}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Next
+      _node: {fileID: -3559836187397677625}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 1345946745086618040}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  DelayTime: 4
+  Next: {fileID: 0}
+--- !u!114 &-3066735010475082606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af3a66e02cb3e0842822f427f1e83528, type: 3}
+  m_Name: Slam Down
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 376, y: -248}
+  ports:
+    keys:
+    - input
+    values:
+    - _fieldName: input
+      _node: {fileID: -3066735010475082606}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Attack3
+        node: {fileID: 3059397577649446885}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  sprites:
+  - {fileID: 2107064284, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 2006553444, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1805626745, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 1237295744, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -2102457463, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1527268905, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 59756538, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 170608197, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 1608279758, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1283158790, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 1938327200, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 1297613326, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -551334773, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 1894208763, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1564480446, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1684909359, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 1027399671, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1784275187, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1891538665, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1972869728, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1550614490, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 2127814043, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 2139306268, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16e7a647a082651418c736177c9e7e43, type: 3}
+  m_Name: BossGraph
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: -9092155664283377276}
+  - {fileID: 5468738655974514006}
+  - {fileID: 2762685627725764455}
+  - {fileID: 4056982851124022130}
+  - {fileID: -3559836187397677625}
+  - {fileID: 3034915496524028041}
+  - {fileID: 5984718306629830960}
+  - {fileID: 5786751455992140589}
+  - {fileID: -3066735010475082606}
+  - {fileID: 6734675132452813681}
+  - {fileID: -4753585302978025436}
+  - {fileID: 1906758318615344952}
+  - {fileID: 3059397577649446885}
+  - {fileID: 8065475386479476090}
+  - {fileID: 2001742247323084012}
+  - {fileID: 1345946745086618040}
+--- !u!114 &1345946745086618040
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f629ce24dbb5fa46af90a27c05e3940, type: 3}
+  m_Name: Pattern 2
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -8, y: 264}
+  ports:
+    keys:
+    - input
+    - Attack1
+    - Attack2
+    - Attack3
+    - Attack4
+    values:
+    - _fieldName: input
+      _node: {fileID: 1345946745086618040}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Next
+        node: {fileID: -3559836187397677625}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Attack1
+      _node: {fileID: 1345946745086618040}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 2001742247323084012}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Attack2
+      _node: {fileID: 1345946745086618040}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 8065475386479476090}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Attack3
+      _node: {fileID: 1345946745086618040}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: -4753585302978025436}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Attack4
+      _node: {fileID: 1345946745086618040}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 1906758318615344952}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+  Attack4: {fileID: 0}
+--- !u!114 &1906758318615344952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32af0cc114286f14d913437ae2311d49, type: 3}
+  m_Name: Purge Shot
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 392, y: 456}
+  ports:
+    keys:
+    - input
+    values:
+    - _fieldName: input
+      _node: {fileID: 1906758318615344952}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Attack4
+        node: {fileID: 1345946745086618040}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  sprites:
+  - {fileID: 1704006162, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: 262391718, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: 1603144688, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: 963700297, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: -1395716911, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: 685906550, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: -1983068786, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: -501822693, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: 1165641759, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: -1357019570, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: 1989783731, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: 1123837417, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: 2118776056, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: -2057747884, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: -1960538925, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: -488122613, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: 1794949330, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: -1318130102, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: 2100262415, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: 1008049186, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+  - {fileID: 108364771, guid: a1b4ad01a79c3c444a4a302cfda257da, type: 3}
+--- !u!114 &2001742247323084012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af3a66e02cb3e0842822f427f1e83528, type: 3}
+  m_Name: Slam Down
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 376, y: 8}
+  ports:
+    keys:
+    - input
+    values:
+    - _fieldName: input
+      _node: {fileID: 2001742247323084012}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Attack1
+        node: {fileID: 1345946745086618040}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  sprites:
+  - {fileID: 2107064284, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 2006553444, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1805626745, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 1237295744, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -2102457463, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1527268905, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 59756538, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 170608197, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 1608279758, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1283158790, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 1938327200, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 1297613326, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -551334773, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 1894208763, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1564480446, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1684909359, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 1027399671, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1784275187, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1891538665, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1972869728, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: -1550614490, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 2127814043, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+  - {fileID: 2139306268, guid: 29a2b1b1503ab484e9cee2a68a6041fa, type: 3}
+--- !u!114 &2762685627725764455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd6bd4dc84b575741890779df273da83, type: 3}
+  m_Name: Idle
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -856, y: 136}
+  ports:
+    keys:
+    - input
+    - page1
+    - page2
+    - Dead
+    - Chase
+    values:
+    - _fieldName: input
+      _node: {fileID: 2762685627725764455}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: 5468738655974514006}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: page1
+      _node: {fileID: 2762685627725764455}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 4056982851124022130}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: page2
+      _node: {fileID: 2762685627725764455}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: -3559836187397677625}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Dead
+      _node: {fileID: 2762685627725764455}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 3034915496524028041}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Chase
+      _node: {fileID: 2762685627725764455}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 5984718306629830960}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  page1: {fileID: 0}
+  page2: {fileID: 0}
+  Dead: {fileID: 0}
+  Chase: {fileID: 0}
+  sprites:
+  - {fileID: 1745421841, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: -133043890, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: -2024997181, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: 1112925749, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: 1251852193, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: -1074423148, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: -341446647, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: 821916171, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: 2048515853, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: 1702638688, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: 17811155, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: 1678497774, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: 627530602, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: -1587151606, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: -116863711, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: 1287839551, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: 2126554276, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: -1957387796, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: -309390763, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: -881577151, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: -1085589617, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: -892118625, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: 1889537592, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+  - {fileID: -1740966738, guid: e923361f5a0818e4e9a3bc49a92c5ba4, type: 3}
+--- !u!114 &3034915496524028041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48438f394bf0f8743b09bbde2135b521, type: 3}
+  m_Name: Dead
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1448, y: -104}
+  ports:
+    keys:
+    - input
+    values:
+    - _fieldName: input
+      _node: {fileID: 3034915496524028041}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Dead
+        node: {fileID: 2762685627725764455}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  sprites:
+  - {fileID: -1192921705, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: 1581994278, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: -1659825747, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: 288235291, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: 1595698569, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: -413859292, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: 2094756134, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: 1865815184, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: -1486233446, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: -1460938932, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: -1318230380, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: 1395264079, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: 1169364188, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: 1923257975, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: 295457425, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: -946083872, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: -792446446, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: 1629095615, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: -843962084, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: -1674058907, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  - {fileID: 493384523, guid: bd717972c26634a41af8390d6a1c4017, type: 3}
+  input: {fileID: 0}
+--- !u!114 &3059397577649446885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 593eb08a6c7b23c47ad771d61c937e35, type: 3}
+  m_Name: Pattern 1
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -8, y: -184}
+  ports:
+    keys:
+    - input
+    - Attack1
+    - Attack2
+    - Attack3
+    values:
+    - _fieldName: input
+      _node: {fileID: 3059397577649446885}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Next
+        node: {fileID: 4056982851124022130}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Attack1
+      _node: {fileID: 3059397577649446885}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 5786751455992140589}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Attack2
+      _node: {fileID: 3059397577649446885}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 6734675132452813681}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Attack3
+      _node: {fileID: 3059397577649446885}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: -3066735010475082606}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  Attack1: {fileID: 0}
+  Attack2: {fileID: 0}
+  Attack3: {fileID: 0}
+--- !u!114 &4056982851124022130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8045065b48c06044c95b07503eb63f68, type: 3}
+  m_Name: Delay
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -456, y: -184}
+  ports:
+    keys:
+    - input
+    - Next
+    values:
+    - _fieldName: input
+      _node: {fileID: 4056982851124022130}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: page1
+        node: {fileID: 2762685627725764455}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Next
+      _node: {fileID: 4056982851124022130}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 3059397577649446885}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  DelayTime: 5
+  Next: {fileID: 0}
+--- !u!114 &5468738655974514006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb80c0a08a56f8244ba97f64a684cb4e, type: 3}
+  m_Name: Awake
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1160, y: 152}
+  ports:
+    keys:
+    - Input
+    - next
+    values:
+    - _fieldName: Input
+      _node: {fileID: 5468738655974514006}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: next
+        node: {fileID: -9092155664283377276}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: next
+      _node: {fileID: 5468738655974514006}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: input
+        node: {fileID: 2762685627725764455}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  sprites:
+  - {fileID: -2124279118, guid: 1794219cdf1bdee4b9c6d22671695cdc, type: 3}
+  - {fileID: -1238310180, guid: 1794219cdf1bdee4b9c6d22671695cdc, type: 3}
+  - {fileID: 1925527403, guid: 1794219cdf1bdee4b9c6d22671695cdc, type: 3}
+  - {fileID: -2060553191, guid: 1794219cdf1bdee4b9c6d22671695cdc, type: 3}
+  - {fileID: -1926524092, guid: 1794219cdf1bdee4b9c6d22671695cdc, type: 3}
+  - {fileID: -1430884994, guid: 1794219cdf1bdee4b9c6d22671695cdc, type: 3}
+  - {fileID: -1512317860, guid: 1794219cdf1bdee4b9c6d22671695cdc, type: 3}
+  - {fileID: 1635616959, guid: 1794219cdf1bdee4b9c6d22671695cdc, type: 3}
+  - {fileID: 1477678967, guid: 1794219cdf1bdee4b9c6d22671695cdc, type: 3}
+  - {fileID: 789046261, guid: 1794219cdf1bdee4b9c6d22671695cdc, type: 3}
+  - {fileID: 1774289125, guid: 1794219cdf1bdee4b9c6d22671695cdc, type: 3}
+  - {fileID: -753319619, guid: 1794219cdf1bdee4b9c6d22671695cdc, type: 3}
+  Input: {fileID: 0}
+  next: {fileID: 0}
+--- !u!114 &5786751455992140589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d7a9f60b4658d745b9b2a19d1c91e1b, type: 3}
+  m_Name: Spin Attack
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 376, y: -472}
+  ports:
+    keys:
+    - input
+    values:
+    - _fieldName: input
+      _node: {fileID: 5786751455992140589}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Attack1
+        node: {fileID: 3059397577649446885}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  sprites:
+  - {fileID: -349080279, guid: 541e8dfbb2904bd4f80e5c77b806fa86, type: 3}
+  - {fileID: 1679461669, guid: 541e8dfbb2904bd4f80e5c77b806fa86, type: 3}
+  - {fileID: -888041757, guid: 541e8dfbb2904bd4f80e5c77b806fa86, type: 3}
+  - {fileID: -948434459, guid: 541e8dfbb2904bd4f80e5c77b806fa86, type: 3}
+  - {fileID: 765601981, guid: 541e8dfbb2904bd4f80e5c77b806fa86, type: 3}
+  - {fileID: 1891563071, guid: 541e8dfbb2904bd4f80e5c77b806fa86, type: 3}
+  - {fileID: 84332829, guid: 541e8dfbb2904bd4f80e5c77b806fa86, type: 3}
+  input: {fileID: 0}
+--- !u!114 &5984718306629830960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 85cace671ee882843bad2d52a8d85012, type: 3}
+  m_Name: Chase
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -456, y: 280}
+  ports:
+    keys:
+    - input
+    values:
+    - _fieldName: input
+      _node: {fileID: 5984718306629830960}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Chase
+        node: {fileID: 2762685627725764455}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  sprites:
+  - {fileID: 1555962133, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -1966599150, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: 1187354706, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: 646770220, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -1382653291, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -670105189, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -47388149, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: 1782140674, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -1879251464, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: 1638894039, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -74701969, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -1393247877, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: 515893109, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: 1821520634, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: 843209830, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -580323790, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -530603388, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -343954683, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -1696305773, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: 866359505, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: 1896775948, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -1917122245, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: -460309870, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+  - {fileID: 2063389567, guid: 2e4f5afcba72a314ca6220070ae16b06, type: 3}
+--- !u!114 &6734675132452813681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294cdc9c9d40c7849a78c7fc96bbe9b3, type: 3}
+  m_Name: Blowing
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 376, y: -360}
+  ports:
+    keys:
+    - input
+    values:
+    - _fieldName: input
+      _node: {fileID: 6734675132452813681}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Attack2
+        node: {fileID: 3059397577649446885}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  sprites:
+  - {fileID: -1316094520, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: 1118730177, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: 1584550858, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -630843656, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -85803009, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -2101910375, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -1730154304, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: 1498842286, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -240096007, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: 2019487715, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: 1978548408, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -2094574392, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -2090416242, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+--- !u!114 &8065475386479476090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 294cdc9c9d40c7849a78c7fc96bbe9b3, type: 3}
+  m_Name: Blowing
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 392, y: 200}
+  ports:
+    keys:
+    - input
+    values:
+    - _fieldName: input
+      _node: {fileID: 8065475386479476090}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections:
+      - fieldName: Attack2
+        node: {fileID: 1345946745086618040}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  input: {fileID: 0}
+  sprites:
+  - {fileID: -1316094520, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: 1118730177, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: 1584550858, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -630843656, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -85803009, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -2101910375, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -1730154304, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: 1498842286, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -240096007, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: 2019487715, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: 1978548408, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -2094574392, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+  - {fileID: -2090416242, guid: 6961adc3d8c57d347811247fa7686675, type: 3}
+--- !u!114 &8190816116032421335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92c283b4ebea22f499b5971353198416, type: 3}
+  m_Name: Colossal Attack
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 216, y: -360}
+  ports:
+    keys:
+    - input
+    values:
+    - _fieldName: input
+      _node: {fileID: 8190816116032421335}
+      _typeQualifiedName: BaseState, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+        PublicKeyToken=null
+      connections: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  sprites: []
+  input: {fileID: 0}

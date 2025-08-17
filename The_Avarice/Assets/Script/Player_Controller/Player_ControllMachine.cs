@@ -16,8 +16,13 @@ public class Player_ControllMachine : MonoBehaviour
 
     public void ChangeState(IpController newState)
     {
+        if (newState == null) 
+            return;
+
         CurrentState.Exit();
         CurrentState = newState;
         CurrentState.Enter();
     }
+
+    public bool IsState(IpController state) => currentState == state;
 }

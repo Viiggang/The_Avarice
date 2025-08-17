@@ -15,7 +15,9 @@ public class MoveState : IpController
 
     public void Enter()
     {
+        player.Anim.SetBool("isJump", false);
         player.Anim.SetBool("isMove", true);
+        player.CanMove = true;
     }
 
     public void Exit()
@@ -25,6 +27,8 @@ public class MoveState : IpController
 
     public void HandleInput()
     {
+
+        // ï¿½Ìµï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Idle
         if (Mathf.Abs(player.InputX) < 0.01f)
         {
             stateMachine.ChangeState(player.IdleState);
@@ -37,19 +41,40 @@ public class MoveState : IpController
         {
             stateMachine.ChangeState(player.DashState);
         }
-        else if (Input.GetKeyDown(KeyCode.C))
+        else if (Input.GetKey(KeyCode.C))
         {
             stateMachine.ChangeState(player.AttackState);
+        }
+        else if(Input.GetKeyDown(KeyCode.A))
+        {
+            stateMachine.ChangeState(player.Skill1State);
         }
     }
 
     public void LogicUpdate()
     {
-        // ÀÌµ¿ Ã³¸®
-        float speed = player.InputX > 0 ? player.GetNormalSpeed() : -player.GetNormalSpeed();
-        player.MoveHorizontally(speed);
+        if (!player.IsGrounded())
+        {
+            stateMachine.ChangeState(player.AirState);
+            return;
+        }
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
         player.SetDirection(player.InputX);
     }
 
-    public void PhysicsUpdate() { }
+    public void PhysicsUpdate() 
+    {
+        if (player.CanMove == false)
+        {
+            player.Rigid.velocity = new Vector2(0, player.Rigid.velocity.y);
+
+        }
+        else
+        {
+            float speed = player.InputX > 0 ? player.GetNormalSpeed() : -player.GetNormalSpeed();
+            player.MoveHorizontally(speed);
+        }
+       
+    }
+
 }
