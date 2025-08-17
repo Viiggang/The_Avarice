@@ -28,7 +28,7 @@ public class MoveState : IpController
     public void HandleInput()
     {
 
-        // ï¿½Ìµï¿½ ï¿½Ô·ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Idle
+        // ÀÌµ¿ ÀÔ·Â ¾øÀ¸¸é Idle
         if (Mathf.Abs(player.InputX) < 0.01f)
         {
             stateMachine.ChangeState(player.IdleState);
@@ -41,7 +41,7 @@ public class MoveState : IpController
         {
             stateMachine.ChangeState(player.DashState);
         }
-        else if (Input.GetKey(KeyCode.C))
+        else if (Input.GetKeyDown(KeyCode.C))
         {
             stateMachine.ChangeState(player.AttackState);
         }
@@ -58,7 +58,7 @@ public class MoveState : IpController
             stateMachine.ChangeState(player.AirState);
             return;
         }
-        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È¯
+        // ¹æÇâ ÀüÈ¯
         player.SetDirection(player.InputX);
     }
 

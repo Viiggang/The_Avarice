@@ -5,19 +5,19 @@ using UnityEngine;
 public class Pal_LightCut : MonoBehaviour
 {
     [Header("Hitbox Points")]
-    public Transform startPoint;   
-    public Transform endPoint;    
+    public Transform startPoint;   // 애니메이션에서 시작 위치
+    public Transform endPoint;     // 애니메이션에서 끝 위치
 
     [Header("Hitbox Settings")]
-    public float thickness = 0.2f; 
-    public LayerMask targetLayer;  
-    public float activeTime = 0.05f; 
+    public float thickness = 0.2f; // 판정 두께
+    public LayerMask targetLayer;  // 타격 대상 레이어
+    public float activeTime = 0.05f; // 판정 유지 시간 (초)
 
     public Animator animator;
-    public string attackStateName = "Pal_LightCut"; 
+    public string attackStateName = "Pal_LightCut"; // 공격 애니메이션 상태명
 
-    public float minLength = 0.1f; 
-    public float maxLength = 2f;    
+    public float minLength = 0.1f;  // 최소 충돌 길이
+    public float maxLength = 2f;    // 최대 충돌 길이
 
     private bool isActive = false;
     private float timer = 0f;
@@ -47,7 +47,7 @@ public class Pal_LightCut : MonoBehaviour
         AnimatorClipInfo[] clipInfo = animator.GetCurrentAnimatorClipInfo(0);
         if (clipInfo.Length > 0)
         {
-            activeTime = clipInfo[0].clip.length; 
+            activeTime = clipInfo[0].clip.length;  // 애니메이션 전체 길이로 세팅
         }
         isActive = true;
         timer = activeTime;
@@ -61,6 +61,7 @@ public class Pal_LightCut : MonoBehaviour
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         if (!stateInfo.IsName(attackStateName)) return;
 
+        // 애니메이션 진행률에 speedMultiplier 적용 후 0~1로 클램프
         float progress = Mathf.Clamp01((stateInfo.normalizedTime % 1) * speedMultiplier);
 
         currentLength = Mathf.Lerp(minLength, maxLength, progress);
@@ -85,7 +86,6 @@ public class Pal_LightCut : MonoBehaviour
             if (damage != null && hit.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
                 damage.OnHitDamage(1f);
-                PlayerMgr.instance.setPassiveStack(2);
                 this.gameObject.SetActive(false);
             }
         }

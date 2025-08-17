@@ -5,6 +5,9 @@ public class Skill1State : IpController
 {
     private PlayerCon player;
     private Player_ControllMachine stateMachine;
+
+   /* private float skillDuration = 1.0f;      // 스킬 지속시간 (원하는 값으로 조정)
+    private float skillCooldown = 3.0f; */     // 쿨타임
     private float timer;
 
     private bool isOnCooldown = false;
@@ -19,6 +22,7 @@ public class Skill1State : IpController
     {
         if (isOnCooldown)
         {
+            // 쿨타임 중이면 Idle로 복귀
             stateMachine.ChangeState(player.IdleState);
             return;
         }
@@ -26,16 +30,9 @@ public class Skill1State : IpController
         player.CanMove = false;
         timer = player.GetSkill1Duration();
 
-        if(PlayerMgr.instance.getPlayerType() == Player_Type.Paladin && PlayerMgr.instance.getPassiveStack() == 20)
-        {
-            player.Anim.SetTrigger("Passive1");
-            StartBuff();
-        }
-        else
-        {
-            player.Anim.SetTrigger("Skill1");
-        }
+        player.Anim.SetTrigger("Skill1");
 
+        // 쿨타임 코루틴 시작
         player.StartCoroutine(CooldownCoroutine());
 
         isOnCooldown = true;
@@ -53,6 +50,7 @@ public class Skill1State : IpController
         timer -= Time.deltaTime;
         if (timer <= 0)
         {
+            // 스킬 종료 후 상태 전환
             stateMachine.ChangeState(Mathf.Abs(player.InputX) > 0.01f ? player.MoveState : player.IdleState);
         }
     }
@@ -63,28 +61,5 @@ public class Skill1State : IpController
     {
         yield return new WaitForSeconds(player.GetSkill1Cooldown());
         isOnCooldown = false;
-    }
-
-    public void StartBuff()
-    {
-        player.StartCoroutine(Pal_PassiveBuff());
-    }
-
-    private IEnumerator Pal_PassiveBuff()
-    {
-        yield return new WaitForSeconds(1);
-        PlayerMgr.instance.setPassive(true);
-        PlayerMgr.instance.setPassiveStack(-20);
-        PlayerMgr.instance.setPlayerHp(20f);
-        PlayerMgr.instance.setPlayerMaxHp(20f);
-        PlayerMgr.instance.setPlayerAtk(5f);
-        player.setSkill1Cooldown(0.8f);
-        yield return new WaitForSeconds(6);
-        PlayerMgr.instance.setPassive(false);
-        PlayerMgr.instance.setPlayerHp(-20f);
-        PlayerMgr.instance.setPlayerMaxHp(-20f);
-        PlayerMgr.instance.setPlayerAtk(-5f);
-        player.resetSkill1Cooldown();
-
     }
 }

@@ -4,14 +4,14 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class Player_Atk : MonoBehaviour //ï¿½Ï¹Ý°ï¿½ï¿½ï¿½
+public class Player_Atk : MonoBehaviour //ÀÏ¹Ý°ø°Ý
 {
     private Animator animator;
     [Header("- Attack Info"),SerializeField, Range(0.5f, 2.5f)]
-    private float attackSpeed = 1.0f; // ï¿½ï¿½ï¿½Ý¼Óµï¿½
-    private float nomal_Speed = 1.0f; // ï¿½ï¿½ï¿½Ý¼Óµï¿½
+    private float attackSpeed = 1.0f; // °ø°Ý¼Óµµ
+    private float nomal_Speed = 1.0f; // °ø°Ý¼Óµµ
     [SerializeField]
-    private int MaxComdo = 3; //ï¿½Ö´ï¿½ ï¿½Þºï¿½ï¿½ï¿½
+    private int MaxComdo = 3; //ÃÖ´ë ÄÞº¸¼ö
 
     enum Attack_Type
     {
@@ -32,11 +32,11 @@ public class Player_Atk : MonoBehaviour //ï¿½Ï¹Ý°ï¿½ï¿½ï¿½
 
     private Rigidbody2D rb;
 
-    private int comboStep = 0; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þºï¿½
+    private int comboStep = 0; //ÇöÀç ÁøÇàÁßÀÎ ÄÞº¸
     private int currentHitIndex = 0;
-    private bool comboWindowOpen = false; // ï¿½ï¿½ï¿½ï¿½ï¿½Þºï¿½ï¿½Ô·ï¿½
-    private bool bufferedInput = false;// ï¿½Ô·Â¹ï¿½ï¿½ï¿½
-    private bool isAttacking = false; // ï¿½ï¿½ï¿½ï¿½Å° È°ï¿½ï¿½È­ ï¿½ï¿½ï¿½ï¿½
+    private bool comboWindowOpen = false; // ´ÙÀ½ÄÞº¸ÀÔ·Â
+    private bool bufferedInput = false;// ÀÔ·Â¹öÆÛ
+    private bool isAttacking = false; // °ø°ÝÅ° È°¼ºÈ­ ¿©ºÎ
 
     void Start()
     {
@@ -48,11 +48,11 @@ public class Player_Atk : MonoBehaviour //ï¿½Ï¹Ý°ï¿½ï¿½ï¿½
     {
         if (!isAttacking)
         {
-            PlayAttack(0); // Ã¹ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½;
+            PlayAttack(0); // Ã¹ °ø°Ý ½ÃÀÛ;
         }
         else if (comboWindowOpen && comboStep < MaxComdo)
         {
-            PlayAttack(comboStep + 1); // ï¿½Þºï¿½ ï¿½ï¿½ï¿½ï¿½
+            PlayAttack(comboStep + 1); // ÄÞº¸ ¿¬°á
         }
         else if (comboStep == MaxComdo - 1)
         {
@@ -67,20 +67,15 @@ public class Player_Atk : MonoBehaviour //ï¿½Ï¹Ý°ï¿½ï¿½ï¿½
     void PlayAttack(int step)
     {
         comboStep = step;
-        if (PlayerMgr.instance.getPlayerType() == Player_Type.Paladin && PlayerMgr.instance.getPassive())
-        {
-            animator.SetTrigger("PassiveAtk");
-        }
-        else
-        {
-            for (int i = 0; i < MaxComdo; i++)
-            {
-                animator.ResetTrigger($"Attack{i}Trigger");
-            }
 
-            string triggerName = $"Attack{step}Trigger";
-            animator.SetTrigger(triggerName);
+        for (int i = 0; i < MaxComdo; i++)
+        {
+            animator.ResetTrigger($"Attack{i}Trigger");
         }
+
+        string triggerName = $"Attack{step}Trigger";
+        animator.SetTrigger(triggerName);
+
         animator.speed = attackSpeed;
 
         comboWindowOpen = false;
@@ -89,7 +84,7 @@ public class Player_Atk : MonoBehaviour //ï¿½Ï¹Ý°ï¿½ï¿½ï¿½
 
     }
 
-    // ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ìºï¿½Æ®
+    // ¾Ö´Ï¸ÞÀÌ¼Ç ÀÌº¥Æ®
     public void OpenComboWindow()
     {
         comboWindowOpen = true;
@@ -110,7 +105,7 @@ public class Player_Atk : MonoBehaviour //ï¿½Ï¹Ý°ï¿½ï¿½ï¿½
         isAttacking = false;
         animator.speed = nomal_Speed;
 
-        // FSMï¿½ï¿½ï¿½ï¿½ ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ïµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+        // FSM¿¡¼­ ÀÌµ¿ °¡´ÉÇÏµµ·Ï º¹±¸
         var player = GetComponent<PlayerCon>();
         var stateMachine = GetComponent<Player_ControllMachine>();
         if (player != null)
@@ -119,7 +114,7 @@ public class Player_Atk : MonoBehaviour //ï¿½Ï¹Ý°ï¿½ï¿½ï¿½
         stateMachine.ChangeState(Mathf.Abs(player.InputX) > 0.01f ? player.MoveState : player.IdleState);
         var rb = GetComponent<Rigidbody2D>();
         if (rb != null)
-            rb.gravityScale = 2f; // ï¿½âº»ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+            rb.gravityScale = 2f; // ±âº»°ª º¹¿ø
     }
 
     public void OnAirAtk()
@@ -135,7 +130,7 @@ public class Player_Atk : MonoBehaviour //ï¿½Ï¹Ý°ï¿½ï¿½ï¿½
     }
 
 
-    public void OnHitRange(int type) // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ È£ï¿½ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½Ìºï¿½Æ®
+    public void OnHitRange(int type) // °ø°Ý ¹üÀ§ È£Ãâ¿ë ¾Ö´Ï¸ÞÀÌ¼Ç ÀÌº¥Æ®
     {
         if (atkType == Attack_Type.Close)
         {
@@ -151,11 +146,6 @@ public class Player_Atk : MonoBehaviour //ï¿½Ï¹Ý°ï¿½ï¿½ï¿½
             {
                 HitSkillRange1[currentHitIndex].SetActive(true);
             }
-            else if (type == 3 && currentHitIndex < HitSkillRange2.Length)
-            {
-                HitSkillRange2[currentHitIndex].SetActive(true);
-            }
-          
         }
     }
 

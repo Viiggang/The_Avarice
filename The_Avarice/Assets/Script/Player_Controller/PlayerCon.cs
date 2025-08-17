@@ -23,7 +23,6 @@ public class PlayerCon : MonoBehaviour
     private float dashCooldown = 1f;
     [SerializeField, Range(0.5f, 3.5f)]
     private float skill1Cooldown = 1f;
-    private float resetCooldown = 0f;
     [SerializeField, Range(0.02f, 0.15f)]
     private float dashDodge = 0.05f;
     [SerializeField]
@@ -145,16 +144,6 @@ public class PlayerCon : MonoBehaviour
     public void MoveHorizontally(float speed)
     {
         Rigid.velocity = new Vector2(speed, Rigid.velocity.y);
-    }
-
-    public void setSkill1Cooldown(float sum)
-    {
-        resetCooldown = skill1Cooldown;
-        skill1Cooldown *= sum;
-    }
-    public void resetSkill1Cooldown()
-    {
-        skill1Cooldown = resetCooldown;
     }
 
     public float GetNormalSpeed() => Speed;
