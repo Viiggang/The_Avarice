@@ -19,6 +19,7 @@ public class Pal_LightCut : MonoBehaviour
     public float minLength = 0.1f;  // 최소 충돌 길이
     public float maxLength = 2f;    // 최대 충돌 길이
 
+
     private bool isActive = false;
     private float timer = 0f;
     private float currentLength = 0f;
@@ -60,8 +61,6 @@ public class Pal_LightCut : MonoBehaviour
 
         AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
         if (!stateInfo.IsName(attackStateName)) return;
-
-        // 애니메이션 진행률에 speedMultiplier 적용 후 0~1로 클램프
         float progress = Mathf.Clamp01((stateInfo.normalizedTime % 1) * speedMultiplier);
 
         currentLength = Mathf.Lerp(minLength, maxLength, progress);
