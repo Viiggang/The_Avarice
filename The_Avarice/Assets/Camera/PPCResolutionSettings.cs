@@ -39,15 +39,15 @@ public class PPCResolutionSettings : MonoBehaviour
     }
     private void UpdateResolution()
     {
-        ppc.refResolutionX = Screen.width;
-        ppc.refResolutionY = Screen.height;
+        ppc.refResolutionX = Screen.width / 10;
+        ppc.refResolutionY = Screen.height / 10;
 
         Debug.Log($"해상도 변경: {Screen.width} x {Screen.height}");
     }
 
     private void RoundToPixel()
     {
-        float pixelsPerUnit = (float)Screen.height / (ppc.refResolutionY / (float)ppu);
+        float pixelsPerUnit = (float)Screen.height / (ppc.refResolutionY / (float)ppu) / 10;
 
         float roundedPPU = Mathf.Round(pixelsPerUnit);
         if (Mathf.Abs(pixelsPerUnit - roundedPPU) <= tolerance)
