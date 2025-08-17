@@ -15,44 +15,12 @@ public class JumpState : IpController
 
     public void Enter()
     {
-        player.Anim.SetBool("isJump", true);
         player.Jump();
+        stateMachine.ChangeState(player.AirState); // 점프 시작 → 공중 상태로 전환
     }
 
-    public void Exit()
-    {
-        player.Anim.SetBool("isJump", false);
-    }
-
-    public void HandleInput()
-    {
-        if (Input.GetKeyDown(KeyCode.LeftShift) && player.CanDash)
-        {
-            stateMachine.ChangeState(player.DashState);
-        }
-        else if (Input.GetKeyDown(KeyCode.C))
-        {
-            stateMachine.ChangeState(player.AttackState);
-        }
-    }
-
-    public void LogicUpdate()
-    {
-        // 공중에서 좌우 이동
-        float speed = player.InputX > 0 ? player.GetNormalSpeed() : -player.GetNormalSpeed();
-        if (Mathf.Abs(player.InputX) > 0.01f)
-        {
-            player.MoveHorizontally(speed);
-            player.SetDirection(player.InputX);
-        }
-
-        // 땅에 닿으면 Idle 전환
-        RaycastHit2D hit = Physics2D.Raycast(player.Rigid.position, Vector2.down, 0.5f, LayerMask.GetMask("Platform"));
-        if (hit.collider != null)
-        {
-            stateMachine.ChangeState(Mathf.Abs(player.InputX) > 0.01f ? player.MoveState : player.IdleState);
-        }
-    }
-
+    public void Exit() { }
+    public void HandleInput() { }
+    public void LogicUpdate() { }
     public void PhysicsUpdate() { }
 }

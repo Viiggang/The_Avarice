@@ -15,26 +15,36 @@ public class AttackState : IpController
 
     public void Enter()
     {
-        player.ResetVelocityX(); // 공격 시 멈춤
-        player.Attack.input_Atk(); // 기존 공격 로직 호출
-        player.CanMove = false;
+        // 공격 시 X속도 멈춤
+        player.ResetVelocityX();
+
+        // 공격 시작
+        player.Attack.input_Atk();
     }
 
-    public void Exit()
+    public void Exit() {}
+    public void HandleInput()
     {
-        player.CanMove = true;
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            player.Attack.input_Atk();
+        }
     }
-
-    public void HandleInput() { }
-
     public void LogicUpdate()
     {
-        // 애니메이션 이벤트로 상태 전환
-        if (!player.Anim.GetCurrentAnimatorStateInfo(0).IsTag("Attack"))
+        if (!player.Attack.IsAttacking())
         {
-            stateMachine.ChangeState(player.IdleState);
+            stateMachine.ChangeState(Mathf.Abs(player.InputX) > 0.01f ? player.MoveState : player.IdleState);
         }
     }
 
-    public void PhysicsUpdate() { }
+    public void PhysicsUpdate()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(player.Rigid.position, Vector2.down, 0.4f, LayerMask.GetMask("Platform"));
+        if (hit)
+        {
+            player.Anim.SetBool("isJump", false);
+        }
+        player.Rigid.velocity = new Vector2(0, player.Rigid.velocity.y);
+    }
 }
