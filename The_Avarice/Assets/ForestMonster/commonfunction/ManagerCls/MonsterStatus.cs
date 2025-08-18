@@ -30,7 +30,7 @@ public class MonsterStatus : MonoBehaviour, IDamage
             patrolTime = monsterData.PatrolTime;
             IdleTime = monsterData.IdleTime;
             AttckDistance = monsterData.AttackDistance;
-
+           
         }
 
     }
@@ -38,6 +38,7 @@ public class MonsterStatus : MonoBehaviour, IDamage
     private void Awake()
     {
         ResetValues();
+        lockGizmos = false;
     }
     private void Update()
     {
@@ -59,7 +60,6 @@ public class MonsterStatus : MonoBehaviour, IDamage
     }
     private void ResetValues()
     {
-        
             AttckDistance = monsterData.AttackDistance;
             monsterHp = monsterData.Hp;
             BoarDamage = monsterData.Damage;
@@ -67,12 +67,9 @@ public class MonsterStatus : MonoBehaviour, IDamage
             patrolTime = monsterData.PatrolTime;
             IdleTime = monsterData.IdleTime;
             defaultOffset = BoxCollider2D.offset;
-        
-        lockGizmos = false;
     }
     public void OnHitDamage(float Damage)
     {
-
         monsterHp -= Damage;
         if (monsterHp < 0)
         {

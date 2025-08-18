@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName = "Chase", menuName = "ArcherStates/Chase")]
-public class ArcherChase : MonsterStates<MonsterController>
+[CreateAssetMenu(fileName = "attack",menuName = "ArcherStates/Attack")]
+public class ArcherAttack : MonsterStates<MonsterController>
 {
     private MonsterController manager;
+    [SerializeField] private string attack;
     public override void Enter(MonsterController manager)
     {
-        this.manager = manager;
+        manager.aniManager.Play(attack);
     }
     public override void Update()
     {

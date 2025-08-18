@@ -16,7 +16,7 @@ public class CreateMonsterTemplate : EditorWindow
     bool showStats = true;
     Sprite imagedata;
 
-    [MenuItem("MonsterMaker/Forest monster template")]
+    [MenuItem("MonsterMaker/Forest/Forest monster Create")]
     public static void OpenWindow()
     {
         GetWindow<CreateMonsterTemplate>("몬스터 템플릿 생성");
