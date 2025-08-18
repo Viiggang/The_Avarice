@@ -15,6 +15,8 @@ public class IdleState : IpController
 
     public void Enter()
     {
+        player.Anim.SetBool("isJump", false);
+        player.CanMove = true;
         player.Anim.SetBool("isMove", false);
     }
 
@@ -22,7 +24,7 @@ public class IdleState : IpController
 
     public void HandleInput()
     {
-      if (Mathf.Abs(player.InputX) > 0.01f)
+        if (Mathf.Abs(player.InputX) > 0.01f)
         {
             stateMachine.ChangeState(player.MoveState);
         }
@@ -38,11 +40,29 @@ public class IdleState : IpController
         {
             stateMachine.ChangeState(player.AttackState);
         }
+        else if(Input.GetKey(KeyCode.A))
+        {
+            stateMachine.ChangeState(player.Skill1State);
+        }
     }
 
     public void LogicUpdate()
     {
-        // Idle¿¡¼­´Â ¼öÆò ¼Óµµ 0 À¯Áö
+        if (!player.IsGrounded())
+        {
+            stateMachine.ChangeState(player.AirState);
+            return;
+        }
+
+        if (Mathf.Abs(player.InputX) > 0.01f)
+        {
+            stateMachine.ChangeState(player.MoveState);
+        }
+        else if (player.JumpInput)
+        {
+            stateMachine.ChangeState(player.JumpState);
+        }
+        // Idleï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Óµï¿½ 0 ï¿½ï¿½ï¿½ï¿½
         player.MoveHorizontally(0);
     }
 

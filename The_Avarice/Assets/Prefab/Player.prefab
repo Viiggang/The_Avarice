@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6820058824111334696}
+  player: {fileID: 0}
 --- !u!70 &8394099111301552529
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -269,14 +270,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0736df4f36364c444987f8cfee28c5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nomal_Speed: 5
-  JumpPower: 10
-  Dash_Speed: 20
+  Speed: 5
+  jumpPower: 10
+  hitBox: {fileID: 0}
+  dashSpeed: 30
   dashDuration: 0.1
+  Skill1Duration: 1
   dashCooldown: 1
+  skill1Cooldown: 1
   dashDodge: 0.1
-  Skills: []
-  HitBox: {fileID: 8394099111301552529}
+  dashHitBox: {fileID: 0}
 --- !u!114 &4693372238942071044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -291,6 +294,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attackSpeed: 1
   MaxComdo: 3
+  atkType: 0
+  HitRange1: []
+  HitRange2: []
 --- !u!95 &6820058824111334696
 Animator:
   serializedVersion: 5
