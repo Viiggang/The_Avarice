@@ -48,9 +48,14 @@ Unity 실행 후 상단 메뉴 바에 **MonsterMaker** 항목이 생성됩니다
   - `MonsterStates<T>` 상속 후 상태 패턴 구현 필요  
 - `MonsterAniManager` → 애니메이션 데이터 연결  
   - 생성 경로: `Project → Create → MonsterAnimaction → AnimactionData`  
-  - `PlayName` = Animator 파라미터 이름  
+  - `PlayName` = Animator 파라미터 이름
+---  
+<img width="429" height="292" alt="image" src="https://github.com/user-attachments/assets/8f36e633-cbaf-4773-8763-5d1bdaca7511" />
 
 ⚠️ **FlipX 보정**  
+몬스터의 flip상태 따라서 변경되는 위치에 대해서 콜라이더도 위치값을 변경해야한다.  
+그래서 체크된 상태에서 콜라이더를 맞추고 flip이 전환될 때 OffsetX값으로 콜라이더 위치를 보정해 줄것이다.  
+
 1. 게임 실행 후 Flip 체크/해제하면서 **OffsetX** 값 조정  
 2. 올바른 위치 확인 후 값 복사  
 3. 실행 종료 후 프리팹에 값 적용  
@@ -67,7 +72,7 @@ Unity 실행 후 상단 메뉴 바에 **MonsterMaker** 항목이 생성됩니다
 ### (4) DetectionRange
 - 플레이어 **탐지 범위** 설정  
 - 인지범위 버튼 활성화 하며 기즈모 생성됨 `Size`, `Offset` 값 보고 조정  
-
+- flip 체크된 상태에서 값을 설정해야한다 그러면 게임 실행 후 알아서 flip상태에 따라 자동 보정을 해준다.   
 ---
 
 ### (5) FootCollider
