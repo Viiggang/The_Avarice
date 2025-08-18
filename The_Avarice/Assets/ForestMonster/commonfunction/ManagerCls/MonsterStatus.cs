@@ -17,7 +17,7 @@ public class MonsterStatus : MonoBehaviour, IDamage
     private Vector2 defaultOffset;
 
     [SerializeField] private MonsterAniManager AniManager;
-    [HideInInspector] public bool lockGizmos = true;
+    [HideInInspector] public bool lockGizmos =false;
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

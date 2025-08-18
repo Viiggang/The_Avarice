@@ -9,13 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7ff2b03642c3ddf4384e026f4ade417e, type: 3}
-  m_Name: skeletonArcher
+  m_Script: {fileID: 11500000, guid: 3becaf9812724a048abe30ead30c5a6f, type: 3}
+  m_Name: NewWildBoarState 3
   m_EditorClassIdentifier: 
-  monstername: skeletonArcher
-  hp: 1
-  damage: 1
-  movespeed: 1
-  patroltime: 3
-  idletime: 3
-  attackdistance: 5
+  StateName: chase
+  idle: idle
+  attack: attack
+  PlayAnimaction: move
