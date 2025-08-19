@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEditor;
 public class MonsterStatus : MonoBehaviour, IDamage
 {
+   
     [Leein.InspectorName("사용할 데이터")][SerializeField] public MonsterData monsterData;
     [Leein.InspectorName("몬스터 체력")] public float monsterHp;
     [Leein.InspectorName("몬스터 데미지")] public float BoarDamage;
