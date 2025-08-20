@@ -5,16 +5,16 @@ using UnityEngine;
 
 public class MonsterAniManager : MonoBehaviour
 {
-    [SerializeField] public List<MonserAniData> MonsterAniList;
+    [SerializeField] public List<MonsterAniData> MonsterAniList;
     [SerializeField] public Animator animator;
-    private Dictionary<string, MonserAniData> Ani;
+    private Dictionary<string, MonsterAniData> aniDict;
     private void Awake()
     {
-        Ani = MonsterAniList.ToDictionary(Data => Data.Playname, Data => Data);
+        aniDict = MonsterAniList.ToDictionary(Data => Data.Playname, Data => Data);
     }
 
     public void Play(string PlayName)
     {
-        Ani[PlayName].Play(animator);
+        aniDict[PlayName].Play(animator);
     }
 }

@@ -126,7 +126,7 @@ public class MonsterEdit : EditorWindow
 
         var status = selectedPrefab.GetComponentInChildren<MonsterStatus>();
         var objSprite = selectedPrefab.GetComponentInChildren<SpriteRenderer>();
-        var aniList= selectedPrefab.GetComponentInChildren<MonsterAniManager>();
+     
         if (status == null || status.monsterData == null)
             return;
 
@@ -137,7 +137,7 @@ public class MonsterEdit : EditorWindow
         status.monsterData.PatrolTime = EditorGUILayout.FloatField("순찰시간", status.monsterData.PatrolTime);
         status.monsterData.IdleTime = EditorGUILayout.FloatField("대기시간", status.monsterData.IdleTime);
         status.monsterData.AttackDistance = EditorGUILayout.FloatField("공격거리", status.monsterData.AttackDistance);
-     
+        imagedata = objSprite.sprite;
         imagedata = (Sprite)EditorGUILayout.ObjectField("몬스터 기본 이미지", imagedata, typeof(Sprite), false);
 
         if (GUILayout.Button("Save Changes"))

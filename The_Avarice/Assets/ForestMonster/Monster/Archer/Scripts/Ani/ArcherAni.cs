@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class ArcherAni : MonoBehaviour
 {
-    [SerializeField]private List<MonserAniData> MonsterAniList;
+    [SerializeField]private List<MonsterAniData> MonsterAniList;
     [SerializeField] private Animator animator;
-    public Dictionary<string, MonserAniData> Ani;
+    public Dictionary<string, MonsterAniData> Ani;
     private void Awake()
     {
         Ani = MonsterAniList.ToDictionary(Data => Data.Playname, Data => Data);
