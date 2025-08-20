@@ -8,14 +8,18 @@ public class MonsterController : MonoBehaviour
 {
     
     public MonsterMachine<MonsterController> MonsterMachine;//상태머신
+    [HideInInspector] public string StartState;//시작 상태
+
     [Leein.InspectorName("몬스터 애니메이션")] public MonsterAniManager aniManager;//애니메이션 매니저
     [Leein.InspectorName("몬스터 능력치")] public MonsterStatus statusManager;//상태 매니저
     [Leein.InspectorName("몬스터 인지 범위")] public MsDetectionRange Detectionrange;//인지 범위
     [Leein.InspectorName("최상위 부모 transform")]public Transform MonsterTrans;//최상위 위치
 
-    [HideInInspector] public string StartState;//시작 상태
     [SerializeField] public List<MonsterStates<MonsterController>> StatesList;//인스펙트 창에서 상태주입하면 됨
     public Dictionary<string, MonsterStates<MonsterController>>State;//상태관리용
+
+    //public delegate void flipChangeEvents();
+    //public event flipChangeEvents flipChange;
     void Awake()
     {
         MonsterMachine = new MonsterMachine<MonsterController>();
@@ -24,7 +28,7 @@ public class MonsterController : MonoBehaviour
 
     void Start()
     {
-
+        
         MonsterMachine.ChangeState(State[StartState], this);
 
     }
