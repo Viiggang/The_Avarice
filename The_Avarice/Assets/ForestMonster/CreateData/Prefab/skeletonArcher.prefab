@@ -200,11 +200,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: 37be350cced595149a2641706339923a, type: 2}
-  monsterHp: 1
+  monsterHp: 9999
   BoarDamage: 1
   movespeed: 1
   patrolTime: 3
-  IdleTime: 3
+  IdleTime: 1
   AttckDistance: 5
   BoxCollider2D: {fileID: 7479456204071650013}
   spriteRenderer: {fileID: 4868702720341642154}

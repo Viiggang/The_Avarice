@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
 using UnityEditor;
 using System.Collections.Generic;
+using System;
+using Unity.VisualScripting;
 
 public class MonsterEdit : EditorWindow
 {
     MonsterController controller;
     MonsterAniManager aniManager;
     MonsterData data;
+    List<MonsterAniData> MonsterAniList;
+
 
     GameObject cloneRoot;
     GameObject childObj_MonsterHandler;
@@ -17,11 +21,14 @@ public class MonsterEdit : EditorWindow
     private Vector2 leftScroll;
     private Vector2 rightScroll;
 
+    private Vector2 aniScroll;
+    private Vector2 rScroll;
     private GameObject[] prefabs;
     private GameObject selectedPrefab;
     bool showStats = false;
     Sprite imagedata;
 
+   
     [MenuItem("MonsterMaker/Forest/Forest monster Create")]
     public static void OpenWindow()
     {
@@ -39,6 +46,7 @@ public class MonsterEdit : EditorWindow
             string path = AssetDatabase.GUIDToAssetPath(guids[i]);
             prefabs[i] = AssetDatabase.LoadAssetAtPath<GameObject>(path);
         }
+        
     }
 
     private void OnGUI()
@@ -47,9 +55,10 @@ public class MonsterEdit : EditorWindow
         if (GUILayout.Button("몬스터 생성하기"))
         {
             selectedPrefab = null;
+            imagedata = null;
             data = ScriptableObject.CreateInstance<MonsterData>();
-          
             showStats = true;
+            CreateClone();
         }
         GUILayout.EndHorizontal();
 
@@ -57,6 +66,7 @@ public class MonsterEdit : EditorWindow
 
         // 왼쪽 스크롤 - 프리팹 리스트
         leftScroll = GUILayout.BeginScrollView(leftScroll, GUILayout.Width(200));
+        EditorGUI.BeginChangeCheck();
         GUILayout.Label("몬스터 목록", EditorStyles.boldLabel);
         foreach (var prefab in prefabs)
         {
@@ -67,6 +77,8 @@ public class MonsterEdit : EditorWindow
                 showStats = false;
             }
         }
+      
+
         GUILayout.EndScrollView();
 
         // 오른쪽 스크롤 - 상세 UI
@@ -95,7 +107,7 @@ public class MonsterEdit : EditorWindow
         data.PatrolTime = EditorGUILayout.FloatField("순찰 시간", data.PatrolTime);
         data.IdleTime = EditorGUILayout.FloatField("대기 시간", data.IdleTime);
         data.AttackDistance = EditorGUILayout.FloatField("공격 거리", data.AttackDistance);
-     
+        
         // 애니메이터 컨트롤러 설정
         if (animaction != null)
         {
@@ -112,7 +124,7 @@ public class MonsterEdit : EditorWindow
      
         if (GUILayout.Button("Generate Prefab"))
         {
-            CreateClone();
+        
             GeneratePrefab();
             OnEnable();
             showStats = false;
@@ -126,7 +138,8 @@ public class MonsterEdit : EditorWindow
 
         var status = selectedPrefab.GetComponentInChildren<MonsterStatus>();
         var objSprite = selectedPrefab.GetComponentInChildren<SpriteRenderer>();
-     
+        var animanager = selectedPrefab.GetComponentInChildren<MonsterAniManager>();
+        MonsterAniList = animanager.MonsterAniList;
         if (status == null || status.monsterData == null)
             return;
 
@@ -139,12 +152,45 @@ public class MonsterEdit : EditorWindow
         status.monsterData.AttackDistance = EditorGUILayout.FloatField("공격거리", status.monsterData.AttackDistance);
         imagedata = objSprite.sprite;
         imagedata = (Sprite)EditorGUILayout.ObjectField("몬스터 기본 이미지", imagedata, typeof(Sprite), false);
+        //////////////////////////////////////////////////////////////////////////////////
+        GUILayout.BeginHorizontal();
+        GUILayout.BeginVertical();
+        aniScroll = GUILayout.BeginScrollView(aniScroll, GUILayout.Width(400));
+        for (int i = 0; i < MonsterAniList.Count; i++)
+        {
+            MonsterAniList[i] = (MonsterAniData)EditorGUILayout.ObjectField($"애니메이션 트리거 값{i+1}",// 라벨 (string)
+                                                                                           MonsterAniList[i],   // 현재 값 (Object)
+                                                                                           typeof(MonsterAniData),  // 허용 타입 (Type)
+                                                                                           false);
+        }
+        if (GUILayout.Button("+ Add AniState"))
+        {
+          
+            MonsterAniList.Add(new MonsterAniData());
+        }
+        if (GUILayout.Button("- Remove Last AniState"))
+        {
+            if (MonsterAniList.Count == 0) return;
+           
+            MonsterAniList.RemoveAt(MonsterAniList.Count-1);
+        }
+        GUILayout.EndScrollView();
+        GUILayout.EndVertical();
+        //////////////////////////////////////////////////////////////////////////////////
 
+        GUILayout.Label("sd");
+     
+       
+        GUILayout.EndHorizontal();
+        GUILayout.FlexibleSpace();
         if (GUILayout.Button("Save Changes"))
         {
             objSprite.sprite = imagedata;
+          
+           
             EditorUtility.SetDirty(status.monsterData);
-            AssetDatabase.SaveAssets();
+            EditorUtility.SetDirty(animanager);
+          AssetDatabase.SaveAssets();
         }
 
         if (GUILayout.Button("Delete Prefab"))
