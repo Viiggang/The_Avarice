@@ -369,11 +369,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b0cfa0448be1c4bac4129c7b3eb029, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartState: idle
   aniManager: {fileID: 1522253189212252596}
   statusManager: {fileID: 2364164235255901135}
   Detectionrange: {fileID: 7496010005298082371}
   MonsterTrans: {fileID: 5853853416024356857}
-  StartState: idle
   StatesList:
   - {fileID: 11400000, guid: e2d60f94c8f5d784c8635d575ea47f7f, type: 2}
   - {fileID: 11400000, guid: d75356545a412f444a4039114dac02e3, type: 2}

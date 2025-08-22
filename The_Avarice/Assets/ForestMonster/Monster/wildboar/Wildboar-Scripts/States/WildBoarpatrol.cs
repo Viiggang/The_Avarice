@@ -8,7 +8,7 @@ using UnityEngine;
     menuName = "WildBoarStates/patrol" // 메뉴 경로
  
 )]
-public class WildBoarpatrol : MonsterStates<MonsterController>
+public class WildBoarpatrol : MonsterStates
 {
   
     private float movespeed;
@@ -16,14 +16,22 @@ public class WildBoarpatrol : MonsterStates<MonsterController>
     private float time;
     private Vector3 moveDir;
     private MonsterController manager;
-    private Dictionary<string, MonsterStates<MonsterController>> WildBoarState;
+    private Dictionary<string, MonsterStates> WildBoarState;
     [Leein.InspectorName("WildBoarpatrol->NextState")][SerializeField] private string NextState;
     [SerializeField] private string PlayAnimaction;
     
-    public override void Enter(MonsterController manager)
+    public override void Initialize(MonsterController manager)
+    {
+        this.manager = manager;
+        movespeed = this.manager.statusManager.movespeed;
+        patrolTime = this.manager.statusManager.patrolTime;
+        WildBoarState = this.manager.State;
+        time = 0;
+    }
+    public override void Enter()
     {
         Debug.Log("WildBoarpatrol 시작");
-        Initialize(manager);
+       
         PlayMove();
         SetDirection();
     }
@@ -37,14 +45,7 @@ public class WildBoarpatrol : MonsterStates<MonsterController>
     {
 
     }
-    public override void Initialize(MonsterController manager)
-    {
-        this.manager = manager;
-        movespeed = this.manager.statusManager.movespeed;
-        patrolTime = this.manager.statusManager.patrolTime;
-        WildBoarState = this.manager.State;
-        time = 0;
-    }
+   
     private void PlayMove()
     {
         this.manager.aniManager.Play(PlayAnimaction);

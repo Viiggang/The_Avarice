@@ -6,13 +6,20 @@ using UnityEngine;
     menuName = "WildBoarStates/Attack" // 메뉴 경로
 
 )]
-public class WildBoarAttack : MonsterStates<MonsterController>
+public class WildBoarAttack : MonsterStates
 {
     [SerializeField]private string PlayAnimaction;
     private MonsterController manager;
-    public override void Enter(MonsterController manager)
+    public override void Initialize(MonsterController manager)
     {
-        Initialize(manager);
+        if (this.manager == null)
+        {
+            this.manager = manager;
+        }
+    }
+    public override void Enter()
+    {
+    
         PlayAttack();
     }
     public override void Update()
@@ -23,13 +30,7 @@ public class WildBoarAttack : MonsterStates<MonsterController>
     {
 
     }
-    public override void Initialize(MonsterController manager)
-    {
-        if (this.manager == null)
-        {
-            this.manager = manager;
-        }
-    }
+   
     private void PlayAttack()
     {
         manager.aniManager.Play(PlayAnimaction);

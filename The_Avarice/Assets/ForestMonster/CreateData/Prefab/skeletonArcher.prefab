@@ -164,11 +164,11 @@ MonoBehaviour:
   Detectionrange: {fileID: 8671600531080652759}
   MonsterTrans: {fileID: 7910183990518042594}
   StatesList:
-  - {fileID: 11400000, guid: 97ec4b5d5bf78474f87a3f6ca91d21f6, type: 2}
-  - {fileID: 11400000, guid: 4145bd9b798719d4e81ac4863ae32a6f, type: 2}
-  - {fileID: 11400000, guid: cff5adfb9cfcc264e97ee7043ea49e62, type: 2}
-  - {fileID: 11400000, guid: 15f5d653d27e4d44b98740999f021319, type: 2}
-  - {fileID: 11400000, guid: 5f2ef94b58d840d42889dc81d4e18fda, type: 2}
+  - {fileID: 11400000, guid: d22470bbc98bf244d9125e7ae6b78b14, type: 2}
+  - {fileID: 11400000, guid: e2d60f94c8f5d784c8635d575ea47f7f, type: 2}
+  - {fileID: 11400000, guid: d75356545a412f444a4039114dac02e3, type: 2}
+  - {fileID: 11400000, guid: 6e034fbc21444024eb76158c2616cea7, type: 2}
+  - {fileID: 11400000, guid: a79b6afbb1fd05f448c2ec7160f5ed02, type: 2}
 --- !u!114 &518018239442898098
 MonoBehaviour:
   m_ObjectHideFlags: 0

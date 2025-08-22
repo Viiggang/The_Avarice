@@ -15,8 +15,8 @@ public class MonsterController : MonoBehaviour
     [Leein.InspectorName("몬스터 인지 범위")] public MsDetectionRange Detectionrange;//인지 범위
     [Leein.InspectorName("최상위 부모 transform")]public Transform MonsterTrans;//최상위 위치
 
-    [SerializeField] public List<MonsterStates<MonsterController>> StatesList;//인스펙트 창에서 상태주입하면 됨
-    public Dictionary<string, MonsterStates<MonsterController>>State;//상태관리용
+    [SerializeField] public List<MonsterStates> StatesList;//인스펙트 창에서 상태주입하면 됨
+    public Dictionary<string, MonsterStates> State;//상태관리용
 
     //public delegate void flipChangeEvents();
     //public event flipChangeEvents flipChange;

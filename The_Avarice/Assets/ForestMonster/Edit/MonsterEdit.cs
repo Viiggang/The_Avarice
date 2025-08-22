@@ -10,7 +10,7 @@ public class MonsterEdit : EditorWindow
     MonsterAniManager aniManager;
     MonsterData data;
     List<MonsterAniData> MonsterAniList;
-
+    List<MonsterStates> StatesList;
 
     GameObject cloneRoot;
     GameObject childObj_MonsterHandler;
@@ -137,9 +137,11 @@ public class MonsterEdit : EditorWindow
         GUILayout.Label("선택한 프리팹: " + selectedPrefab.name, EditorStyles.boldLabel);
 
         var status = selectedPrefab.GetComponentInChildren<MonsterStatus>();
+        var state = selectedPrefab.GetComponentInChildren<MonsterController>();
         var objSprite = selectedPrefab.GetComponentInChildren<SpriteRenderer>();
         var animanager = selectedPrefab.GetComponentInChildren<MonsterAniManager>();
         MonsterAniList = animanager.MonsterAniList;
+        StatesList = state.StatesList;
         if (status == null || status.monsterData == null)
             return;
 
@@ -158,7 +160,7 @@ public class MonsterEdit : EditorWindow
         aniScroll = GUILayout.BeginScrollView(aniScroll, GUILayout.Width(400));
         for (int i = 0; i < MonsterAniList.Count; i++)
         {
-            MonsterAniList[i] = (MonsterAniData)EditorGUILayout.ObjectField($"애니메이션 트리거 값{i+1}",// 라벨 (string)
+            MonsterAniList[i] = (MonsterAniData)EditorGUILayout.ObjectField($"애니메이션 트리거 리스트:{i+1}",// 라벨 (string)
                                                                                            MonsterAniList[i],   // 현재 값 (Object)
                                                                                            typeof(MonsterAniData),  // 허용 타입 (Type)
                                                                                            false);
@@ -177,10 +179,27 @@ public class MonsterEdit : EditorWindow
         GUILayout.EndScrollView();
         GUILayout.EndVertical();
         //////////////////////////////////////////////////////////////////////////////////
-
-        GUILayout.Label("sd");
-     
+        GUILayout.BeginVertical();
        
+        for(int j=0; j< StatesList.Count; j++)
+        {
+            StatesList[j]=(MonsterStates)EditorGUILayout.ObjectField($"몬스터 상태 리스트:{j + 1}",// 라벨 (string)
+                                                                                           StatesList[j],   // 현재 값 (Object)
+                                                                                           typeof(MonsterStates),  // 허용 타입 (Type)
+                                                                                           false);
+        }
+        if (GUILayout.Button("+ Add MonsterState"))
+        {
+
+            StatesList.Add(new MonsterStates());
+        }
+        if (GUILayout.Button("- Remove MonsterState Last Index"))
+        {
+            if (StatesList.Count == 0) return;
+            StatesList.RemoveAt(StatesList.Count - 1);
+        }
+        GUILayout.EndVertical();
+
         GUILayout.EndHorizontal();
         GUILayout.FlexibleSpace();
         if (GUILayout.Button("Save Changes"))
@@ -190,7 +209,8 @@ public class MonsterEdit : EditorWindow
            
             EditorUtility.SetDirty(status.monsterData);
             EditorUtility.SetDirty(animanager);
-          AssetDatabase.SaveAssets();
+            EditorUtility.SetDirty(state);
+            AssetDatabase.SaveAssets();
         }
 
         if (GUILayout.Button("Delete Prefab"))
@@ -199,7 +219,8 @@ public class MonsterEdit : EditorWindow
             string dataPath = "Assets/ForestMonster/CreateData/data/" + selectedPrefab.name + ".asset";
 
             AssetDatabase.DeleteAsset(prefabPath);
-            AssetDatabase.DeleteAsset(dataPath);
+            AssetDatabase.DeleteAsset(dataPath); 
+              
             AssetDatabase.Refresh();
 
             selectedPrefab = null;
@@ -219,6 +240,7 @@ public class MonsterEdit : EditorWindow
         var managerComp = childObj_MonsterHandler.AddComponent<MonsterController>();
         var aniManagerComp = childObj_MonsterHandler.AddComponent<MonsterAniManager>();
         var statusComp = childObj_MonsterHandler.AddComponent<MonsterStatus>();
+        statusComp.AniManager = aniManagerComp;
         var handlerCollider = childObj_MonsterHandler.AddComponent<BoxCollider2D>();
         handlerCollider.isTrigger = true;
 

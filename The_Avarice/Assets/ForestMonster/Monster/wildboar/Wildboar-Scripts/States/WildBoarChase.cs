@@ -6,31 +6,16 @@ using UnityEngine;
     menuName = "WildBoarStates/Chase" // 메뉴 경로
    
 )]
-public class WildBoarChase : MonsterStates<MonsterController>
+public class WildBoarChase : MonsterStates
 {
    
     private MonsterController manager;
     private Transform target;
     private float AttackDistance = 0;
-    public Dictionary<string, MonsterStates<MonsterController>> WildBoarState;
+    public Dictionary<string, MonsterStates> WildBoarState;
     [Leein.InspectorName("Chase->Idle")][SerializeField]private string idle;
     [Leein.InspectorName("Chase->Attack")][SerializeField] private string attack;
     [SerializeField] private string PlayAnimaction;
-    public override void Enter(MonsterController manager)
-    {
-        Initialize(manager);
-        PlayMove();
-    }
-    public override void Update()
-    {
-        if (CheckIdleTransition()) return;
-        if (CheckAttackTransition()) return;
-        ChaseTarget();
-    }
-    public override  void Exit()
-    {
-
-    }
     public override void Initialize(MonsterController manager)
     {
         this.manager = manager;
@@ -51,6 +36,22 @@ public class WildBoarChase : MonsterStates<MonsterController>
             manager.MonsterMachine.ChangeState(WildBoarState[idle], manager);
         }
     }
+    public override void Enter( )
+    {
+        
+        PlayMove();
+    }
+    public override void Update()
+    {
+        if (CheckIdleTransition()) return;
+        if (CheckAttackTransition()) return;
+        ChaseTarget();
+    }
+    public override  void Exit()
+    {
+
+    }
+   
     private void PlayMove()
     {
         manager.aniManager.Play(PlayAnimaction);

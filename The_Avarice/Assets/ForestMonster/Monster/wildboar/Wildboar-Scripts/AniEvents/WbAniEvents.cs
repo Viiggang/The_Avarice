@@ -45,7 +45,7 @@ public class WB_AniEvents : MonoBehaviour
     }
     public void AttackToIdle()
     {
-        Dictionary<string, MonsterStates<MonsterController>> WildBoarState= manager.State;
+        Dictionary<string, MonsterStates> WildBoarState= manager.State;
         string CurrentState= manager.StartState;
         MonsterMachine<MonsterController> MonsterMachine= manager.MonsterMachine;
        
