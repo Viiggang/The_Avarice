@@ -12,6 +12,7 @@ public class MonsterData : ScriptableObject
     [SerializeField] private float patroltime;
     [SerializeField] private float idletime;
     [SerializeField] private float attackdistance;
+    [SerializeField] private int defense;
     public float AttackDistance
     {
         get { return attackdistance; }
@@ -20,17 +21,17 @@ public class MonsterData : ScriptableObject
     public float Hp
     {
         get { return hp; }
-        set{ hp = Mathf.Round(value);}
+        set { hp = Mathf.Round(value); }
     }
     public float Damage
     {
-        get {return damage;}
-       set{ damage = Mathf.Round(value);}
+        get { return damage; }
+        set { damage = Mathf.Round(value); }
     }
     public string Monstername
     {
         get { return monstername; }
-       set { monstername = value; }
+        set { monstername = value; }
     }
     public float MoveSpeed
     {
@@ -46,5 +47,10 @@ public class MonsterData : ScriptableObject
     {
         get { return idletime; }
         set { idletime = value; }
+    }
+    public int Defense
+    {
+        get { return defense; }
+        set { defense = value; }
     }
 }

@@ -12,6 +12,8 @@ public class MonsterStatus : MonoBehaviour, IDamage
     [Leein.InspectorName("몬스터 순찰 시간")] public float patrolTime;
     [Leein.InspectorName("몬스터 대기 시간")] public float IdleTime;
     [Leein.InspectorName("몬스터 공격 거리")] public float AttckDistance;
+    [Leein.InspectorName("몬스터 방어력")] public int defense;
+    public float time; //기다린 시간
     [SerializeField] public BoxCollider2D BoxCollider2D;
     [SerializeField] public SpriteRenderer spriteRenderer;
     [SerializeField] private Vector2 offsetX;
@@ -31,7 +33,7 @@ public class MonsterStatus : MonoBehaviour, IDamage
             patrolTime = monsterData.PatrolTime;
             IdleTime = monsterData.IdleTime;
             AttckDistance = monsterData.AttackDistance;
-           
+            defense=monsterData.Defense;
         }
 
     }
@@ -61,13 +63,15 @@ public class MonsterStatus : MonoBehaviour, IDamage
     }
     private void ResetValues()
     {
-            AttckDistance = monsterData.AttackDistance;
-            monsterHp = monsterData.Hp;
-            BoarDamage = monsterData.Damage;
-            movespeed = monsterData.MoveSpeed;
-            patrolTime = monsterData.PatrolTime;
-            IdleTime = monsterData.IdleTime;
-            defaultOffset = BoxCollider2D.offset;
+        AttckDistance = monsterData.AttackDistance;
+        monsterHp = monsterData.Hp;
+        BoarDamage = monsterData.Damage;
+        movespeed = monsterData.MoveSpeed;
+        patrolTime = monsterData.PatrolTime;
+        IdleTime = monsterData.IdleTime;
+        defaultOffset = BoxCollider2D.offset;
+        defense = monsterData.Defense;
+        time = 0;
     }
     public void OnHitDamage(float Damage)
     {

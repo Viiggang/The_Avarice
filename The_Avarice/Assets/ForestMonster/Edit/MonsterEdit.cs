@@ -115,7 +115,7 @@ public class MonsterEdit : EditorWindow
             if (animator != null)
             {
                 animator.runtimeAnimatorController = (RuntimeAnimatorController)EditorGUILayout.ObjectField(
-                    "컨트롤러 설정", animator.runtimeAnimatorController, typeof(RuntimeAnimatorController), false);
+                    "애니메이터 컨트롤러", animator.runtimeAnimatorController, typeof(RuntimeAnimatorController), false);
             }
         }
  
@@ -140,6 +140,7 @@ public class MonsterEdit : EditorWindow
         var state = selectedPrefab.GetComponentInChildren<MonsterController>();
         var objSprite = selectedPrefab.GetComponentInChildren<SpriteRenderer>();
         var animanager = selectedPrefab.GetComponentInChildren<MonsterAniManager>();
+        var animator= selectedPrefab.GetComponentInChildren<Animator>();
         MonsterAniList = animanager.MonsterAniList;
         StatesList = state.StatesList;
         if (status == null || status.monsterData == null)
@@ -152,6 +153,8 @@ public class MonsterEdit : EditorWindow
         status.monsterData.PatrolTime = EditorGUILayout.FloatField("순찰시간", status.monsterData.PatrolTime);
         status.monsterData.IdleTime = EditorGUILayout.FloatField("대기시간", status.monsterData.IdleTime);
         status.monsterData.AttackDistance = EditorGUILayout.FloatField("공격거리", status.monsterData.AttackDistance);
+        status.monsterData.Defense = EditorGUILayout.IntField("방어력", status.monsterData.Defense);
+        animator.runtimeAnimatorController = (RuntimeAnimatorController)EditorGUILayout.ObjectField("애니메이터 컨트롤러", animator.runtimeAnimatorController,typeof(RuntimeAnimatorController),false);
         imagedata = objSprite.sprite;
         imagedata = (Sprite)EditorGUILayout.ObjectField("몬스터 기본 이미지", imagedata, typeof(Sprite), false);
         //////////////////////////////////////////////////////////////////////////////////
