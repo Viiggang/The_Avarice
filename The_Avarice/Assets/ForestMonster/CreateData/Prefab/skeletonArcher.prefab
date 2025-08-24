@@ -161,14 +161,15 @@ MonoBehaviour:
   StartState: idle
   aniManager: {fileID: 518018239442898098}
   statusManager: {fileID: 3876616983135848909}
-  Detectionrange: {fileID: 8671600531080652759}
+  Detection: {fileID: 8671600531080652759}
   MonsterTrans: {fileID: 7910183990518042594}
+  target: {fileID: 0}
   StatesList:
-  - {fileID: 11400000, guid: d22470bbc98bf244d9125e7ae6b78b14, type: 2}
-  - {fileID: 11400000, guid: e2d60f94c8f5d784c8635d575ea47f7f, type: 2}
-  - {fileID: 11400000, guid: d75356545a412f444a4039114dac02e3, type: 2}
-  - {fileID: 11400000, guid: 6e034fbc21444024eb76158c2616cea7, type: 2}
-  - {fileID: 11400000, guid: a79b6afbb1fd05f448c2ec7160f5ed02, type: 2}
+  - {fileID: 11400000, guid: 3159786d4dab13b4db4b92586d9cdb8a, type: 2}
+  - {fileID: 11400000, guid: 8c6fd385467b20446b6675492fc8eb45, type: 2}
+  - {fileID: 11400000, guid: b56ad5588e81566449a8f3df07d9676f, type: 2}
+  - {fileID: 11400000, guid: 2850adb819348c648b222008ec7717a5, type: 2}
+  - {fileID: 11400000, guid: d3a4fb0b299c30f48b8429fd37376d41, type: 2}
 --- !u!114 &518018239442898098
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -182,10 +183,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MonsterAniList:
-  - {fileID: 11400000, guid: 82f9eff9d72763b44b2f0fadaf402b27, type: 2}
-  - {fileID: 11400000, guid: fd8bb9bcbb065f147a93d04f3364b91a, type: 2}
-  - {fileID: 11400000, guid: 5dd92d04a0fed0a4cbea643221ba4511, type: 2}
-  - {fileID: 11400000, guid: 0a0f6421e2b442e4ba4eb4b383af339e, type: 2}
+  - {fileID: 11400000, guid: 2bffa8bf16b91054696beca9d6b58adc, type: 2}
+  - {fileID: 11400000, guid: e1dab58235e5bbd419d8794690b745e8, type: 2}
+  - {fileID: 11400000, guid: 5d05ea4bd47367c4c9d7423c4ef87158, type: 2}
+  - {fileID: 11400000, guid: 2f7edfdf662853b48b84426e3de8d4f0, type: 2}
   animator: {fileID: 9192744508287980541}
 --- !u!114 &3876616983135848909
 MonoBehaviour:
@@ -205,12 +206,15 @@ MonoBehaviour:
   movespeed: 1
   patrolTime: 3
   IdleTime: 1
-  AttckDistance: 5
+  AttackDistance: 0
+  defense: 0
+  time: 0
+  moveDir: {x: 0, y: 0, z: 0}
   BoxCollider2D: {fileID: 7479456204071650013}
   spriteRenderer: {fileID: 4868702720341642154}
   offsetX: {x: -0.2, y: 0}
-  AniManager: {fileID: 0}
   lockGizmos: 1
+  AniManager: {fileID: 0}
 --- !u!61 &7479456204071650013
 BoxCollider2D:
   m_ObjectHideFlags: 0

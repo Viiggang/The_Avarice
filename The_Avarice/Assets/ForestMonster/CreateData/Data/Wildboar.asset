@@ -19,3 +19,4 @@ MonoBehaviour:
   patroltime: 3
   idletime: 1
   attackdistance: 0.5
+  defense: 0

@@ -269,7 +269,7 @@ public class MonsterEdit : EditorWindow
 
         managerComp.aniManager = aniManagerComp;
         managerComp.statusManager = statusComp;
-        managerComp.Detectionrange = detectComp;
+        managerComp.Detection = detectComp;
         managerComp.MonsterTrans = cloneRoot.transform;
 
         controller = managerComp;

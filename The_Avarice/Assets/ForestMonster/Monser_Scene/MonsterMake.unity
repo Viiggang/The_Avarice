@@ -122,6 +122,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &975029182 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8671600531080652759, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+  m_PrefabInstance: {fileID: 333041753149401602}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88dbc2c4da0d5241a6c256bd77f4bcd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1022156920
 GameObject:
   m_ObjectHideFlags: 0
@@ -359,6 +370,8 @@ GameObject:
   - component: {fileID: 2091151040}
   - component: {fileID: 2091151042}
   - component: {fileID: 2091151043}
+  - component: {fileID: 2091151045}
+  - component: {fileID: 2091151044}
   m_Layer: 9
   m_Name: Capsule
   m_TagString: Untagged
@@ -427,8 +440,8 @@ Transform:
   m_GameObject: {fileID: 2091151039}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.63, y: -0.358, z: -0.021324355}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.24, y: -0.45, z: -0.021324355}
+  m_LocalScale: {x: 1, y: 0.3875, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -490,6 +503,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefe73b9bcb81ab439cd1889cc6560e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!61 &2091151044
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091151039}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 2}
+    newSize: {x: 1, y: 2}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1, y: 2}
+  m_EdgeRadius: 0
+--- !u!50 &2091151045
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2091151039}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1001 &333041753149401602
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -498,13 +583,57 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 518018239442898098, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+      propertyPath: MonsterAniList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2bffa8bf16b91054696beca9d6b58adc, type: 2}
+    - target: {fileID: 518018239442898098, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+      propertyPath: MonsterAniList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: e1dab58235e5bbd419d8794690b745e8, type: 2}
+    - target: {fileID: 518018239442898098, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+      propertyPath: MonsterAniList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5d05ea4bd47367c4c9d7423c4ef87158, type: 2}
+    - target: {fileID: 518018239442898098, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+      propertyPath: MonsterAniList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2f7edfdf662853b48b84426e3de8d4f0, type: 2}
     - target: {fileID: 793935111097309746, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
       propertyPath: m_Name
       value: skeletonArcher
       objectReference: {fileID: 0}
-    - target: {fileID: 793935111097309746, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 2240253908836133366, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+      propertyPath: Detection
+      value: 
+      objectReference: {fileID: 975029182}
+    - target: {fileID: 2240253908836133366, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+      propertyPath: StatesList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3159786d4dab13b4db4b92586d9cdb8a, type: 2}
+    - target: {fileID: 2240253908836133366, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+      propertyPath: StatesList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8c6fd385467b20446b6675492fc8eb45, type: 2}
+    - target: {fileID: 2240253908836133366, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+      propertyPath: StatesList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: b56ad5588e81566449a8f3df07d9676f, type: 2}
+    - target: {fileID: 2240253908836133366, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+      propertyPath: StatesList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2850adb819348c648b222008ec7717a5, type: 2}
+    - target: {fileID: 2240253908836133366, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+      propertyPath: StatesList.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: d3a4fb0b299c30f48b8429fd37376d41, type: 2}
+    - target: {fileID: 2365862931263548907, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+      propertyPath: PoolSize
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2913395379744656817, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
+      propertyPath: leftPos
+      value: -0.149
       objectReference: {fileID: 0}
     - target: {fileID: 7910183990518042594, guid: cf9b96810d2d8a14f98b378987466b24, type: 3}
       propertyPath: m_LocalPosition.x

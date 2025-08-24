@@ -4,23 +4,36 @@ using UnityEngine;
 using UnityEditor;
 public class MonsterStatus : MonoBehaviour, IDamage
 {
-   
+    #region 
+    //몬스터 기본 능력치
+    //외부 클래스에서 사용하는것들 
     [Leein.InspectorName("사용할 데이터")][SerializeField] public MonsterData monsterData;
     [Leein.InspectorName("몬스터 체력")] public float monsterHp;
     [Leein.InspectorName("몬스터 데미지")] public float BoarDamage;
     [Leein.InspectorName("몬스터 이동속도")] public float movespeed;
     [Leein.InspectorName("몬스터 순찰 시간")] public float patrolTime;
     [Leein.InspectorName("몬스터 대기 시간")] public float IdleTime;
-    [Leein.InspectorName("몬스터 공격 거리")] public float AttckDistance;
+    [Leein.InspectorName("몬스터 공격 거리")] public float AttackDistance;
     [Leein.InspectorName("몬스터 방어력")] public int defense;
+    #endregion
+
+    #region 
+    //외부 클래스에서 사용하는것들 
     public float time; //기다린 시간
+    [HideInInspector] public Vector3 moveDir;
+    #endregion
+
+    #region 
+    //클래스 내부에서만 쓰는 것들
     [SerializeField] public BoxCollider2D BoxCollider2D;
     [SerializeField] public SpriteRenderer spriteRenderer;
     [SerializeField] private Vector2 offsetX;
     private Vector2 defaultOffset;
-
+    [HideInInspector] public bool lockGizmos = false;
     [SerializeField] public MonsterAniManager AniManager;
-    [HideInInspector] public bool lockGizmos =false;
+    #endregion
+
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
@@ -32,7 +45,7 @@ public class MonsterStatus : MonoBehaviour, IDamage
             movespeed = monsterData.MoveSpeed;
             patrolTime = monsterData.PatrolTime;
             IdleTime = monsterData.IdleTime;
-            AttckDistance = monsterData.AttackDistance;
+            AttackDistance = monsterData.AttackDistance;
             defense=monsterData.Defense;
         }
 
@@ -63,7 +76,7 @@ public class MonsterStatus : MonoBehaviour, IDamage
     }
     private void ResetValues()
     {
-        AttckDistance = monsterData.AttackDistance;
+        AttackDistance = monsterData.AttackDistance;
         monsterHp = monsterData.Hp;
         BoarDamage = monsterData.Damage;
         movespeed = monsterData.MoveSpeed;
@@ -78,8 +91,14 @@ public class MonsterStatus : MonoBehaviour, IDamage
         monsterHp -= Damage;
         if (monsterHp < 0)
         {
+            movespeed = 0;
             AniManager.Play("death");
         }
+    }
+    [ContextMenu("Hit")]
+    public void selfHit()
+    {
+        OnHitDamage(1000);
     }
 }
 

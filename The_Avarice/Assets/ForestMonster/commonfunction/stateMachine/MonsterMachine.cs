@@ -6,40 +6,40 @@ using static UnityEngine.GraphicsBuffer;
 
 public interface IState<T>
 {
-    public void Initialize(T manager);
-    public void Enter();
-    public void Update();
-    public void Exit();
+    
+    public void Enter(T controller);
+    public void Excute(T controller);
+    public void Exit(T controller);
    
 }
 public class MonsterMachine<T>
 {
     private IState<T> currentState;
-    public void ChangeState(baseStates<T> newState, T manager)
+    T controller;
+    public MonsterMachine(T controller)
     {
-        // 기존 상태 종료
-        currentState?.Exit();
-
-        // 상태 변경
-        currentState = newState;
-
-        currentState.Initialize(manager);
-        // 새 상태 진입
-        currentState.Enter();
+        this.controller = controller;
     }
+    public void ChangeState(baseStates<T> newState, T controller)
+    {
+        currentState?.Exit(controller);
+        currentState = newState;
+        currentState.Enter(controller);
+    }
+
     public void Update()
     {
-        currentState.Update();
+        currentState?.Excute(controller);
     }
 
 }
 public abstract class baseStates<T> : ScriptableObject, IState<T>
 {
     [Leein.InspectorName("Dic저장한 이름")] public string StateName;
-    public virtual void Initialize(T manager) { }
-    public virtual void Enter() { }
-    public virtual void Update() { }
-    public virtual void Exit() { }
+
+    public virtual void Enter(T controller) { }
+    public virtual void Excute(T controller) { }
+    public virtual void Exit(T controller) { }
 
 }
 

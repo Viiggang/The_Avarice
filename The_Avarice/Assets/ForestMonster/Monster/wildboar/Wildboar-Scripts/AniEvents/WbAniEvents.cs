@@ -32,7 +32,7 @@ public class WB_AniEvents : MonoBehaviour
     {
         const float left = -1;
         const float right = 1;
-        float dirX = manager.Detectionrange.renderer.flipX ? left : right;
+        float dirX = manager.Detection.renderer.flipX ? left : right;
         rigid.AddForce(new Vector2(dirX * dashForce, jumpForce), ForceMode2D.Impulse);
 
         var hit=Physics2D.OverlapBox(manager.MonsterTrans.position, manager.statusManager.BoxCollider2D.bounds.size,0f,player);

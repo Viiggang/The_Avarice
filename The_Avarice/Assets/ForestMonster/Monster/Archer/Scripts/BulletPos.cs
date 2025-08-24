@@ -10,13 +10,7 @@ public class BulletPos : MonoBehaviour
     // 
     public void SetBulletPos()
     {
-        if(flipState.flipX)
-        {
-            this.transform.localPosition= new Vector2 (leftPos, 0.076f);
-        }
-        else
-        {
-            this.transform.localPosition = new Vector2(leftPos, 0.076f);
-        }
+        this.transform.localPosition = flipState.flipX ? new Vector2(leftPos, 0.076f) : new Vector2(rightPos, 0.076f);
+       
     }
 }

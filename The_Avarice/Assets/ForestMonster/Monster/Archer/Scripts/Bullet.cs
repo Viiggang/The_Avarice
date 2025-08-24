@@ -41,7 +41,12 @@ public class Bullet : MonoBehaviour
         dir = (target.position - transform.position).normalized;
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
-        Destroy(this.gameObject, 10f);
+        Invoke("Inactive", 5f);
+    }
+
+     private void Inactive()
+    {
+        this.gameObject.SetActive(false);
     }
 
     
@@ -52,7 +57,7 @@ public class Bullet : MonoBehaviour
         if(hitdata !=null)
         {
             hitdata.GetComponent<IDamage>().OnHitDamage(ArcherDamage.Damage);
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
       
     }
