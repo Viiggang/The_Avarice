@@ -88,6 +88,7 @@ public class MonsterStatus : MonoBehaviour, IDamage
     }
     public void OnHitDamage(float Damage)
     {
+
         monsterHp -= Damage;
         if (monsterHp < 0)
         {
