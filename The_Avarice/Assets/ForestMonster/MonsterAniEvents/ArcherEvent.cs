@@ -1,35 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.PlayerSettings;
 
 [CreateAssetMenu (fileName = "ArcherAttack", menuName = "Monster/AnimationEvents/ArcherAttack")]
 public class ArcherAttack :BaseAniEvent
 {
     public override void Execute(List<GameObject> bulletList)
     {
+       
         Debug.Log("Excute(List<Bullet> bulletList) Å×½ºÆ®");
-        return;
+       // return;
         foreach (GameObject bullet in bulletList)
         {
+            if (bullet == null) continue;
+
             bool activeSelf= bullet.activeSelf;
             if (!activeSelf)
             {
-                //
+               // bullet.transform.position = pos.transform.position;
+                bullet.transform.rotation = Quaternion.identity;
                 bullet.gameObject.SetActive(true);
+                return;
             }
         }
-    }
-}
-[CreateAssetMenu(fileName = "ArcherNextState", menuName = "Monster/AnimationEvents/ArcherNextState")]
-public class ArcherNextState : BaseAniEvent
-{
-    public override void Execute(MonsterController controller)
-    {
-        const string EndAttack = "idle";
-        MonsterMachine<MonsterController> MonsterMachine = controller.MonsterMachine;
-        var state = controller.State;
-        MonsterMachine.ChangeState(state[EndAttack], controller);
-        return;
     }
 }
 

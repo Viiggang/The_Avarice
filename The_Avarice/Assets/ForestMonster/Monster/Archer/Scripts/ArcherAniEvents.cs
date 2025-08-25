@@ -25,6 +25,10 @@ public class ArcherAniEvents : MonoBehaviour
             bulletPool.Add(bullet);
         }
     }
+    private void Update()
+    {
+        
+    }
     public void Dead()
     {
         Debug.Log("ªË¡¶");

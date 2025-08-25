@@ -6,14 +6,24 @@ using UnityEngine;
 public class MonsterAniEvents :MonoBehaviour
 {
     public List<BaseAniEvent> AniEventList;
-    public List<GameObject> bullets;
+    public GameObject bulletPrefab;
+    public List<GameObject> bulletPool;
     public MonsterController Controller;
 
     public Dictionary<string, BaseAniEvent> DicAniEvents;
 
-    private void Awake()
+    public int PoolSize;
+    private void Start()
     {
         DicAniEvents = AniEventList.ToDictionary(ListData => ListData.trigger, ListData => ListData);
+        if (bulletPrefab == null) return;
+        for (int i = 0; i < PoolSize; i++)
+        {
+
+            GameObject bullet = Instantiate(bulletPrefab);
+            bullet.SetActive(false);
+            bulletPool.Add(bullet);
+        }
     }
     public void Excute(string trigger)
     {
@@ -22,7 +32,7 @@ public class MonsterAniEvents :MonoBehaviour
 
     public void ArcherAttackExeCute(string trigger)//ÇØ°ñ±Ã¼ö
     {
-        DicAniEvents[trigger].Execute(bullets);
+        DicAniEvents[trigger].Execute(bulletPool);
     }
     public void MonsterNextStateExecute(string trigger)
     {
