@@ -7,6 +7,7 @@ public class Player_Hit : MonoBehaviour, IDamage
     Collider2D collider2D;
     public Animator animator;
     public PlayerCon player;
+    private Player_ControllMachine stateMachine;
 
     private void OnEnable()
     {
@@ -14,9 +15,22 @@ public class Player_Hit : MonoBehaviour, IDamage
         animator = GetComponentInParent<Animator>();
         player = GetComponentInParent<PlayerCon>();
     }
-    public void OnHitDamage(float damage) 
+
+    public void OnHitDamage(float damage)
     {
-        animator.SetTrigger("Hurt");
+        // 널 가드
+        if (player == null)
+        {
+            Debug.LogWarning("not [Player_Hit] PlayerCon");
+            return;
+        }
+
+        // 일반 피격 로직
+        if (animator != null) animator.SetTrigger("Hurt");
+
+        
+        PlayerMgr.instance.sumPlayerHp(damage);
         player.CanMove = false;
+
     }
 }

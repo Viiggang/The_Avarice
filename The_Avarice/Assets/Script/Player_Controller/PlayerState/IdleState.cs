@@ -44,6 +44,10 @@ public class IdleState : IpController
         {
             stateMachine.ChangeState(player.Skill1State);
         }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            stateMachine.ChangeState(player.Skill2State);
+        }
     }
 
     public void LogicUpdate()

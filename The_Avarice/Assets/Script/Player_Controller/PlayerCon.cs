@@ -28,6 +28,8 @@ public class PlayerCon : MonoBehaviour
     private float dashDodge = 0.05f;
     [SerializeField]
     private GameObject dashHitBox;
+    [SerializeField]
+    private GameObject counterAtk;
 
     //FSM 상태관리
     public Player_ControllMachine ControlMachine { get; private set; }
@@ -38,6 +40,8 @@ public class PlayerCon : MonoBehaviour
     public DashState DashState { get; private set; }
     public AttackState AttackState { get; private set; }
     public Skill1State Skill1State { get; private set; }
+    public ShieldState Skill2State { get; private set; }
+    public CounterAttackState CounterAttackState { get; private set; }
 
     //컴포넌트 접근용
     public Rigidbody2D Rigid { get; private set; }
@@ -76,6 +80,8 @@ public class PlayerCon : MonoBehaviour
         DashState = new DashState(this, ControlMachine);
         AttackState = new AttackState(this, ControlMachine);
         Skill1State = new Skill1State(this, ControlMachine);
+        Skill2State = new ShieldState(this, ControlMachine);
+        CounterAttackState = new CounterAttackState(this, ControlMachine);
 
     }
 
@@ -83,6 +89,7 @@ public class PlayerCon : MonoBehaviour
     {
         ControlMachine.Initialize(IdleState);
     }
+
 
     private void Update()
     {
@@ -127,6 +134,11 @@ public class PlayerCon : MonoBehaviour
         dashHitBox.SetActive(enable);
     }
 
+    public void EnableCounterHitBox()
+    {
+        counterAtk.SetActive(!counterAtk.activeSelf);
+    }
+
     public void ResetVelocityX(float factor = 0.2f)
     {
         Rigid.velocity = new Vector2(Rigid.velocity.normalized.x * factor, Rigid.velocity.y);
@@ -155,6 +167,11 @@ public class PlayerCon : MonoBehaviour
     public void resetSkill1Cooldown()
     {
         skill1Cooldown = resetCooldown;
+    }
+
+    public void Pal_ShieldPassive()
+    {
+        PlayerMgr.instance.setShieldPassive();
     }
 
     public float GetNormalSpeed() => Speed;

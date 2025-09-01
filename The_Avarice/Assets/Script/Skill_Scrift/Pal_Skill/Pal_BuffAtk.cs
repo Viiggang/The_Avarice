@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Pal_BuffAtk : MonoBehaviour
 {
+    float AtkDamage = 5f;
     private void OnEnable()
     {
         StartCoroutine(offRange());
@@ -19,11 +20,8 @@ public class Pal_BuffAtk : MonoBehaviour
         IDamage damage = other.GetComponent<IDamage>();
         if (damage != null && other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            damage.OnHitDamage(1f);
-            if (PlayerMgr.instance.getPlayerType() == Player_Type.Paladin)
-            {
-                PlayerMgr.instance.setPassiveStack(1);
-            }
+            damage.OnHitDamage(AtkDamage);
+
         }
 
     }

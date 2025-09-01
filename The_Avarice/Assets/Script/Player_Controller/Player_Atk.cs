@@ -147,7 +147,7 @@ public class Player_Atk : MonoBehaviour //�Ϲݰ���
             {
                 HitRange2[currentHitIndex].SetActive(true);
             }
-            else if(type == 2 && currentHitIndex < HitRange2.Length)
+            else if(type == 2 && currentHitIndex < HitSkillRange1.Length)
             {
                 HitSkillRange1[currentHitIndex].SetActive(true);
             }
