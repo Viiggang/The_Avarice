@@ -74,17 +74,20 @@ public class Skill1State : IpController
     {
         yield return new WaitForSeconds(1);
         PlayerMgr.instance.setPassive(true);
-        PlayerMgr.instance.setPassiveStack(-20);
-        PlayerMgr.instance.setPlayerHp(20f);
-        PlayerMgr.instance.setPlayerMaxHp(20f);
-        PlayerMgr.instance.setPlayerAtk(5f);
+        PlayerMgr.instance.sumPassiveStack(-20);
+        PlayerMgr.instance.sumPlayerHp(20f);
+        PlayerMgr.instance.sumPlayerMaxHp(20f);
+        PlayerMgr.instance.sumPlayerAtk(5f);
+        PlayerMgr.instance.setonPassive(true);
         player.setSkill1Cooldown(0.8f);
         yield return new WaitForSeconds(6);
         PlayerMgr.instance.setPassive(false);
-        PlayerMgr.instance.setPlayerHp(-20f);
-        PlayerMgr.instance.setPlayerMaxHp(-20f);
-        PlayerMgr.instance.setPlayerAtk(-5f);
+        PlayerMgr.instance.sumPlayerHp(-20f);
+        PlayerMgr.instance.sumPlayerMaxHp(-20f);
+        PlayerMgr.instance.sumPlayerAtk(-5f);
         player.resetSkill1Cooldown();
+        yield return new WaitForSeconds(20);
+        PlayerMgr.instance.setonPassive(false);
 
     }
 }

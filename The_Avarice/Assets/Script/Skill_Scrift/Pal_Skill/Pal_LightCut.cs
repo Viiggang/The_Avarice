@@ -19,6 +19,7 @@ public class Pal_LightCut : MonoBehaviour
     public float minLength = 0.1f;  // 최소 충돌 길이
     public float maxLength = 2f;    // 최대 충돌 길이
 
+    float AtkDamage = 5f;
 
     private bool isActive = false;
     private float timer = 0f;
@@ -84,8 +85,12 @@ public class Pal_LightCut : MonoBehaviour
             IDamage damage = hit.GetComponent<IDamage>();
             if (damage != null && hit.gameObject.layer == LayerMask.NameToLayer("Enemy"))
             {
-                damage.OnHitDamage(1f);
+                damage.OnHitDamage(AtkDamage);
                 this.gameObject.SetActive(false);
+                if (PlayerMgr.instance.getPlayerType() == Player_Type.Paladin && !PlayerMgr.instance.getonPassive())
+                {
+                    PlayerMgr.instance.sumPassiveStack(1);
+                }
             }
         }
     }

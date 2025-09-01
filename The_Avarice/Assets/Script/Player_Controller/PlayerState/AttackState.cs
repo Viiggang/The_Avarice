@@ -29,6 +29,10 @@ public class AttackState : IpController
         {
             player.Attack.input_Atk();
         }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            stateMachine.ChangeState(player.Skill2State);
+        }
     }
     public void LogicUpdate()
     {

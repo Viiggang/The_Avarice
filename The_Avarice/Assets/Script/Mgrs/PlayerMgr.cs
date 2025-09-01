@@ -24,21 +24,29 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     [Space]
     [Header("Player_Info")]
     [SerializeField]
-    private float Player_MaxHp = 100f;
+    private float Player_MaxHp = 100f; //최대 체력
     [SerializeField]
-    private float Player_Hp = 100f;
+    private float Player_Hp = 100f; // 현제 체력 
     [SerializeField]
-    private float Player_Attack = 5f;
+    private float Player_Attack = 5f; // 기초 공격력
     [SerializeField]
-    private float Player_addedAtk = 0f;
+    private float Player_addedAtk = 0f; // 추가 공격력
+    [SerializeField]
+    private float Player_Defense = 5f; // 기초 방어력
+    [SerializeField]
+    private float Player_addedDef = 0f; // 추가 방어력
     [SerializeField]
     private float plyer_Speed = 5f;
     [SerializeField]
     private int player_passive1 = 0;
-    public Vector2 Startpos;
+
+    [SerializeField]
+    private float Player_Guard = 1f; // 방어율 (받는 데미지%)
+
+    public GameObject Startpos;
 
     private bool Pal_PassiveSward = false;
-    private bool Pal_PassiveShield = false;
+    private bool onPassive = false;
 
 
     public void Start()
@@ -51,7 +59,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public void SelectSponplayer()
     {
-        this.gameObject.transform.position = Startpos;
+        this.gameObject.transform.position = Startpos.transform.position;
         Player[(int)playerType].SetActive(true);
     }
 
@@ -80,7 +88,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     }
 
-    public void setStartPos(Vector2 pos)
+    public void setStartPos(GameObject pos)
     {
         Startpos = pos;
     }
@@ -90,9 +98,10 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         return playerType;
     }
 
-    public void setPassiveStack(int stack)
+    public void sumPassiveStack(int stack)
     {
         player_passive1 += stack;
+        Pal_ShiledPassive = 0;
     }
     public int getPassiveStack()
     {
@@ -113,12 +122,12 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         return Player_Attack;
     }
 
-    public void setPlayerAtk(float sum) //기초공격력 제어
+    public void sumPlayerAtk(float sum) //기초공격력 제어
     {
         Player_Attack += sum;
     }
 
-    public void setPlayeraddedAtk(float sum)//추가 공격력 제어
+    public void sumPlayeraddedAtk(float sum)//추가 공격력 제어
     {
         Player_addedAtk += sum;
     }
@@ -127,7 +136,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     {
         return Player_Hp;
     }
-    public void setPlayerHp(float sum)
+    public void sumPlayerHp(float sum)
     {
         Player_Hp += sum;
     }
@@ -136,7 +145,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         return Player_MaxHp;
     }
 
-    public void setPlayerMaxHp(float sum)
+    public void sumPlayerMaxHp(float sum)
     {
         Player_MaxHp += sum;
     }
@@ -156,5 +165,37 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         {
             Pal_PassiveSward = set;
         }
+    }
+
+    public bool getonPassive()
+    {
+        return onPassive;
+    }
+
+    public void setonPassive(bool set)
+    {
+        onPassive = set;
+    }
+
+    public float getGuard()
+    {
+        return Player_Guard;
+    }
+
+    public void setGuard(float sum)
+    {
+        Player_Guard = sum;
+    }
+
+    private int Pal_ShiledPassive = 0;
+
+    public void setShieldPassive()
+    {
+        if(Pal_ShiledPassive < 10)
+        {
+            Pal_ShiledPassive += 2;
+            player_passive1 += 2;
+        }
+
     }
 }
