@@ -10,17 +10,18 @@ public class FadeInOut : MonoBehaviour
 
     private void Awake()
     {
-        if (Instance != null && Instance != this)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
-        DontDestroyOnLoad(gameObject);
+        fadeImage = GetComponentInChildren<Image>();
     }
 
     public IEnumerator FadeOut()
     {
+        if (Instance == null || fadeImage == null)
+        {
+            yield return null;lock
+
+                    (this) { Debug.Log("Instance or Image is not valid");
+        }
+
         fadeImage.raycastTarget = true;
         Color color = fadeImage.color;
         for (float t = 0; t < fadeDuration; t += Time.deltaTime)

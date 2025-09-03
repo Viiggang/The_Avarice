@@ -6,15 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/NewStartGameStartScene/GameStart.unity
+    path: Assets/Scenes/LoadingScene/LoadingScene.unity
+    guid: 0364ff7c9393d5043b4fab62393f1b70
+  - enabled: 1
+    path: Assets/Scenes/GameStart.unity
     guid: e6ffb2d5f47cc0243a35a4e5beded0d8
   - enabled: 1
-    path: Assets/NewStartGameStartScene/CharatorChoice.unity
+    path: Assets/Scenes/CharatorChoice.unity
     guid: 5586bf58c11a055468054c307cbac561
   - enabled: 1
-    path: Assets/Map/VillageMap/villageScene.unity
+    path: Assets/Scenes/villageScene.unity
     guid: 9832b9863866a334d8116a51f2e033d5
   - enabled: 1
-    path: Assets/Map/ForestMap/forestScene.unity
+    path: Assets/Scenes/forestScene.unity
     guid: 5a1e3c4f84e931647871656864215764
   m_configObjects: {}
