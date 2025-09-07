@@ -1,48 +1,79 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor;
 using UnityEngine;
-using UnityEngine.Rendering;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
+
 public class SceneLoader : MonoBehaviour
 {
     public string nextSceneName { get; private set; }
 
+    public static SceneLoader Instance { get {  return _instance; } }
     private static SceneLoader _instance;
-    public static SceneLoader Instance
+
+    public Image fadeImage;
+    public float fadeDuration = 1f;
+
+    public GameObject LoadingCharacter;
+    public GameObject LoadingObject;
+
+    private void Awake()
     {
-        get
+        if(_instance != null)
         {
-            if (_instance == null)
-            {
-                GameObject sceneLoader = new GameObject("SceneLoader");
-                _instance = sceneLoader.AddComponent<SceneLoader>();
-                DontDestroyOnLoad(sceneLoader);
-            }
-            return _instance;
+            DestroyImmediate(gameObject);
+            return;
         }
+
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        fadeImage = GetComponentInChildren<Image>();
     }
 
-    private void Start()
+    public void ChangeScene(string sceneName)
     {
-        StartCoroutine(LoadSceneCoroutine());
+        fadeImage.DOFade(1, fadeDuration).OnStart(() =>
+        {
+            fadeImage.raycastTarget = true;
+        })
+            .OnComplete(() =>
+        {
+            StartCoroutine("LoadScene", sceneName);
+        });
     }
 
-    public void LoadScene(string sceneName)
+    public IEnumerator LoadScene(string sceneName)
     {
-        yield return FadeInOut.Instance.FadeOut;
-        nextSceneName = sceneName;
-        SceneManager.LoadScene("LoadingScene");
+        yield return null;
     }
 
-    private IEnumerator LoadSceneCoroutine()
+    public IEnumerator FadeOut()
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(nextSceneName);
-        while (!asyncLoad.isDone)
+        fadeImage.raycastTarget = true;
+        Color color = fadeImage.color;
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            color.a = Mathf.Lerp(0, 1, t / fadeDuration);
+            fadeImage.color = color;
             yield return null;
+        }
+        color.a = 1;
+        fadeImage.color = color;
+    }
 
-        yield return FadeInOut.Instance.FadeIn();
+    public IEnumerator FadeIn()
+    {
+        Color color = fadeImage.color;
+        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+        {
+            color.a = Mathf.Lerp(1, 0, t / fadeDuration);
+            fadeImage.color = color;
+            yield return null;
+        }
+        color.a = 0;
+        fadeImage.color = color;
+        fadeImage.raycastTarget = false;
     }
 }
 
