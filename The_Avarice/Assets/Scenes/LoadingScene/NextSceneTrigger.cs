@@ -9,7 +9,7 @@ public class NextSceneTrigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneLoader.Instance.LoadScene(targetSceneName);
+            SceneLoader.Instance.ChangeScene(targetSceneName);
         }
     }
 }

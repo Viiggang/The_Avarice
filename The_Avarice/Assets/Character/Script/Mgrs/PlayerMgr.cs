@@ -6,8 +6,8 @@ using UnityEngine;
 public enum Player_Type
 {
     Paladin,
-    WindBreaker,
     Ignis,
+    WindBreaker,
     SoulEater,
     NULL = 9999
 };
@@ -96,6 +96,11 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     public Player_Type getPlayerType()
     {
         return playerType;
+    }
+
+    public void setPlayerType(Player_Type set)
+    {
+        playerType = set;
     }
 
     public void sumPassiveStack(int stack)

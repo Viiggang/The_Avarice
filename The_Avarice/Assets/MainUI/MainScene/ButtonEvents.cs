@@ -1,16 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ButtonEvents : MonoBehaviour
 {
     [SerializeField]private GameObject OptionUI;
     public void GameStart()
     {
-        SceneLoader.Instance.LoadScene("CharatorChoice");
+        SceneManager.LoadScene("CharatorChoice"); // 로딩 안함
     }
     public void OptionActive()
     { 
@@ -29,8 +26,24 @@ public class ButtonEvents : MonoBehaviour
         Application.Quit();
     }
 
-    public void CharacterChoice()
+    public void PaladinChoice()
     {
-        SceneLoader.Instance.LoadScene("VillageScene");
+        PlayerMgr.instance.setPlayerType(Player_Type.Paladin);
+        SceneLoader.Instance.ChangeScene("VillageScene");
+    }
+    public void IgnisChoice()
+    {
+        PlayerMgr.instance.setPlayerType(Player_Type.Ignis);
+        SceneLoader.Instance.ChangeScene("VillageScene");
+    }
+    public void WindBreakerChoice()
+    {
+        PlayerMgr.instance.setPlayerType(Player_Type.WindBreaker);
+        SceneLoader.Instance.ChangeScene("VillageScene");
+    }
+    public void SoulEaterChoice()
+    {
+        PlayerMgr.instance.setPlayerType(Player_Type.SoulEater);
+        SceneLoader.Instance.ChangeScene("VillageScene");
     }
 }

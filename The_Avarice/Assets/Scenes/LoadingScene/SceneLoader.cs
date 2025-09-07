@@ -14,8 +14,7 @@ public class SceneLoader : MonoBehaviour
     public Image fadeImage;
     public float fadeDuration = 1f;
 
-    public GameObject LoadingCharacter;
-    public GameObject LoadingObject;
+    public Animator loadingAnimator;
 
     private void Awake()
     {
@@ -27,53 +26,66 @@ public class SceneLoader : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
-
-        fadeImage = GetComponentInChildren<Image>();
     }
 
     public void ChangeScene(string sceneName)
     {
+        nextSceneName = sceneName;
+
         fadeImage.DOFade(1, fadeDuration).OnStart(() =>
         {
             fadeImage.raycastTarget = true;
         })
             .OnComplete(() =>
         {
-            StartCoroutine("LoadScene", sceneName);
+            SceneManager.LoadScene("LoadingScene");
+            StartCoroutine("LoadScene");
         });
     }
 
-    public IEnumerator LoadScene(string sceneName)
+    public IEnumerator LoadScene()
     {
-        yield return null;
+        AsyncOperation loadscene = SceneManager.LoadSceneAsync(nextSceneName);
+        loadscene.allowSceneActivation = false;
+
+        Player_Type type = PlayerMgr.instance.getPlayerType();
+        if (type == null)
+
+        switch (type)
+        {
+            case Player_Type.Paladin:
+                yield return loadscene;
+                break;
+        }
+
     }
 
-    public IEnumerator FadeOut()
-    {
-        fadeImage.raycastTarget = true;
-        Color color = fadeImage.color;
-        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
-        {
-            color.a = Mathf.Lerp(0, 1, t / fadeDuration);
-            fadeImage.color = color;
-            yield return null;
-        }
-        color.a = 1;
-        fadeImage.color = color;
-    }
+    //public IEnumerator FadeOut()
+    //{
+    //    fadeImage.raycastTarget = true;
+    //    Color color = fadeImage.color;
+    //    for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+    //    {
+    //        color.a = Mathf.Lerp(0, 1, t / fadeDuration);
+    //        fadeImage.color = color;
+    //        yield return null;
+    //    }
+    //    color.a = 1;
+    //    fadeImage.color = color;
+    //}
 
-    public IEnumerator FadeIn()
-    {
-        Color color = fadeImage.color;
-        for (float t = 0; t < fadeDuration; t += Time.deltaTime)
-        {
-            color.a = Mathf.Lerp(1, 0, t / fadeDuration);
-            fadeImage.color = color;
-            yield return null;
-        }
-        color.a = 0;
-        fadeImage.color = color;
-        fadeImage.raycastTarget = false;
-    }
+    //public IEnumerator FadeIn()
+    //{
+    //    Color color = fadeImage.color;
+    //    for (float t = 0; t < fadeDuration; t += Time.deltaTime)
+    //    {
+    //        color.a = Mathf.Lerp(1, 0, t / fadeDuration);
+    //        fadeImage.color = color;
+    //        yield return null;
+    //    }
+    //    color.a = 0;
+    //    fadeImage.color = color;
+    //    fadeImage.raycastTarget = false;
+    //}
 }
 

@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 8129782288269838283}
   - component: {fileID: 6179741014386633466}
   - component: {fileID: 1771728043937600962}
-  - component: {fileID: 1924145527102665535}
+  - component: {fileID: 2536243729129923436}
   m_Layer: 5
   m_Name: FadeCanvas
   m_TagString: Untagged
@@ -178,7 +178,7 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
---- !u!114 &1924145527102665535
+--- !u!114 &2536243729129923436
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,8 +187,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 4668438076780504494}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cff100fe443f4f4c83b2ff3aadb1b25, type: 3}
+  m_Script: {fileID: 11500000, guid: aee3ff7b97f6208498b96b33452b0a7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeImage: {fileID: 0}
+  fadeImage: {fileID: 3202731264629542960}
   fadeDuration: 1
+  LoadingObject: {fileID: 0}
