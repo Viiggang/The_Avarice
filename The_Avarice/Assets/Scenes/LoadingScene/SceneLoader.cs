@@ -49,12 +49,29 @@ public class SceneLoader : MonoBehaviour
         loadscene.allowSceneActivation = false;
 
         Player_Type type = PlayerMgr.instance.getPlayerType();
-        if (type == null)
+        if (type == Player_Type.NULL)
+            yield break;
 
         switch (type)
         {
             case Player_Type.Paladin:
-                yield return loadscene;
+
+                break;
+
+            case Player_Type.Ignis:
+
+                break;
+
+            case Player_Type.WindBreaker:
+
+                break;
+
+            case Player_Type.SoulEater:
+
+                break;
+
+            default:
+                Debug.Log($"LoadingScene type error");
                 break;
         }
 

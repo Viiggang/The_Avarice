@@ -15,7 +15,6 @@ public class HoverOverTheButton : MonoBehaviour, IPointerEnterHandler, IPointerE
     void Awake()
     {
         tempSprite = gameObject.GetComponent<Image>()?.sprite;
-        animator = gameObject.GetComponent<Animator>();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -30,6 +29,10 @@ public class HoverOverTheButton : MonoBehaviour, IPointerEnterHandler, IPointerE
         if (scaleImage) scaleImage.transform.localScale -= new Vector3(0.05f, 0.05f, 0f);
         if (scaleText) scaleText.fontSize--;
         if (changedSprite) gameObject.GetComponent<Image>().sprite = tempSprite;
-        if (animator) animator.SetBool("IsHover", false);
+        if (animator)
+        {
+            animator.SetBool("IsHover", false);
+            animator.StopPlayback();
+        }
     }
 }
