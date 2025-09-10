@@ -1,20 +1,39 @@
-using System.Collections;
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using DG.Tweening;
+using System.Collections;
+using System.Runtime.CompilerServices;
+using UnityEditor;
+using UnityEditor.SceneManagement;
+using UnityEngine;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
+    [InitializeOnLoad]
+    public class SceneSettings
+    {
+        static SceneSettings()
+        {
+            var pathOfFirstScene = EditorBuildSettings.scenes[0].path;
+            var sceneAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(pathOfFirstScene);
+            EditorSceneManager.playModeStartScene = sceneAsset;
+        }
+        
+    }
+
     public string nextSceneName { get; private set; }
 
     public static SceneLoader Instance { get {  return _instance; } }
     private static SceneLoader _instance;
 
-    public Image fadeImage;
+    public GameObject fadeImage;
+    public GameObject loadingCharacter;
+    public GameObject loadingText;
+
     public float fadeDuration = 1f;
 
-    public Animator loadingAnimator;
+    private Image image;
 
     private void Awake()
     {
@@ -26,15 +45,23 @@ public class SceneLoader : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += CompleteSceneLoaded;
+    }
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= CompleteSceneLoaded;
     }
 
     public void ChangeScene(string sceneName)
     {
+        fadeImage.SetActive(true);
+
         nextSceneName = sceneName;
 
-        fadeImage.DOFade(1, fadeDuration).OnStart(() =>
+        image.DOFade(1, fadeDuration).OnStart(() =>
         {
-            fadeImage.raycastTarget = true;
+            image.raycastTarget = true;
         })
             .OnComplete(() =>
         {
@@ -45,38 +72,59 @@ public class SceneLoader : MonoBehaviour
 
     public IEnumerator LoadScene()
     {
+        loadingCharacter.SetActive(true);
+        loadingText.SetActive(true);
+
+        Player_Type type = PlayerMgr.instance.getPlayerType();
+        Animator animator = loadingCharacter.GetComponent<Animator>();
+        Text text = loadingText.GetComponent<Text>();
+
         AsyncOperation loadscene = SceneManager.LoadSceneAsync(nextSceneName);
         loadscene.allowSceneActivation = false;
 
-        Player_Type type = PlayerMgr.instance.getPlayerType();
-        if (type == Player_Type.NULL)
-            yield break;
+        float past_time = 0;
+        float percentage = 0;
 
-        switch (type)
+        while (!(loadscene.isDone))
         {
-            case Player_Type.Paladin:
+            yield return null;
 
-                break;
+            animator.SetInteger("type", (int)PlayerMgr.instance.getPlayerType());
 
-            case Player_Type.Ignis:
+            past_time += Time.deltaTime;
 
-                break;
+            if (percentage >= 90)
+            {
+                percentage = Mathf.Lerp(percentage, 100, past_time);
 
-            case Player_Type.WindBreaker:
-
-                break;
-
-            case Player_Type.SoulEater:
-
-                break;
-
-            default:
-                Debug.Log($"LoadingScene type error");
-                break;
+                if (percentage == 100)
+                {
+                    loadscene.allowSceneActivation = true;
+                }
+            }
+            else
+            {
+                percentage = Mathf.Lerp(percentage, loadscene.progress * 100f, past_time);
+                if (percentage >= 90) past_time = 0;
+            }
+            text.text = percentage.ToString("0") + "%";
         }
 
     }
 
+    private void CompleteSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        image.DOFade(0, fadeDuration)
+        .OnStart(() => {
+            fadeImage.SetActive(false);
+            loadingCharacter.SetActive(false);
+            loadingText.SetActive(false);
+        })
+        .OnComplete(() => {
+            image.raycastTarget = false;
+            SceneManager.LoadScene(nextSceneName);
+        });
+    }
     //public IEnumerator FadeOut()
     //{
     //    fadeImage.raycastTarget = true;
