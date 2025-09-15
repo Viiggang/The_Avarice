@@ -1,25 +1,60 @@
 using DG.Tweening;
 using System.Collections;
-using System.Runtime.CompilerServices;
+using System.IO;
+using System.Threading.Tasks.Sources;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
 
 public class SceneLoader : MonoBehaviour
 {
     [InitializeOnLoad]
-    public class SceneSettings
+    public class SceneSettings : EditorWindow
     {
+
         static SceneSettings()
         {
-            var pathOfFirstScene = EditorBuildSettings.scenes[0].path;
-            var sceneAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(pathOfFirstScene);
+            var pathOfScene = EditorBuildSettings.scenes[0].path;
+            var sceneAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(pathOfScene);
             EditorSceneManager.playModeStartScene = sceneAsset;
         }
-        
+
+        [MenuItem("Scene/Select Scene")]
+        private static void Init()
+        {
+            SceneSettings window = GetWindow<SceneSettings>();
+            window.titleContent = new GUIContent("Scene Selector");
+            window.Show();
+        }
+
+        private void OnGUI()
+        {
+            GUILayout.Label("Select a Scene", EditorStyles.boldLabel);
+
+            foreach (var scene in EditorBuildSettings.scenes)
+            {
+                //scenes index 4 is loadingScene
+                if (scene.enabled && scene.path != EditorBuildSettings.scenes[4].path)
+                {
+                    string sceneName = System.IO.Path.GetFileNameWithoutExtension(scene.path);
+                    if (GUILayout.Button(sceneName))
+                    {
+                        OpenScene(scene.path);
+                    }
+                }
+            }
+        }
+
+        private static void OpenScene(string scenePath)
+        {
+            if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+            {
+                EditorSceneManager.OpenScene(scenePath);
+            }
+        }
     }
 
     public string nextSceneName { get; private set; }
@@ -46,11 +81,7 @@ public class SceneLoader : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
-        SceneManager.sceneLoaded += CompleteSceneLoaded;
-    }
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= CompleteSceneLoaded;
+        image = fadeImage.GetComponent<Image>();
     }
 
     public void ChangeScene(string sceneName)
@@ -82,14 +113,16 @@ public class SceneLoader : MonoBehaviour
         AsyncOperation loadscene = SceneManager.LoadSceneAsync(nextSceneName);
         loadscene.allowSceneActivation = false;
 
+        float loadingtime = Time.time;
+
         float past_time = 0;
         float percentage = 0;
 
-        while (!(loadscene.isDone))
+        animator.SetInteger("type", (int)PlayerMgr.instance.getPlayerType());
+
+        while (true)
         {
             yield return null;
-
-            animator.SetInteger("type", (int)PlayerMgr.instance.getPlayerType());
 
             past_time += Time.deltaTime;
 
@@ -97,9 +130,10 @@ public class SceneLoader : MonoBehaviour
             {
                 percentage = Mathf.Lerp(percentage, 100, past_time);
 
-                if (percentage == 100)
+                if (percentage == 100 && Time.time - loadingtime >= 1.5f)
                 {
                     loadscene.allowSceneActivation = true;
+                    break;
                 }
             }
             else
@@ -110,19 +144,19 @@ public class SceneLoader : MonoBehaviour
             text.text = percentage.ToString("0") + "%";
         }
 
+        CompleteSceneLoaded();
     }
 
-    private void CompleteSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void CompleteSceneLoaded()
     {
         image.DOFade(0, fadeDuration)
         .OnStart(() => {
-            fadeImage.SetActive(false);
             loadingCharacter.SetActive(false);
             loadingText.SetActive(false);
         })
         .OnComplete(() => {
+            fadeImage.SetActive(false);
             image.raycastTarget = false;
-            SceneManager.LoadScene(nextSceneName);
         });
     }
     //public IEnumerator FadeOut()

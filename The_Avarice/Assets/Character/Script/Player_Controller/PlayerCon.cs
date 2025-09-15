@@ -5,16 +5,16 @@ using UnityEngine;
 public class PlayerCon : MonoBehaviour
 {
     [Header("- Movement Settings")]
-    [SerializeField, Range(2f, 10f)]
-    private float Speed = 5f;
+    [SerializeField, Range(1f, 10f)]
+    private float Speed = 1f;
     [SerializeField, Range(5f, 20f)]
-    private float jumpPower = 10f;
+    private float jumpPower = 5f;
 
     [Space, Header("- Dash Settings")]
     [SerializeField]
     private Collider2D hitBox;
-    [SerializeField, Range(20f, 50f)]
-    private float dashSpeed = 30f;
+    [SerializeField, Range(10f, 50f)]
+    private float dashSpeed = 10f;
     [SerializeField, Range(0.05f, 0.3f)]
     private float dashDuration = 0.1f;
     [SerializeField, Range(1f, 3f)]

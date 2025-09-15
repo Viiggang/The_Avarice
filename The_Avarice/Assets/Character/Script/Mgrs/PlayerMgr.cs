@@ -36,7 +36,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     [SerializeField]
     private float Player_addedDef = 0f; // 추가 방어력
     [SerializeField]
-    private float plyer_Speed = 5f;
+    private float Player_Speed = 1f;
     [SerializeField]
     private int player_passive1 = 0;
 
@@ -57,7 +57,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         }
     }
 
-    public void SelectSponplayer()
+    public void Spawnplayer()
     {
         this.gameObject.transform.position = Startpos.transform.position;
         Player[(int)playerType].SetActive(true);
@@ -65,19 +65,6 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SelectSponplayer();
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            for (int i = 0; i < Player.Length; i++)
-            {
-                Player[i].SetActive(false);
-            }
-        }
-
-
         if (playerType == Player_Type.Paladin)
         {
             if (player_passive1 > 20)
@@ -115,11 +102,11 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public float getPlayerSpeed()
     {
-        return plyer_Speed;
+        return Player_Speed;
     }
     public void setPlayerSpeed(float sum)
     {
-        plyer_Speed = sum;
+        Player_Speed = sum;
     }
 
     public float getPlayerAtk()
