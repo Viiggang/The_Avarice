@@ -6,8 +6,8 @@ using UnityEngine;
 public enum Player_Type
 {
     Paladin,
-    WindBreaker,
     Ignis,
+    WindBreaker,
     SoulEater,
     NULL = 9999
 };
@@ -17,7 +17,6 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     [Header("-Player_Select")]
 
-    [SerializeField]
     Player_Type playerType;
 
     public GameObject[] Player;
@@ -37,7 +36,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     [SerializeField]
     private float Player_addedDef = 0f; // 추가 방어력
     [SerializeField]
-    private float plyer_Speed = 5f;
+    private float Player_Speed = 1f;
     [SerializeField]
     private int player_passive1 = 0;
 
@@ -58,7 +57,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         }
     }
 
-    public void SelectSponplayer()
+    public void Spawnplayer()
     {
         this.gameObject.transform.position = Startpos.transform.position;
         Player[(int)playerType].SetActive(true);
@@ -66,19 +65,6 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            SelectSponplayer();
-        }
-        else if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            for (int i = 0; i < Player.Length; i++)
-            {
-                Player[i].SetActive(false);
-            }
-        }
-
-
         if (playerType == Player_Type.Paladin)
         {
             if (player_passive1 > 20)
@@ -99,6 +85,11 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         return playerType;
     }
 
+    public void setPlayerType(Player_Type set)
+    {
+        playerType = set;
+    }
+
     public void sumPassiveStack(int stack)
     {
         player_passive1 += stack;
@@ -111,11 +102,11 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public float getPlayerSpeed()
     {
-        return plyer_Speed;
+        return Player_Speed;
     }
     public void setPlayerSpeed(float sum)
     {
-        plyer_Speed = sum;
+        Player_Speed = sum;
     }
 
     public float getPlayerAtk()
@@ -153,7 +144,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public bool getPassive()
     {
-        if(playerType == Player_Type.Paladin)
+        if (playerType == Player_Type.Paladin)
         {
             return Pal_PassiveSward;
         }
@@ -162,7 +153,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public void setPassive(bool set)
     {
-        if(playerType == Player_Type.Paladin)
+        if (playerType == Player_Type.Paladin)
         {
             Pal_PassiveSward = set;
         }
@@ -192,7 +183,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public void setShieldPassive()
     {
-        if(Pal_ShiledPassive < 10)
+        if (Pal_ShiledPassive < 10)
         {
             Pal_ShiledPassive += 2;
             player_passive1 += 2;

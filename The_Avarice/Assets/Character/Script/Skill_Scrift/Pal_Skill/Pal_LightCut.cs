@@ -116,4 +116,6 @@ public class Pal_LightCut : MonoBehaviour
         Gizmos.matrix = rotationMatrix;
         Gizmos.DrawWireCube(Vector3.zero, size);
     }
+
+
 }

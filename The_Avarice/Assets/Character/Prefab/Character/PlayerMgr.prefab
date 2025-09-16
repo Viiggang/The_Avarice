@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player:
   - {fileID: 3193410035681049613}
-  - {fileID: 2304317093584196931}
   - {fileID: 3351492703853985459}
+  - {fileID: 2304317093584196931}
   - {fileID: 2827244986823336414}
   Player_MaxHp: 100
   Player_Hp: 100
@@ -59,7 +59,7 @@ MonoBehaviour:
   Player_addedAtk: 0
   Player_Defense: 5
   Player_addedDef: 0
-  plyer_Speed: 0
+  Player_Speed: 1
   player_passive1: 0
   Player_Guard: 1
   Startpos: {fileID: 0}
@@ -1061,7 +1061,7 @@ MonoBehaviour:
   thickness: 0.2
   targetLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 64
   activeTime: 0.07
   animator: {fileID: 5053915635835673107}
   attackStateName: Pal_LightCut
@@ -1438,6 +1438,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 4853279269460187679}
     - target: {fileID: 141431409310486848, guid: 6da2e5b3d64c4f14fb1d0ea4a82ecaea, type: 3}
+      propertyPath: ExtraHitBox1
+      value: 
+      objectReference: {fileID: 4853279269460187679}
+    - target: {fileID: 141431409310486848, guid: 6da2e5b3d64c4f14fb1d0ea4a82ecaea, type: 3}
+      propertyPath: ExtraHitBox2
+      value: 
+      objectReference: {fileID: 3109142509222177933}
+    - target: {fileID: 141431409310486848, guid: 6da2e5b3d64c4f14fb1d0ea4a82ecaea, type: 3}
       propertyPath: dashDuration
       value: 0.1
       objectReference: {fileID: 0}
@@ -1752,6 +1760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ignis
       objectReference: {fileID: 0}
+    - target: {fileID: 6820058824111334696, guid: 6da2e5b3d64c4f14fb1d0ea4a82ecaea, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 62b8d7b6347e47c4a9d5e7fd85395570, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

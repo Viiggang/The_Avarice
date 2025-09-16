@@ -34,8 +34,8 @@ public class PlayerCon : MonoBehaviour
     [SerializeField]
     private GameObject ExtraHitBox2;
 
-    private Dictionary<Player_Type, IpController> Skill1States;
-    private Dictionary<Player_Type, IpController> Skill2States;
+    public Dictionary<Player_Type, IpController> Skill1States;
+    public Dictionary<Player_Type, IpController> Skill2States;
 
     //FSM 상태관리
     public Player_ControllMachine ControlMachine { get; private set; }

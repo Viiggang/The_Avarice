@@ -47,7 +47,7 @@ public class MoveState : IpController
         }
         else if(Input.GetKey(KeyCode.A))
         {
-            stateMachine.ChangeState(player.GetSkill2State());
+            stateMachine.ChangeState(player.GetSkill1State());
         }
         else if (Input.GetKey(KeyCode.S))
         {

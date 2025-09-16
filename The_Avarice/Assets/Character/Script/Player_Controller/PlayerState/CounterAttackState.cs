@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
 public class CounterAttackState : IpController
@@ -9,7 +10,7 @@ public class CounterAttackState : IpController
 
     private float counterDuration = 0.5f;
     private float timer;
-
+    IpController skillState;
     public CounterAttackState(PlayerCon player, Player_ControllMachine sm)
     {
         this.player = player;
@@ -20,6 +21,8 @@ public class CounterAttackState : IpController
     {
         player.CanMove = false;
         timer = counterDuration;
+        skillState = player.GetSkill2State();
+        
         Debug.Log("Counter");
         player.Anim.SetTrigger("Counter");  
     }
@@ -37,8 +40,9 @@ public class CounterAttackState : IpController
         {
             // 방패 키를 계속 누르고 있으면 즉시 방어자세 복귀
             if (Input.GetKey(KeyCode.S))
-                sm.ChangeState(player.Skill2State);
-            else
+                   player.ControlMachine.ChangeState(skillState);
+                
+                else
                 sm.ChangeState(player.IdleState);
         }
     }
