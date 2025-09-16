@@ -6,8 +6,8 @@ using UnityEngine;
 public enum Player_Type
 {
     Paladin,
-    Ignis,
     WindBreaker,
+    Ignis,
     SoulEater,
     NULL = 9999
 };
@@ -17,6 +17,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     [Header("-Player_Select")]
 
+    [SerializeField]
     Player_Type playerType;
 
     public GameObject[] Player;
@@ -36,7 +37,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     [SerializeField]
     private float Player_addedDef = 0f; // 추가 방어력
     [SerializeField]
-    private float Player_Speed = 1f;
+    private float plyer_Speed = 5f;
     [SerializeField]
     private int player_passive1 = 0;
 
@@ -57,7 +58,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         }
     }
 
-    public void Spawnplayer()
+    public void SelectSponplayer()
     {
         this.gameObject.transform.position = Startpos.transform.position;
         Player[(int)playerType].SetActive(true);
@@ -65,6 +66,19 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SelectSponplayer();
+        }
+        else if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            for (int i = 0; i < Player.Length; i++)
+            {
+                Player[i].SetActive(false);
+            }
+        }
+
+
         if (playerType == Player_Type.Paladin)
         {
             if (player_passive1 > 20)
@@ -85,11 +99,6 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         return playerType;
     }
 
-    public void setPlayerType(Player_Type set)
-    {
-        playerType = set;
-    }
-
     public void sumPassiveStack(int stack)
     {
         player_passive1 += stack;
@@ -102,11 +111,11 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public float getPlayerSpeed()
     {
-        return Player_Speed;
+        return plyer_Speed;
     }
     public void setPlayerSpeed(float sum)
     {
-        Player_Speed = sum;
+        plyer_Speed = sum;
     }
 
     public float getPlayerAtk()

@@ -1,20 +1,23 @@
 using System.Collections;
+using System.Collections.Generic;
+using UnityEditor.U2D.Aseprite;
 using UnityEngine;
+using static UnityEditor.LightingExplorerTableColumn;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(Animator))]
 public class PlayerCon : MonoBehaviour
 {
     [Header("- Movement Settings")]
-    [SerializeField, Range(1f, 10f)]
-    private float Speed = 1f;
+    [SerializeField, Range(2f, 10f)]
+    private float Speed = 5f;
     [SerializeField, Range(5f, 20f)]
-    private float jumpPower = 5f;
+    private float jumpPower = 10f;
 
     [Space, Header("- Dash Settings")]
     [SerializeField]
     private Collider2D hitBox;
-    [SerializeField, Range(10f, 50f)]
-    private float dashSpeed = 10f;
+    [SerializeField, Range(20f, 50f)]
+    private float dashSpeed = 30f;
     [SerializeField, Range(0.05f, 0.3f)]
     private float dashDuration = 0.1f;
     [SerializeField, Range(1f, 3f)]
@@ -27,9 +30,12 @@ public class PlayerCon : MonoBehaviour
     [SerializeField, Range(0.02f, 0.15f)]
     private float dashDodge = 0.05f;
     [SerializeField]
-    private GameObject dashHitBox;
+    private GameObject ExtraHitBox1;
     [SerializeField]
-    private GameObject counterAtk;
+    private GameObject ExtraHitBox2;
+
+    private Dictionary<Player_Type, IpController> Skill1States;
+    private Dictionary<Player_Type, IpController> Skill2States;
 
     //FSM 상태관리
     public Player_ControllMachine ControlMachine { get; private set; }
@@ -39,9 +45,9 @@ public class PlayerCon : MonoBehaviour
     public AirState AirState { get; private set; }
     public DashState DashState { get; private set; }
     public AttackState AttackState { get; private set; }
-    public Skill1State Skill1State { get; private set; }
-    public ShieldState Skill2State { get; private set; }
-    public CounterAttackState CounterAttackState { get; private set; }
+
+    public LightCutState LightCutState { get; private set; }
+    public ShieldState ShieldState { get; private set; }
 
     //컴포넌트 접근용
     public Rigidbody2D Rigid { get; private set; }
@@ -79,12 +85,37 @@ public class PlayerCon : MonoBehaviour
         JumpState = new JumpState(this, ControlMachine);
         DashState = new DashState(this, ControlMachine);
         AttackState = new AttackState(this, ControlMachine);
-        Skill1State = new Skill1State(this, ControlMachine);
-        Skill2State = new ShieldState(this, ControlMachine);
-        CounterAttackState = new CounterAttackState(this, ControlMachine);
+        LightCutState = new LightCutState(this, ControlMachine);
+        ShieldState = new ShieldState(this, ControlMachine);
+
+        Skill1States = new Dictionary<Player_Type, IpController>
+        {
+            { Player_Type.Paladin, LightCutState },
+            { Player_Type.WindBreaker, LightCutState },
+            { Player_Type.Ignis, AttackState }
+        };
+
+        Skill2States = new Dictionary<Player_Type, IpController>
+        {
+            { Player_Type.Paladin, ShieldState },
+            { Player_Type.WindBreaker, DashState },
+            { Player_Type.Ignis, DashState }
+        };
 
     }
 
+
+    public IpController GetSkill1State()
+    {
+        var type = PlayerMgr.instance.getPlayerType();
+        return Skill1States.TryGetValue(type, out var state) ? state : IdleState;
+    }
+
+    public IpController GetSkill2State()
+    {
+        var type = PlayerMgr.instance.getPlayerType();
+        return Skill2States.TryGetValue(type, out var state) ? state : IdleState;
+    }
     private void OnEnable()
     {
         ControlMachine.Initialize(IdleState);
@@ -129,14 +160,14 @@ public class PlayerCon : MonoBehaviour
         hitBox.enabled = enable;
     }
 
-    public void EnableDashHitBox(bool enable)
+    public void EnableExtraHitBox1()
     {
-        dashHitBox.SetActive(enable);
+        ExtraHitBox1.SetActive(!ExtraHitBox1.activeSelf);
     }
 
-    public void EnableCounterHitBox()
+    public void EnableExtraHitBox2()
     {
-        counterAtk.SetActive(!counterAtk.activeSelf);
+        ExtraHitBox2.SetActive(!ExtraHitBox2.activeSelf);
     }
 
     public void ResetVelocityX(float factor = 0.2f)
@@ -172,6 +203,13 @@ public class PlayerCon : MonoBehaviour
     public void Pal_ShieldPassive()
     {
         PlayerMgr.instance.setShieldPassive();
+    }
+
+    public void Player_Death()
+    {
+        EnableHitBox(false);
+        CanMove = false;
+        Rigid.velocity = Vector2.zero;
     }
 
     public float GetNormalSpeed() => Speed;

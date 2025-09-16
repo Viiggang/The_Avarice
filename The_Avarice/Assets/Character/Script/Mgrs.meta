@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:The_Avarice/Assets/Script/Mgrs.meta
 guid: a93d59c82bd965f459a9cdd2821d893a
-========
-guid: 967343056c17141499525d076b454045
->>>>>>>> develop:The_Avarice/Assets/Script/Player_Controller/PlayerState.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

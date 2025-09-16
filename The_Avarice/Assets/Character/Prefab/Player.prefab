@@ -148,7 +148,8 @@ GameObject:
   - component: {fileID: 6073897313580074419}
   - component: {fileID: 3485964017757785003}
   - component: {fileID: 8394099111301552529}
-  m_Layer: 0
+  - component: {fileID: 6594298709571714320}
+  m_Layer: 8
   m_Name: HitBox
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -183,7 +184,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 6820058824111334696}
-  player: {fileID: 0}
+  player: {fileID: 141431409310486848}
 --- !u!70 &8394099111301552529
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -219,6 +220,33 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0.007055834}
   m_Size: {x: 0.3, y: 0.43303993}
   m_Direction: 0
+--- !u!50 &6594298709571714320
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403754336609924176}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &4459278337416761465
 GameObject:
   m_ObjectHideFlags: 0
@@ -272,14 +300,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 5
   jumpPower: 10
-  hitBox: {fileID: 0}
+  hitBox: {fileID: 8394099111301552529}
   dashSpeed: 30
   dashDuration: 0.1
   Skill1Duration: 1
   dashCooldown: 1
   skill1Cooldown: 1
   dashDodge: 0.1
-  dashHitBox: {fileID: 0}
+  ExtraHitBox1: {fileID: 0}
+  ExtraHitBox2: {fileID: 0}
 --- !u!114 &4693372238942071044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,6 +326,8 @@ MonoBehaviour:
   atkType: 0
   HitRange1: []
   HitRange2: []
+  HitSkillRange1: []
+  HitSkillRange2: []
 --- !u!95 &6820058824111334696
 Animator:
   serializedVersion: 5

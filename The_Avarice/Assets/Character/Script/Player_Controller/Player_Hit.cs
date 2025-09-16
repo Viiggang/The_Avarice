@@ -24,13 +24,19 @@ public class Player_Hit : MonoBehaviour, IDamage
             Debug.LogWarning("not [Player_Hit] PlayerCon");
             return;
         }
-
-        // 일반 피격 로직
-        if (animator != null) animator.SetTrigger("Hurt");
-
-        
         PlayerMgr.instance.sumPlayerHp(damage);
         player.CanMove = false;
+        // 일반 피격 로직
+        if (animator != null && 1 <= PlayerMgr.instance.getPlayerHp())
+        {
+            animator.SetTrigger("Hurt");
+        }
+        else
+        {
+            animator.SetTrigger("Death");
+        }
+        
+
 
     }
 }
