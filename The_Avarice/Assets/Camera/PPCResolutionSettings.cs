@@ -15,7 +15,7 @@ public class PPCResolutionSettings : MonoBehaviour
 
     void Awake()
     {
-        ppc = GetComponent<PixelPerfectCamera>();
+        ppc = gameObject.GetComponent<PixelPerfectCamera>();
 
         tempResolution.x = Screen.width;
         tempResolution.y = Screen.height;
