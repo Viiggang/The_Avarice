@@ -11,6 +11,13 @@ public enum Player_Type
     SoulEater,
     NULL = 9999
 };
+public enum Element_Type
+{
+    Fire,
+    Thunder,
+    Ice,
+    NULL = 9999
+};
 
 public class PlayerMgr : BaseMgr<PlayerMgr>
 {
@@ -37,15 +44,21 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     private float Player_addedDef = 0f; // 추가 방어력
     [SerializeField]
     private float Player_Speed = 1f;
+
+    [Header("Player_Passive")]
     [SerializeField]
     private int player_passive1 = 0;
+    [SerializeField]
+    private int player_passive2 = 0;
+    [SerializeField]
+    Element_Type element_Type;
 
     [SerializeField]
     private float Player_Guard = 1f; // 방어율 (받는 데미지%)
 
     public GameObject Startpos;
 
-    private bool Pal_PassiveSward = false;
+    private bool onPassive2 = false;
     private bool onPassive = false;
 
 
@@ -65,7 +78,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public void Update()
     {
-        if (playerType == Player_Type.Paladin)
+        if (playerType == Player_Type.Paladin && playerType == Player_Type.Ignis)
         {
             if (player_passive1 > 20)
             {
@@ -89,6 +102,15 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     {
         playerType = set;
     }
+    public Element_Type getElementType()
+    {
+        return element_Type;
+    }
+
+    public void setElementType(Element_Type set)
+    {
+        element_Type = set;
+    }
 
     public void sumPassiveStack(int stack)
     {
@@ -98,6 +120,14 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     public int getPassiveStack()
     {
         return player_passive1;
+    }
+    public void sumPassive2Stack(int stack)
+    {
+        player_passive2 += stack;
+    }
+    public int getPassive2Stack()
+    {
+        return player_passive2;
     }
 
     public float getPlayerSpeed()
@@ -146,7 +176,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     {
         if (playerType == Player_Type.Paladin)
         {
-            return Pal_PassiveSward;
+            return onPassive2;
         }
         return false;
     }
@@ -155,7 +185,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     {
         if (playerType == Player_Type.Paladin)
         {
-            Pal_PassiveSward = set;
+            onPassive2 = set;
         }
     }
 

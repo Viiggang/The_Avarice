@@ -20,7 +20,7 @@ public class PlayerCon : MonoBehaviour
     private float dashSpeed = 30f;
     [SerializeField, Range(0.05f, 0.3f)]
     private float dashDuration = 0.1f;
-    [SerializeField, Range(1f, 3f)]
+    [SerializeField, Range(0.1f, 3f)]
     private float Skill1Duration = 1f;
     [SerializeField, Range(0.2f, 3f)]
     private float dashCooldown = 1f;
@@ -48,6 +48,8 @@ public class PlayerCon : MonoBehaviour
 
     public LightCutState LightCutState { get; private set; }
     public ShieldState ShieldState { get; private set; }
+    public ChangeState ChangeState { get; private set; }
+    public TrinitySealState TrinitySealState { get; private set; }
 
     //컴포넌트 접근용
     public Rigidbody2D Rigid { get; private set; }
@@ -87,19 +89,21 @@ public class PlayerCon : MonoBehaviour
         AttackState = new AttackState(this, ControlMachine);
         LightCutState = new LightCutState(this, ControlMachine);
         ShieldState = new ShieldState(this, ControlMachine);
+        ChangeState = new ChangeState(this, ControlMachine);
+        TrinitySealState = new TrinitySealState(this, ControlMachine);
 
         Skill1States = new Dictionary<Player_Type, IpController>
         {
             { Player_Type.Paladin, LightCutState },
             { Player_Type.WindBreaker, LightCutState },
-            { Player_Type.Ignis, AttackState }
+            { Player_Type.Ignis, TrinitySealState }
         };
 
         Skill2States = new Dictionary<Player_Type, IpController>
         {
             { Player_Type.Paladin, ShieldState },
             { Player_Type.WindBreaker, DashState },
-            { Player_Type.Ignis, DashState }
+            { Player_Type.Ignis, ChangeState }
         };
 
     }
