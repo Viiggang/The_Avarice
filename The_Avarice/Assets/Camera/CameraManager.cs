@@ -1,44 +1,35 @@
 using UnityEngine;
 using Cinemachine;
-using UnityEditor;
 
 public class CameraManager : MonoBehaviour
 {
     public static CameraManager Instance { get { return _instance; } }
     private static CameraManager _instance;
 
-    private CinemachineVirtualCamera virtualCamera;
-
-    public GameObject mainCameraPrefab;
-    public GameObject virtualCameraPrefab;
+    [SerializeField] private Camera mainCamera;
+    [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
     private void Awake()
     {
         if (_instance != null)
         {
-            Destroy(gameObject);
+            //Destroy(gameObject);
             return;
         }
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
-    }
 
-    public void InitializeCamera()
-    {
-        GameObject camera = Instantiate(mainCameraPrefab);
-        DontDestroyOnLoad(camera);
-
-        GameObject virtualcamera = Instantiate(virtualCameraPrefab);
-        virtualcamera.transform.SetParent(camera.transform);
-        DontDestroyOnLoad(virtualcamera);
-        virtualCamera = virtualcamera.GetComponent<CinemachineVirtualCamera>();
+        mainCamera.gameObject.SetActive(false);
+        virtualCamera.gameObject.SetActive(false);
     }
 
     public void SetTarget(Transform target)
     {
-        InitializeCamera();
-        virtualCamera.Follow = target;
-    }
+        mainCamera.gameObject.SetActive(true);
+        virtualCamera.gameObject.SetActive(true);
 
+        virtualCamera.Follow = target; 
+        virtualCamera.LookAt = target;
+    }
 }
