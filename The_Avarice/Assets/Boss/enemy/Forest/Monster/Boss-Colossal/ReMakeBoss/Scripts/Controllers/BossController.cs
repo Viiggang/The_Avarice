@@ -13,5 +13,6 @@ public class BossController : MonoBehaviour
     public BossSkillGroup BossSkillGroup;
     public SpriteRenderer SpriteRenderer;
     public BoxCollider2D Collider2D;
+    public BossAnimactionEvents BossAnimactionEvents;
    
 }

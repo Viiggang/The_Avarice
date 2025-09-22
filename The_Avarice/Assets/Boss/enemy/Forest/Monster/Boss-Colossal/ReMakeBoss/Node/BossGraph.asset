@@ -191,11 +191,11 @@ MonoBehaviour:
   Instance: {fileID: 0}
   Next: {fileID: 0}
   Input: {fileID: 0}
-  timer: 0
+  timer: 0.84669614
   targetNodeName: 
   CurrentSkill:
-    CollisionData: {fileID: 0}
-    name: 
+    CollisionData: {fileID: 11400000, guid: 908bc2e06f348b8429d38978d4dc2891, type: 2}
+    name: Spin Attack
     coolTime:
       Time: 0
       Available: 1
@@ -206,7 +206,7 @@ MonoBehaviour:
     status: {fileID: 0}
   Player:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 640
 --- !u!114 &-780395858672051838
 MonoBehaviour:
   m_ObjectHideFlags: 0

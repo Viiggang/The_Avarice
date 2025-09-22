@@ -21,11 +21,16 @@ public class BossChase : BaseState<BossController>
     
     BossController Data;
     public LayerMask Player;
+    BossAnimactionEvents Bossevents;
+    /*
+     현재 보스애니메이션 에 값 설정해줘야함
+     */
     public override void Enter(BossController Data)
     {
         timer = 0;
         this.Data = Data;
         Tracker = null;
+        Bossevents= Data.BossAnimactionEvents;
         //targetChase = null;
         #region 테스트
         //NodePort port = GetOutputPort("Next");
@@ -91,7 +96,7 @@ public class BossChase : BaseState<BossController>
         SetColliderPos(Data, Dir);
         SetBossDirectionFlip(Data, Dir);
         Tracker.Chase();
-      
+        
         //콜라이더 위치 설정
       
     }
@@ -133,6 +138,7 @@ public class BossChase : BaseState<BossController>
     }
     public void Attack()
     {
+        Bossevents.SetAttackColliosnData(Tracker.GetOffset(), Tracker.GetSize());
         BossStateMachine machine = Data.stateMachine;
         machine.SetNextState("Next", CurrentSkill.GetNodeName());
         CurrentSkill = null;

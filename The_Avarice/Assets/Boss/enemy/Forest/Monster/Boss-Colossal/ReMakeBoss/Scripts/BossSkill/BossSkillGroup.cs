@@ -29,30 +29,7 @@ public class BossSkillGroup : MonoBehaviour
     public Collider2D colluders;
     public LayerMask p;
     #endregion
-    //private void OnDrawGizmos()
-    //{
-    //    //if (data == null || box == null || Scale == null) return;
-
-    //    Gizmos.color = Color.red;
-
-    //    // 1. 오프셋 계산 (flipX 고려)
-    //    //Vector3 offset = new Vector3(
-    //    //    flip != null && flip.flipX ? -data.offset.x : data.offset.x,
-    //    //    data.offset.y,
-    //    //    0f
-    //    //);
-    //    Gizmos.DrawWireCube(new Vector2(2.33f, -0.65f), new Vector2(3.21f,-1.95f));
-    //  // 5. 기즈모 그리기 (2D 충돌 영역 시각화)
-    //  //Gizmos.DrawWireCube(Transform.position+(new Vector3(flip.flipX? 
-    //  //      -data.offset.x * Mathf.Abs(Transform.lossyScale.x):data.offset.x*Mathf.Abs(Transform.lossyScale.x),
-    //  //       data.offset.y * Mathf.Abs(Transform.lossyScale.y),0f))
-    //  //      , new Vector3(data.Size.x*transform.lossyScale.x, data.Size.y * transform.lossyScale.y,0f));
-
-   
-    //  //  var dat = Physics2D.OverlapBox(data.offset, data.Size, 0f, p);
-    //  //  colluders = dat;
-    //}
-
+  
     private void Awake()
     {
         //스킬  전부 활성화

@@ -28,8 +28,7 @@ public class BossAnimactionEvents : MonsterAniEvents
     }
     public void ColossalAttack(string trigger)
     {
-        SetSkill();//현재 클래스 내부에 선택된 공격 설정
-        SetAttackColliosnData();//현재 스킬에서 Scale값 만큼 보정
+       
         DicAniEvents[trigger].Execute(BossController, attackCollisionData, BossStage);
     }
 
@@ -37,22 +36,13 @@ public class BossAnimactionEvents : MonsterAniEvents
     {
         ColossalEvent.Instance.UItrigger();
     }
-    public void SetSkill()
+  
+    public void SetAttackColliosnData(Vector2 TempOffset, Vector2 TempSize)
     {
-        CurrentSkill = SkillGroup.CurrentSkill;
-    }
-    public void SetAttackColliosnData()
-    {
-      Vector2 TempOffset= CurrentSkill.CollisionData.offset;
-      Vector2 TempSize  = CurrentSkill.CollisionData.Size;
+        attackCollisionData.offset = TempOffset;
+        attackCollisionData.size = TempSize;
 
-        attackCollisionData.offset= new Vector2(
-            BossTransfrom.position.x + (attackCollisionData.offset.x * Mathf.Abs(BossTransfrom.lossyScale.x)),
-            BossTransfrom.position.y + (attackCollisionData.offset.y * Mathf.Abs(BossTransfrom.lossyScale.y))
-        );
 
-        attackCollisionData.size=new Vector2(
-            BossTransfrom.lossyScale.x * TempSize.x, 
-            BossTransfrom.lossyScale.y * TempSize.y);
+
     }
 }

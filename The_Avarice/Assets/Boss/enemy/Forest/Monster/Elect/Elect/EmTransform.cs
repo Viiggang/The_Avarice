@@ -19,7 +19,7 @@ namespace ElectricSphere
             myTransform.position= playertransform.position+pos;
             ElectricPos.position= myTransform.transform.position+ Attackpos;
         }
-        private void Start()
+        private void OnEnable()
         {
             int playerLayer = LayerMask.NameToLayer("Player");
             GameObject[] allObjects = GameObject.FindObjectsOfType<GameObject>();
@@ -27,10 +27,14 @@ namespace ElectricSphere
             {
                 if (obj.layer == playerLayer)
                 {
-                    playertransform= obj.transform;
+                    playertransform = obj.transform;
                     Debug.Log("플레이어 발견: " + obj.name);
                 }
             }
+        }
+        private void Start()
+        {
+            Invoke("OnEnable",2f);
         }
       
 

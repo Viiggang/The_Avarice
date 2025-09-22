@@ -20,16 +20,11 @@ public class ForestObjSpawner : MonoBehaviour
     public LayerMask player;
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.yellow;
-        Gizmos.matrix = this.transform.localToWorldMatrix;
-        Gizmos.DrawWireCube(Pos, Size);
-        var hit = Physics2D.OverlapBox(Pos, Size, 0f, player);
-        PlayerPos = hit.GetComponent<Transform>();
+       
     }
     private void OnEnable()
     {
-        var hit = Physics2D.OverlapBox(Pos, Size, 0f, player);
-        PlayerPos = hit.GetComponent<Transform>();
+   
         Spawner();
     }
     void Start()

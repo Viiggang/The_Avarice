@@ -8,7 +8,7 @@ public class Player_Hit : MonoBehaviour, IDamage
     public Animator animator;
     public PlayerCon player;
     private Player_ControllMachine stateMachine;
-
+    public float Hp;//추가
     private void OnEnable()
     {
         collider2D = GetComponent<Collider2D>();
@@ -25,6 +25,7 @@ public class Player_Hit : MonoBehaviour, IDamage
             return;
         }
         PlayerMgr.instance.sumPlayerHp(damage);
+        Hp = PlayerMgr.instance.getPlayerHp();//추가
         player.CanMove = false;
         // 일반 피격 로직
         if (animator != null && 1 <= PlayerMgr.instance.getPlayerHp())

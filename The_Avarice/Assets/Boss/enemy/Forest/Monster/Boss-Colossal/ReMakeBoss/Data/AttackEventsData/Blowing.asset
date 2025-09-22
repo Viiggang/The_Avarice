@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Blowing
   m_EditorClassIdentifier: 
   trigger: blowing
-  force: {x: 3, y: 0}
+  force: {x: 3, y: 1}

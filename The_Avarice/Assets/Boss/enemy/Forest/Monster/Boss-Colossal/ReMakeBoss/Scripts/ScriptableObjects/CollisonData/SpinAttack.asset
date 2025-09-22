@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df056dd77a42f5a4ba36c6879a7a6673, type: 3}
   m_Name: SpinAttack
   m_EditorClassIdentifier: 
-  offset: {x: -0.06, y: -0.14, z: 0}
+  offset: {x: -0.06, y: -0.19, z: 0}
   Size: {x: 0.72, y: -0.24, z: 0}
   description: 

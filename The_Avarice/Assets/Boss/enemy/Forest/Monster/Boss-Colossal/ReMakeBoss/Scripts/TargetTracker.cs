@@ -102,4 +102,6 @@ public class TargetTracker
     }
     public void SetSkill(BossSkill skill) => this.BossSkill = skill;
 
+    public Vector2 GetOffset() => this.PhysicOffset; 
+    public Vector2 GetSize()=>this.PhysicSize;
 }
