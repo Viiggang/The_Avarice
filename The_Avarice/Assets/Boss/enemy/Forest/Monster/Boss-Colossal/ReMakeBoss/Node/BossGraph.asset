@@ -1,0 +1,400 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7949943843337009105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 438823e4862c98e439a1c69c1447d6e2, type: 3}
+  m_Name: Boss Idle
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -872, y: -712}
+  ports:
+    keys:
+    - Input
+    - Chase
+    - death
+    values:
+    - _fieldName: Input
+      _node: {fileID: -7949943843337009105}
+      _typeQualifiedName: BaseState`1[[BossController, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Next
+        node: {fileID: 3514646542852253886}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Chase
+      _node: {fileID: -7949943843337009105}
+      _typeQualifiedName: BaseState`1[[BossController, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Input
+        node: {fileID: -994025013394174391}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: death
+      _node: {fileID: -7949943843337009105}
+      _typeQualifiedName: BaseState`1[[BossController, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Input
+        node: {fileID: 186029791307831488}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Instance: {fileID: 0}
+  Input: {fileID: 0}
+  Chase: {fileID: -994025013394174391}
+  death: {fileID: 186029791307831488}
+--- !u!114 &-6607055964449853150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00f1a9f1ab9ab374f8acecc8fe0b8896, type: 3}
+  m_Name: Spin Attack
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 424, y: -728}
+  ports:
+    keys:
+    - Input
+    values:
+    - _fieldName: Input
+      _node: {fileID: -6607055964449853150}
+      _typeQualifiedName: BaseState`1[[BossController, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Next
+        node: {fileID: -994025013394174391}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Instance: {fileID: 0}
+  Input: {fileID: 0}
+  attack: SpinAttack
+--- !u!114 &-1670573855248149491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1cc88ab53a42c546a7138f78ca6a85a, type: 3}
+  m_Name: Purgeblow
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 424, y: -456}
+  ports:
+    keys:
+    - Input
+    values:
+    - _fieldName: Input
+      _node: {fileID: -1670573855248149491}
+      _typeQualifiedName: BaseState`1[[BossController, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Next
+        node: {fileID: -994025013394174391}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Instance: {fileID: 0}
+  Input: {fileID: 0}
+  attack: purgeShot
+--- !u!114 &-994025013394174391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7366457f52752ec47a538efd44f6ae93, type: 3}
+  m_Name: Boss Chase
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -200, y: -584}
+  ports:
+    keys:
+    - Next
+    - Input
+    values:
+    - _fieldName: Next
+      _node: {fileID: -994025013394174391}
+      _typeQualifiedName: BaseState`1[[BossController, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Input
+        node: {fileID: -780395858672051838}
+        reroutePoints: []
+      - fieldName: Input
+        node: {fileID: -6607055964449853150}
+        reroutePoints: []
+      - fieldName: Input
+        node: {fileID: -750615336411693705}
+        reroutePoints: []
+      - fieldName: Input
+        node: {fileID: -1670573855248149491}
+        reroutePoints: []
+      - fieldName: Input
+        node: {fileID: 8776738753857892442}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+    - _fieldName: Input
+      _node: {fileID: -994025013394174391}
+      _typeQualifiedName: BaseState`1[[BossController, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Chase
+        node: {fileID: -7949943843337009105}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Instance: {fileID: 0}
+  Next: {fileID: 0}
+  Input: {fileID: 0}
+  timer: 0
+  targetNodeName: 
+  CurrentSkill:
+    CollisionData: {fileID: 0}
+    name: 
+    coolTime:
+      Time: 0
+      Available: 1
+  BossSkillGroup: {fileID: 0}
+  Tracker:
+    Target: {fileID: 0}
+    tracker: {fileID: 0}
+    status: {fileID: 0}
+  Player:
+    serializedVersion: 2
+    m_Bits: 512
+--- !u!114 &-780395858672051838
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25aed8b000bdd284ab1604d62af37bb3, type: 3}
+  m_Name: Slam Down
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 424, y: -872}
+  ports:
+    keys:
+    - Input
+    values:
+    - _fieldName: Input
+      _node: {fileID: -780395858672051838}
+      _typeQualifiedName: BaseState`1[[BossController, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Next
+        node: {fileID: -994025013394174391}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Instance: {fileID: 0}
+  Input: {fileID: 0}
+  attack: slamDown
+--- !u!114 &-750615336411693705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9601e31feaed2c54bb392908dbfedda7, type: 3}
+  m_Name: Blowing
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 424, y: -584}
+  ports:
+    keys:
+    - Input
+    values:
+    - _fieldName: Input
+      _node: {fileID: -750615336411693705}
+      _typeQualifiedName: BaseState`1[[BossController, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Next
+        node: {fileID: -994025013394174391}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Instance: {fileID: 0}
+  Input: {fileID: 0}
+  attack: blowing
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b427cf0873a9104eb07f35b90d9180b, type: 3}
+  m_Name: BossGraph
+  m_EditorClassIdentifier: 
+  nodes:
+  - {fileID: 3514646542852253886}
+  - {fileID: -7949943843337009105}
+  - {fileID: 186029791307831488}
+  - {fileID: -994025013394174391}
+  - {fileID: -780395858672051838}
+  - {fileID: -6607055964449853150}
+  - {fileID: -750615336411693705}
+  - {fileID: -1670573855248149491}
+  - {fileID: 8776738753857892442}
+--- !u!114 &186029791307831488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7295ea00dce4faf41a28a6d15b25bd3a, type: 3}
+  m_Name: Boss Death
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -56, y: -1000}
+  ports:
+    keys:
+    - Input
+    values:
+    - _fieldName: Input
+      _node: {fileID: 186029791307831488}
+      _typeQualifiedName: BaseState`1[[BossController, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: death
+        node: {fileID: -7949943843337009105}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Instance: {fileID: 0}
+  Input: {fileID: 0}
+  death: death
+--- !u!114 &3514646542852253886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22b40c937b7f1940a70104948782764, type: 3}
+  m_Name: Boss Awake
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: -1192, y: -696}
+  ports:
+    keys:
+    - Next
+    values:
+    - _fieldName: Next
+      _node: {fileID: 3514646542852253886}
+      _typeQualifiedName: BaseState`1[[BossController, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Input
+        node: {fileID: -7949943843337009105}
+        reroutePoints: []
+      _direction: 1
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Instance: {fileID: 0}
+  Next: {fileID: 0}
+--- !u!114 &8776738753857892442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17db111cffda60440b429c5aa89a4603, type: 3}
+  m_Name: Purgecanoon
+  m_EditorClassIdentifier: 
+  graph: {fileID: 11400000}
+  position: {x: 424, y: -328}
+  ports:
+    keys:
+    - Input
+    values:
+    - _fieldName: Input
+      _node: {fileID: 8776738753857892442}
+      _typeQualifiedName: BaseState`1[[BossController, Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null]], Assembly-CSharp, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      connections:
+      - fieldName: Next
+        node: {fileID: -994025013394174391}
+        reroutePoints: []
+      _direction: 0
+      _connectionType: 0
+      _typeConstraint: 0
+      _dynamic: 0
+  Instance: {fileID: 0}
+  Input: {fileID: 0}
+  attack: purgeCannon
