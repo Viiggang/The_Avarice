@@ -19,9 +19,9 @@ public class EventSpinAttack : BaseAniEvent
         }
         var Collider = Physics2D.OverlapBox(collisionData.offset, collisionData.size, 0f, collisionData.playerLayer);
         
-      
-        Debug.Log($"{collisionData.playerLayer}&{collisionData.playerLayer.ToString()}");
+       
         if (Collider == null) return;
+        Debug.Log($"EventSpinAttack : {Collider.name}");
         var Hit = Collider.GetComponent<IDamage>();
         player = Collider.GetComponentInParent<PlayerMgr>();
         if (Hit == null || player == null) return;

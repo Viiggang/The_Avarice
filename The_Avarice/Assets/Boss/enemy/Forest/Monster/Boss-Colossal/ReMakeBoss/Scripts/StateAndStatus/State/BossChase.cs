@@ -63,10 +63,12 @@ public class BossChase : BaseState<BossController>
     }
     public override void Excute(BossController Data)
     {
-     
         Cycle();
-        if (CurrentSkill is null || CurrentSkill.CollisionData  is  null)return;
-        Chase(Data);
+        if (CurrentSkill is null || CurrentSkill.CollisionData is null) return;
+             Chase(Data);
+
+            
+     
     }
 
     public override void Exit(BossController Data)
@@ -74,9 +76,7 @@ public class BossChase : BaseState<BossController>
         timer = 0;
         CurrentSkill = null;
     }
-    /*
      
-     */
     public void Chase(BossController Data)//추적하는 코드 
     {
        BossStatus status = Data.status;

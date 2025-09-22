@@ -19,6 +19,7 @@ public class EventSlamDown : BaseAniEvent
         }
         var Collider = Physics2D.OverlapBox(collisionData.offset, collisionData.size, 0f, collisionData.playerLayer);
         if (Collider == null) return;
+        Debug.Log($"EventSlamDown : {Collider.name}");
         var Hit = Collider.GetComponent<IDamage>();
         player = Collider.GetComponentInParent<PlayerMgr>();
         if (Hit == null || player == null) return;

@@ -41,8 +41,5 @@ public class BossAnimactionEvents : MonsterAniEvents
     {
         attackCollisionData.offset = TempOffset;
         attackCollisionData.size = TempSize;
-
-
-
     }
 }

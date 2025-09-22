@@ -29,18 +29,18 @@ public class BossSkillGroup : MonoBehaviour
     public Collider2D colluders;
     public LayerMask p;
     #endregion
-    private void OnDrawGizmos()
-    {
+    //private void OnDrawGizmos()
+    //{
 
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireCube(new Vector3(Transform.position.x + (CurrentSkill.CollisionData.offset.x * Transform.lossyScale.x),
-                                        Transform.position.y + (CurrentSkill.CollisionData.offset.y * Transform.lossyScale.y),
-                                        0f),
+    //    Gizmos.color = Color.red;
+    //    Gizmos.DrawWireCube(new Vector3(Transform.position.x + (CurrentSkill.CollisionData.offset.x * Transform.lossyScale.x),
+    //                                    Transform.position.y + (CurrentSkill.CollisionData.offset.y * Transform.lossyScale.y),
+    //                                    0f),
 
-                            new Vector3((Transform.lossyScale.x * CurrentSkill.CollisionData.Size.x),
-                                        (Transform.lossyScale.y * CurrentSkill.CollisionData.Size.y),
-            0f));
-    }
+    //                        new Vector3((Transform.lossyScale.x * CurrentSkill.CollisionData.Size.x),
+    //                                    (Transform.lossyScale.y * CurrentSkill.CollisionData.Size.y),
+    //        0f));
+    //}
     private void Awake()
     {
         //스킬  전부 활성화

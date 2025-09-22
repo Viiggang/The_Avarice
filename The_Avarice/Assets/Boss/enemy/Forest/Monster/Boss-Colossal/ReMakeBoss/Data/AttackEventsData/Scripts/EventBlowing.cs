@@ -33,6 +33,7 @@ public class EventBlowing : BaseAniEvent
 
         var Collider =  Physics2D.OverlapBox(collisionData.offset, collisionData.size,0f, collisionData.playerLayer);
         if (Collider == null) return;
+        Debug.Log($"EventBlowing : {Collider.name}");
         var rigid= Collider.GetComponent<Rigidbody2D>();
         var Hit = Collider.GetComponent<IDamage>();
         player= Collider.GetComponentInParent<PlayerMgr>();

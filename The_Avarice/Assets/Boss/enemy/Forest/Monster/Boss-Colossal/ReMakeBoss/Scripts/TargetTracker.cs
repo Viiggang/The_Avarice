@@ -46,14 +46,8 @@ public class TargetTracker
         GizmoTest.Instance.Set(PhysicOffset, PhysicSize);
         if (BossSkill.CollisionData.name == "purgeblow")
         {
-            hitCollider = Physics2D.OverlapBox(
-            PhysicOffset,//위치
-            PhysicSize,//사이즈
-            degree,//각도
-            Player//플레이어 레이어
-        );
-            if (hitCollider != null)
-                Debug.Log("purgeblow"+hitCollider.name);
+            
+          
             NextNode.Invoke(); // 공격 트리거
             return;
         }
@@ -72,7 +66,7 @@ public class TargetTracker
             Player//플레이어 레이어
         );
          if(hitCollider !=null)
-            Debug.Log(hitCollider.name);
+           // Debug.Log(hitCollider.name);
         
        
        //충돌
@@ -102,7 +96,7 @@ public class TargetTracker
     public void SetSize(Vector2 size) => this.PhysicSize = new Vector2(tracker.lossyScale.x * size.x, tracker.lossyScale.y * size.y);
     
     public void SetOffset(Vector2 Offset)
-    {
+    {//
 
         this.PhysicOffset = new Vector2(
             tracker.position.x + (Offset.x* Mathf.Abs(tracker.lossyScale.x)), 

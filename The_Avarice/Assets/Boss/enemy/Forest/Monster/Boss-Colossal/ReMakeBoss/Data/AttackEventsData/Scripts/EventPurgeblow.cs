@@ -21,12 +21,13 @@ public class EventPurgeblow : BaseAniEvent
         }
         var Collider = Physics2D.OverlapBox(collisionData.offset, collisionData.size, 0f, collisionData.playerLayer);
         if (Collider == null) return;
+         Debug.Log($"EventPurgeblow : {Collider.name}");
         var Hit = Collider.GetComponent<IDamage>();
         player = Collider.GetComponentInParent<PlayerMgr>();
         //if (Hit == null || player == null) return;
         //var PlayerMaxHP = player.getPlayerMaxHp();
         //float finallDamage = PlayerMaxHP*0.5f;
-        Debug.Log($"EventPurgeblow:{Collider.gameObject.name}");
+         
         Hit.OnHitDamage(1f);
     }
 }
