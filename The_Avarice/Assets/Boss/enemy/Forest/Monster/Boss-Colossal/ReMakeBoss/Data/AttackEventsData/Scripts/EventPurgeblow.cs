@@ -23,9 +23,10 @@ public class EventPurgeblow : BaseAniEvent
         if (Collider == null) return;
         var Hit = Collider.GetComponent<IDamage>();
         player = Collider.GetComponentInParent<PlayerMgr>();
-        if (Hit == null || player == null) return;
-        var PlayerMaxHP = player.getPlayerMaxHp();
-        float finallDamage = PlayerMaxHP*0.5f;
-        Hit.OnHitDamage(finallDamage);
+        //if (Hit == null || player == null) return;
+        //var PlayerMaxHP = player.getPlayerMaxHp();
+        //float finallDamage = PlayerMaxHP*0.5f;
+        Debug.Log($"EventPurgeblow:{Collider.gameObject.name}");
+        Hit.OnHitDamage(1f);
     }
 }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: blowing
   m_EditorClassIdentifier: 
   offset: {x: -0.1, y: 0.03, z: 0}
-  Size: {x: 1.07, y: -0.65, z: 0}
+  Size: {x: 1.5, y: 1, z: 0}
   description: 

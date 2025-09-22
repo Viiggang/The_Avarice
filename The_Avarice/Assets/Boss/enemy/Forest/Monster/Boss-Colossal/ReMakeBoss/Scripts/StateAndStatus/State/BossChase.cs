@@ -102,9 +102,9 @@ public class BossChase : BaseState<BossController>
     }
 
     private void SetColliderPos(BossController data, float dir)
-    {
+    {//왼쪽 우측 볼 때 Hit콜라이더 위치 보정합니다. 
         BoxCollider2D box = data.Collider2D;
-        bool isFlipped = dir < 0;
+        bool isFlipped = dir < 0;//방향이 왼쪽인지 오른쪽 인지 판별 -1 왼쪽 1오른쪽
 
         //data.SpriteRenderer.flipX = isFlipped;
 

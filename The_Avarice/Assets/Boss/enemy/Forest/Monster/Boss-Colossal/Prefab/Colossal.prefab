@@ -306,12 +306,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5513527899003719613}
   - component: {fileID: 523732487823140427}
+  - component: {fileID: 353338942894858844}
   - component: {fileID: 7905072262440034362}
   - component: {fileID: 6679383385569705967}
   - component: {fileID: 1285777196184605820}
   - component: {fileID: 9042614402333008356}
   - component: {fileID: 3883869294010197567}
-  - component: {fileID: 353338942894858844}
   m_Layer: 6
   m_Name: Controller
   m_TagString: Untagged
@@ -356,6 +356,19 @@ MonoBehaviour:
   SpriteRenderer: {fileID: 4397757711339702236}
   Collider2D: {fileID: 3883869294010197567}
   BossAnimactionEvents: {fileID: 3056349655953402599}
+--- !u!114 &353338942894858844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3730785997546567480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcb68ad29ed8ac94da40c081271fa683, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossStage: 1
 --- !u!114 &7905072262440034362
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -484,19 +497,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.37045527, y: 0.49517626}
   m_EdgeRadius: 0
---- !u!114 &353338942894858844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3730785997546567480}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bcb68ad29ed8ac94da40c081271fa683, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bossStage: 1
 --- !u!1 &6087460984365933127
 GameObject:
   m_ObjectHideFlags: 0

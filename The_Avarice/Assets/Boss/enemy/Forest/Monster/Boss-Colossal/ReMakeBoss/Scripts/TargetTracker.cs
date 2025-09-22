@@ -27,7 +27,7 @@ public class TargetTracker
 
     BossSkill BossSkill;
 
-
+    Collider2D hitCollider;
     public TargetTracker (Transform _Target, Transform tracker,LayerMask layerMask)
     {
         this.Target = _Target;
@@ -42,31 +42,40 @@ public class TargetTracker
     //추적하는 함수
     public void Chase()
     {
+        float degree = 0f;
+        GizmoTest.Instance.Set(PhysicOffset, PhysicSize);
         if (BossSkill.CollisionData.name == "purgeblow")
         {
+            hitCollider = Physics2D.OverlapBox(
+            PhysicOffset,//위치
+            PhysicSize,//사이즈
+            degree,//각도
+            Player//플레이어 레이어
+        );
+            if (hitCollider != null)
+                Debug.Log("purgeblow"+hitCollider.name);
             NextNode.Invoke(); // 공격 트리거
             return;
         }
-        float degree = 0f;
+       
         // 1. 방향 계산
         float directionX = Mathf.Sign(Target.position.x - CollisonPos.x);
 
         // 2. 플레이어 감지 체크
-        bool isPhysicsCheckReady = physicsCalculationLatency.CurrentTime >= physicsCalculationLatency.DelayTime;
+        //bool isPhysicsCheckReady = physicsCalculationLatency.CurrentTime >= physicsCalculationLatency.DelayTime;
+        
         bool isPlayerDetected = false;
-        Collider2D hitCollider = Physics2D.OverlapBox(
+        hitCollider = Physics2D.OverlapBox(
             PhysicOffset,//위치
             PhysicSize,//사이즈
             degree,//각도
             Player//플레이어 레이어
         );
          if(hitCollider !=null)
-        {
             Debug.Log(hitCollider.name);
-        }
+        
        
-        GizmoTest.Instance.Set(PhysicOffset, PhysicSize);
-       //충돌 개수가 1개 이상이면
+       //충돌
        isPlayerDetected = hitCollider!=null;
        if (isPlayerDetected)
        {
@@ -80,7 +89,7 @@ public class TargetTracker
             tracker.position += new Vector3(directionX, 0f, 0f) * status.speed * Time.deltaTime;
     }
 
-    public float GetDirection() => Mathf.Sign(Target.position.x-tracker.position.x );//보스 기준 추적 방향 (왼쪽 오른쪽 방향 구하기)
+    public float GetDirection() => Mathf.Sign(Target.position.x- CollisonPos.x );//보스 기준 추적 방향 (왼쪽 오른쪽 방향 구하기)
     
 
     public void SetCollisonPos(Vector3 Data) => CollisonPos = Data;
