@@ -9,27 +9,61 @@ public class CameraManager : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
 
+    private CinemachineFramingTransposer fT;
+
+    private Transform target;
+
+    private Vector2 defaultOffset = new Vector2(0f, 1f);
+    private float fixedY;
+
+    private bool wasJumpingLastFrame;
+
+    private float lerpSpeed = 5f;
+
     private void Awake()
     {
         if (_instance != null)
         {
-            //Destroy(gameObject);
+            Destroy(gameObject);
             return;
         }
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
-        mainCamera.gameObject.SetActive(false);
-        virtualCamera.gameObject.SetActive(false);
+        fT = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
     }
 
     public void SetTarget(Transform target)
     {
-        mainCamera.gameObject.SetActive(true);
-        virtualCamera.gameObject.SetActive(true);
-
         virtualCamera.Follow = target; 
-        virtualCamera.LookAt = target;
+        this.target = target;
+    }
+
+    private void Update()
+    {
+        if (virtualCamera.Follow == null) return;
+
+        Animator animator = target.GetComponent<Animator>();
+        bool isJump = animator.GetBool("isJump");
+
+        Vector3 currentOffset = fT.m_TrackedObjectOffset;
+
+        if (isJump)
+        {
+            if (!wasJumpingLastFrame)
+            {
+                fixedY = currentOffset.y;
+            }
+
+            fT.m_TrackedObjectOffset = new Vector3(defaultOffset.x, fixedY, currentOffset.z);
+        }
+        else
+        {
+            float newY = Mathf.Lerp(currentOffset.y, defaultOffset.y, Time.deltaTime * lerpSpeed);
+            fT.m_TrackedObjectOffset = new Vector3(defaultOffset.x, newY, currentOffset.z);
+        }
+
+        wasJumpingLastFrame = isJump;
     }
 }

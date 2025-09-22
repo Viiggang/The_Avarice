@@ -27,6 +27,7 @@ public class BackgroundScrolling : MonoBehaviour
             ppc = cam.GetComponent<PixelPerfectCamera>();
         }
 
+        cameraTransform = cam.transform;
         lastCameraPos = cameraTransform.position;
     }
     private void Update()
