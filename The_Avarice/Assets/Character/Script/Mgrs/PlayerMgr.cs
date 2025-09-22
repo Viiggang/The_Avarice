@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -26,7 +27,8 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     Player_Type playerType;
 
-    public GameObject[] Player;
+    public GameObject[] playerPrefab;
+    private GameObject player;
 
     [Space]
     [Header("Player_Info")]
@@ -61,19 +63,11 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     private bool onPassive2 = false;
     private bool onPassive = false;
 
-
-    public void Start()
-    {
-        for (int i = 0; i < Player.Length; i++)
-        {
-            Player[i].SetActive(false);
-        }
-    }
-
     public void Spawnplayer()
     {
         this.gameObject.transform.position = Startpos.transform.position;
-        Player[(int)playerType].SetActive(true);
+        player = Instantiate(playerPrefab[(int)playerType].gameObject, Startpos.transform.position, Quaternion.identity);
+        CameraManager.Instance.SetTarget(player.transform);
     }
 
     public void Update()

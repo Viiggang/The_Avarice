@@ -38,6 +38,7 @@ public class PlayerCon : MonoBehaviour
     public Dictionary<Player_Type, IpController> Skill2States;
 
     //FSM 상태관리
+    [field: SerializeField]
     public Player_ControllMachine ControlMachine { get; private set; }
     public IdleState IdleState { get; private set; }
     public MoveState MoveState { get; private set; }

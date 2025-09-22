@@ -82,6 +82,7 @@ public class SceneLoader : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         image = fadeImage.GetComponent<Image>();
+
     }
 
     public void ChangeScene(string sceneName)
@@ -139,7 +140,10 @@ public class SceneLoader : MonoBehaviour
             else
             {
                 percentage = Mathf.Lerp(percentage, loadscene.progress * 100f, past_time);
-                if (percentage >= 90) past_time = 0;
+                if (percentage >= 90)
+                {
+                    past_time = 0;
+                }
             }
             text.text = percentage.ToString("0") + "%";
         }
@@ -159,6 +163,7 @@ public class SceneLoader : MonoBehaviour
             image.raycastTarget = false;
         });
     }
+
     //public IEnumerator FadeOut()
     //{
     //    fadeImage.raycastTarget = true;
