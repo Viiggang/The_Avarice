@@ -63,14 +63,15 @@ MonoBehaviour:
   Speed: 2
   jumpPower: 5
   hitBox: {fileID: 4722616802733099319}
-  dashSpeed: 10
+  dashSpeed: 20
   dashDuration: 0.2
   Skill1Duration: 1.8
   dashCooldown: 1
   skill1Cooldown: 2.5
   dashDodge: 0.1
-  dashHitBox: {fileID: 7430462268903728845}
-  counterAtk: {fileID: 1108419300680732767}
+  ExtraHitBox1: {fileID: 0}
+  ExtraHitBox2: {fileID: 0}
+  <ControlMachine>k__BackingField: {fileID: 0}
 --- !u!114 &8418911538494962082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +87,9 @@ MonoBehaviour:
   attackSpeed: 1.16
   MaxComdo: 3
   atkType: 0
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 0
   HitRange1:
   - {fileID: 1754891316756918709}
   - {fileID: 4441768395724302156}
@@ -98,6 +102,9 @@ MonoBehaviour:
   - {fileID: 6337564744207374118}
   HitSkillRange2:
   - {fileID: 7530595016151669764}
+  FirePoint: []
+  Bullet: []
+  attackRange: 5
 --- !u!95 &7733376563232847246
 Animator:
   serializedVersion: 5
@@ -160,15 +167,15 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 4
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 77a0007c898d7a34e8b8403b3e0ba049, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 23.039999, y: 12.959999}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &4032832708191818127
@@ -1105,7 +1112,7 @@ MonoBehaviour:
   thickness: 0.2
   targetLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   activeTime: 0.07
   animator: {fileID: 7090667641429632705}
   attackStateName: Pal_LightCut

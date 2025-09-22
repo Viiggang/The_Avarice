@@ -59,8 +59,9 @@ MonoBehaviour:
   dashCooldown: 1
   skill1Cooldown: 1
   dashDodge: 0.1
-  dashHitBox: {fileID: 0}
-  counterAtk: {fileID: 0}
+  ExtraHitBox1: {fileID: 0}
+  ExtraHitBox2: {fileID: 0}
+  <ControlMachine>k__BackingField: {fileID: 0}
 --- !u!114 &1349101834852336788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -76,10 +77,16 @@ MonoBehaviour:
   attackSpeed: 1
   MaxComdo: 3
   atkType: 0
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 0
   HitRange1: []
   HitRange2: []
   HitSkillRange1: []
   HitSkillRange2: []
+  FirePoint: []
+  Bullet: []
+  attackRange: 5
 --- !u!95 &954616379595376824
 Animator:
   serializedVersion: 5
