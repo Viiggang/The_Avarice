@@ -7,28 +7,12 @@ using static UnityEditor.LightingExplorerTableColumn;
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(Animator))]
 public class PlayerCon : MonoBehaviour
 {
-    [Header("- Movement Settings")]
-    [SerializeField, Range(2f, 10f)]
-    private float Speed = 5f;
-    [SerializeField, Range(5f, 20f)]
-    private float jumpPower = 10f;
 
-    [Space, Header("- Dash Settings")]
+
+    [Space, Header("Extra Settings")]
     [SerializeField]
     private Collider2D hitBox;
-    [SerializeField, Range(20f, 50f)]
-    private float dashSpeed = 30f;
-    [SerializeField, Range(0.05f, 0.3f)]
-    private float dashDuration = 0.1f;
-    [SerializeField, Range(0.1f, 3f)]
-    private float Skill1Duration = 1f;
-    [SerializeField, Range(0.2f, 3f)]
-    private float dashCooldown = 1f;
-    [SerializeField, Range(0.5f, 3.5f)]
-    private float skill1Cooldown = 1f;
-    private float resetCooldown = 0f;
-    [SerializeField, Range(0.02f, 0.15f)]
-    private float dashDodge = 0.05f;
+
     [SerializeField]
     private GameObject ExtraHitBox1;
     [SerializeField]
@@ -37,9 +21,11 @@ public class PlayerCon : MonoBehaviour
     public Dictionary<Player_Type, IpController> Skill1States;
     public Dictionary<Player_Type, IpController> Skill2States;
 
+    [HideInInspector]
+    public Player_ControllMachine ControlMachine { get; private set; }
     //FSM 상태관리
     [field: SerializeField]
-    public Player_ControllMachine ControlMachine { get; private set; }
+   
     public IdleState IdleState { get; private set; }
     public MoveState MoveState { get; private set; }
     public JumpState JumpState { get; private set; }
@@ -112,13 +98,13 @@ public class PlayerCon : MonoBehaviour
 
     public IpController GetSkill1State()
     {
-        var type = PlayerMgr.instance.getPlayerType();
+        var type = PlayerMgr.instance.playerType;
         return Skill1States.TryGetValue(type, out var state) ? state : IdleState;
     }
 
     public IpController GetSkill2State()
     {
-        var type = PlayerMgr.instance.getPlayerType();
+        var type = PlayerMgr.instance.playerType;
         return Skill2States.TryGetValue(type, out var state) ? state : IdleState;
     }
     private void OnEnable()
@@ -150,12 +136,12 @@ public class PlayerCon : MonoBehaviour
     {
         if (inputX < 0 && Direction)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-0.64f, 0.64f, 0.64f);
             Direction = false;
         }
         else if (inputX > 0 && !Direction)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(0.64f, 0.64f, 0.64f);
             Direction = true;
         }
     }
@@ -182,7 +168,7 @@ public class PlayerCon : MonoBehaviour
 
     public void Jump()
     {
-        Rigid.velocity = new Vector2(Rigid.velocity.x, jumpPower);
+        Rigid.velocity = new Vector2(Rigid.velocity.x, PlayerMgr.instance.JumpPower);
     }
     public bool IsGrounded()
     {
@@ -197,12 +183,12 @@ public class PlayerCon : MonoBehaviour
 
     public void setSkill1Cooldown(float sum)
     {
-        resetCooldown = skill1Cooldown;
-        skill1Cooldown *= sum;
+        PlayerMgr.instance.ResetCooldown = PlayerMgr.instance.Skill1_Cooldown;
+        PlayerMgr.instance.Skill1_Cooldown *= sum;
     }
     public void resetSkill1Cooldown()
     {
-        skill1Cooldown = resetCooldown;
+        PlayerMgr.instance.Skill1_Cooldown = PlayerMgr.instance.ResetCooldown;
     }
 
     public void Pal_ShieldPassive()
@@ -217,14 +203,14 @@ public class PlayerCon : MonoBehaviour
         Rigid.velocity = Vector2.zero;
     }
 
-    public float GetNormalSpeed() => Speed;
-    public float GetJumpPower() => jumpPower;
-    public float GetDashSpeed() => dashSpeed;
-    public float GetDashDuration() => dashDuration;
-    public float GetSkill1Duration() => Skill1Duration;
-    public float GetDashCooldown() => dashCooldown;
-    public float GetSkill1Cooldown() => skill1Cooldown;
-    public float GetDashDodge() => dashDodge;
+    public float GetNormalSpeed() => PlayerMgr.instance.MoveSpeed;
+    public float GetJumpPower() => PlayerMgr.instance.JumpPower;
+    public float GetDashSpeed() => PlayerMgr.instance.DashSpeed;
+    public float GetDashDuration() => PlayerMgr.instance.DashDuration;
+    public float GetSkill1Duration() => PlayerMgr.instance.Skill1_Duration;
+    public float GetDashCooldown() => PlayerMgr.instance.DashCooldown;
+    public float GetSkill1Cooldown() => PlayerMgr.instance.Skill1_Cooldown;
+    public float GetDashDodge() => PlayerMgr.instance.DashDodge;
     #endregion
 }
 

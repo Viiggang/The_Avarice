@@ -26,7 +26,7 @@ public class Skill1State : IpController
         player.CanMove = false;
         timer = player.GetSkill1Duration();
 
-        if(PlayerMgr.instance.getPlayerType() == Player_Type.Paladin && PlayerMgr.instance.getPassiveStack() == 20)
+        if(PlayerMgr.instance.playerType == Player_Type.Paladin && PlayerMgr.instance.Passive1 == 20)
         {
             player.Anim.SetTrigger("Passive1");
             StartBuff();
@@ -73,21 +73,21 @@ public class Skill1State : IpController
     private IEnumerator Pal_PassiveBuff()
     {
         yield return new WaitForSeconds(1);
-        PlayerMgr.instance.setPassive(true);
+        PlayerMgr.instance.Passive =true;
         PlayerMgr.instance.sumPassiveStack(-20);
         PlayerMgr.instance.sumPlayerHp(20f);
         PlayerMgr.instance.sumPlayerMaxHp(20f);
         PlayerMgr.instance.sumPlayerAtk(5f);
-        PlayerMgr.instance.setonPassive(true);
+        PlayerMgr.instance.OnPassive = true;
         player.setSkill1Cooldown(0.8f);
         yield return new WaitForSeconds(6);
-        PlayerMgr.instance.setPassive(false);
+        PlayerMgr.instance.Passive = false;
         PlayerMgr.instance.sumPlayerHp(-20f);
         PlayerMgr.instance.sumPlayerMaxHp(-20f);
         PlayerMgr.instance.sumPlayerAtk(-5f);
         player.resetSkill1Cooldown();
         yield return new WaitForSeconds(20);
-        PlayerMgr.instance.setonPassive(false);
+        PlayerMgr.instance.OnPassive = false;
 
     }
 }

@@ -27,7 +27,7 @@ public class ChangeState : IpController
         timer = player.GetSkill1Duration();
         player.CanDash = false;
 
-        if (PlayerMgr.instance.getPlayerType().Equals(Player_Type.Ignis) && PlayerMgr.instance.getPassiveStack() == 20)
+        if (PlayerMgr.instance.playerType.Equals(Player_Type.Ignis) && PlayerMgr.instance.Passive1 == 20)
         {
             player.Anim.SetTrigger("Passive");
        
@@ -37,17 +37,17 @@ public class ChangeState : IpController
             player.Anim.SetTrigger("Change");
         }
 
-        if (PlayerMgr.instance.getElementType().Equals(Element_Type.Fire))
+        if (PlayerMgr.instance.ElementType == (Element_Type.Fire))
         {
-            PlayerMgr.instance.setElementType(Element_Type.Thunder);
+            PlayerMgr.instance.ElementType = Element_Type.Thunder;
         }
-        else if (PlayerMgr.instance.getElementType().Equals(Element_Type.Thunder))
+        else if (PlayerMgr.instance.ElementType == (Element_Type.Thunder))
         {
-            PlayerMgr.instance.setElementType(Element_Type.Ice);
+            PlayerMgr.instance.ElementType = Element_Type.Ice;
         }
         else
         {
-            PlayerMgr.instance.setElementType(Element_Type.Fire);
+            PlayerMgr.instance.ElementType = Element_Type.Fire;
         }
 
         player.StartCoroutine(CooldownCoroutine());

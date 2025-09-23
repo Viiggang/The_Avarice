@@ -1,33 +1,32 @@
 using System.Collections;
-using UnityEditor.EditorTools;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody), typeof(Collider))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 [DisallowMultipleComponent]
-public class ProjectileKinematic : MonoBehaviour, IPoolable
+public class ProjectileKinematic2D : MonoBehaviour, IPoolable
 {
     [Header("Motion")]
     public float defaultSpeed = 25f;
     public float defaultLifetime = 3f;
-    [Tooltip("이 오브젝트가 다른 오브젝트와 충돌 검사할 레이어")]
+    [Tooltip("충돌할 레이어")]
     public LayerMask hitLayers = ~0;
 
     [Header("Collision / Physics")]
-    [Tooltip("스피드가 빠를 때 누락(터널링) 방지용 여유값")]
+    [Tooltip("터널링 방지 여유값")]
     public float skinWidth = 0.05f;
-    [Tooltip("Rigidbody의 충돌 감지 모드(권장: ContinuousSpeculative)")]
-    public CollisionDetectionMode preferredCollisionDetection = CollisionDetectionMode.ContinuousSpeculative;
+    [Tooltip("Rigidbody2D 충돌 감지 모드")]
+    public CollisionDetectionMode2D preferredCollisionDetection = CollisionDetectionMode2D.Continuous;
 
     [Header("Hit / Animation")]
-    public Animator animator;                    
+    public Animator animator;
     public string hitTriggerName = "Hit";
-    public float hitAnimationFallback = 0.4f;    
+    public float hitAnimationFallback = 0.4f;
     public string hitClipHint = "Hit";
     public float AtkDamage = 5f;
 
-    Rigidbody rb;
-    Collider[] collidersCache;
-    Vector3 moveDirection = Vector3.forward;
+    Rigidbody2D rb;
+    Collider2D[] collidersCache;
+    Vector2 moveDirection = Vector2.right;
     float moveSpeed;
     float lifeTimer;
     float lifeTime;
@@ -42,9 +41,9 @@ public class ProjectileKinematic : MonoBehaviour, IPoolable
         isMoving = false;
         isHit = false;
 
-        if (rb == null) rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;
-        rb.useGravity = false;
+        if (rb == null) rb = GetComponent<Rigidbody2D>();
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.gravityScale = 0f;
         rb.collisionDetectionMode = preferredCollisionDetection;
 
         EnsureColliders(true);
@@ -77,15 +76,20 @@ public class ProjectileKinematic : MonoBehaviour, IPoolable
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        collidersCache = GetComponentsInChildren<Collider>(true);
+        rb = GetComponent<Rigidbody2D>();
+        collidersCache = GetComponentsInChildren<Collider2D>(true);
 
         if (rb == null)
-            Debug.LogError("[ProjectileKinematic] Rigidbody가 필요합니다 (RequireComponent로 보장되어야 함).");
+            Debug.LogError("[ProjectileKinematic2D] Rigidbody2D가 필요합니다.");
     }
-    public void Launch(Vector3 direction, float speed = -1f, float lifetime = -1f)
+
+    /// <summary>
+    /// 발사 함수 (발사 순간에만 방향을 바라봄)
+    /// </summary>
+    public void Launch(Vector2 direction, float speed = -1f, float lifetime = -1f)
     {
-        if (direction.sqrMagnitude <= 0f) direction = transform.forward;
+        if (direction.sqrMagnitude <= 0f) direction = Vector2.right;
+
         moveDirection = direction.normalized;
         moveSpeed = (speed > 0f) ? speed : defaultSpeed;
         lifeTime = (lifetime > 0f) ? lifetime : defaultLifetime;
@@ -96,9 +100,13 @@ public class ProjectileKinematic : MonoBehaviour, IPoolable
 
         EnsureColliders(true);
 
-        rb.isKinematic = true;
-        rb.useGravity = false;
+        rb.bodyType = RigidbodyType2D.Kinematic;
+        rb.gravityScale = 0f;
         rb.collisionDetectionMode = preferredCollisionDetection;
+
+        // 발사 방향을 바라보도록 회전
+        float angle = Mathf.Atan2(moveDirection.y, moveDirection.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(0f, 0f, angle);
     }
 
     private void FixedUpdate()
@@ -106,27 +114,22 @@ public class ProjectileKinematic : MonoBehaviour, IPoolable
         if (!isMoving || isHit) return;
 
         float dt = Time.fixedDeltaTime;
-        var step = moveSpeed * dt;
+        float step = moveSpeed * dt;
         if (step <= 0f) return;
 
+        Vector2 current = rb.position;
+        Vector2 next = current + moveDirection * step;
 
-        Vector3 current = rb.position;
-        Vector3 next = current + moveDirection * step;
-
-        // 미리 Raycast로 터널링 방지(빠른 프로젝트일 경우 추가 보정)
-        RaycastHit hit;
-        if (Physics.Raycast(current, moveDirection, out hit, step + skinWidth, hitLayers, QueryTriggerInteraction.Collide))
+        RaycastHit2D hit = Physics2D.Raycast(current, moveDirection, step + skinWidth, hitLayers);
+        if (hit.collider != null)
         {
-
             rb.MovePosition(hit.point);
             HandleHitInternal(hit.collider, hit.point, hit.normal);
         }
         else
         {
-            // 정상 이동
             rb.MovePosition(next);
 
-            // 수명 체크 (FixedUpdate에서 관리)
             lifeTimer += dt;
             if (lifeTimer >= lifeTime)
             {
@@ -135,33 +138,32 @@ public class ProjectileKinematic : MonoBehaviour, IPoolable
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (isHit) return;
-        HandleHitInternal(other, transform.position, -transform.forward);
-        IDamage damage = other.GetComponent<IDamage>(); //충돌한 오브젝트에서 IDamage 인터페이스를 가져옮
-        if (damage != null && other.gameObject.layer == LayerMask.NameToLayer("Enemy")) // 충돌한 오브젝트가 IDamage인터페이스를 가지고있고 레이어가 enemy이라면
+
+        HandleHitInternal(other, transform.position, -transform.right);
+
+        IDamage damage = other.GetComponent<IDamage>();
+        if (damage != null && other.gameObject.layer == LayerMask.NameToLayer("Enemy"))
         {
-            damage.OnHitDamage(AtkDamage); //인터페이스에 선언된 OnHitDamage()메소드를 호출 = 피격처리
-            if (PlayerMgr.instance.getPlayerType() == Player_Type.Paladin && !PlayerMgr.instance.getonPassive())
+            damage.OnHitDamage(AtkDamage);
+            if (PlayerMgr.instance.playerType == Player_Type.Paladin && !PlayerMgr.instance.OnPassive)
             {
                 PlayerMgr.instance.sumPassiveStack(1);
             }
         }
     }
-    #region Hit / Timeout handling
 
-    private void HandleHitInternal(Collider other, Vector3 hitPoint, Vector3 hitNormal)
+    #region Hit / Timeout handling
+    private void HandleHitInternal(Collider2D other, Vector2 hitPoint, Vector2 hitNormal)
     {
         if (isHit) return;
         isHit = true;
         isMoving = false;
 
-
         EnsureColliders(false);
 
-        
-        // 애니메이터 처리
         if (animator != null)
         {
             animator.ResetTrigger(hitTriggerName);
@@ -175,7 +177,7 @@ public class ProjectileKinematic : MonoBehaviour, IPoolable
         }
         else
         {
-            PoolMgr.Instance.Release(gameObject);
+            PoolMgr.instance.Release(gameObject);
         }
     }
 
@@ -200,20 +202,15 @@ public class ProjectileKinematic : MonoBehaviour, IPoolable
         }
         else
         {
-            PoolMgr.Instance.Release(gameObject);
+            PoolMgr.instance.Release(gameObject);
         }
     }
 
     private IEnumerator WaitAndReturnAfterSeconds(float seconds)
     {
-        float t = 0f;
-        while (t < seconds)
-        {
-            t += Time.deltaTime;
-            yield return null;
-        }
+        yield return new WaitForSeconds(seconds);
         hitCoroutine = null;
-        PoolMgr.Instance.Release(gameObject);
+        PoolMgr.instance.Release(gameObject);
     }
 
     public void OnHitAnimationComplete()
@@ -223,7 +220,7 @@ public class ProjectileKinematic : MonoBehaviour, IPoolable
             StopCoroutine(hitCoroutine);
             hitCoroutine = null;
         }
-        PoolMgr.Instance.Release(gameObject);
+        PoolMgr.instance.Release(gameObject);
     }
 
     private float FindLikelyHitClipLength()
@@ -242,15 +239,13 @@ public class ProjectileKinematic : MonoBehaviour, IPoolable
                 return clips[i].length;
         return -1f;
     }
-
     #endregion
 
     private void EnsureColliders(bool enabled)
     {
-        if (collidersCache == null) collidersCache = GetComponentsInChildren<Collider>(true);
-        for (int i = 0; i < collidersCache.Length; i++)
+        if (collidersCache == null) collidersCache = GetComponentsInChildren<Collider2D>(true);
+        foreach (var c in collidersCache)
         {
-            var c = collidersCache[i];
             if (c != null) c.enabled = enabled;
         }
     }

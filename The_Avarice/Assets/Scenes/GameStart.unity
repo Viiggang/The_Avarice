@@ -1695,6 +1695,91 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OptionUI: {fileID: 248725440}
+--- !u!1001 &1753414504
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3812821354431049808, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: pools.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812821354431049808, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: pools.Array.data[0].prefab
+      value: 
+      objectReference: {fileID: 8234054292735046601, guid: c765b45225686e74fa4145be5c249c31, type: 3}
+    - target: {fileID: 3812821354431049808, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: pools.Array.data[0].maxSize
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812821354431049808, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: pools.Array.data[0].poolName
+      value: FireBall
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812821354431049808, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: pools.Array.data[0].warmupCount
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812821354431049808, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: pools.Array.data[0].collectionCheck
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3812821354431049808, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: pools.Array.data[0].defaultCapacity
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382791134565093630, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382791134565093630, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382791134565093630, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382791134565093630, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382791134565093630, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382791134565093630, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382791134565093630, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382791134565093630, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382791134565093630, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4382791134565093630, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5229837840790184732, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
+      propertyPath: m_Name
+      value: PoolMgr
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 19e2f4592df57a3428eab12ee46752f3, type: 3}
 --- !u!1 &1796381868 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2252560767002094413, guid: a6cc1ade6b60d034dba9517ec8733803, type: 3}
@@ -2076,3 +2161,4 @@ SceneRoots:
   - {fileID: 1258119095}
   - {fileID: 1856778698}
   - {fileID: 4147109520107523413}
+  - {fileID: 1753414504}

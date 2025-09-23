@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.64, y: 0.64, z: 0.64}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7042819692181607701}
@@ -60,17 +60,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0736df4f36364c444987f8cfee28c5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
-  jumpPower: 5
   hitBox: {fileID: 4722616802733099319}
-  dashSpeed: 10
-  dashDuration: 0.2
-  Skill1Duration: 1.8
-  dashCooldown: 1
-  skill1Cooldown: 2.5
-  dashDodge: 0.1
-  dashHitBox: {fileID: 7430462268903728845}
-  counterAtk: {fileID: 1108419300680732767}
+  ExtraHitBox1: {fileID: 7430462268903728845}
+  ExtraHitBox2: {fileID: 1108419300680732767}
 --- !u!114 &8418911538494962082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -86,6 +78,9 @@ MonoBehaviour:
   attackSpeed: 1.16
   MaxComdo: 3
   atkType: 0
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 64
   HitRange1:
   - {fileID: 1754891316756918709}
   - {fileID: 4441768395724302156}
@@ -98,6 +93,9 @@ MonoBehaviour:
   - {fileID: 6337564744207374118}
   HitSkillRange2:
   - {fileID: 7530595016151669764}
+  FirePoint: []
+  Bullet: []
+  attackRange: 5
 --- !u!95 &7733376563232847246
 Animator:
   serializedVersion: 5
@@ -230,8 +228,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.04}
-  m_Size: {x: 0.4, y: 0.5}
+  m_Offset: {x: 0.02, y: 0.015}
+  m_Size: {x: 0.44, y: 0.64}
   m_Direction: 0
 --- !u!1 &1108419300680732767
 GameObject:
@@ -550,7 +548,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.007055834}
-  m_Size: {x: 0.3, y: 0.43303993}
+  m_Size: {x: 0.3, y: 0.43}
   m_Direction: 0
 --- !u!50 &5384076738350343669
 Rigidbody2D:

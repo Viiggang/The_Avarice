@@ -27,7 +27,7 @@ public class Player_Hit : MonoBehaviour, IDamage
         PlayerMgr.instance.sumPlayerHp(damage);
         player.CanMove = false;
         // 일반 피격 로직
-        if (animator != null && 1 <= PlayerMgr.instance.getPlayerHp())
+        if (animator != null && 1 <= PlayerMgr.instance.Hp)
         {
             animator.SetTrigger("Hurt");
         }
