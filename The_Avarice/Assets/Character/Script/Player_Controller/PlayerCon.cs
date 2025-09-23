@@ -16,7 +16,7 @@ public class PlayerCon : MonoBehaviour
     [Space, Header("- Dash Settings")]
     [SerializeField]
     private Collider2D hitBox;
-    [SerializeField, Range(20f, 50f)]
+    [SerializeField, Range(10f, 50f)]
     private float dashSpeed = 30f;
     [SerializeField, Range(0.05f, 0.3f)]
     private float dashDuration = 0.1f;
@@ -107,6 +107,7 @@ public class PlayerCon : MonoBehaviour
             { Player_Type.Ignis, ChangeState }
         };
 
+        transform.localScale = new Vector3(0.64f, 0.64f, 1);
     }
 
 
@@ -150,12 +151,12 @@ public class PlayerCon : MonoBehaviour
     {
         if (inputX < 0 && Direction)
         {
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-0.64f, 0.64f, 1);
             Direction = false;
         }
         else if (inputX > 0 && !Direction)
         {
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(0.64f, 0.64f, 1);
             Direction = true;
         }
     }
