@@ -95,6 +95,7 @@ MonoBehaviour:
   - {fileID: 7530595016151669764}
   FirePoint: []
   Bullet: []
+  Bullet2: []
   attackRange: 5
 --- !u!95 &7733376563232847246
 Animator:
@@ -1103,7 +1104,7 @@ MonoBehaviour:
   thickness: 0.2
   targetLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   activeTime: 0.07
   animator: {fileID: 7090667641429632705}
   attackStateName: Pal_LightCut

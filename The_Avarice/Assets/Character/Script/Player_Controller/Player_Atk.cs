@@ -34,9 +34,11 @@ public class Player_Atk : MonoBehaviour //�Ϲݰ���
     private GameObject[] HitSkillRange2;
 
     [SerializeField, Tooltip("0번은 기본생성위치 1번은 타겟위치 2번부터 투사체의 발사위치로 설정된다.")]
-    private GameObject[] FirePoint;
+    private Transform[] FirePoint;
     [SerializeField]
     private GameObject[] Bullet;
+    [SerializeField]
+    private GameObject[] Bullet2;
 
     [SerializeField] 
     private float attackRange = 5f;
@@ -48,7 +50,52 @@ public class Player_Atk : MonoBehaviour //�Ϲݰ���
     private bool comboWindowOpen = false; // �����޺��Է�
     private bool bufferedInput = false;// �Է¹���
     private bool isAttacking = false; // ����Ű Ȱ��ȭ ����
-    
+
+    private int currentIndex = 0;
+
+    public void Shoot(Vector2 direction)
+    {
+        if (Bullet.Length == 0) return;
+
+        GameObject projectile = Bullet[currentIndex];
+        currentIndex = (currentIndex + 1) % Bullet.Length;
+
+        // 비활성화 상태라면 켜고, 아니라면 위치만 갱신
+        projectile.SetActive(true);
+        projectile.transform.position = FirePoint[2].position;
+
+
+    }
+
+    public void ClearAll()
+    {
+        foreach (var p in Bullet)
+        {
+            p.SetActive(false);
+        }
+    }
+
+    public void Shoot2(Vector2 direction)
+    {
+        if (Bullet2.Length == 0) return;
+
+        GameObject projectile = Bullet2[currentIndex];
+        currentIndex = (currentIndex + 1) % Bullet2.Length;
+
+        // 비활성화 상태라면 켜고, 아니라면 위치만 갱신
+        projectile.SetActive(true);
+        projectile.transform.position = FirePoint[3].position;
+
+
+    }
+
+    public void ClearAll2()
+    {
+        foreach (var p in Bullet2)
+        {
+            p.SetActive(false);
+        }
+    }
     void Start()
     {
         animator = GetComponent<Animator>();

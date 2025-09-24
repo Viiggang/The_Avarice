@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1261080400345787906}
+  - component: {fileID: 5071887650801483082}
   - component: {fileID: 1452965054267350963}
   - component: {fileID: 6464073796290663572}
-  - component: {fileID: 5071887650801483082}
   - component: {fileID: 8298683134360259537}
   - component: {fileID: 374738456651845155}
   m_Layer: 0
@@ -36,6 +36,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5071887650801483082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8234054292735046601}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 136502c8bd063e946b782e4de763d154, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 10
+  animator: {fileID: 6464073796290663572}
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 72
+  AtkDamage: 1
 --- !u!212 &1452965054267350963
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -109,30 +127,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &5071887650801483082
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8234054292735046601}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 136502c8bd063e946b782e4de763d154, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  defaultSpeed: 25
-  defaultLifetime: 3
-  hitLayers:
-    serializedVersion: 2
-    m_Bits: 72
-  skinWidth: 0.05
-  preferredCollisionDetection: 1
-  animator: {fileID: 6464073796290663572}
-  hitTriggerName: Hit
-  hitAnimationFallback: 0.4
-  hitClipHint: Hit
-  AtkDamage: 5
 --- !u!58 &8298683134360259537
 CircleCollider2D:
   m_ObjectHideFlags: 0

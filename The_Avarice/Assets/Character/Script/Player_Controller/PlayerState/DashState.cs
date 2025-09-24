@@ -21,7 +21,7 @@ public class DashState : IpController
         player.CanDash = false;
         player.CanMove = false;
 
-        dashDirection = player.Direction ? Vector2.right : Vector2.left;
+        dashDirection = PlayerMgr.instance.Direction ? Vector2.right : Vector2.left;
         player.Anim.SetTrigger("Dash");
         player.EnableHitBox(false);
         if (PlayerMgr.instance.playerType == Player_Type.Paladin)

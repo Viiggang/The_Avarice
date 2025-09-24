@@ -37,6 +37,10 @@ public class ChangeState : IpController
             player.Anim.SetTrigger("Change");
         }
 
+        player.Anim.SetBool("Fire", false);
+        player.Anim.SetBool("Thunder", false);
+        player.Anim.SetBool("Ice", false);
+
         if (PlayerMgr.instance.ElementType == (Element_Type.Fire))
         {
             PlayerMgr.instance.ElementType = Element_Type.Thunder;
@@ -52,6 +56,11 @@ public class ChangeState : IpController
 
         player.StartCoroutine(CooldownCoroutine());
 
+        if(PlayerMgr.instance.Passive.Equals(true))
+        {
+            PlayerMgr.instance.OnPassive = true;
+            PlayerMgr.instance.Passive = false;
+        }
         isOnCooldown = true;
     }
 

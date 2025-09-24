@@ -74,7 +74,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     private int Pal_ShiledPassive = 0;
 
-
+    public bool Direction { get; set; } = true; // 바라보는 방향
     public float MaxHp
     {
         get => Player_MaxHp;
@@ -200,7 +200,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         get => onPassive;
         set => onPassive = value;
     }
-
+    [Tooltip("받는 최종데미지의 총량 1이면 100%로 온전한 최종데미지를 넣고 0.5면 최종데미지의 절반만받는다.")]
     public float Guard
     {
         get => Player_Guard;
@@ -243,6 +243,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     public void sumPlayeraddedAtk(float sum) => Player_addedAtk += sum;
 
     public void sumPlayerHp(float sum) => Player_Hp += sum;
+    public void sumPlayerHit(float sum) => Player_Hp -= sum * Guard;
 
     public void sumPlayerMaxHp(float sum) => Player_MaxHp += sum;
 

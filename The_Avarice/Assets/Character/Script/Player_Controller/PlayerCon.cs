@@ -46,7 +46,7 @@ public class PlayerCon : MonoBehaviour
     public Pal_LightCut LightCut { get; private set; }
 
     //제어용 변수
-    public bool Direction { get; private set; } = true; // 바라보는 방향
+  
     public bool CanDash { get; set; } = true;
     public bool CanSkill1 { get; set; } = true;
     public bool IsDashing { get; set; } = false;
@@ -134,15 +134,15 @@ public class PlayerCon : MonoBehaviour
     #region 
     public void SetDirection(float inputX)
     {
-        if (inputX < 0 && Direction)
+        if (inputX < 0 && PlayerMgr.instance.Direction)
         {
             transform.localScale = new Vector3(-0.64f, 0.64f, 0.64f);
-            Direction = false;
+            PlayerMgr.instance.Direction = false;
         }
-        else if (inputX > 0 && !Direction)
+        else if (inputX > 0 && !PlayerMgr.instance.Direction)
         {
             transform.localScale = new Vector3(0.64f, 0.64f, 0.64f);
-            Direction = true;
+            PlayerMgr.instance.Direction = true;
         }
     }
 
