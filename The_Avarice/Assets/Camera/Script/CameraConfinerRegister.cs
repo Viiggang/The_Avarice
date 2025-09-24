@@ -1,10 +1,72 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using System.Collections;
 
 public class CameraConfinerRegister : MonoBehaviour
 {
-    private void Start()
+    public string addressableKeyPrefix = "Confiner_";
+
+    private GameObject currentConfinerInstance;
+
+    private void Awake()
     {
-        var confiner = this.gameObject.GetComponent<PolygonCollider2D>();
-        CameraManager.Instance.cameraConfiner = confiner;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        DontDestroyOnLoad(this.gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        if (currentConfinerInstance != null)
+        {
+            Destroy(currentConfinerInstance);
+            currentConfinerInstance = null;
+        }
+
+        string addressKey = addressableKeyPrefix + scene.name;
+
+        StartCoroutine(AddressableKeyNullCheck(addressKey));
+    }
+
+    IEnumerator AddressableKeyNullCheck(string key)
+    {
+        var checkHandle = Addressables.LoadResourceLocationsAsync(key);
+        yield return checkHandle;
+
+        if (checkHandle.Status != AsyncOperationStatus.Succeeded || checkHandle.Result.Count == 0)
+        {
+            Addressables.Release(checkHandle); 
+            yield break;
+        }
+
+        Addressables.LoadAssetAsync<GameObject>(key).Completed += OnConfinerPrefabLoaded;
+    }
+
+    private void OnConfinerPrefabLoaded(AsyncOperationHandle<GameObject> handle)
+    {
+        if (handle.Status != AsyncOperationStatus.Succeeded)
+        {
+            Debug.LogWarning($"Failed to load : {handle.DebugName}");
+            return;
+        }
+
+        GameObject confinerPrefab = handle.Result;
+
+        currentConfinerInstance = Instantiate(confinerPrefab);
+        currentConfinerInstance.name = "MapConfiner";
+
+        var poly = currentConfinerInstance.GetComponent<PolygonCollider2D>();
+        if (poly != null)
+        {
+            CameraManager.Instance.cameraConfiner = poly;
+        }
+
+        Addressables.Release(handle);
     }
 }

@@ -80,7 +80,11 @@ public class CameraManager : MonoBehaviour
 
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(cameraConfiner != null) cF.m_BoundingShape2D = cameraConfiner;
+        if (cameraConfiner != null)
+        {
+            cF.m_ConfineMode = CinemachineConfiner.Mode.Confine2D;
+            cF.m_BoundingShape2D = cameraConfiner;
+            cF.InvalidatePathCache();
+        }
     }
-
 }
