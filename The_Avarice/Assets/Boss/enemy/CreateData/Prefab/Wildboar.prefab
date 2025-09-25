@@ -196,25 +196,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917131b55f562af418bc9e0a36d5ad52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyObj: {fileID: 8513859966435509957}
+  Controller: {fileID: 2804614259115556665}
   AniEventList:
   - {fileID: 11400000, guid: 519aec1e208b3014d80fb9b782a93a70, type: 2}
   - {fileID: 11400000, guid: 6c023300609dbda46bd8880973b2163a, type: 2}
-  DestroyObj: {fileID: 8513859966435509957}
-  Controller: {fileID: 2804614259115556665}
-  rigid: {fileID: 3858017830962638745}
-  bulletPos: {fileID: 0}
   bulletPoolManager:
     bulletPrefab: {fileID: 0}
+    bulletPos: {fileID: 0}
     bulletPool: []
     poolSize: 0
     monsterSprite: {fileID: 0}
   attackCollisionData:
     boxCollider: {fileID: 946275238207536713}
+    rigid: {fileID: 3858017830962638745}
     offset: {x: 0, y: 0, z: 0}
     size: {x: -1.92, y: 1.95, z: 0}
     playerLayer:
       serializedVersion: 2
-      m_Bits: 512
+      m_Bits: 128
 --- !u!1 &2685450524884068863
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +325,7 @@ MonoBehaviour:
   renderer: {fileID: 3700563751850058452}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 768
+    m_Bits: 896
   findcollider: {fileID: 0}
   MonsterTrans: {fileID: 5853853416024356857}
   gizmos: 0

@@ -74,7 +74,7 @@ public class MsDetectionRange : MonoBehaviour
     }
     private void Update()
     {
-        if (findcollider != null) return;
+       // if (findcollider != null) return;
         center = Collider.bounds.center;
         detectionCenter = renderer.flipX ? (center - scaledRight) : (center + scaledRight);
         var hit   = Physics2D.OverlapBox(detectionCenter, scaledSize, 0f, playerLayer);

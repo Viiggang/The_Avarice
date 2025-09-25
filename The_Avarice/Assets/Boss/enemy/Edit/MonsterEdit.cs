@@ -45,7 +45,7 @@ namespace MonstersEditor
         private void OnEnable()
         {
             // "Assets/ForestMonster/CreateData/Prefab" 폴더의 모든 프리팹 로드
-            string[] guids = AssetDatabase.FindAssets("t:Prefab", new[] { "Assets/enemy/Forest/commonscript/CreateData/Prefab" });
+            string[] guids = AssetDatabase.FindAssets("t:Prefab", new[] { "Assets/Boss/enemy/CreateData/Prefab" });
             prefabs = new GameObject[guids.Length];
             for (int i = 0; i < guids.Length; i++)
             {
