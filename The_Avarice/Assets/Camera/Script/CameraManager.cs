@@ -36,8 +36,6 @@ public class CameraManager : MonoBehaviour
 
         fT = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
         cF = virtualCamera.GetComponent<CinemachineConfiner>();
-
-        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
     private void Update()
@@ -67,18 +65,13 @@ public class CameraManager : MonoBehaviour
         wasJumpingLastFrame = isJump;
     }
 
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
     public void SetTarget(Transform target)
     {
         virtualCamera.Follow = target; 
         this.target = target;
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void SetConfiner()
     {
         if (cameraConfiner != null)
         {

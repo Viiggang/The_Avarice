@@ -65,6 +65,7 @@ public class CameraConfinerRegister : MonoBehaviour
         if (poly != null)
         {
             CameraManager.Instance.cameraConfiner = poly;
+            CameraManager.Instance.SetConfiner();
         }
 
         Addressables.Release(handle);
