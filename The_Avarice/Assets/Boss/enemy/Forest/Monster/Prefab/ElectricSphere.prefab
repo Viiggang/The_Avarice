@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2578457013964482015
 Transform:
   m_ObjectHideFlags: 0
@@ -54,7 +54,13 @@ MonoBehaviour:
   Target: {fileID: 0}
   pos: {fileID: 1559716271588608080}
   bosspage: {fileID: 0}
-  OnChase: 0
+  target: {fileID: 0}
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  Offset: {x: 0, y: 0}
+  Size: {x: 50, y: 50}
+  OnChase: 1
 --- !u!114 &2924523898391265133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,7 +163,7 @@ MonoBehaviour:
     size: {x: 0, y: 0, z: 0}
     playerLayer:
       serializedVersion: 2
-      m_Bits: 0
+      m_Bits: 128
 --- !u!212 &1678673935505490045
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -239,7 +245,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.011737585, y: -0.026038408}
@@ -264,6 +270,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1559716271588608080}
+  - component: {fileID: 680130386766621998}
   m_Layer: 0
   m_Name: ElectricSphere
   m_TagString: Untagged
@@ -287,6 +294,19 @@ Transform:
   - {fileID: 2578457013964482015}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &680130386766621998
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6355254558248887086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 623372b3b5b50f440a36d9e9ad4eceb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obj: {fileID: 2676311815500906227}
 --- !u!1 &8368813055437329662
 GameObject:
   m_ObjectHideFlags: 0

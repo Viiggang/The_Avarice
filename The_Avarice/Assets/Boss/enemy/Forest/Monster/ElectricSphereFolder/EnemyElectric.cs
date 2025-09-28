@@ -7,7 +7,7 @@ using static UnityEngine.GraphicsBuffer;
 namespace ElectricSphere
 {
 
-    public class EnemyElectric : MonoBehaviour, ITarget
+    public class EnemyElectric : MonoBehaviour
     {
         public float moveSpeed;
         public MonsterAniController Electric;
@@ -15,28 +15,30 @@ namespace ElectricSphere
         public float Ypos = 1f;
         public IEnemyChase EnemyChase;
         public string attack;
-        [SerializeField] private Transform Target;
+        
         public Transform pos;
         public BossStage bosspage;
-        public Transform target
+        public Transform target;
+
+
+        [SerializeField] private LayerMask PlayerLayer;
+        [SerializeField] private Vector2 Offset;
+        [SerializeField] private Vector2 Size;
+        private float Angle = 0f;
+        private void OnEnable()
         {
-            get => Target;
-            set => Target = value;
+            var Collider2D=Physics2D.OverlapBox(Offset, Size, Angle, PlayerLayer);
+            if (!Collider2D) { Debug.Log("전기구체 플레이어 못찾음"); return; }
+            target = Collider2D.gameObject.transform;
         }
-
-      
         public bool OnChase;
-
+        
         void Start()
         {
-            if (Target == null)
-            {
-                Debug.LogError("Target이 할당되지 않았습니다!", this);
-                return;
-            }
+           
             EnemyChase = new ElectChase();
             OnChase = true;
-            pos.position = Target.position + new Vector3(0f, Ypos, 0f);
+            pos.position = target.position + new Vector3(0f, Ypos, 0f);
             StartCoroutine(ChaseLoop());
         }
 
@@ -48,7 +50,7 @@ namespace ElectricSphere
                 while (elapsed < chaseTime)//chaseTime 는 const float 4f
                 {
                    
-                    EnemyChase.Chase(pos,Target,moveSpeed);
+                    EnemyChase.Chase(pos, target, moveSpeed);
                     elapsed += Time.deltaTime;
                     yield return null;
                 }

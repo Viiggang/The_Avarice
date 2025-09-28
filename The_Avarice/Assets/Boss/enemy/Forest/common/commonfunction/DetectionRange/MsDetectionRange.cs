@@ -21,6 +21,9 @@ public class MsDetectionRange : MonoBehaviour
     private Vector3 scaledRight;
    [SerializeField]public Transform MonsterTrans;
     [HideInInspector]public bool gizmos=false;
+
+    public const   float DlayTime = 1f;
+    public float time = 0f;
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
@@ -74,16 +77,24 @@ public class MsDetectionRange : MonoBehaviour
     }
     private void Update()
     {
-       // if (findcollider != null) return;
-        center = Collider.bounds.center;
-        detectionCenter = renderer.flipX ? (center - scaledRight) : (center + scaledRight);
-        var hit   = Physics2D.OverlapBox(detectionCenter, scaledSize, 0f, playerLayer);
-        if (hit == null)
+      bool onCheck = time >= DlayTime;
+      if (onCheck)
+      {
+            center = Collider.bounds.center;
+            detectionCenter = renderer.flipX ? (center - scaledRight) : (center + scaledRight);
+            var hit = Physics2D.OverlapBox(detectionCenter, scaledSize, 0f, playerLayer);
+            if (hit == null)
+            {
+                findcollider = null;
+                return;
+            }
+            findcollider = hit;
+      }
+        else
         {
-            findcollider = null;
-            return;
+            time += Time.deltaTime;
         }
-        findcollider = hit;
+     
     }
 
 }
