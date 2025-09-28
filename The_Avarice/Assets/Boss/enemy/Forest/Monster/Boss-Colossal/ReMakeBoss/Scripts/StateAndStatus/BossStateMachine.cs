@@ -13,27 +13,25 @@ public class BossStateMachine : MonoBehaviour
     public BaseState<BossController> deathNode;
     public BossGraph colossalGraph;
     public BossController controller;
-    public MsDetectionRange PlayerTransform;
+ 
+ 
     private void Awake()
     {
-        Status = colossalGraph.nodes.OfType<BossAwake>().FirstOrDefault();
-        defaultNode = colossalGraph.nodes.OfType<BossIdle>().FirstOrDefault();
-        deathNode = colossalGraph.nodes.OfType<BossDeath>().FirstOrDefault();
+        InitializeNodes();
 
     }
     private void OnEnable()
     {
         Status.Enter(controller);
     }
-    
-
-    // Update is called once per frame
     void Update()  
     {
-            if (PlayerTransform.findcollider == null)
+      if (controller.TargetPos == null)
             return;
         Status?.Excute(controller);
     }
+
+
     public void SetNextState(string portName)
     {
         if (Status == null) return;
@@ -84,4 +82,11 @@ public class BossStateMachine : MonoBehaviour
         Status.Enter(controller);
         Status = null;
     }
+    private void InitializeNodes()
+    {
+        Status = colossalGraph.nodes.OfType<BossAwake>().FirstOrDefault();
+        defaultNode = colossalGraph.nodes.OfType<BossIdle>().FirstOrDefault();
+        deathNode = colossalGraph.nodes.OfType<BossDeath>().FirstOrDefault();
+    }
+
 }

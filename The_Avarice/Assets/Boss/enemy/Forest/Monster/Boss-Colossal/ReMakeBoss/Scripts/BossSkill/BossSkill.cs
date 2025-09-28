@@ -20,10 +20,8 @@ public class BossSkill
         return name;
     }
 
-
     public bool GetAvailable()
     {
- 
         return coolTime.Available;
     }
     public float GetCoolTime()
@@ -37,14 +35,12 @@ public class BossSkill
     }
     public Vector3 GetOffset(SpriteRenderer flip)
     {
-
         Vector2 offset = CollisionData.offset;
         if (flip.flipX)
         {
             offset.x = -offset.x; // X축만 반전
         }
         return offset;
-
     }
     //public Vector3 GetOffset(SpriteRenderer flip, Collider2D box, Transform owner)
     //{
@@ -100,13 +96,20 @@ public class BossSkill
         if (coolTime.Time > 0)
         {
             this.coolTime.Available = false;
-            owner.Invoke("OnCoolTime", this.coolTime.Time);
+            owner.StartCoroutine(OnCoolTime());
         }
     }
-    private void OnCoolTime( )
+    //private void OnCoolTime( )
+    //{
+    //    coolTime.Available = true;
+    //    Debug.Log("쿨타임 끝");
+    //}
+    public IEnumerator OnCoolTime()
     {
+        this.coolTime.Available = false;
+        yield return new WaitForSeconds(this.coolTime.Time);
         coolTime.Available = true;
-        Debug.Log("쿨타임 끝");
+
     }
 
 }

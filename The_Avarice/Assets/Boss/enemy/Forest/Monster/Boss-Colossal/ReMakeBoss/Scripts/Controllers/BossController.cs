@@ -5,6 +5,7 @@ using UnityEngine;
 public class BossController : MonoBehaviour
 {
     public Transform BossTransform;
+    public Transform TargetPos;
     public BossStatus status;
     public BossStateMachine stateMachine;
     public BossStage stage;

@@ -311,6 +311,7 @@ GameObject:
   - component: {fileID: 6679383385569705967}
   - component: {fileID: 1285777196184605820}
   - component: {fileID: 9042614402333008356}
+  - component: {fileID: 8216146968633477634}
   - component: {fileID: 3883869294010197567}
   m_Layer: 6
   m_Name: Controller
@@ -347,6 +348,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BossTransform: {fileID: 9100618337034653704}
+  TargetPos: {fileID: 0}
   status: {fileID: 7905072262440034362}
   stateMachine: {fileID: 6679383385569705967}
   stage: {fileID: 353338942894858844}
@@ -452,6 +454,29 @@ MonoBehaviour:
   findcollider: {fileID: 0}
   MonsterTrans: {fileID: 9100618337034653704}
   gizmos: 1
+  time: 0
+--- !u!114 &8216146968633477634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3730785997546567480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1d5171d36c28fcd4ab1caa221bf87a6d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  offset: {x: 0, y: 0}
+  size: {x: 50, y: 50}
+  angle: 0
+  time: 0
+  Controller: {fileID: 523732487823140427}
+  Colluder2Ds:
+  - {fileID: 0}
 --- !u!61 &3883869294010197567
 BoxCollider2D:
   m_ObjectHideFlags: 0

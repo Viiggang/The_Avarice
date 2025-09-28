@@ -80,7 +80,8 @@ public class BossSkillGroup : MonoBehaviour
 
     public void OnCoolTime()
     {
-        StartCoroutine(CoolTimeRoutine(CurrentSkill));
+        CurrentSkill.StartCoolTime(this);
+        //StartCoroutine(CoolTimeRoutine(CurrentSkill));
     }
 
     private IEnumerator CoolTimeRoutine(BossSkill skill)

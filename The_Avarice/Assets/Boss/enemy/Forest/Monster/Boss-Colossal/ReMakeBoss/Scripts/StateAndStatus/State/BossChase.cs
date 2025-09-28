@@ -25,13 +25,12 @@ public class BossChase : BaseState<BossController>
     /*
      현재 보스애니메이션 에 값 설정해줘야함
      */
+    Transform BossPos, Target;
     public override void Enter(BossController Data)
     {
-        timer = 0;
-        this.Data = Data;
-        Tracker = null;
-        Bossevents= Data.BossAnimactionEvents;
-        //targetChase = null;
+       
+        InitializeBossState(Data, out BossPos, out Target);
+        InitializeTracker(Data, BossPos, Target);
         #region 테스트
         //NodePort port = GetOutputPort("Next");
 
@@ -42,44 +41,26 @@ public class BossChase : BaseState<BossController>
         //    Debug.Log($" 포트 이름: {portName}");
         //}
         #endregion
-        //랜덤으로 스킬을 뽑아옴 size 와 offset받을 예정
-        Transform BossPos = Data.BossTransform;
-        Transform Target =Data.DetectionRange.findcollider.GetComponent<Transform>();
-        BossSkillGroup = Data.BossSkillGroup;
-
-       
-
-        if (Tracker ==null)
-        {
-            SpriteRenderer SR_Data = Data.SpriteRenderer;
-            BoxCollider2D collider2D = Data.Collider2D;
-            Tracker = new TargetTracker(Target, BossPos, Player);
-            
-            
-            Tracker.SetAction(Attack);
-        }
-           
-
     }
     public override void Excute(BossController Data)
     {
+        if (Target == null) return;
         Cycle();
-        if (CurrentSkill is null || CurrentSkill.CollisionData is null) return;
-             Chase(Data);
-
-            
-     
+        Chase(Data); 
     }
 
     public override void Exit(BossController Data)
     {
-        timer = 0;
-        CurrentSkill = null;
+        ClearState();
     }
-     
+
+  
+
     public void Chase(BossController Data)//추적하는 코드 
     {
-       BossStatus status = Data.status;
+        if (CurrentSkill is null || CurrentSkill.CollisionData is null) return;
+
+        BossStatus status = Data.status;
        SpriteRenderer SR_Data = Data.SpriteRenderer;
        BoxCollider2D collider2D = Data.Collider2D;
 
@@ -95,19 +76,13 @@ public class BossChase : BaseState<BossController>
 
         SetColliderPos(Data, Dir);
         SetBossDirectionFlip(Data, Dir);
-        Tracker.Chase();
-        
-        //콜라이더 위치 설정
-      
+        Tracker.Chase();   
     }
 
     private void SetColliderPos(BossController data, float dir)
     {//왼쪽 우측 볼 때 Hit콜라이더 위치 보정합니다. 
         BoxCollider2D box = data.Collider2D;
         bool isFlipped = dir < 0;//방향이 왼쪽인지 오른쪽 인지 판별 -1 왼쪽 1오른쪽
-
-        //data.SpriteRenderer.flipX = isFlipped;
-
         Vector2 offset = box.offset;
         offset.x = isFlipped ? Mathf.Abs(offset.x) : -Mathf.Abs(offset.x);
         box.offset = offset;
@@ -115,21 +90,19 @@ public class BossChase : BaseState<BossController>
     private void SetBossDirectionFlip(BossController data, float dir)
     {
         bool isFlipped = dir < 0;
-
         data.SpriteRenderer.flipX = isFlipped;
     }
 
-    public void Cycle()//4초마다 공격할 스킬  지정한다.
-    {  
+    public void Cycle()
+    { 
+        //4초마다 공격할 스킬  지정한다.
         const float Delay = 4.0f;
         bool isChange = timer >= Delay;
         if(isChange)
         {
             timer = 0f;
             CurrentSkill = BossSkillGroup.GetRandomSkill();
-           
-            BossSkillGroup.data = CurrentSkill.CollisionData;
-            
+            BossSkillGroup.data = CurrentSkill.CollisionData; 
         }
         else
         {
@@ -144,5 +117,30 @@ public class BossChase : BaseState<BossController>
         CurrentSkill = null;
 
 
+    }
+    private void InitializeTracker(BossController Data, Transform BossPos, Transform Target)
+    {
+        if (Tracker.Target == null)
+        {
+            SpriteRenderer SR_Data = Data.SpriteRenderer;
+            BoxCollider2D collider2D = Data.Collider2D;
+            Tracker = new TargetTracker(Target, BossPos, Player);
+            Tracker.SetAction(Attack);
+        }
+    }
+    private void InitializeBossState(BossController Data, out Transform BossPos, out Transform Target)
+    {
+        timer = 0;
+        this.Data = Data;
+
+        Bossevents = Data.BossAnimactionEvents;
+        BossPos = Data.BossTransform;
+        Target = Data.TargetPos;
+        BossSkillGroup = Data.BossSkillGroup;
+    }
+    private void ClearState()
+    {
+        timer = 0;
+        CurrentSkill = null;
     }
 }

@@ -15,7 +15,7 @@ public class TargetTracker
     [Leein.InspectorName("보스 트랜스 폼 ")]public Transform tracker;
     [Leein.InspectorName("스테이터스")]public BossStatus status;
 
-    LayerMask Player;
+    public LayerMask Player;
     Vector3 CollisonPos;
     //physic2D 용 데이터
     Vector2 PhysicSize;
@@ -46,8 +46,6 @@ public class TargetTracker
         GizmoTest.Instance.Set(PhysicOffset, PhysicSize);
         if (BossSkill.CollisionData.name == "purgeblow")
         {
-            
-          
             NextNode.Invoke(); // 공격 트리거
             return;
         }
@@ -66,7 +64,7 @@ public class TargetTracker
             Player//플레이어 레이어
         );
          if(hitCollider !=null)
-           // Debug.Log(hitCollider.name);
+         
         
        
        //충돌
@@ -96,7 +94,7 @@ public class TargetTracker
     public void SetSize(Vector2 size) => this.PhysicSize = new Vector2(tracker.lossyScale.x * size.x, tracker.lossyScale.y * size.y);
     
     public void SetOffset(Vector2 Offset)
-    {//
+    {
 
         this.PhysicOffset = new Vector2(
             tracker.position.x + (Offset.x* Mathf.Abs(tracker.lossyScale.x)), 
