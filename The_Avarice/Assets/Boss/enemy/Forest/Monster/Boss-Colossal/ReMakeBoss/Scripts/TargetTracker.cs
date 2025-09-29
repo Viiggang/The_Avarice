@@ -28,6 +28,10 @@ public class TargetTracker
     BossSkill BossSkill;
 
     Collider2D hitCollider;
+
+    readonly float angle = 0f;
+
+    readonly string SKILL_PURGEBLOW = "purgeblow";
     public TargetTracker (Transform _Target, Transform tracker,LayerMask layerMask)
     {
         this.Target = _Target;
@@ -42,31 +46,26 @@ public class TargetTracker
     //추적하는 함수
     public void Chase()
     {
-        float degree = 0f;
+       
         GizmoTest.Instance.Set(PhysicOffset, PhysicSize);
-        if (BossSkill.CollisionData.name == "purgeblow")
+        if (BossSkill.CollisionData.name == SKILL_PURGEBLOW)
         {
             NextNode.Invoke(); // 공격 트리거
             return;
         }
        
-        // 1. 방향 계산
+       
         float directionX = Mathf.Sign(Target.position.x - CollisonPos.x);
 
-        // 2. 플레이어 감지 체크
-        //bool isPhysicsCheckReady = physicsCalculationLatency.CurrentTime >= physicsCalculationLatency.DelayTime;
-        
         bool isPlayerDetected = false;
         hitCollider = Physics2D.OverlapBox(
             PhysicOffset,//위치
             PhysicSize,//사이즈
-            degree,//각도
+            angle,//각도
             Player//플레이어 레이어
         );
-         if(hitCollider !=null)
-         
-        
        
+
        //충돌
        isPlayerDetected = hitCollider!=null;
        if (isPlayerDetected)

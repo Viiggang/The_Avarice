@@ -66,16 +66,16 @@ public class BossChase : BaseState<BossController>
 
         //방향 설정
         float Dir = Tracker.GetDirection();
-        //스테이터스 셋팅
+        SetColliderPos(Data, Dir);
+        SetBossDirectionFlip(Data, Dir);
         Tracker.SetSkill(CurrentSkill);
-       Tracker.SetStatus(status);
+       Tracker.SetStatus(status);  //스테이터스 셋팅
         //추적 위치 설정
         Tracker.SetSize(CurrentSkill.GetSize());
         Tracker.SetOffset(CurrentSkill.GetOffset(Data.SpriteRenderer));
         Tracker.SetCollisonPos(CurrentSkill.GetOffset(SR_Data, Data.BossTransform));
 
-        SetColliderPos(Data, Dir);
-        SetBossDirectionFlip(Data, Dir);
+       
         Tracker.Chase();   
     }
 

@@ -3,36 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [System.Serializable]
-public class BossSkill 
+public class BossSkill
 {
+    [SerializeField] private string name;
     public BossAttackCollision CollisionData;//offset 이랑 size 데이터
-    [SerializeField]private string name;
+   
     [System.Serializable]
     public class CoolTime
     {
         public  float Time;
         public bool Available=true;
     }
-    [SerializeField] public CoolTime coolTime;
+    public CoolTime coolTime;
 
-    public string GetNodeName()
-    {
-        return name;
-    }
+    public string GetNodeName() =>  name;
+    
 
-    public bool GetAvailable()
-    {
-        return coolTime.Available;
-    }
-    public float GetCoolTime()
-    {
-        return coolTime.Time;
-    }
+    public bool GetAvailable()=> coolTime.Available;
+    
+    public float GetCoolTime()=> coolTime.Time;
+    
 
-    public Vector3 GetOffset()
-    {
-        return CollisionData.offset;
-    }
+    public Vector3 GetOffset()=> CollisionData.offset;
+    
     public Vector3 GetOffset(SpriteRenderer flip)
     {
         Vector2 offset = CollisionData.offset;
@@ -81,21 +74,16 @@ public class BossSkill
         // 4. 최종 위치 계산: 기준점(owner 위치) + 오프셋
         return owner.position + offset;
     }
-    public Vector3 GetSize()
-    {
-        return CollisionData.Size;
-    }
+    public Vector3 GetSize()=> CollisionData.Size;
+   
 
-    public BossAttackCollision GetData()
-    {
-        return CollisionData;
-    }
+    public BossAttackCollision GetData()=> CollisionData;
+   
 
     public void StartCoolTime(MonoBehaviour owner)
     {
         if (coolTime.Time > 0)
         {
-            this.coolTime.Available = false;
             owner.StartCoroutine(OnCoolTime());
         }
     }
