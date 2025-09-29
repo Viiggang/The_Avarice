@@ -163,7 +163,7 @@ MonoBehaviour:
   statusManager: {fileID: 3876616983135848909}
   Detection: {fileID: 8671600531080652759}
   MonsterTrans: {fileID: 7910183990518042594}
-  MonsterAniEvent: {fileID: 0}
+  MonsterAniEvent: {fileID: 1806581894364085527}
   target: {fileID: 0}
   StatesList:
   - {fileID: 11400000, guid: 3159786d4dab13b4db4b92586d9cdb8a, type: 2}
@@ -392,6 +392,7 @@ MonoBehaviour:
   findcollider: {fileID: 0}
   MonsterTrans: {fileID: 7910183990518042594}
   gizmos: 1
+  time: 0
 --- !u!1 &9025712304978324097
 GameObject:
   m_ObjectHideFlags: 0
@@ -511,11 +512,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917131b55f562af418bc9e0a36d5ad52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  DestroyObj: {fileID: 793935111097309746}
+  Controller: {fileID: 2240253908836133366}
   AniEventList:
   - {fileID: 11400000, guid: e93510725bc8a7b418dac84656d32611, type: 2}
   - {fileID: 11400000, guid: 6c023300609dbda46bd8880973b2163a, type: 2}
-  DestroyObj: {fileID: 793935111097309746}
-  Controller: {fileID: 2240253908836133366}
   bulletPoolManager:
     bulletPrefab: {fileID: 7602449561501811766, guid: 37b8c77610465644a9196b3f818858c5, type: 3}
     bulletPos: {fileID: 2913395379744656817}

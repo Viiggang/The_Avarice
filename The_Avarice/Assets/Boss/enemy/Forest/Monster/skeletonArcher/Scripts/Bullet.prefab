@@ -27,13 +27,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7602449561501811766}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.12693082, w: 0.99191153}
-  m_LocalPosition: {x: 2.908, y: -1.149, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -14.585}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &5721569578056378009
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -99,14 +99,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
-  target: {fileID: 0}
   dir: {x: 0, y: 0, z: 0}
   ArcherDamage: {fileID: 11400000, guid: 37be350cced595149a2641706339923a, type: 2}
   size: {x: 20, y: 10, z: 0}
   player:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 0
   hitsize: {x: 0, y: 0, z: 0}
+  monsterSprite: {fileID: 0}
 --- !u!61 &1232197429876926611
 BoxCollider2D:
   m_ObjectHideFlags: 0

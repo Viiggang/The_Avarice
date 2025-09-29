@@ -26,6 +26,7 @@ public class BossChase : BaseState<BossController>
      현재 보스애니메이션 에 값 설정해줘야함
      */
     Transform BossPos, Target;
+    readonly string nextStateNodeName = "Next";
     public override void Enter(BossController Data)
     {
        
@@ -68,6 +69,7 @@ public class BossChase : BaseState<BossController>
         float Dir = Tracker.GetDirection();
         SetColliderPos(Data, Dir);
         SetBossDirectionFlip(Data, Dir);
+
         Tracker.SetSkill(CurrentSkill);
        Tracker.SetStatus(status);  //스테이터스 셋팅
         //추적 위치 설정
@@ -113,7 +115,7 @@ public class BossChase : BaseState<BossController>
     {
         Bossevents.SetAttackColliosnData(Tracker.GetOffset(), Tracker.GetSize());
         BossStateMachine machine = Data.stateMachine;
-        machine.SetNextState("Next", CurrentSkill.GetNodeName());
+        machine.SetNextState(nextStateNodeName, CurrentSkill.GetNodeName());
         CurrentSkill = null;
 
 
