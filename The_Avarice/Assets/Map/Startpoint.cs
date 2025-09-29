@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Startpoint : MonoBehaviour
 {
-    private void Start()
+    private void Awake()
     {
         if (this.gameObject != null)
         {

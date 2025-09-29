@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.64, y: 0.64, z: 0.64}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7042819692181607701}
@@ -60,9 +60,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0736df4f36364c444987f8cfee28c5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Speed: 2
+  jumpPower: 10
   hitBox: {fileID: 4722616802733099319}
+  dashSpeed: 10
+  dashDuration: 0.2
+  Skill1Duration: 1.8
+  dashCooldown: 1
+  skill1Cooldown: 2.5
+  dashDodge: 0.1
   ExtraHitBox1: {fileID: 7430462268903728845}
   ExtraHitBox2: {fileID: 1108419300680732767}
+  <ControlMachine>k__BackingField: {fileID: 0}
 --- !u!114 &8418911538494962082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -80,7 +89,7 @@ MonoBehaviour:
   atkType: 0
   hitMask:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   HitRange1:
   - {fileID: 1754891316756918709}
   - {fileID: 4441768395724302156}
@@ -95,7 +104,6 @@ MonoBehaviour:
   - {fileID: 7530595016151669764}
   FirePoint: []
   Bullet: []
-  Bullet2: []
   attackRange: 5
 --- !u!95 &7733376563232847246
 Animator:
@@ -158,16 +166,16 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 4
-  m_Sprite: {fileID: 0}
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 77a0007c898d7a34e8b8403b3e0ba049, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 23.039999, y: 12.959999}
+  m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!50 &4032832708191818127
@@ -185,7 +193,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 1
   m_AngularDrag: 0.05
-  m_GravityScale: 2
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -195,7 +203,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!70 &2669948520638966610
 CapsuleCollider2D:
@@ -229,8 +237,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.02, y: 0.015}
-  m_Size: {x: 0.44, y: 0.64}
+  m_Offset: {x: 0.020966262, y: 0.015723258}
+  m_Size: {x: 0.4419325, y: 0.64566034}
   m_Direction: 0
 --- !u!1 &1108419300680732767
 GameObject:
@@ -549,7 +557,7 @@ CapsuleCollider2D:
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.007055834}
-  m_Size: {x: 0.3, y: 0.43}
+  m_Size: {x: 0.3, y: 0.43303993}
   m_Direction: 0
 --- !u!50 &5384076738350343669
 Rigidbody2D:

@@ -1,5 +1,6 @@
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class CameraManager : MonoBehaviour
 {
@@ -8,8 +9,10 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] private Camera mainCamera;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    public Collider2D cameraConfiner { get; set; }
 
     private CinemachineFramingTransposer fT;
+    private CinemachineConfiner cF;
 
     private Transform target;
 
@@ -32,12 +35,7 @@ public class CameraManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         fT = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
-    }
-
-    public void SetTarget(Transform target)
-    {
-        virtualCamera.Follow = target; 
-        this.target = target;
+        cF = virtualCamera.GetComponent<CinemachineConfiner>();
     }
 
     private void Update()
@@ -65,5 +63,21 @@ public class CameraManager : MonoBehaviour
         }
 
         wasJumpingLastFrame = isJump;
+    }
+
+    public void SetTarget(Transform target)
+    {
+        virtualCamera.Follow = target; 
+        this.target = target;
+    }
+
+    public void SetConfiner()
+    {
+        if (cameraConfiner != null)
+        {
+            cF.m_ConfineMode = CinemachineConfiner.Mode.Confine2D;
+            cF.m_BoundingShape2D = cameraConfiner;
+            cF.InvalidatePathCache();
+        }
     }
 }

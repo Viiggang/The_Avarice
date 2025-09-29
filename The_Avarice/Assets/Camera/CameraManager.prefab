@@ -48,6 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mainCamera: {fileID: 0}
   virtualCamera: {fileID: 6632426358222160231, guid: 8fcd24ec3eb08834297fe1349d8decd5, type: 3}
+  cameraConfiner: {fileID: 3179277424714677975, guid: 83e4ab74b327e8c47b40570fb77b49c9, type: 3}
 --- !u!1001 &4544036522033638788
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -62,7 +62,7 @@ public class MoveState : IpController
             stateMachine.ChangeState(player.AirState);
             return;
         }
-        // ���� ��ȯ
+
         player.SetDirection(player.InputX);
     }
 

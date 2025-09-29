@@ -17,13 +17,13 @@ public class AirState : IpController
 
     public void Enter()
     {
+        player.sprite.sortingOrder = 99;
         player.Anim.SetBool("isJump", true);
         jumpStarted = player.Rigid.velocity.y > 0.01f; // 양수면 점프, 아니면 낙하
     }
 
     public void Exit()
     {
-
     }
 
     public void HandleInput()
@@ -46,6 +46,7 @@ public class AirState : IpController
         // 착지 시 Idle 또는 Move로 전환
         if (player.IsGrounded())
         {
+            player.sprite.sortingOrder = 0;
             stateMachine.ChangeState(Mathf.Abs(player.InputX) > 0.01f ? player.MoveState : player.IdleState);
         }
     }
