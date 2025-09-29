@@ -198,9 +198,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 204714625
-  m_SortingLayer: -1
-  m_SortingOrder: 6
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -17042,9 +17042,9 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 204714625
-  m_SortingLayer: -1
-  m_SortingOrder: 5
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
   m_MaxChunkCount: 16
@@ -19417,7 +19417,7 @@ PlatformEffector2D:
     m_Bits: 4294967295
   m_RotationalOffset: 0
   m_UseOneWay: 1
-  m_UseOneWayGrouping: 0
+  m_UseOneWayGrouping: 1
   m_SurfaceArc: 180
   m_UseSideFriction: 0
   m_UseSideBounce: 0
@@ -19479,7 +19479,7 @@ CompositeCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_GeometryType: 0
@@ -26841,7 +26841,6 @@ MonoBehaviour:
   - {fileID: 6242656039398002290}
   - {fileID: 7183760649320038354}
   - {fileID: 2634048844636791713}
-  backgroundWidth: 6.35
   cameraTransform: {fileID: 0}
   parallaxFactor: 0.04
 --- !u!114 &4200601495301783195
@@ -26860,7 +26859,6 @@ MonoBehaviour:
   - {fileID: 1397878596004421368}
   - {fileID: 7290761103977507206}
   - {fileID: 665128429162878464}
-  backgroundWidth: 6.35
   cameraTransform: {fileID: 0}
   parallaxFactor: 0.06
 --- !u!1 &4551588137847976486
@@ -27226,7 +27224,6 @@ MonoBehaviour:
   - {fileID: 1021357763850351898}
   - {fileID: 7125285178005609032}
   - {fileID: 291762271486211511}
-  backgroundWidth: 6.35
   cameraTransform: {fileID: 0}
   parallaxFactor: 0.09
 --- !u!4 &7125285178005609032

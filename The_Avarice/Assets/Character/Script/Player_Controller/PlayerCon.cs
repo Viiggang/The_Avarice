@@ -37,6 +37,8 @@ public class PlayerCon : MonoBehaviour
     public Dictionary<Player_Type, IpController> Skill1States;
     public Dictionary<Player_Type, IpController> Skill2States;
 
+    public SpriteRenderer sprite;
+
     //FSM 상태관리
     [field: SerializeField]
     public Player_ControllMachine ControlMachine { get; private set; }
@@ -79,6 +81,7 @@ public class PlayerCon : MonoBehaviour
         Collider = GetComponent<Collider2D>();
         Anim = GetComponent<Animator>();
         Attack = GetComponent<Player_Atk>();
+        sprite = GetComponent<SpriteRenderer>();
 
         // FSM 초기화
         ControlMachine = new Player_ControllMachine();
@@ -190,6 +193,7 @@ public class PlayerCon : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, 0.4f, LayerMask.GetMask("Platform"));
         return hit.collider != null;
     }
+
 
     public void MoveHorizontally(float speed)
     {

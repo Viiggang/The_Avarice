@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class JumpState : IpController
 {
@@ -19,7 +20,9 @@ public class JumpState : IpController
         stateMachine.ChangeState(player.AirState); // 점프 시작 → 공중 상태로 전환
     }
 
-    public void Exit() { }
+    public void Exit() 
+    {
+    }
     public void HandleInput() { }
     public void LogicUpdate() { }
     public void PhysicsUpdate() { }

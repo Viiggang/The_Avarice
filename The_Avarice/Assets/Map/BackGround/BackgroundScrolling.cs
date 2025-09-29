@@ -7,14 +7,15 @@ using UnityEngine.U2D;
 public class BackgroundScrolling : MonoBehaviour
 {
     [SerializeField] private Transform[] backgrounds;
-    [SerializeField] private float backgroundWidth;
     [SerializeField] private Transform cameraTransform;
     [SerializeField, Range(0f, 0.1f)] private float parallaxFactor = 0.1f;
+
+    private float[] backgroundWidths;
+    private float[] backgroundHeights;
 
     private int leftIndex = 0;
     private int rightIndex;
     private PixelPerfectCamera ppc;
-
 
     private Vector3 lastCameraPos;
 
@@ -28,6 +29,19 @@ public class BackgroundScrolling : MonoBehaviour
             ppc = cam.GetComponent<PixelPerfectCamera>();
             cameraTransform = cam.transform;
             lastCameraPos = cameraTransform.position;
+        }
+
+        backgroundWidths = new float[backgrounds.Length];
+        backgroundHeights = new float[backgrounds.Length];
+
+        for (int i = 0; i < backgrounds.Length; i++)
+        {
+            SpriteRenderer sr = backgrounds[i].GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                backgroundWidths[i] = sr.bounds.size.x - 0.05f;
+                backgroundHeights[i] = sr.bounds.size.y - 0.05f;
+            }
         }
     }
     private void Update()
@@ -44,16 +58,24 @@ public class BackgroundScrolling : MonoBehaviour
                 0f
             );
 
-            backgrounds[i].position = SnapToPixel(newPos);
+            Vector3 snapped = newPos;
+            if (ppc != null && ppc.assetsPPU > 0)
+            {
+                float unitsPerPixel = 1f / ppc.assetsPPU;
+                snapped.x = Mathf.Round(newPos.x / unitsPerPixel) * unitsPerPixel;
+            }
+
+            backgrounds[i].position = snapped;
+
         }
         // 카메라가 오른쪽 끝으로 넘어갈 경우
-        if (cameraTransform.position.x >= backgrounds[rightIndex].position.x - (backgroundWidth / 2f))
+        if (cameraTransform.position.x >= backgrounds[rightIndex].position.x - (backgroundWidths[rightIndex] / 2f))
         {
             ScrollRight();
 
         }
         // 카메라가 왼쪽 끝으로 넘어갈 경우
-        else if (cameraTransform.position.x <= backgrounds[leftIndex].position.x + (backgroundWidth / 2f))
+        else if (cameraTransform.position.x <= backgrounds[leftIndex].position.x + (backgroundWidths[leftIndex] / 2f))
         {
             ScrollLeft();
         }
@@ -62,7 +84,7 @@ public class BackgroundScrolling : MonoBehaviour
     void ScrollRight()
     {
         Vector3 pos = new Vector3(
-            backgrounds[rightIndex].position.x + backgroundWidth,
+            backgrounds[rightIndex].position.x + backgroundWidths[rightIndex],
             backgrounds[leftIndex].position.y,
             backgrounds[leftIndex].position.z
         );
@@ -76,7 +98,7 @@ public class BackgroundScrolling : MonoBehaviour
     void ScrollLeft()
     {
         Vector3 pos = new Vector3(
-            backgrounds[leftIndex].position.x - backgroundWidth,
+            backgrounds[leftIndex].position.x - backgroundWidths[rightIndex],
             backgrounds[rightIndex].position.y,
             backgrounds[rightIndex].position.z
         );
