@@ -6,7 +6,7 @@ using System.Collections;
 
 public class CameraConfinerRegister : MonoBehaviour
 {
-    public string addressableKeyPrefix = "Confiner_";
+    public string addressableKey = "Confiner_";
 
     private GameObject currentConfinerInstance;
 
@@ -29,7 +29,7 @@ public class CameraConfinerRegister : MonoBehaviour
             currentConfinerInstance = null;
         }
 
-        string addressKey = addressableKeyPrefix + scene.name;
+        string addressKey = addressableKey + scene.name;
 
         StartCoroutine(AddressableKeyNullCheck(addressKey));
     }

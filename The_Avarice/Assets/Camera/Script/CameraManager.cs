@@ -38,7 +38,7 @@ public class CameraManager : MonoBehaviour
         cF = virtualCamera.GetComponent<CinemachineConfiner>();
     }
 
-    private void Update()
+    private void LateUpdate()
     {
         if (virtualCamera.Follow == null) return;
 

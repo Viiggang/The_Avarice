@@ -71,6 +71,7 @@ MonoBehaviour:
   dashDodge: 0.1
   ExtraHitBox1: {fileID: 7430462268903728845}
   ExtraHitBox2: {fileID: 1108419300680732767}
+  sprite: {fileID: 0}
   <ControlMachine>k__BackingField: {fileID: 0}
 --- !u!114 &8418911538494962082
 MonoBehaviour:
@@ -164,8 +165,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1850806237
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 77a0007c898d7a34e8b8403b3e0ba049, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -1112,7 +1113,7 @@ MonoBehaviour:
   thickness: 0.2
   targetLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   activeTime: 0.07
   animator: {fileID: 7090667641429632705}
   attackStateName: Pal_LightCut

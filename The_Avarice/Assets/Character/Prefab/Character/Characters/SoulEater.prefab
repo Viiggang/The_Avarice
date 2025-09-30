@@ -61,6 +61,7 @@ MonoBehaviour:
   dashDodge: 0.1
   ExtraHitBox1: {fileID: 0}
   ExtraHitBox2: {fileID: 0}
+  sprite: {fileID: 0}
   <ControlMachine>k__BackingField: {fileID: 0}
 --- !u!114 &1349101834852336788
 MonoBehaviour:
@@ -146,8 +147,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1850806237
+  m_SortingLayer: -1
   m_SortingOrder: 0
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

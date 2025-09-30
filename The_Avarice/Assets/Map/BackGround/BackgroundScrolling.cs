@@ -9,6 +9,7 @@ public class BackgroundScrolling : MonoBehaviour
     [SerializeField] private Transform[] backgrounds;
     [SerializeField] private Transform cameraTransform;
     [SerializeField, Range(0f, 0.1f)] private float parallaxFactor = 0.1f;
+    [SerializeField] private bool moveY = false;
 
     private float[] backgroundWidths;
     private float[] backgroundHeights;
@@ -44,30 +45,26 @@ public class BackgroundScrolling : MonoBehaviour
             }
         }
     }
-    private void Update()
+
+    private void LateUpdate()
     {
-        Vector3 pos = cameraTransform.position - lastCameraPos;
+        Vector3 deltaMovement = cameraTransform.position - lastCameraPos;
         lastCameraPos = cameraTransform.position;
 
 
         for (int i = 0; i < backgrounds.Length; i++)
         {
-            Vector3 newPos = backgrounds[i].position - new Vector3(
-                pos.x * parallaxFactor,
-                pos.y * parallaxFactor,
-                0f
+            Vector3 moveAmount = new Vector3(
+            deltaMovement.x * parallaxFactor,
+            moveY ? deltaMovement.y * parallaxFactor : 0f,
+            0f
             );
 
-            Vector3 snapped = newPos;
-            if (ppc != null && ppc.assetsPPU > 0)
-            {
-                float unitsPerPixel = 1f / ppc.assetsPPU;
-                snapped.x = Mathf.Round(newPos.x / unitsPerPixel) * unitsPerPixel;
-            }
+            Vector3 newPos = backgrounds[i].position + moveAmount;
 
-            backgrounds[i].position = snapped;
-
+            backgrounds[i].position = SnapToPixel(newPos);
         }
+
         // 카메라가 오른쪽 끝으로 넘어갈 경우
         if (cameraTransform.position.x >= backgrounds[rightIndex].position.x - (backgroundWidths[rightIndex] / 2f))
         {
