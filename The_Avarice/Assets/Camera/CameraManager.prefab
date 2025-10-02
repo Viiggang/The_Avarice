@@ -114,15 +114,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6472503718304347843, guid: b1a0b47f6af4f774e99b2ec3956374de, type: 3}
       propertyPath: m_NormalizedViewPortRect.y
-      value: -0.32314813
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6472503718304347843, guid: b1a0b47f6af4f774e99b2ec3956374de, type: 3}
       propertyPath: m_NormalizedViewPortRect.width
-      value: 0.7640625
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6472503718304347843, guid: b1a0b47f6af4f774e99b2ec3956374de, type: 3}
       propertyPath: m_NormalizedViewPortRect.height
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495202250624515949, guid: b1a0b47f6af4f774e99b2ec3956374de, type: 3}
+      propertyPath: m_UpdateMethod
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -245,7 +249,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3900361662838440028, guid: 8fcd24ec3eb08834297fe1349d8decd5, type: 3}
       propertyPath: m_DeadZoneHeight
-      value: 0.1
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3900361662838440028, guid: 8fcd24ec3eb08834297fe1349d8decd5, type: 3}
+      propertyPath: m_TrackedObjectOffset.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6632426358222160231, guid: 8fcd24ec3eb08834297fe1349d8decd5, type: 3}
       propertyPath: m_Lens.OrthographicSize

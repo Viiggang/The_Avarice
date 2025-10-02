@@ -72,6 +72,7 @@ MonoBehaviour:
   ExtraHitBox1: {fileID: 7430462268903728845}
   ExtraHitBox2: {fileID: 1108419300680732767}
   sprite: {fileID: 0}
+  CharacterScale: {x: 1.92, y: 1.92, z: 0}
   <ControlMachine>k__BackingField: {fileID: 0}
 --- !u!114 &8418911538494962082
 MonoBehaviour:

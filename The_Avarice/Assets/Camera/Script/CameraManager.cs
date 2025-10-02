@@ -16,13 +16,6 @@ public class CameraManager : MonoBehaviour
 
     private Transform target;
 
-    private Vector2 defaultOffset = new Vector2(0f, 1f);
-    private float fixedY;
-
-    private bool wasJumpingLastFrame;
-
-    private float lerpSpeed = 5f;
-
     private void Awake()
     {
         if (_instance != null)
@@ -40,29 +33,7 @@ public class CameraManager : MonoBehaviour
 
     private void LateUpdate()
     {
-        if (virtualCamera.Follow == null) return;
-
-        Animator animator = target.GetComponent<Animator>();
-        bool isJump = animator.GetBool("isJump");
-
-        Vector3 currentOffset = fT.m_TrackedObjectOffset;
-
-        if (isJump)
-        {
-            if (!wasJumpingLastFrame)
-            {
-                fixedY = currentOffset.y;
-            }
-
-            fT.m_TrackedObjectOffset = new Vector3(defaultOffset.x, fixedY, currentOffset.z);
-        }
-        else
-        {
-            float newY = Mathf.Lerp(currentOffset.y, defaultOffset.y, Time.deltaTime * lerpSpeed);
-            fT.m_TrackedObjectOffset = new Vector3(defaultOffset.x, newY, currentOffset.z);
-        }
-
-        wasJumpingLastFrame = isJump;
+        fT.m_TrackedObjectOffset = new Vector3(0f, 2f, 0f);
     }
 
     public void SetTarget(Transform target)
