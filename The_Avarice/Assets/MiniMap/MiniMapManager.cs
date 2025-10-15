@@ -20,7 +20,7 @@ public class MiniMapManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    void Update()
+    void LateUpdate()
     {
         if (gameObject.GetComponent<MiniMapController>().enlargeMap.gameObject.activeSelf)
         {

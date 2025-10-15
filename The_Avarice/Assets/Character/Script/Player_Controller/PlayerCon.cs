@@ -191,7 +191,7 @@ public class PlayerCon : MonoBehaviour
     }
     public bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, 0.4f, LayerMask.GetMask("Platform"));
+        RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, Collider.bounds.size.y / 2f, LayerMask.GetMask("Platform"));
         return hit.collider != null;
     }
 
