@@ -38,7 +38,7 @@ public class PlayerCon : MonoBehaviour
     public Dictionary<Player_Type, IpController> Skill2States;
 
     public SpriteRenderer sprite;
-    public Vector3 CharacterScale;
+    public float CharacterScale;
 
     //FSM 상태관리
     [field: SerializeField]
@@ -111,7 +111,7 @@ public class PlayerCon : MonoBehaviour
             { Player_Type.Ignis, ChangeState }
         };
 
-        transform.localScale = CharacterScale;
+        transform.localScale = new Vector3(CharacterScale, CharacterScale, 0f);
     }
 
 
@@ -155,12 +155,12 @@ public class PlayerCon : MonoBehaviour
     {
         if (inputX < 0 && Direction)
         {
-            transform.localScale = CharacterScale;
+            transform.localScale = new Vector3(-CharacterScale, CharacterScale, 0f);
             Direction = false;
         }
         else if (inputX > 0 && !Direction)
         {
-            transform.localScale = CharacterScale;
+            transform.localScale = new Vector3(CharacterScale, CharacterScale, 0f);
             Direction = true;
         }
     }

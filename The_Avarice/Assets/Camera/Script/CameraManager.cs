@@ -1,5 +1,6 @@
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public class CameraManager : MonoBehaviour
@@ -9,6 +10,7 @@ public class CameraManager : MonoBehaviour
 
     [SerializeField] private Camera mainCamera;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [SerializeField] private PixelPerfectCamera ppc;
     public Collider2D cameraConfiner { get; set; }
 
     private CinemachineFramingTransposer fT;
@@ -29,6 +31,8 @@ public class CameraManager : MonoBehaviour
 
         fT = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
         cF = virtualCamera.GetComponent<CinemachineConfiner>();
+
+        SetLensSize();
     }
 
     private void LateUpdate()
@@ -50,5 +54,10 @@ public class CameraManager : MonoBehaviour
             cF.m_BoundingShape2D = cameraConfiner;
             cF.InvalidatePathCache();
         }
+    }
+
+    public void SetLensSize()
+    {
+        virtualCamera.m_Lens.OrthographicSize = Screen.height / (ppc.assetsPPU * 4) * 0.5f;
     }
 }

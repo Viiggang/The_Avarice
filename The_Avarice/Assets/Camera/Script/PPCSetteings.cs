@@ -4,16 +4,28 @@ using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
-[RequireComponent(typeof(PixelPerfectCamera))]
 public class PPCSetteings : MonoBehaviour
 {
-    [SerializeField]private PixelPerfectCamera ppc;
+    private PixelPerfectCamera ppc;
     private Vector2Int tempResolution;
 
-    private void Awake()
+    private void Start()
     {
         tempResolution.x = Screen.width;
         tempResolution.y = Screen.height;
+
+        Camera.main.gameObject.AddComponent<PixelPerfectCamera>();
+        ppc = Camera.main.GetComponent<PixelPerfectCamera>() ?? null;
+
+        if(ppc == null )
+        {
+            Debug.LogError("Pixel perfect camera isn't exist");
+            return;
+        }    
+
+        ppc.gridSnapping = PixelPerfectCamera.GridSnapping.PixelSnapping;
+        ppc.cropFrame = PixelPerfectCamera.CropFrame.Letterbox;
+
         UpdateResolution();
 
         SceneManager.sceneLoaded += SetPixelPerfectUnit;
@@ -27,6 +39,7 @@ public class PPCSetteings : MonoBehaviour
             tempResolution.y = Screen.height;
 
             UpdateResolution();
+            CameraManager.Instance.SetLensSize();
         }
     }
 

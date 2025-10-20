@@ -1,12 +1,18 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.U2D;
+using UnityEngine.Experimental.Rendering.Universal;
+using Unity.VisualScripting;
 
 public class MiniMapManager : MonoBehaviour
 {
+    public static MiniMapManager Instance { get { return _instance; } }
+    private static MiniMapManager _instance;
+
     public Camera miniMapCamera;
     public RawImage enlargeMapImage;
     private Vector2 mapSize;
+    private PixelPerfectCamera ppc;
+    private PixelPerfectCamera mppc;
 
     private float zoomSpeed = 3f;
     private float oriZoom = 5f;
@@ -17,7 +23,16 @@ public class MiniMapManager : MonoBehaviour
 
     private void Awake()
     {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        _instance = this;
         DontDestroyOnLoad(gameObject);
+
+        PPCSetteings();
     }
 
     void LateUpdate()
@@ -79,5 +94,24 @@ public class MiniMapManager : MonoBehaviour
             Vector3 difference = dragOrigin - miniMapCamera.ScreenToWorldPoint(Input.mousePosition);
             miniMapCamera.transform.position += difference;
         }
+    }
+
+    private void PPCSetteings()
+    {
+        ppc = Camera.main.gameObject.GetComponent<PixelPerfectCamera>() ?? null;
+        if (ppc = null)
+        {
+            Debug.LogError("Pixel perfect camera is null on main Camera");
+            return;
+        }
+
+        miniMapCamera.gameObject.AddComponent<PixelPerfectCamera>();
+        mppc = miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>();
+
+        mppc.assetsPPU = ppc.assetsPPU;
+        mppc.refResolutionX = ppc.refResolutionX;
+        mppc.refResolutionY = ppc.refResolutionY;
+        mppc.cropFrame = ppc.cropFrame;
+        mppc.gridSnapping = ppc.gridSnapping;
     }
 }
