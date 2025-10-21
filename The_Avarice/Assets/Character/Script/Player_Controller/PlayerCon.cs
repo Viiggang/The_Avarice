@@ -8,18 +8,18 @@ using static UnityEditor.LightingExplorerTableColumn;
 public class PlayerCon : MonoBehaviour
 {
     [Header("- Movement Settings")]
-    [SerializeField, Range(2f, 10f)]
-    private float Speed = 5f;
-    [SerializeField, Range(5f, 20f)]
+    [SerializeField, Range(10f, 30f)]
+    private float Speed = 10f;
+    [SerializeField, Range(10f, 20f)]
     private float jumpPower = 10f;
 
     [Space, Header("- Dash Settings")]
     [SerializeField]
     private Collider2D hitBox;
-    [SerializeField, Range(10f, 50f)]
+    [SerializeField, Range(50f, 100f)]
     private float dashSpeed = 30f;
     [SerializeField, Range(0.05f, 0.3f)]
-    private float dashDuration = 0.1f;
+    private float dashDuration = 0.2f;
     [SerializeField, Range(0.1f, 3f)]
     private float Skill1Duration = 1f;
     [SerializeField, Range(0.2f, 3f)]
@@ -192,6 +192,8 @@ public class PlayerCon : MonoBehaviour
     public bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, Collider.bounds.size.y / 2f, LayerMask.GetMask("Platform"));
+        RaycastHit2D stairLeft = Physics2D.Raycast(Rigid.position, Vector2.down, Collider.bounds.size.y / 2f, LayerMask.GetMask("Stair"));
+        RaycastHit2D stairRightLeft = Physics2D.Raycast(Rigid.position, Vector2.down, Collider.bounds.size.y / 2f, LayerMask.GetMask("Stair"));
         return hit.collider != null;
     }
 

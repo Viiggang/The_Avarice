@@ -12,7 +12,6 @@ public class MiniMapManager : MonoBehaviour
     public RawImage enlargeMapImage;
     private Vector2 mapSize;
     private PixelPerfectCamera ppc;
-    private PixelPerfectCamera mppc;
 
     private float zoomSpeed = 3f;
     private float oriZoom = 5f;
@@ -31,8 +30,6 @@ public class MiniMapManager : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
-
-        PPCSetteings();
     }
 
     void LateUpdate()
@@ -96,22 +93,16 @@ public class MiniMapManager : MonoBehaviour
         }
     }
 
-    private void PPCSetteings()
+    // 메인 카메라 세팅 그대로 가져오기
+    public void MCameraSetteings()
     {
-        ppc = Camera.main.gameObject.GetComponent<PixelPerfectCamera>() ?? null;
-        if (ppc = null)
-        {
-            Debug.LogError("Pixel perfect camera is null on main Camera");
-            return;
-        }
-
         miniMapCamera.gameObject.AddComponent<PixelPerfectCamera>();
-        mppc = miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>();
+        ppc = miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>();
 
-        mppc.assetsPPU = ppc.assetsPPU;
-        mppc.refResolutionX = ppc.refResolutionX;
-        mppc.refResolutionY = ppc.refResolutionY;
-        mppc.cropFrame = ppc.cropFrame;
-        mppc.gridSnapping = ppc.gridSnapping;
+        ppc.assetsPPU = CameraManager.Instance.ppc.assetsPPU;
+        ppc.refResolutionX = CameraManager.Instance.ppc.refResolutionX;
+        ppc.refResolutionY = CameraManager.Instance.ppc.refResolutionY;
+        ppc.cropFrame = CameraManager.Instance.ppc.cropFrame;
+        ppc.gridSnapping = CameraManager.Instance.ppc.gridSnapping;
     }
 }

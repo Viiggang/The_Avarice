@@ -60,10 +60,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0736df4f36364c444987f8cfee28c5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
+  Speed: 10
   jumpPower: 10
   hitBox: {fileID: 4722616802733099319}
-  dashSpeed: 10
+  dashSpeed: 50
   dashDuration: 0.2
   Skill1Duration: 1.8
   dashCooldown: 1
