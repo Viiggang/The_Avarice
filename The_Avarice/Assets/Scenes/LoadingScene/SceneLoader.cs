@@ -2,6 +2,7 @@ using DG.Tweening;
 using System.Collections;
 using System.IO;
 using System.Threading.Tasks.Sources;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -18,7 +19,7 @@ public class SceneLoader : MonoBehaviour
         private static Tab tab;
 
         private static string labelText = default;
-        private static Diction[] characterList = {"Paladin", "Ignis",  };
+        private static string[] characterList = {"Paladin", "Ignis",  ""};
 
         static SceneSettings()
         {
@@ -95,6 +96,12 @@ public class SceneLoader : MonoBehaviour
             {
                 EditorSceneManager.OpenScene(scenePath);
             }
+        }
+
+        private static void LoadScene(Player_Type player_Type)
+        {
+            PlayerMgr.instance.setPlayerType(player_Type);
+            PlayerMgr.instance.Spawnplayer();
         }
     }
 
