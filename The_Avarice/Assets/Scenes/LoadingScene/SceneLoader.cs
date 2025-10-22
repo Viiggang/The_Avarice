@@ -14,6 +14,11 @@ public class SceneLoader : MonoBehaviour
     [InitializeOnLoad]
     public class SceneSettings : EditorWindow
     {
+        private enum Tab {Open, Load, Simulate }
+        private static Tab tab;
+
+        private static string labelText = default;
+        private static Diction[] characterList = {"Paladin", "Ignis",  };
 
         static SceneSettings()
         {
@@ -22,30 +27,66 @@ public class SceneLoader : MonoBehaviour
             EditorSceneManager.playModeStartScene = sceneAsset;
         }
 
-        [MenuItem("Scene/Select Scene")]
-        private static void Init()
+        [MenuItem("Scene/Open Scene")]
+        private static void SceneOpener()
         {
             SceneSettings window = GetWindow<SceneSettings>();
-            window.titleContent = new GUIContent("Scene Selector");
+            tab = Tab.Open;
+            labelText = "Open a Scene";
+            window.titleContent = new GUIContent("Scene Opener");
             window.Show();
         }
 
+        [MenuItem("Scene/Load Scene")]
+        private static void SceneLoader()
+        {
+            SceneSettings window = GetWindow<SceneSettings>();
+            tab = Tab.Load;
+            labelText = "Load a Scene";
+            window.titleContent = new GUIContent("Scene Loader");
+            window.Show();
+        }
+
+        [MenuItem("Scene/Simulate Scene")]
+        private static void SceneSimulator()
+        {
+            SceneSettings window = GetWindow<SceneSettings>();
+            tab = Tab.Simulate;
+            labelText = "Selete a Character";
+            window.titleContent = new GUIContent("Scene Simulator");
+            window.Show();
+        }
+
+
         private void OnGUI()
         {
-            GUILayout.Label("Select a Scene", EditorStyles.boldLabel);
+            GUILayout.Label(labelText, EditorStyles.boldLabel);
 
-            foreach (var scene in EditorBuildSettings.scenes)
+            switch (tab)
             {
-                //scenes index 4 is loadingScene
-                if (scene.enabled && scene.path != EditorBuildSettings.scenes[4].path)
-                {
-                    string sceneName = System.IO.Path.GetFileNameWithoutExtension(scene.path);
-                    if (GUILayout.Button(sceneName))
+                case Tab.Open:
+                    foreach (var scene in EditorBuildSettings.scenes)
                     {
-                        OpenScene(scene.path);
+                        if (scene.enabled && scene.path != EditorBuildSettings.scenes[4].path)
+                        {
+                            string sceneName = System.IO.Path.GetFileNameWithoutExtension(scene.path);
+                            if (GUILayout.Button(sceneName))
+                            {
+                                OpenScene(scene.path);
+                            }
+                        }
                     }
-                }
+                    break;
+                case Tab.Load:
+                    break;
+                case Tab.Simulate:
+                    break;
+                default:
+                    Debug.LogWarning("Select Error");
+                    return;
             }
+
+            
         }
 
         private static void OpenScene(string scenePath)
