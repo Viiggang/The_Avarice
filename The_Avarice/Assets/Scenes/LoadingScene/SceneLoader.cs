@@ -19,7 +19,12 @@ public class SceneLoader : MonoBehaviour
         private static Tab tab;
 
         private static string labelText = default;
-        private static string[] characterList = {"Paladin", "Ignis",  ""};
+
+        // 캐릭터 추가될 때 캐릭터 이름 추가할 것
+        private static string[] characterList = {"Paladin", "Ignis",  "WindBreaker", "SoulEater"};
+        // 챕터 추가될 때마다 씬의 인덱스 추가할 것(File -> Build Settings -> Scene In Build)
+        private int[] playableScenes = { 2, 3 };
+
 
         static SceneSettings()
         {
@@ -77,13 +82,34 @@ public class SceneLoader : MonoBehaviour
                             }
                         }
                     }
+                    Close();
                     break;
                 case Tab.Load:
+                    for(int i = 0; i < playableScenes.Length; i++) {
+                        var scene = EditorBuildSettings.scenes[playableScenes[i]];
+                        if (scene.enabled)
+                        {
+                            string sceneName = System.IO.Path.GetFileNameWithoutExtension(scene.path);
+                            if (GUILayout.Button(sceneName))
+                            {
+                                LoadScene(sceneName);
+                            }
+                        }
+                    }
+                    Close();
                     break;
                 case Tab.Simulate:
+                    for (int i = 0; i < characterList.Length; i++)
+                    {
+                        if (GUILayout.Button(characterList[i]))
+                        {
+                            LoadScene(characterList[i]);
+                        }
+                    }
                     break;
                 default:
                     Debug.LogWarning("Select Error");
+                    Close();
                     return;
             }
 
@@ -98,7 +124,26 @@ public class SceneLoader : MonoBehaviour
             }
         }
 
-        private static void LoadScene(Player_Type player_Type)
+        private static void LoadScene(string sceneName)
+        {
+            if (Application.isPlaying)
+            {
+                if(PlayerMgr.instance.getPlayerType() != Player_Type.NULL)
+                {
+                    SceneManager.LoadScene(sceneName);
+                }
+                else
+                {
+                    Debug.LogError("Use this tool on Playable Scene");
+                }
+            }
+            else
+            {
+                Debug.LogWarning("Please use this tool only RunTime");
+            }
+        }
+
+        private static void SimulateScene(Player_Type player_Type)
         {
             PlayerMgr.instance.setPlayerType(player_Type);
             PlayerMgr.instance.Spawnplayer();
