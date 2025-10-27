@@ -1,9 +1,9 @@
 using DG.Tweening;
 using System.Collections;
-using System.IO;
-using System.Threading.Tasks.Sources;
+using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.PackageManager.UI;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -23,8 +23,8 @@ public class SceneLoader : MonoBehaviour
         // 캐릭터 추가될 때 캐릭터 이름 추가할 것
         private static string[] characterList = {"Paladin", "Ignis",  "WindBreaker", "SoulEater"};
         // 챕터 추가될 때마다 씬의 인덱스 추가할 것(File -> Build Settings -> Scene In Build)
-        private int[] playableScenes = { 2, 3 };
-
+        private static int[] playableScenes = { 2, 3 };
+        private static bool next = false;
 
         static SceneSettings()
         {
@@ -99,11 +99,43 @@ public class SceneLoader : MonoBehaviour
                     Close();
                     break;
                 case Tab.Simulate:
-                    for (int i = 0; i < characterList.Length; i++)
+                    if (!next)
                     {
-                        if (GUILayout.Button(characterList[i]))
+                        for (int i = 0; i < characterList.Length; i++)
                         {
-                            LoadScene(characterList[i]);
+                            if (GUILayout.Button(characterList[i]))
+                            {
+                                CharacterChoice(characterList[i]);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        GUILayout.Label("Choose a Scene", EditorStyles.boldLabel);
+
+                        for (int i = 0; i < playableScenes.Length; i++)
+                        {
+                            var scene = EditorBuildSettings.scenes[playableScenes[i]];
+                            if (scene.enabled)
+                            {
+                                string sceneName = System.IO.Path.GetFileNameWithoutExtension(scene.path);
+                                if (GUILayout.Button(sceneName))
+                                {
+                                    if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
+                                    {
+                                        // Play 모드 시작
+                                        EditorApplication.playModeStateChanged += OnPlayModeChanged;
+                                        EditorSceneManager.OpenScene(scene.path, OpenSceneMode.Single);
+                                        EditorApplication.isPlaying = true;
+                                        PlayerMgr.instance.Spawnplayer();
+                                        next = false;
+                                        EditorApplication.delayCall += () =>
+                                        {
+                                            this.Close();
+                                        };
+                                    }
+                                }
+                            }
                         }
                     }
                     break;
@@ -143,10 +175,32 @@ public class SceneLoader : MonoBehaviour
             }
         }
 
-        private static void SimulateScene(Player_Type player_Type)
+        private static void CharacterChoice(string characterName)
         {
-            PlayerMgr.instance.setPlayerType(player_Type);
-            PlayerMgr.instance.Spawnplayer();
+            switch (characterName)
+            {
+                case "Paladin":
+                    PlayerMgr.instance.setPlayerType(Player_Type.Paladin);
+                    break;
+                case "Ignis":
+                    PlayerMgr.instance.setPlayerType(Player_Type.Ignis);
+                    break;
+                case "WindBreaker":
+                    PlayerMgr.instance.setPlayerType(Player_Type.WindBreaker);
+                    break;
+                case "SoulEater":
+                    PlayerMgr.instance.setPlayerType(Player_Type.SoulEater);
+                    break;
+            }
+            next = true;
+        }
+
+        private static void OnPlayModeChanged(PlayModeStateChange state)
+        {
+            if (state == PlayModeStateChange.EnteredPlayMode)
+            {
+                EditorApplication.playModeStateChanged -= OnPlayModeChanged;
+            }
         }
     }
 

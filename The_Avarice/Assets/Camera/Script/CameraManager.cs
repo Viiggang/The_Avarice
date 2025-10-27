@@ -108,19 +108,17 @@ public class CameraManager : MonoBehaviour
         }
     }
 
-    private void SetPixelPerfectUnit(Scene scene, LoadSceneMode mode)
+    public void SetPixelPerfectUnit(Scene scene, LoadSceneMode mode)
     {
         if (string.Compare(scene.name, "villageScene") == 0)
         {
             ppc.assetsPPU = 32;
             SetLensSize();
-            MiniMapManager.Instance.MCameraSetteings();
         }
         else if (string.Compare(scene.name, "forestScene") == 0)
         {
             ppc.assetsPPU = 16;
             SetLensSize();
-            MiniMapManager.Instance.MCameraSetteings();
         }
 
     }

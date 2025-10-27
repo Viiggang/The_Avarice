@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Experimental.Rendering.Universal;
 using Unity.VisualScripting;
+using UnityEngine.SceneManagement;
 
 public class MiniMapManager : MonoBehaviour
 {
@@ -30,6 +31,8 @@ public class MiniMapManager : MonoBehaviour
 
         _instance = this;
         DontDestroyOnLoad(gameObject);
+
+        SceneManager.sceneLoaded += MCameraSetteings;
     }
 
     void LateUpdate()
@@ -94,7 +97,7 @@ public class MiniMapManager : MonoBehaviour
     }
 
     // 메인 카메라 세팅 그대로 가져오기
-    public void MCameraSetteings()
+    public void MCameraSetteings(Scene scene, LoadSceneMode mode)
     {
         miniMapCamera.gameObject.AddComponent<PixelPerfectCamera>();
         ppc = miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>();
