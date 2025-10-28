@@ -29,8 +29,9 @@ public class SceneLoader : MonoBehaviour
         static SceneSettings()
         {
             var pathOfScene = EditorBuildSettings.scenes[0].path;
-            var sceneAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(pathOfScene);
-            EditorSceneManager.playModeStartScene = sceneAsset;
+            var scene = AssetDatabase.LoadAssetAtPath<SceneAsset>(pathOfScene);
+            EditorSceneManager.playModeStartScene = scene;
+        
         }
 
         [MenuItem("Scene/Open Scene")]
@@ -43,12 +44,12 @@ public class SceneLoader : MonoBehaviour
             window.Show();
         }
 
-        [MenuItem("Scene/Load Scene")]
-        private static void SceneLoader()
+        [MenuItem("Scene/Change Scene")]
+        private static void SceneChanger()
         {
             SceneSettings window = GetWindow<SceneSettings>();
             tab = Tab.Load;
-            labelText = "Load a Scene";
+            labelText = "Change a Scene on PlayMode";
             window.titleContent = new GUIContent("Scene Loader");
             window.Show();
         }
@@ -82,7 +83,6 @@ public class SceneLoader : MonoBehaviour
                             }
                         }
                     }
-                    Close();
                     break;
                 case Tab.Load:
                     for(int i = 0; i < playableScenes.Length; i++) {
@@ -96,7 +96,6 @@ public class SceneLoader : MonoBehaviour
                             }
                         }
                     }
-                    Close();
                     break;
                 case Tab.Simulate:
                     if (!next)
@@ -125,12 +124,13 @@ public class SceneLoader : MonoBehaviour
                                     {
                                         // Play 모드 시작
                                         EditorApplication.playModeStateChanged += OnPlayModeChanged;
-                                        EditorSceneManager.OpenScene(scene.path, OpenSceneMode.Single);
                                         EditorApplication.isPlaying = true;
-                                        PlayerMgr.instance.Spawnplayer();
-                                        next = false;
                                         EditorApplication.delayCall += () =>
                                         {
+                                            temppath = sceneName;
+                                            SceneManager.LoadScene(sceneName);
+                                            PlayerMgr.instance.Spawnplayer();
+                                            next = false;
                                             this.Close();
                                         };
                                     }
@@ -139,11 +139,8 @@ public class SceneLoader : MonoBehaviour
                         }
                     }
                     break;
-                default:
-                    Debug.LogWarning("Select Error");
-                    Close();
-                    return;
             }
+           // Close();
 
             
         }
