@@ -139,7 +139,7 @@ GameObject:
   - component: {fileID: 95368855}
   - component: {fileID: 95368854}
   - component: {fileID: 95368853}
-  m_Layer: 5
+  m_Layer: 21
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9063,63 +9063,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6481573154847876383, guid: e5359e943437eac4f8f040ae2de25dcd, type: 3}
   m_PrefabInstance: {fileID: 1583344058}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &167435016
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 167435018}
-  - component: {fileID: 167435017}
-  m_Layer: 0
-  m_Name: PlayerMgr
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &167435017
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167435016}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df33d5edcc2051d42b0a4ac5eda13228, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerPrefab: []
-  Player_MaxHp: 100
-  Player_Hp: 100
-  Player_Attack: 5
-  Player_addedAtk: 0
-  Player_Defense: 5
-  Player_addedDef: 0
-  Player_Speed: 1
-  player_passive1: 0
-  player_passive2: 0
-  element_Type: 0
-  Player_Guard: 1
-  Startpos: {fileID: 0}
---- !u!4 &167435018
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 167435016}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &173984918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12894,7 +12837,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 333723393}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: Minimap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14815,7 +14758,7 @@ GameObject:
   - component: {fileID: 506117621}
   - component: {fileID: 506117620}
   - component: {fileID: 506117619}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: MiniMapCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14913,7 +14856,7 @@ Camera:
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 2097152
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 8400000, guid: 0c2f388232f4d00469db34de92b3b20c, type: 2}
   m_TargetDisplay: 0
@@ -15065,7 +15008,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 581925990}
-  m_Layer: 5
+  m_Layer: 21
   m_Name: EnlargeMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15251,7 +15194,7 @@ GameObject:
   - component: {fileID: 687215160}
   - component: {fileID: 687215162}
   - component: {fileID: 687215161}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: GroundShadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17647,7 +17590,7 @@ GameObject:
   - component: {fileID: 706951656}
   - component: {fileID: 706951658}
   - component: {fileID: 706951657}
-  m_Layer: 5
+  m_Layer: 21
   m_Name: MiniMap_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17720,7 +17663,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 722495924}
-  m_Layer: 5
+  m_Layer: 21
   m_Name: MiniMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19791,7 +19734,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1120965428}
   - component: {fileID: 1120965427}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: MiniMap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19843,7 +19786,7 @@ GameObject:
   - component: {fileID: 1143419819}
   - component: {fileID: 1143419821}
   - component: {fileID: 1143419820}
-  m_Layer: 8
+  m_Layer: 21
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33483,7 +33426,7 @@ GameObject:
   - component: {fileID: 1476674802}
   - component: {fileID: 1476674804}
   - component: {fileID: 1476674803}
-  m_Layer: 5
+  m_Layer: 21
   m_Name: MiniMap_I
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33640,7 +33583,7 @@ GameObject:
   - component: {fileID: 1570555405}
   - component: {fileID: 1570555407}
   - component: {fileID: 1570555406}
-  m_Layer: 5
+  m_Layer: 21
   m_Name: EnlargeMap_RI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34053,7 +33996,7 @@ GameObject:
   - component: {fileID: 1649224890}
   - component: {fileID: 1649224892}
   - component: {fileID: 1649224891}
-  m_Layer: 5
+  m_Layer: 21
   m_Name: MiniMap_RI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34125,7 +34068,7 @@ GameObject:
   - component: {fileID: 1688103217}
   - component: {fileID: 1688103219}
   - component: {fileID: 1688103218}
-  m_Layer: 0
+  m_Layer: 21
   m_Name: MinimapManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39565,7 +39508,7 @@ GameObject:
   - component: {fileID: 1816265227}
   - component: {fileID: 1816265229}
   - component: {fileID: 1816265228}
-  m_Layer: 5
+  m_Layer: 21
   m_Name: EnlargeMap_I
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40601,7 +40544,7 @@ GameObject:
   - component: {fileID: 2118965768}
   - component: {fileID: 2118965770}
   - component: {fileID: 2118965769}
-  m_Layer: 5
+  m_Layer: 21
   m_Name: EnlargeMap_P
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42003,4 +41946,3 @@ SceneRoots:
   - {fileID: 1560776670}
   - {fileID: 931609051}
   - {fileID: 333723393}
-  - {fileID: 167435018}

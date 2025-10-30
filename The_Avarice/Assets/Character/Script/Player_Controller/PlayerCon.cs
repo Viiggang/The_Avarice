@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
+using XNodeEditor;
 using static UnityEditor.LightingExplorerTableColumn;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(Animator))]
 public class PlayerCon : MonoBehaviour
 {
     [Header("- Movement Settings")]
-    [SerializeField, Range(10f, 30f)]
+    [SerializeField, Range(5f, 20f)]
     private float Speed = 10f;
     [SerializeField, Range(10f, 20f)]
     private float jumpPower = 10f;
@@ -16,7 +18,7 @@ public class PlayerCon : MonoBehaviour
     [Space, Header("- Dash Settings")]
     [SerializeField]
     private Collider2D hitBox;
-    [SerializeField, Range(50f, 100f)]
+    [SerializeField, Range(25f, 50f)]
     private float dashSpeed = 30f;
     [SerializeField, Range(0.05f, 0.3f)]
     private float dashDuration = 0.2f;
@@ -62,6 +64,7 @@ public class PlayerCon : MonoBehaviour
     public Player_Atk Attack { get; private set; }
     public Pal_LightCut LightCut { get; private set; }
 
+
     //제어용 변수
     public bool Direction { get; private set; } = true; // 바라보는 방향
     public bool CanDash { get; set; } = true;
@@ -72,6 +75,8 @@ public class PlayerCon : MonoBehaviour
     public bool IsDead { get; private set; } = false;
     public bool CanMove { get; set; } = true;
 
+    private ContactFilter2D filter;
+    private Collider2D[] collider2Ds = default;
 
     public float InputX { get; private set; }
     public bool JumpInput { get; private set; }
@@ -112,6 +117,7 @@ public class PlayerCon : MonoBehaviour
         };
 
         transform.localScale = new Vector3(CharacterScale, CharacterScale, 0f);
+        filter.SetLayerMask(LayerMask.GetMask("Platform", "Stair"));
     }
 
 
@@ -148,6 +154,20 @@ public class PlayerCon : MonoBehaviour
     private void FixedUpdate()
     {
         ControlMachine.CurrentState.PhysicsUpdate();
+
+        if (!IsGrounded() && Physics2D.OverlapCollider(Collider, results: collider2Ds, contactFilter:filter) != 0)
+        {
+            //Vector3 normal = hit.normal;
+
+            //// 중력에 의한 속도의 경사면 방향 성분 제거
+            //Vector3 gravityDir = Physics.gravity.normalized;
+            //Vector3 slideDir = Vector3.ProjectOnPlane(gravityDir, normal);
+
+            //// 경사면을 따라 미끄러지는 속도 성분을 줄이기
+            //Vector3 velocity = rb.velocity;
+            //Vector3 slideVelocity = Vector3.Project(velocity, slideDir);
+            //rb.velocity = velocity - slideVelocity;
+        }
     }
 
     #region 
@@ -192,8 +212,6 @@ public class PlayerCon : MonoBehaviour
     public bool IsGrounded()
     {
         RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, Collider.bounds.size.y / 2f, LayerMask.GetMask("Platform"));
-        RaycastHit2D stairLeft = Physics2D.Raycast(Rigid.position, Vector2.down, Collider.bounds.size.y / 2f, LayerMask.GetMask("Stair"));
-        RaycastHit2D stairRightLeft = Physics2D.Raycast(Rigid.position, Vector2.down, Collider.bounds.size.y / 2f, LayerMask.GetMask("Stair"));
         return hit.collider != null;
     }
 

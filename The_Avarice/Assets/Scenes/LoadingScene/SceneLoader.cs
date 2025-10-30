@@ -127,7 +127,6 @@ public class SceneLoader : MonoBehaviour
                                         EditorApplication.isPlaying = true;
                                         EditorApplication.delayCall += () =>
                                         {
-                                            temppath = sceneName;
                                             SceneManager.LoadScene(sceneName);
                                             PlayerMgr.instance.Spawnplayer();
                                             next = false;
