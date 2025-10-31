@@ -155,19 +155,17 @@ public class PlayerCon : MonoBehaviour
     {
         ControlMachine.CurrentState.PhysicsUpdate();
 
-        if (!IsGrounded() && Physics2D.OverlapCollider(Collider, results: collider2Ds, contactFilter:filter) != 0)
-        {
-            //Vector3 normal = hit.normal;
-
-            //// 중력에 의한 속도의 경사면 방향 성분 제거
-            //Vector3 gravityDir = Physics.gravity.normalized;
-            //Vector3 slideDir = Vector3.ProjectOnPlane(gravityDir, normal);
-
-            //// 경사면을 따라 미끄러지는 속도 성분을 줄이기
-            //Vector3 velocity = rb.velocity;
-            //Vector3 slideVelocity = Vector3.Project(velocity, slideDir);
-            //rb.velocity = velocity - slideVelocity;
-        }
+        //if (!IsGrounded() && Physics2D.OverlapCollider(Collider, filter, collider2Ds) != 0)
+        //{
+        //    Vector3 normal = hit.normal;
+        
+        //    Vector3 gravityDir = Physics.gravity.normalized;
+        //    Vector3 slideDir = Vector3.ProjectOnPlane(gravityDir, normal);
+        
+        //    Vector3 velocity = rb.velocity;
+        //    Vector3 slideVelocity = Vector3.Project(velocity, slideDir);
+        //    rb.velocity = velocity - slideVelocity;
+        //}
     }
 
     #region 
