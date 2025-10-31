@@ -1,19 +1,22 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.U2D;
 
 public class BackgroundScrolling : MonoBehaviour
 {
     [SerializeField] private Transform[] backgrounds;
-    [SerializeField] private float backgroundWidth;
     [SerializeField] private Transform cameraTransform;
     [SerializeField, Range(0f, 0.1f)] private float parallaxFactor = 0.1f;
+    [SerializeField] private bool moveY = false;
+
+    private float[] backgroundWidths;
+    private float[] backgroundHeights;
 
     private int leftIndex = 0;
     private int rightIndex;
     private PixelPerfectCamera ppc;
-
 
     private Vector3 lastCameraPos;
 
@@ -25,29 +28,51 @@ public class BackgroundScrolling : MonoBehaviour
         if (cam != null)
         {
             ppc = cam.GetComponent<PixelPerfectCamera>();
+            cameraTransform = cam.transform;
+            lastCameraPos = cameraTransform.position;
         }
 
-        lastCameraPos = cameraTransform.position;
-    }
-    private void Update()
-    {
-        Vector3 pos = cameraTransform.position - lastCameraPos;
-        lastCameraPos = cameraTransform.position;
+        backgroundWidths = new float[backgrounds.Length];
+        backgroundHeights = new float[backgrounds.Length];
 
         for (int i = 0; i < backgrounds.Length; i++)
         {
-            Vector3 newPos = backgrounds[i].position - new Vector3(pos.x * parallaxFactor, pos.y * parallaxFactor, 0f);
+            SpriteRenderer sr = backgrounds[i].GetComponent<SpriteRenderer>();
+            if (sr != null)
+            {
+                backgroundWidths[i] = sr.bounds.size.x - 0.05f;
+                backgroundHeights[i] = sr.bounds.size.y - 0.05f;
+            }
+        }
+    }
+
+    private void LateUpdate()
+    {
+        Vector3 deltaMovement = cameraTransform.position - lastCameraPos;
+        lastCameraPos = cameraTransform.position;
+
+
+        for (int i = 0; i < backgrounds.Length; i++)
+        {
+            Vector3 moveAmount = new Vector3(
+            deltaMovement.x * parallaxFactor,
+            moveY ? deltaMovement.y * parallaxFactor : 0f,
+            0f
+            );
+
+            Vector3 newPos = backgrounds[i].position + moveAmount;
+
             backgrounds[i].position = SnapToPixel(newPos);
         }
 
-        // Ä«¸Þ¶ó°¡ ¿À¸¥ÂÊ ³¡À¸·Î ³Ñ¾î°¥ °æ¿ì
-        if (cameraTransform.position.x >= backgrounds[rightIndex].position.x - (backgroundWidth / 2f))
+        // ì¹´ë©”ë¼ê°€ ì˜¤ë¥¸ìª½ ëìœ¼ë¡œ ë„˜ì–´ê°ˆ ê²½ìš°
+        if (cameraTransform.position.x >= backgrounds[rightIndex].position.x - (backgroundWidths[rightIndex] / 2f))
         {
             ScrollRight();
 
         }
-        // Ä«¸Þ¶ó°¡ ¿ÞÂÊ ³¡À¸·Î ³Ñ¾î°¥ °æ¿ì
-        else if (cameraTransform.position.x <= backgrounds[leftIndex].position.x + (backgroundWidth / 2f))
+        // ì¹´ë©”ë¼ê°€ ì™¼ìª½ ëìœ¼ë¡œ ë„˜ì–´ê°ˆ ê²½ìš°
+        else if (cameraTransform.position.x <= backgrounds[leftIndex].position.x + (backgroundWidths[leftIndex] / 2f))
         {
             ScrollLeft();
         }
@@ -56,7 +81,7 @@ public class BackgroundScrolling : MonoBehaviour
     void ScrollRight()
     {
         Vector3 pos = new Vector3(
-            backgrounds[rightIndex].position.x + backgroundWidth,
+            backgrounds[rightIndex].position.x + backgroundWidths[rightIndex],
             backgrounds[leftIndex].position.y,
             backgrounds[leftIndex].position.z
         );
@@ -70,7 +95,7 @@ public class BackgroundScrolling : MonoBehaviour
     void ScrollLeft()
     {
         Vector3 pos = new Vector3(
-            backgrounds[leftIndex].position.x - backgroundWidth,
+            backgrounds[leftIndex].position.x - backgroundWidths[rightIndex],
             backgrounds[rightIndex].position.y,
             backgrounds[rightIndex].position.z
         );

@@ -1,0 +1,217 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEditor.Profiling.Memory.Experimental;
+using UnityEngine;
+public enum Player_Type
+{
+    Paladin,
+    Ignis,
+    WindBreaker,
+    SoulEater,
+    NULL = 9999
+};
+public enum Element_Type
+{
+    Fire,
+    Thunder,
+    Ice,
+    NULL = 9999
+};
+
+public class PlayerMgr : BaseMgr<PlayerMgr>
+{
+
+    [Header("-Player_Select")]
+
+    Player_Type playerType;
+
+    public GameObject[] playerPrefab;
+    private GameObject player;
+
+    [Space]
+    [Header("Player_Info")]
+    [SerializeField]
+    private float Player_MaxHp = 100f; //최대 체력
+    [SerializeField]
+    private float Player_Hp = 100f; // 현제 체력 
+    [SerializeField]
+    private float Player_Attack = 5f; // 기초 공격력
+    [SerializeField]
+    private float Player_addedAtk = 0f; // 추가 공격력
+    [SerializeField]
+    private float Player_Defense = 5f; // 기초 방어력
+    [SerializeField]
+    private float Player_addedDef = 0f; // 추가 방어력
+    [SerializeField]
+    private float Player_Speed = 1f;
+
+    [Header("Player_Passive")]
+    [SerializeField]
+    private int player_passive1 = 0;
+    [SerializeField]
+    private int player_passive2 = 0;
+    [SerializeField]
+    Element_Type element_Type;
+
+    [SerializeField]
+    private float Player_Guard = 1f; // 방어율 (받는 데미지%)
+
+    public GameObject Startpos;
+
+    private bool onPassive2 = false;
+    private bool onPassive = false;
+
+    public void Spawnplayer()
+    {
+        this.gameObject.transform.position = Startpos.transform.position;
+        player = Instantiate(playerPrefab[(int)playerType].gameObject, Startpos.transform.position, Quaternion.identity);
+        CameraManager.Instance.SetTarget(player.transform);
+    }
+
+    public void Update()
+    {
+        if (playerType == Player_Type.Paladin && playerType == Player_Type.Ignis)
+        {
+            if (player_passive1 > 20)
+            {
+                player_passive1 = 20;
+            }
+        }
+
+    }
+
+    public void setStartPos(GameObject pos)
+    {
+        Startpos = pos;
+    }
+
+    public Player_Type getPlayerType()
+    {
+        return playerType;
+    }
+
+    public void setPlayerType(Player_Type set)
+    {
+        playerType = set;
+    }
+    public Element_Type getElementType()
+    {
+        return element_Type;
+    }
+
+    public void setElementType(Element_Type set)
+    {
+        element_Type = set;
+    }
+
+    public void sumPassiveStack(int stack)
+    {
+        player_passive1 += stack;
+        Pal_ShiledPassive = 0;
+    }
+    public int getPassiveStack()
+    {
+        return player_passive1;
+    }
+    public void sumPassive2Stack(int stack)
+    {
+        player_passive2 += stack;
+    }
+    public int getPassive2Stack()
+    {
+        return player_passive2;
+    }
+
+    public float getPlayerSpeed()
+    {
+        return Player_Speed;
+    }
+    public void setPlayerSpeed(float sum)
+    {
+        Player_Speed = sum;
+    }
+
+    public float getPlayerAtk()
+    {
+        return Player_Attack;
+    }
+
+    public void sumPlayerAtk(float sum) //기초공격력 제어
+    {
+        Player_Attack += sum;
+    }
+
+    public void sumPlayeraddedAtk(float sum)//추가 공격력 제어
+    {
+        Player_addedAtk += sum;
+    }
+
+    public float getPlayerHp()
+    {
+        return Player_Hp;
+    }
+    public void sumPlayerHp(float sum)
+    {
+        Player_Hp += sum;
+    }
+    public float getPlayerMaxHp()
+    {
+        return Player_MaxHp;
+    }
+
+    public void sumPlayerMaxHp(float sum)
+    {
+        Player_MaxHp += sum;
+    }
+
+    public bool getPassive()
+    {
+        if (playerType == Player_Type.Paladin)
+        {
+            return onPassive2;
+        }
+        return false;
+    }
+
+    public void setPassive(bool set)
+    {
+        if (playerType == Player_Type.Paladin)
+        {
+            onPassive2 = set;
+        }
+    }
+
+    public bool getonPassive()
+    {
+        return onPassive;
+    }
+
+    public void setonPassive(bool set)
+    {
+        onPassive = set;
+    }
+
+    public float getGuard()
+    {
+        return Player_Guard;
+    }
+
+    public void setGuard(float sum)
+    {
+        Player_Guard = sum;
+    }
+
+    private int Pal_ShiledPassive = 0;
+
+    public void setShieldPassive()
+    {
+        if (Pal_ShiledPassive < 10)
+        {
+            Pal_ShiledPassive += 2;
+            player_passive1 += 2;
+        }
+
+    }
+}

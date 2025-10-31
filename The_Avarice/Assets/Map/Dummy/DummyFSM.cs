@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class DummyFSM : MonoBehaviour
+public class DummyFSM : MonoBehaviour, IDamage
 {
     private D_State currentState;
 
@@ -29,10 +29,9 @@ public class DummyFSM : MonoBehaviour
         currentState?.Enter();
     }
 
-    public void TakeDamage(int damage)
+    public void OnHitDamage(float damage)
     {
         ChangeState(new D_HitState(this, hitVFXPrefab, vfxSpawnPoint));
-        TakeStun(3);
     }
 
     public void TakeStun(float duration)
