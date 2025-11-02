@@ -14,7 +14,8 @@
 
 ---
 
-## 🗂 Category (카테고리) {#category}
+<a id="category"></a>
+## 🗂 Category (카테고리)
 
 퀘스트의 종류를 구분하기 위한 카테고리입니다.  
 **Category는 재사용 가능**하므로, 명확한 이름 설정이 중요합니다.
@@ -28,7 +29,8 @@
 
 ---
 
-## ⚙️ TaskAction {#taskaction}
+<a id="taskaction"></a>
+## ⚙️ TaskAction
 
 <img width="500" height="500" alt="TaskAction 구조" src="https://github.com/user-attachments/assets/f9c1fe15-4176-4155-bb99-82b752575ab1" />  
 
@@ -44,7 +46,8 @@
 
 ---
 
-## 🎯 Target (타겟) {#target}
+<a id="target"></a>
+## 🎯 Target (타겟)
 
 퀘스트 목표 달성 여부를 판별하는 모듈입니다.  
 
@@ -59,7 +62,8 @@
 
 ---
 
-## 🧱 Task 제작 {#task}
+<a id="task"></a>
+## 🧱 Task 제작
 
 위 3가지 요소(**Category**, **TaskAction**, **Target**)가 준비되면  
 이제 Task를 제작할 수 있습니다.
@@ -77,7 +81,8 @@
 
 ---
 
-## 🏆 Quest 제작 {#quest}
+<a id="quest"></a>
+## 🏆 Quest 제작
 
 퀘스트를 생성하는 단계입니다.  
 
@@ -97,4 +102,4 @@
 플레이어는 싱글턴 처리되어 있으므로, 접근 방식(직접 접근 또는 메서드 호출 등)은 자유롭게 설계할 수 있습니다.
 
 샘플 예시 👇  
-<img width="500" height="500" alt="Compensation 예시" src="https://github.com/user-attachments/assets/a85418a1-ca29-4665-a39f-94d5c58b059f" />  
+<img width="500" height="500" alt="Compensation 예시" src="https://github.com/user-attachments/assets/a85418a1-ca29-4665-a39f-94d5c58b059f" />
