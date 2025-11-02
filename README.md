@@ -101,19 +101,4 @@
 
 ---
 
-## 🚀 QuestSystem 연결
-
-모든 제작이 완료되면, **QuestSystem 클래스**에서  
-`Quests` 리스트에 제작한 데이터를 삽입하여 등록합니다.
-
-```csharp
-public class QuestSystem : MonoBehaviour
-{
-    public List<Quest> Quests;
-
-    private void Start()
-    {
-        // 예시
-        Quests.Add(createdQuest);
-    }
-}
+ 
