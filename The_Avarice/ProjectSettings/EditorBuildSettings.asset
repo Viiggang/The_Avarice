@@ -20,5 +20,8 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/LoadingScene/LoadingScene.unity
     guid: 0364ff7c9393d5043b4fab62393f1b70
+  - enabled: 1
+    path: Assets/QuestAll/Scene/QuestTest.unity
+    guid: 6d3fbb3dd9e86434681ac2c3014b85cd
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 15b0c328db023c64182b646cd3a92a8e, type: 2}

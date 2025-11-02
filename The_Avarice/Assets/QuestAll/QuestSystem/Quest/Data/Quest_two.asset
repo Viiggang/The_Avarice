@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad6ff7a0e8800d40b74f48cc810e97f, type: 3}
+  m_Name: Quest_two
+  m_EditorClassIdentifier: 
+  codename: Test2
+  description: dsdsdsds
+  displayname: Test
+  Category: {fileID: 11400000, guid: 1d5be7e1f195b064bb548d90f8fe979d, type: 2}
+  task: {fileID: 11400000, guid: b3c0754fa4a806545a1fe81bef1d2b4a, type: 2}
+  compensation: {fileID: 11400000, guid: d4dec60108748764ab7c3319e534baf2, type: 2}
+  AutoComplete: 1
