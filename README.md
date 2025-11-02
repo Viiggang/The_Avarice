@@ -6,15 +6,15 @@
 ---
 
 ## 📑 Table of Contents
-1. [Category (카테고리)](#category-카테고리)  
-2. [TaskAction](#taskaction)  
-3. [Target (타겟)](#target-타겟)  
-4. [Task 제작](#task-제작)  
-5. [Quest 제작](#quest-제작)  
+1. [Category (카테고리)](#category)
+2. [TaskAction](#taskaction)
+3. [Target (타겟)](#target)
+4. [Task 제작](#task)
+5. [Quest 제작](#quest)
 
 ---
 
-## 🗂 Category (카테고리)
+## 🗂 Category (카테고리) {#category}
 
 퀘스트의 종류를 구분하기 위한 카테고리입니다.  
 **Category는 재사용 가능**하므로, 명확한 이름 설정이 중요합니다.
@@ -28,7 +28,7 @@
 
 ---
 
-## ⚙️ TaskAction
+## ⚙️ TaskAction {#taskaction}
 
 <img width="500" height="500" alt="TaskAction 구조" src="https://github.com/user-attachments/assets/f9c1fe15-4176-4155-bb99-82b752575ab1" />  
 
@@ -44,7 +44,7 @@
 
 ---
 
-## 🎯 Target (타겟)
+## 🎯 Target (타겟) {#target}
 
 퀘스트 목표 달성 여부를 판별하는 모듈입니다.  
 
@@ -59,7 +59,7 @@
 
 ---
 
-## 🧱 Task 제작
+## 🧱 Task 제작 {#task}
 
 위 3가지 요소(**Category**, **TaskAction**, **Target**)가 준비되면  
 이제 Task를 제작할 수 있습니다.
@@ -77,7 +77,7 @@
 
 ---
 
-## 🏆 Quest 제작
+## 🏆 Quest 제작 {#quest}
 
 퀘스트를 생성하는 단계입니다.  
 
@@ -98,7 +98,3 @@
 
 샘플 예시 👇  
 <img width="500" height="500" alt="Compensation 예시" src="https://github.com/user-attachments/assets/a85418a1-ca29-4665-a39f-94d5c58b059f" />  
-
----
-
- 
