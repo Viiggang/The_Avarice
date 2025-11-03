@@ -12,14 +12,11 @@ public class MiniMapManager : MonoBehaviour
     public Camera miniMapCamera;
     public RawImage enlargeMapImage;
     private Vector2 mapSize;
-    private PixelPerfectCamera ppc;
 
-    private float zoomSpeed = 3f;
-    private float oriZoom = 5f;
+    private PixelPerfectCamera ppc;
 
     private Vector3 dragOrigin;
     private bool isDragging = false;
-    private float currentZoom;
 
     private void Awake()
     {
@@ -45,8 +42,6 @@ public class MiniMapManager : MonoBehaviour
         }
         else
         {
-            miniMapCamera.orthographicSize = oriZoom;
-            currentZoom = oriZoom;
             miniMapCamera.transform.position = Camera.main.transform.position;
         }
     }
@@ -63,16 +58,7 @@ public class MiniMapManager : MonoBehaviour
     // 맵 줌
     private void HandleMapZoom()
     {
-        float scrollDelta = Input.mouseScrollDelta.y;
-        if (scrollDelta != 0)
-        {
-            if (currentZoom < oriZoom)
-            {
-                currentZoom = oriZoom;
-            }
-            currentZoom -= scrollDelta * zoomSpeed;
-            miniMapCamera.orthographicSize = currentZoom;
-        }
+        
     }
 
     // 맵 드래그
@@ -99,8 +85,11 @@ public class MiniMapManager : MonoBehaviour
     // 메인 카메라 세팅 그대로 가져오기
     public void MCameraSetteings(Scene scene, LoadSceneMode mode)
     {
-        miniMapCamera.gameObject.AddComponent<PixelPerfectCamera>();
-        ppc = miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>();
+        if (miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>() == null)
+        {
+            miniMapCamera.gameObject.AddComponent<PixelPerfectCamera>();
+            ppc = miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>();
+        }
 
         ppc.assetsPPU = CameraManager.Instance.ppc.assetsPPU;
         ppc.refResolutionX = CameraManager.Instance.ppc.refResolutionX;
