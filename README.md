@@ -93,7 +93,7 @@
 3. 앞서 만든 **Category 모듈**과 **Task 모듈**을 연결  
 4. **보상(Compensation)** 구현 및 **AutoComplete** 설정  
 
-<img width="500" height="500" alt="Quest 제작 예시" src="https://github.com/user-attachments/assets/ffdd93ea-66c8-4a41-80a7-ef1e7fbca492" />  
+
 
 ---
 
@@ -103,4 +103,6 @@
 플레이어는 싱글턴 처리되어 있으므로, 접근 방식(직접 접근 또는 메서드 호출 등)은 자유롭게 설계할 수 있습니다.
 
 샘플 예시 👇  
+<img width="500" height="500" alt="Quest 제작 예시" src="https://github.com/user-attachments/assets/ffdd93ea-66c8-4a41-80a7-ef1e7fbca492" />    
+
 <img width="500" height="500" alt="Compensation 예시" src="https://github.com/user-attachments/assets/a85418a1-ca29-4665-a39f-94d5c58b059f" />
