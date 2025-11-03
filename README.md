@@ -1,8 +1,7 @@
-작성 중 -2025-11-02 툴 설명 남음
-#  Quest System 제작 가이드
+# 🎮 Quest System 제작 가이드
 
 퀘스트 시스템을 제작하기 위한 단계별 가이드입니다.  
-이 가이드를 따라 **Category**, **TaskAction**, **Target**을 구현한 후 **Task**를 제작할 수 있습니다.
+이 가이드를 따라 **Category**, **TaskAction**, **Target**을 구현한 후 **Task**와 **Quest**를 제작할 수 있습니다.
 
 ---
 
@@ -12,17 +11,19 @@
 3. [Target (타겟)](#target)
 4. [Task 제작](#task)
 5. [Quest 제작](#quest)
+6. [Compensation (보상 시스템)](#compensation)
 
 ---
 
 <a id="category"></a>
+
 ## 🗂 Category (카테고리)
 
-퀘스트의 종류를 구분하기 위한 카테고리입니다.  
+퀘스트의 종류를 구분하기 위한 **카테고리**입니다.  
 **Category는 재사용 가능**하므로, 명확한 이름 설정이 중요합니다.
 
 ### ✅ 생성 방법
-1. 우측 마우스 클릭 → **Create → Category**  
+1. 우클릭 → **Create → Category**  
 2. 기본 생성명: `category_`  
 3. 이름 수정 예시: `category_battle`
 
@@ -31,9 +32,10 @@
 ---
 
 <a id="taskaction"></a>
+
 ## ⚙️ TaskAction
 
-<img width="500" height="500" alt="TaskAction 구조" src="https://github.com/user-attachments/assets/f9c1fe15-4176-4155-bb99-82b752575ab1" />  
+<img width="500" height="500" alt="TaskAction 구조" src="https://github.com/user-attachments/assets/f9c1fe15-4176-4155-bb99-82b752575ab1" />
 
 `TaskAction`을 상속하여 퀘스트 중 실행되는 기능을 구현합니다.  
 퀘스트 진행 중 특정 조건이 만족되었을 때 호출되는 함수입니다.
@@ -43,11 +45,12 @@
 - **구현:** 버튼 클릭 시 `SuccessCount` 증가 후 퀘스트 진행 상태 업데이트  
 
 샘플 예시 👇  
-<img width="500" height="500" alt="TaskAction 예시" src="https://github.com/user-attachments/assets/e20d7820-94e6-4c4a-af51-fdfd3286c084" />  
+<img width="500" height="500" alt="TaskAction 예시" src="https://github.com/user-attachments/assets/e20d7820-94e6-4c4a-af51-fdfd3286c084" />
 
 ---
 
 <a id="target"></a>
+
 ## 🎯 Target (타겟)
 
 퀘스트 목표 달성 여부를 판별하는 모듈입니다.  
@@ -58,31 +61,33 @@
 ### 🧩 예시: StringTarget 구현
 <img width="500" height="500" alt="StringTarget 예시" src="https://github.com/user-attachments/assets/163b1ab6-137e-4dcc-b435-3c7dbedfa4e6" />
 
-> Task의 Target 모듈에 연결하면, 트리거 발생 시 QuestSystem으로 전달되어  
+> `Task`의 Target 모듈에 연결하면, 트리거 발생 시 QuestSystem으로 전달되어  
 > 목표물과 Category가 일치하는지 판별합니다.
 
 ---
 
 <a id="task"></a>
+
 ## 🧱 Task 제작
 
 위 3가지 요소(**Category**, **TaskAction**, **Target**)가 준비되면  
-이제 Task를 제작할 수 있습니다.
+이제 **Task**를 제작할 수 있습니다.
 
 <img width="500" height="500" alt="Task 제작 예시 1" src="https://github.com/user-attachments/assets/083c612f-15de-4882-afb3-f3dc88221a77" />  
-<img width="500" height="500" alt="Task 제작 예시 2" src="https://github.com/user-attachments/assets/3a342ffe-745d-4b71-872a-2606cf46d935" />  
+<img width="500" height="500" alt="Task 제작 예시 2" src="https://github.com/user-attachments/assets/3a342ffe-745d-4b71-872a-2606cf46d935" />
 
-`QuestClearCount`는 작업을 몇 번 성공해야 퀘스트 완료인지 설정하는 값입니다.
+`QuestClearCount`는 작업을 몇 번 성공해야 퀘스트가 완료되는지를 설정하는 값입니다.
 
 ---
 
 ### 💡 Tip
-- Category는 **재사용** 가능하므로 명확한 이름으로 관리  
-- Target은 **추상화**하여 다양한 목표 조건을 지원  
+- Category는 **재사용 가능**하므로 명확한 이름으로 관리하세요.  
+- Target은 **추상화**하여 다양한 목표 조건을 지원하도록 설계하세요.
 
 ---
 
 <a id="quest"></a>
+
 ## 🏆 Quest 제작
 
 퀘스트를 생성하는 단계입니다.  
@@ -90,19 +95,54 @@
 ### ✅ 생성 방법
 1. **우클릭 → Create → Quest → CreateQuest**  
 2. `CodeName`, `Description`, `DisplayName` 입력  
-3. 앞서 만든 **Category 모듈**과 **Task 모듈**을 연결  
+3. 앞서 만든 **Category** 및 **Task** 모듈을 연결  
 4. **보상(Compensation)** 구현 및 **AutoComplete** 설정  
 
-
+<img width="500" height="500" alt="Quest 제작 예시" src="https://github.com/user-attachments/assets/ffdd93ea-66c8-4a41-80a7-ef1e7fbca492" />
 
 ---
 
-### 💰 Compensation (보상 시스템)
+<a id="compensation"></a>
+
+## 💰 Compensation (보상 시스템)
 
 보상은 `Compensation` 추상 클래스를 상속하여 구현합니다.  
 플레이어는 싱글턴 처리되어 있으므로, 접근 방식(직접 접근 또는 메서드 호출 등)은 자유롭게 설계할 수 있습니다.
 
 샘플 예시 👇  
-<img width="500" height="500" alt="Quest 제작 예시" src="https://github.com/user-attachments/assets/ffdd93ea-66c8-4a41-80a7-ef1e7fbca492" />    
-
 <img width="500" height="500" alt="Compensation 예시" src="https://github.com/user-attachments/assets/a85418a1-ca29-4665-a39f-94d5c58b059f" />
+
+---
+
+## 🔍 퀘스트 타겟 판별 방법
+
+퀘스트에서는 보통 다음과 같은 다양한 목표가 존재합니다:
+- 몬스터 처치  
+- 특정 장소 도달  
+- 아이템 획득 등  
+
+이러한 **타겟 판별**은 다음과 같이 진행됩니다.
+
+1. 캐릭터는 **싱글턴 처리**되어 있어 `QuestSystem`에 쉽게 접근할 수 있습니다.  
+2. `QuestSystem`에서 `runtimeQuests`를 참조하여 현재 보유 중인 퀘스트 목록을 확인합니다.  
+3. 각 퀘스트마다 `QuestTargetEqual(Category, Target)` 함수를 호출하여  
+   해당 조건과 일치하는 퀘스트만 진행(또는 성공 처리)합니다.
+
+<img width="500" height="500" alt="퀘스트 판별 로직 예시" src="https://github.com/user-attachments/assets/47b7ca10-4c43-4ec7-ba78-e7dae0d4a3e3" />
+
+그 아래의 코드는 퀘스트를 1회 성공할 때마다,  
+**클리어된 퀘스트를 자동으로 해제**해주는 로직입니다.
+
+---
+
+## 📘 마무리
+
+이 시스템을 기반으로:
+- 다양한 **퀘스트 타입**을 손쉽게 추가 가능  
+- **Target**과 **Action**을 분리하여 유지보수성 향상  
+- **Category** 재사용을 통해 중복 최소화  
+
+---
+
+> 🧩 **작성일:** 2025-11-02  
+> ✍️ **상태:** 작성 중 (툴 설명 남음)
