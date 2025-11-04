@@ -1,8 +1,10 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Experimental.Rendering.Universal;
+using Cinemachine;
 using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.U2D;
+using UnityEngine.UI;
 
 public class MiniMapManager : MonoBehaviour
 {
@@ -11,9 +13,16 @@ public class MiniMapManager : MonoBehaviour
 
     public Camera miniMapCamera;
     public RawImage enlargeMapImage;
-    private Vector2 mapSize;
+    public CinemachineVirtualCamera virtualCamera;
 
     private PixelPerfectCamera ppc;
+
+    [Header("Zoom Settings")]
+    public float zoomSpeed = 2f;    
+    public float minLensSize = 10f;      
+    public float maxLensSize = 60f;    
+
+    private float targetLensSize;      
 
     private Vector3 dragOrigin;
     private bool isDragging = false;
@@ -32,11 +41,16 @@ public class MiniMapManager : MonoBehaviour
         SceneManager.sceneLoaded += MCameraSetteings;
     }
 
+    private void Start()
+    {
+        if (virtualCamera != null)
+            targetLensSize = virtualCamera.m_Lens.OrthographicSize;
+    }
+
     void LateUpdate()
     {
         if (gameObject.GetComponent<MiniMapController>().enlargeMap.gameObject.activeSelf)
         {
-            CalculateMapSize();
             HandleMapZoom();
             HandleMapDrag();
         }
@@ -46,19 +60,17 @@ public class MiniMapManager : MonoBehaviour
         }
     }
 
-    // ¸Ê Å©±â °è»ê
-    private void CalculateMapSize()
-    {
-        Rect rect = enlargeMapImage.rectTransform.rect;
-        Vector2 size = new Vector2(rect.width, rect.height);
-        Vector2 worldSize = size / enlargeMapImage.canvas.scaleFactor;
-        mapSize = worldSize / 2f;
-    }
-
     // ¸Ê ÁÜ
     private void HandleMapZoom()
     {
-        
+        var scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
+        if (scrollWheelInput != 0)
+        {
+            zoomLevel += Mathf.RoundToInt(scrollWheelInput * 10);
+            zoomLevel = Mathf.Clamp(zoomLevel, 1, 5);
+            ppc.refResolutionX = Mathf.FloorToInt(Screen.width / zoomLevel);
+            ppc.refResolutionY = Mathf.FloorToInt(Screen.height / zoomLevel);
+        }
     }
 
     // ¸Ê µå·¡±×
@@ -88,13 +100,14 @@ public class MiniMapManager : MonoBehaviour
         if (miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>() == null)
         {
             miniMapCamera.gameObject.AddComponent<PixelPerfectCamera>();
-            ppc = miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>();
         }
+        ppc = miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>();
 
         ppc.assetsPPU = CameraManager.Instance.ppc.assetsPPU;
         ppc.refResolutionX = CameraManager.Instance.ppc.refResolutionX;
         ppc.refResolutionY = CameraManager.Instance.ppc.refResolutionY;
         ppc.cropFrame = CameraManager.Instance.ppc.cropFrame;
         ppc.gridSnapping = CameraManager.Instance.ppc.gridSnapping;
+        targetLensSize = virtualCamera.m_Lens.OrthographicSize;
     }
 }
