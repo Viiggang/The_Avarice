@@ -3,7 +3,6 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
-using UnityEngine.U2D;
 using UnityEngine.UI;
 
 public class MiniMapManager : MonoBehaviour
@@ -13,16 +12,13 @@ public class MiniMapManager : MonoBehaviour
 
     public Camera miniMapCamera;
     public RawImage enlargeMapImage;
-    public CinemachineVirtualCamera virtualCamera;
 
     private PixelPerfectCamera ppc;
 
-    [Header("Zoom Settings")]
-    public float zoomSpeed = 2f;    
-    public float minLensSize = 10f;      
-    public float maxLensSize = 60f;    
-
-    private float targetLensSize;      
+    private float zoomLevel = 1f;
+    private float minZoom = 1f;
+    private float maxZoomX = 5f;
+    private float maxZoomY = 5f;
 
     private Vector3 dragOrigin;
     private bool isDragging = false;
@@ -41,16 +37,14 @@ public class MiniMapManager : MonoBehaviour
         SceneManager.sceneLoaded += MCameraSetteings;
     }
 
-    private void Start()
-    {
-        if (virtualCamera != null)
-            targetLensSize = virtualCamera.m_Lens.OrthographicSize;
-    }
 
     void LateUpdate()
     {
         if (gameObject.GetComponent<MiniMapController>().enlargeMap.gameObject.activeSelf)
         {
+
+
+            UpdateZoomRangeByMapSize();
             HandleMapZoom();
             HandleMapDrag();
         }
@@ -59,6 +53,24 @@ public class MiniMapManager : MonoBehaviour
             miniMapCamera.transform.position = Camera.main.transform.position;
         }
     }
+    private void UpdateZoomRangeByMapSize()
+    {
+        if (enlargeMapImage == null) return;
+
+        RectTransform rt = enlargeMapImage.rectTransform;
+        float mapWidth = rt.rect.width;
+        float mapHeight = rt.rect.height;
+
+        // 화면 대비 비율 계산
+        float widthRatio = mapWidth / Screen.width;
+        float heightRatio = mapHeight / Screen.height;
+
+        // X/Y 각각 최대 줌 레벨 계산 (비율이 클수록 줌 아웃 가능)
+        maxZoomX = Mathf.Clamp(widthRatio * 4f, 2f, 10f);
+        maxZoomY = Mathf.Clamp(heightRatio * 4f, 2f, 10f);
+
+        minZoom = 1f;
+    }
 
     // 맵 줌
     private void HandleMapZoom()
@@ -66,12 +78,21 @@ public class MiniMapManager : MonoBehaviour
         var scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
         if (scrollWheelInput != 0)
         {
-            zoomLevel += Mathf.RoundToInt(scrollWheelInput * 10);
-            zoomLevel = Mathf.Clamp(zoomLevel, 1, 5);
-            ppc.refResolutionX = Mathf.FloorToInt(Screen.width / zoomLevel);
-            ppc.refResolutionY = Mathf.FloorToInt(Screen.height / zoomLevel);
+            zoomLevel += scrollWheelInput * 5f;
+            zoomLevel = Mathf.Clamp(zoomLevel, minZoom, Mathf.Min(maxZoomX, maxZoomY));
+
+            if (ppc != null)
+            {
+                // X/Y축을 각자 비율에 맞게 나누되, 화면 비율 유지
+                float zoomFactorX = Mathf.Lerp(1f, 1f / maxZoomX, (zoomLevel - minZoom) / (maxZoomX - minZoom));
+                float zoomFactorY = Mathf.Lerp(1f, 1f / maxZoomY, (zoomLevel - minZoom) / (maxZoomY - minZoom));
+
+                ppc.refResolutionX = Mathf.FloorToInt(Screen.width * zoomFactorX);
+                ppc.refResolutionY = Mathf.FloorToInt(Screen.height * zoomFactorY);
+            }
         }
     }
+
 
     // 맵 드래그
     private void HandleMapDrag()
@@ -108,6 +129,5 @@ public class MiniMapManager : MonoBehaviour
         ppc.refResolutionY = CameraManager.Instance.ppc.refResolutionY;
         ppc.cropFrame = CameraManager.Instance.ppc.cropFrame;
         ppc.gridSnapping = CameraManager.Instance.ppc.gridSnapping;
-        targetLensSize = virtualCamera.m_Lens.OrthographicSize;
     }
 }
