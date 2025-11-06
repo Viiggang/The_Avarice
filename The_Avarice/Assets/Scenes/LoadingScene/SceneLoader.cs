@@ -15,6 +15,7 @@ public class SceneLoader : MonoBehaviour
     [InitializeOnLoad]
     public class SceneSettings : EditorWindow
     {
+#if UNITY_EDITOR
         private enum Tab {Open, Load, Simulate }
         private static Tab tab;
 
@@ -26,13 +27,7 @@ public class SceneLoader : MonoBehaviour
         private static int[] playableScenes = { 2, 3 };
         private static bool next = false;
 
-        static SceneSettings()
-        {
-            var pathOfScene = EditorBuildSettings.scenes[0].path;
-            var scene = AssetDatabase.LoadAssetAtPath<SceneAsset>(pathOfScene);
-            EditorSceneManager.playModeStartScene = scene;
-        
-        }
+        static int SelectedSceneIndex = -1;
 
         [MenuItem("Scene/Open Scene")]
         private static void SceneOpener()
@@ -114,6 +109,7 @@ public class SceneLoader : MonoBehaviour
 
                         for (int i = 0; i < playableScenes.Length; i++)
                         {
+                            int sceneIndex = i;
                             var scene = EditorBuildSettings.scenes[playableScenes[i]];
                             if (scene.enabled)
                             {
@@ -122,14 +118,13 @@ public class SceneLoader : MonoBehaviour
                                 {
                                     if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
                                     {
-                                        // Play 모드 시작
+                                        // 플레이 모드 상태 체크
                                         EditorApplication.playModeStateChanged += OnPlayModeChanged;
-                                        EditorApplication.isPlaying = true;
+                                        SelectedSceneIndex = sceneIndex;
                                         EditorApplication.delayCall += () =>
                                         {
-                                            SceneManager.LoadScene(sceneName);
-                                            PlayerMgr.instance.Spawnplayer();
-                                            next = false;
+                                            // Play 모드 시작
+                                            EditorApplication.isPlaying = true;
                                             this.Close();
                                         };
                                     }
@@ -193,11 +188,39 @@ public class SceneLoader : MonoBehaviour
 
         private static void OnPlayModeChanged(PlayModeStateChange state)
         {
+            // 플레이가 되기 바로 직전에 호출됨
+            if (state == PlayModeStateChange.ExitingEditMode && SelectedSceneIndex >= 0)
+            {
+                var scenePath = EditorBuildSettings.scenes[playableScenes[SelectedSceneIndex]].path;
+                var scene = AssetDatabase.LoadAssetAtPath<SceneAsset>(scenePath);
+                EditorSceneManager.playModeStartScene = scene;
+                SelectedSceneIndex = -1; // 초기화
+                next = false;
+            }
+
+            // 플레이 모드로 진입하면서 실행됨
             if (state == PlayModeStateChange.EnteredPlayMode)
             {
+                PlayerMgr.instance.Spawnplayer();
+            }
+
+            if(state == PlayModeStateChange.ExitingPlayMode)
+            {
+                var pathOfScene = EditorBuildSettings.scenes[0].path;
+                var scene = AssetDatabase.LoadAssetAtPath<SceneAsset>(pathOfScene);
+                EditorSceneManager.playModeStartScene = scene;
                 EditorApplication.playModeStateChanged -= OnPlayModeChanged;
             }
         }
+#else
+        static SceneSettings()
+        {
+            var pathOfScene = EditorBuildSettings.scenes[0].path;
+            var scene = AssetDatabase.LoadAssetAtPath<SceneAsset>(pathOfScene);
+            EditorSceneManager.playModeStartScene = scene;
+        
+        }   
+#endif
     }
 
     public string nextSceneName { get; private set; }
