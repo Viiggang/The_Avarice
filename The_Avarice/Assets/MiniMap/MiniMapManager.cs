@@ -34,9 +34,13 @@ public class MiniMapManager : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
-        SceneManager.sceneLoaded += MCameraSetteings;
+        SceneManager.sceneLoaded += SceneMinimapCameraSetteings;
     }
 
+    public void OnDestroy()
+    {
+        CameraManager.OnInitialized -= SetCameraFromMainCamera;
+    }
 
     void LateUpdate()
     {
@@ -116,7 +120,19 @@ public class MiniMapManager : MonoBehaviour
     }
 
     // 메인 카메라 세팅 그대로 가져오기
-    public void MCameraSetteings(Scene scene, LoadSceneMode mode)
+    public void SceneMinimapCameraSetteings(Scene scene, LoadSceneMode mode)
+    {
+        if (CameraManager.Initialized)
+        {
+            SetCameraFromMainCamera();
+        }
+        else
+        {
+            CameraManager.OnInitialized += SetCameraFromMainCamera;
+        }
+    }
+
+    public void SetCameraFromMainCamera()
     {
         if (miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>() == null)
         {
@@ -130,4 +146,5 @@ public class MiniMapManager : MonoBehaviour
         ppc.cropFrame = CameraManager.Instance.ppc.cropFrame;
         ppc.gridSnapping = CameraManager.Instance.ppc.gridSnapping;
     }
+
 }
