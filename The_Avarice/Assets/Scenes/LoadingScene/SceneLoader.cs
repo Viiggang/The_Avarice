@@ -201,7 +201,14 @@ public class SceneLoader : MonoBehaviour
             // 플레이 모드로 진입하면서 실행됨
             if (state == PlayModeStateChange.EnteredPlayMode)
             {
-                PlayerMgr.instance.Spawnplayer();
+                if(CameraManager.Initialized)
+                {
+                    PlayerMgr.instance.Spawnplayer();
+                }
+                else
+                {
+                    CameraManager.OnInitialized += PlayerMgr.instance.Spawnplayer;
+                }
             }
 
             if(state == PlayModeStateChange.ExitingPlayMode)
@@ -211,6 +218,12 @@ public class SceneLoader : MonoBehaviour
                 EditorSceneManager.playModeStartScene = scene;
                 EditorApplication.playModeStateChanged -= OnPlayModeChanged;
             }
+
+        }
+
+        private void OnDisable()
+        {
+            CameraManager.OnInitialized -= PlayerMgr.instance.Spawnplayer; // 구독 해제
         }
 #else
         static SceneSettings()

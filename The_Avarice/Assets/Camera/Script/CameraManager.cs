@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class CameraManager : MonoBehaviour
 {
+    public static event System.Action OnInitialized;
+    public static bool Initialized { get; private set; }
     public static CameraManager Instance { get { return _instance; } }
     private static CameraManager _instance;
 
@@ -39,6 +41,9 @@ public class CameraManager : MonoBehaviour
         UpdateResolution();
 
         SceneManager.sceneLoaded += SetPixelPerfectUnit;
+
+        Initialized = true;
+        OnInitialized?.Invoke();
     }
 
     private void Awake()
