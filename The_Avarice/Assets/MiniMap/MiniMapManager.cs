@@ -37,11 +37,6 @@ public class MiniMapManager : MonoBehaviour
         SceneManager.sceneLoaded += SceneMinimapCameraSetteings;
     }
 
-    public void OnDestroy()
-    {
-        CameraManager.OnInitialized -= SetCameraFromMainCamera;
-    }
-
     void LateUpdate()
     {
         if (gameObject.GetComponent<MiniMapController>().enlargeMap.gameObject.activeSelf)
@@ -122,14 +117,10 @@ public class MiniMapManager : MonoBehaviour
     // 메인 카메라 세팅 그대로 가져오기
     public void SceneMinimapCameraSetteings(Scene scene, LoadSceneMode mode)
     {
-        if (CameraManager.Initialized)
+        StartCoroutine(OnScriptLoaded.WaitUntilActive<CameraManager>(() => 
         {
             SetCameraFromMainCamera();
-        }
-        else
-        {
-            CameraManager.OnInitialized += SetCameraFromMainCamera;
-        }
+        }));
     }
 
     public void SetCameraFromMainCamera()

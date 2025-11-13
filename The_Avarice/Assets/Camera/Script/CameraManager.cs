@@ -3,10 +3,8 @@ using Cinemachine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : OnScriptLoaded
 {
-    public static event System.Action OnInitialized;
-    public static bool Initialized { get; private set; }
     public static CameraManager Instance { get { return _instance; } }
     private static CameraManager _instance;
 
@@ -21,8 +19,20 @@ public class CameraManager : MonoBehaviour
 
     private Transform target;
 
-    private void Start()
+    private void Awake()
     {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        fT = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+        cF = virtualCamera.GetComponent<CinemachineConfiner>();
+
         tempResolution.x = Screen.width;
         tempResolution.y = Screen.height;
 
@@ -41,24 +51,6 @@ public class CameraManager : MonoBehaviour
         UpdateResolution();
 
         SceneManager.sceneLoaded += SetPixelPerfectUnit;
-
-        Initialized = true;
-        OnInitialized?.Invoke();
-    }
-
-    private void Awake()
-    {
-        if (_instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
-
-        fT = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
-        cF = virtualCamera.GetComponent<CinemachineConfiner>();
     }
 
     private void Update()
