@@ -1,13 +1,16 @@
 using UnityEngine;
 
-public class Startpoint : MonoBehaviour
+public class Startpoint : OnScriptLoaded
 {
     private void Awake()
     {
-        if (this.gameObject != null)
-        {
-            PlayerMgr.instance.Startpos = this.gameObject;
-            PlayerMgr.instance.Spawnplayer();
+        StartCoroutine(OnScriptLoaded.WaitUntilActive<CameraManager>(() => {
+            if (this.gameObject != null)
+            {
+                PlayerMgr.instance.Startpos = this.gameObject;
+                PlayerMgr.instance.Spawnplayer();
+            }
         }
+        ));
     }
 }

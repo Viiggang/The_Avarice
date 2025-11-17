@@ -65,9 +65,12 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public void Spawnplayer()
     {
-        this.gameObject.transform.position = Startpos.transform.position;
-        player = Instantiate(playerPrefab[(int)playerType].gameObject, Startpos.transform.position, Quaternion.identity);
-        CameraManager.Instance.SetTarget(player.transform);
+        StartCoroutine(OnScriptLoaded.WaitUntilActive<Startpoint>(() => { 
+            this.gameObject.transform.position = Startpos.transform.position;
+            player = Instantiate(playerPrefab[(int)playerType].gameObject, Startpos.transform.position, Quaternion.identity);
+            CameraManager.Instance.SetTarget(player.transform);
+        }));
+        
     }
 
     public void Update()

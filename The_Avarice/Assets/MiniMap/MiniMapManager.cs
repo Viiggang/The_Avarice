@@ -1,8 +1,9 @@
-using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.Experimental.Rendering.Universal;
+using Cinemachine;
 using Unity.VisualScripting;
+using UnityEngine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MiniMapManager : MonoBehaviour
 {
@@ -11,15 +12,16 @@ public class MiniMapManager : MonoBehaviour
 
     public Camera miniMapCamera;
     public RawImage enlargeMapImage;
-    private Vector2 mapSize;
+
     private PixelPerfectCamera ppc;
 
-    private float zoomSpeed = 3f;
-    private float oriZoom = 5f;
+    private float zoomLevel = 1f;
+    private float minZoom = 1f;
+    private float maxZoomX = 5f;
+    private float maxZoomY = 5f;
 
     private Vector3 dragOrigin;
     private bool isDragging = false;
-    private float currentZoom;
 
     private void Awake()
     {
@@ -32,48 +34,64 @@ public class MiniMapManager : MonoBehaviour
         _instance = this;
         DontDestroyOnLoad(gameObject);
 
-        SceneManager.sceneLoaded += MCameraSetteings;
+        SceneManager.sceneLoaded += SceneMinimapCameraSetteings;
     }
 
     void LateUpdate()
     {
         if (gameObject.GetComponent<MiniMapController>().enlargeMap.gameObject.activeSelf)
         {
-            CalculateMapSize();
+
+
+            UpdateZoomRangeByMapSize();
             HandleMapZoom();
             HandleMapDrag();
         }
         else
         {
-            miniMapCamera.orthographicSize = oriZoom;
-            currentZoom = oriZoom;
             miniMapCamera.transform.position = Camera.main.transform.position;
         }
     }
-
-    // 맵 크기 계산
-    private void CalculateMapSize()
+    private void UpdateZoomRangeByMapSize()
     {
-        Rect rect = enlargeMapImage.rectTransform.rect;
-        Vector2 size = new Vector2(rect.width, rect.height);
-        Vector2 worldSize = size / enlargeMapImage.canvas.scaleFactor;
-        mapSize = worldSize / 2f;
+        if (enlargeMapImage == null) return;
+
+        RectTransform rt = enlargeMapImage.rectTransform;
+        float mapWidth = rt.rect.width;
+        float mapHeight = rt.rect.height;
+
+        // 화면 대비 비율 계산
+        float widthRatio = mapWidth / Screen.width;
+        float heightRatio = mapHeight / Screen.height;
+
+        // X/Y 각각 최대 줌 레벨 계산 (비율이 클수록 줌 아웃 가능)
+        maxZoomX = Mathf.Clamp(widthRatio * 4f, 2f, 10f);
+        maxZoomY = Mathf.Clamp(heightRatio * 4f, 2f, 10f);
+
+        minZoom = 1f;
     }
 
     // 맵 줌
     private void HandleMapZoom()
     {
-        float scrollDelta = Input.mouseScrollDelta.y;
-        if (scrollDelta != 0)
+        var scrollWheelInput = Input.GetAxis("Mouse ScrollWheel");
+        if (scrollWheelInput != 0)
         {
-            if (currentZoom < oriZoom)
+            zoomLevel += scrollWheelInput * 5f;
+            zoomLevel = Mathf.Clamp(zoomLevel, minZoom, Mathf.Min(maxZoomX, maxZoomY));
+
+            if (ppc != null)
             {
-                currentZoom = oriZoom;
+                // X/Y축을 각자 비율에 맞게 나누되, 화면 비율 유지
+                float zoomFactorX = Mathf.Lerp(1f, 1f / maxZoomX, (zoomLevel - minZoom) / (maxZoomX - minZoom));
+                float zoomFactorY = Mathf.Lerp(1f, 1f / maxZoomY, (zoomLevel - minZoom) / (maxZoomY - minZoom));
+
+                ppc.refResolutionX = Mathf.FloorToInt(Screen.width * zoomFactorX);
+                ppc.refResolutionY = Mathf.FloorToInt(Screen.height * zoomFactorY);
             }
-            currentZoom -= scrollDelta * zoomSpeed;
-            miniMapCamera.orthographicSize = currentZoom;
         }
     }
+
 
     // 맵 드래그
     private void HandleMapDrag()
@@ -97,9 +115,20 @@ public class MiniMapManager : MonoBehaviour
     }
 
     // 메인 카메라 세팅 그대로 가져오기
-    public void MCameraSetteings(Scene scene, LoadSceneMode mode)
+    public void SceneMinimapCameraSetteings(Scene scene, LoadSceneMode mode)
     {
-        miniMapCamera.gameObject.AddComponent<PixelPerfectCamera>();
+        StartCoroutine(OnScriptLoaded.WaitUntilActive<CameraManager>(() => 
+        {
+            SetCameraFromMainCamera();
+        }));
+    }
+
+    public void SetCameraFromMainCamera()
+    {
+        if (miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>() == null)
+        {
+            miniMapCamera.gameObject.AddComponent<PixelPerfectCamera>();
+        }
         ppc = miniMapCamera.gameObject.GetComponent<PixelPerfectCamera>();
 
         ppc.assetsPPU = CameraManager.Instance.ppc.assetsPPU;
@@ -108,4 +137,5 @@ public class MiniMapManager : MonoBehaviour
         ppc.cropFrame = CameraManager.Instance.ppc.cropFrame;
         ppc.gridSnapping = CameraManager.Instance.ppc.gridSnapping;
     }
+
 }
