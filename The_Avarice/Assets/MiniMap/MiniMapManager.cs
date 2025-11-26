@@ -39,7 +39,8 @@ public class MiniMapManager : MonoBehaviour
 
     void LateUpdate()
     {
-        if (gameObject.GetComponent<MiniMapController>().enlargeMap.gameObject.activeSelf)
+        var IsActive = gameObject.GetComponent<MiniMapController>().enlargeMap.gameObject.activeSelf;
+        if (IsActive)
         {
 
 

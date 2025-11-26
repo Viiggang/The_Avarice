@@ -107,16 +107,7 @@ public class CameraManager : OnScriptLoaded
 
     public void SetPixelPerfectUnit(Scene scene, LoadSceneMode mode)
     {
-        if (string.Compare(scene.name, "villageScene") == 0)
-        {
-            ppc.assetsPPU = 32;
-            SetLensSize();
-        }
-        else if (string.Compare(scene.name, "forestScene") == 0)
-        {
-            ppc.assetsPPU = 16;
-            SetLensSize();
-        }
-
+        ppc.assetsPPU = 32;
+        SetLensSize();
     }
 }

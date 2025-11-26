@@ -148,12 +148,12 @@ public class PlayerCon : MonoBehaviour
         }
         ControlMachine.CurrentState.HandleInput();
         ControlMachine.CurrentState.LogicUpdate();
+        ControlMachine.CurrentState.PhysicsUpdate();
  
     }
 
     private void FixedUpdate()
     {
-        ControlMachine.CurrentState.PhysicsUpdate();
 
         //if (!IsGrounded() && Physics2D.OverlapCollider(Collider, filter, collider2Ds) != 0)
         //{
