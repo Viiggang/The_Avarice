@@ -42,8 +42,6 @@ public class MiniMapManager : MonoBehaviour
         var IsActive = gameObject.GetComponent<MiniMapController>().enlargeMap.gameObject.activeSelf;
         if (IsActive)
         {
-
-
             UpdateZoomRangeByMapSize();
             HandleMapZoom();
             HandleMapDrag();
