@@ -123,4 +123,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 1.5
+    functionName: DisableSelf
+    data: 
+    objectReferenceParameter: {fileID: 11500000, guid: 5a19cffef4de5cd45a154910515d423b, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

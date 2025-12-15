@@ -33,12 +33,12 @@ public class Player_Atk : MonoBehaviour //�Ϲݰ���
     [SerializeField]
     private GameObject[] HitSkillRange2;
 
-    [SerializeField, Tooltip("0번은 기본생성위치 1번은 타겟위치 2번부터 투사체의 발사위치로 설정된다.")]
-    private Transform[] FirePoint;
-    [SerializeField]
-    private GameObject[] Bullet;
-    [SerializeField]
-    private GameObject[] Bullet2;
+    [Header("Prefab Pool Settings")]
+    public GameObject prefab;
+    public int poolSize = 10;
+    [Header("Offsets")]
+    public Vector2 fireOffset = Vector2.zero;
+    public Vector2 hitOffset = Vector2.zero;
 
     [SerializeField] 
     private float attackRange = 5f;
@@ -53,49 +53,11 @@ public class Player_Atk : MonoBehaviour //�Ϲݰ���
 
     private int currentIndex = 0;
 
-    public void Shoot(Vector2 direction)
-    {
-        if (Bullet.Length == 0) return;
-
-        GameObject projectile = Bullet[currentIndex];
-        currentIndex = (currentIndex + 1) % Bullet.Length;
-
-        // 비활성화 상태라면 켜고, 아니라면 위치만 갱신
-        projectile.SetActive(true);
-        projectile.transform.position = FirePoint[2].position;
 
 
-    }
-
-    public void ClearAll()
-    {
-        foreach (var p in Bullet)
-        {
-            p.SetActive(false);
-        }
-    }
-
-    public void Shoot2(Vector2 direction)
-    {
-        if (Bullet2.Length == 0) return;
-
-        GameObject projectile = Bullet2[currentIndex];
-        currentIndex = (currentIndex + 1) % Bullet2.Length;
-
-        // 비활성화 상태라면 켜고, 아니라면 위치만 갱신
-        projectile.SetActive(true);
-        projectile.transform.position = FirePoint[3].position;
 
 
-    }
 
-    public void ClearAll2()
-    {
-        foreach (var p in Bullet2)
-        {
-            p.SetActive(false);
-        }
-    }
     void Start()
     {
         animator = GetComponent<Animator>();
@@ -122,26 +84,6 @@ public class Player_Atk : MonoBehaviour //�Ϲݰ���
         }
     }
 
-    public bool input_range()
-    {
-        //레이 캐스트를 이용해서 스킬이 생성될 위치를 구한다 방향은 플레이어가 보는 방향대로
-        Vector2 origin = transform.position;
-        Vector2 dir = transform.localScale.x > 0 ? Vector2.right : Vector2.left;
-
-        RaycastHit2D hit = Physics2D.Raycast(origin, dir, attackRange, hitMask);
-
-        if (hit.collider != null)
-        {
-            // 충돌한 위치로 CaseHitPoint 이동
-            FirePoint[1].transform.position = hit.point;
-            Debug.DrawRay(origin, dir * hit.distance, Color.red, 0.3f);
-            return true;
-        }
-
-        // 충돌하지 않았으면 아무 동작 없이 false 반환
-        Debug.DrawRay(origin, dir * attackRange, Color.green, 0.3f);
-        return false;
-    }
 
 
 
@@ -240,10 +182,7 @@ public class Player_Atk : MonoBehaviour //�Ϲݰ���
         }
     }
 
-    public void OnFire(int point, int type)
-    {
-        //투사체를 발사할 애니메이션 이벤트용 변수 point는 투사체가 발사될 위치의 배열, type은 발사될 투사체가 저장된 배열의 주소를 가리킨다.
-    }
+
     public void SetHitIndex(int index)
     {
         currentHitIndex = index;

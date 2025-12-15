@@ -24,7 +24,7 @@ public class ChangeState : IpController
             return;
         }
         player.ResetVelocityX();
-        timer = player.GetSkill1Duration();
+        timer = player.GetSkill1Duration() - 0.2f;
         player.CanDash = false;
 
         if (PlayerMgr.instance.playerType.Equals(Player_Type.Ignis) && PlayerMgr.instance.Passive1 == 20)
@@ -36,10 +36,6 @@ public class ChangeState : IpController
         {
             player.Anim.SetTrigger("Change");
         }
-
-        player.Anim.SetBool("Fire", false);
-        player.Anim.SetBool("Thunder", false);
-        player.Anim.SetBool("Ice", false);
 
         if (PlayerMgr.instance.ElementType == (Element_Type.Fire))
         {
@@ -80,10 +76,13 @@ public class ChangeState : IpController
         }
     }
 
-    public void PhysicsUpdate() 
+    public void PhysicsUpdate()
     {
-        float speed = player.InputX > 0 ? player.GetNormalSpeed() : -player.GetNormalSpeed();
-        player.MoveHorizontally(speed);
+        if (player.InputX != 0)
+        {
+            float speed = player.InputX > 0 ? player.GetNormalSpeed() : -player.GetNormalSpeed();
+            player.MoveHorizontally(speed);
+        }
     }
 
     private IEnumerator CooldownCoroutine()

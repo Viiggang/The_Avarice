@@ -61,6 +61,9 @@ public class PlayerCon : MonoBehaviour
     public Player_Atk Attack { get; private set; }
     public Pal_LightCut LightCut { get; private set; }
 
+
+    private Collider2D currentOneWayPlatform;
+
     //제어용 변수
     public bool Direction { get; private set; } = true; // 바라보는 방향
     public bool CanDash { get; set; } = true;
@@ -116,13 +119,13 @@ public class PlayerCon : MonoBehaviour
 
     public IpController GetSkill1State()
     {
-        var type = PlayerMgr.instance.getPlayerType();
+        var type = PlayerMgr.instance.playerType;
         return Skill1States.TryGetValue(type, out var state) ? state : IdleState;
     }
 
     public IpController GetSkill2State()
     {
-        var type = PlayerMgr.instance.getPlayerType();
+        var type = PlayerMgr.instance.playerType;
         return Skill2States.TryGetValue(type, out var state) ? state : IdleState;
     }
     private void OnEnable()
@@ -220,6 +223,53 @@ public class PlayerCon : MonoBehaviour
         EnableHitBox(false);
         CanMove = false;
         Rigid.velocity = Vector2.zero;
+    }
+
+    public bool IsOnOneWayPlatform()
+    {
+        return currentOneWayPlatform != null && IsGrounded();
+    }
+
+    //OneWayPlatfrom체크용 충돌감지
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("OneWayPlatform"))
+            return;
+
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            if (contact.normal.y > 0.5f)
+            {
+                currentOneWayPlatform = collision.collider;
+                break;
+            }
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.collider == currentOneWayPlatform)
+        {
+            currentOneWayPlatform = null;
+        }
+    }
+
+    private IEnumerator EnableOneWayPlatform(Collider2D playerCol, Collider2D platformCol)
+    {
+        yield return new WaitForSeconds(0.35f);
+
+        Physics2D.IgnoreCollision(playerCol, platformCol, false);
+    }
+
+    public void DisableOneWayPlatform() //OneWayPlatfrom체크 탈출용
+    {
+        if (currentOneWayPlatform == null)
+            return;
+
+        Collider2D playerCollider = GetComponent<Collider2D>();
+
+        Physics2D.IgnoreCollision(playerCollider, currentOneWayPlatform, true);
+
+        StartCoroutine(EnableOneWayPlatform(playerCollider, currentOneWayPlatform));
     }
 
     public float GetNormalSpeed() => Speed;
