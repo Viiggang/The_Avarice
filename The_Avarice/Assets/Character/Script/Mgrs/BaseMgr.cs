@@ -33,6 +33,12 @@ public class BaseMgr<T> : MonoBehaviour where T : MonoBehaviour
 
     public void Awake()
     {
+        if(Instance != null)
+        {
+            Destroy(Instance.gameObject);
+            return;
+        }
+
         DontDestroyOnLoad(gameObject);
     }
 }
