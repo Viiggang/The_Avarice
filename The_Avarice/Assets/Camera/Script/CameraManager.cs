@@ -1,27 +1,23 @@
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : OnScriptLoaded
 {
     public static CameraManager Instance { get { return _instance; } }
     private static CameraManager _instance;
 
     [SerializeField] private Camera mainCamera;
     [SerializeField] private CinemachineVirtualCamera virtualCamera;
+    [HideInInspector] public PixelPerfectCamera ppc;
     public Collider2D cameraConfiner { get; set; }
+    private Vector2Int tempResolution;
 
     private CinemachineFramingTransposer fT;
     private CinemachineConfiner cF;
 
     private Transform target;
-
-    private Vector2 defaultOffset = new Vector2(0f, 1f);
-    private float fixedY;
-
-    private bool wasJumpingLastFrame;
-
-    private float lerpSpeed = 5f;
 
     private void Awake()
     {
@@ -36,33 +32,41 @@ public class CameraManager : MonoBehaviour
 
         fT = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
         cF = virtualCamera.GetComponent<CinemachineConfiner>();
+
+        tempResolution.x = Screen.width;
+        tempResolution.y = Screen.height;
+
+        Camera.main.gameObject.AddComponent<PixelPerfectCamera>();
+        ppc = Camera.main.GetComponent<PixelPerfectCamera>() ?? null;
+
+        if (ppc == null)
+        {
+            Debug.LogError("Pixel perfect camera doesn't exist");
+            return;
+        }
+
+        ppc.gridSnapping = PixelPerfectCamera.GridSnapping.PixelSnapping;
+        ppc.cropFrame = PixelPerfectCamera.CropFrame.Letterbox;
+
+        UpdateResolution();
+
+        SceneManager.sceneLoaded += SetPixelPerfectUnit;
     }
 
     private void Update()
     {
-        if (virtualCamera.Follow == null) return;
-
-        Animator animator = target.GetComponent<Animator>();
-        bool isJump = animator.GetBool("isJump");
-
-        Vector3 currentOffset = fT.m_TrackedObjectOffset;
-
-        if (isJump)
+        if (Screen.width != tempResolution.x || Screen.height != tempResolution.y)
         {
-            if (!wasJumpingLastFrame)
-            {
-                fixedY = currentOffset.y;
-            }
+            tempResolution.x = Screen.width;
+            tempResolution.y = Screen.height;
 
-            fT.m_TrackedObjectOffset = new Vector3(defaultOffset.x, fixedY, currentOffset.z);
+            UpdateResolution();
+            SetLensSize();
         }
-        else
-        {
-            float newY = Mathf.Lerp(currentOffset.y, defaultOffset.y, Time.deltaTime * lerpSpeed);
-            fT.m_TrackedObjectOffset = new Vector3(defaultOffset.x, newY, currentOffset.z);
-        }
-
-        wasJumpingLastFrame = isJump;
+    }
+    private void LateUpdate()
+    {
+        fT.m_TrackedObjectOffset = new Vector3(0f, 2f, 0f);
     }
 
     public void SetTarget(Transform target)
@@ -79,5 +83,31 @@ public class CameraManager : MonoBehaviour
             cF.m_BoundingShape2D = cameraConfiner;
             cF.InvalidatePathCache();
         }
+    }
+
+    public void SetLensSize()
+    {
+        virtualCamera.m_Lens.OrthographicSize = Screen.height / (ppc.assetsPPU * 4) * 0.5f;
+    }
+
+    private void UpdateResolution()
+    {
+        if (ppc != null)
+        {
+            ppc.refResolutionX = Screen.width;
+            ppc.refResolutionY = Screen.height;
+
+            Debug.Log($"해상도 변경: {Screen.width} x {Screen.height}");
+        }
+        else
+        {
+            Debug.LogWarning("PixelPerfectCamera is not valid");
+        }
+    }
+
+    public void SetPixelPerfectUnit(Scene scene, LoadSceneMode mode)
+    {
+        ppc.assetsPPU = 32;
+        SetLensSize();
     }
 }

@@ -1,8 +1,9 @@
 using DG.Tweening;
 using System.Collections;
-using System.IO;
-using System.Threading.Tasks.Sources;
+using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
+using UnityEditor.PackageManager.UI;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -11,52 +12,6 @@ using UnityEngine.UI;
 
 public class SceneLoader : MonoBehaviour
 {
-    [InitializeOnLoad]
-    public class SceneSettings : EditorWindow
-    {
-
-        static SceneSettings()
-        {
-            var pathOfScene = EditorBuildSettings.scenes[0].path;
-            var sceneAsset = AssetDatabase.LoadAssetAtPath<SceneAsset>(pathOfScene);
-            EditorSceneManager.playModeStartScene = sceneAsset;
-        }
-
-        [MenuItem("Scene/Select Scene")]
-        private static void Init()
-        {
-            SceneSettings window = GetWindow<SceneSettings>();
-            window.titleContent = new GUIContent("Scene Selector");
-            window.Show();
-        }
-
-        private void OnGUI()
-        {
-            GUILayout.Label("Select a Scene", EditorStyles.boldLabel);
-
-            foreach (var scene in EditorBuildSettings.scenes)
-            {
-                //scenes index 4 is loadingScene
-                if (scene.enabled && scene.path != EditorBuildSettings.scenes[4].path)
-                {
-                    string sceneName = System.IO.Path.GetFileNameWithoutExtension(scene.path);
-                    if (GUILayout.Button(sceneName))
-                    {
-                        OpenScene(scene.path);
-                    }
-                }
-            }
-        }
-
-        private static void OpenScene(string scenePath)
-        {
-            if (EditorSceneManager.SaveCurrentModifiedScenesIfUserWantsTo())
-            {
-                EditorSceneManager.OpenScene(scenePath);
-            }
-        }
-    }
-
     public string nextSceneName { get; private set; }
 
     public static SceneLoader Instance { get {  return _instance; } }

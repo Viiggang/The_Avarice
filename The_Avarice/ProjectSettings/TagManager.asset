@@ -15,6 +15,7 @@ TagManager:
   - Enemy
   - Player
   - 
+  - Stair
   - 
   - 
   - 
@@ -26,8 +27,7 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
+  - Minimap
   - 
   - 
   - 
@@ -44,6 +44,9 @@ TagManager:
     locked: 0
   - name: Platform
     uniqueID: 204714625
+    locked: 0
+  - name: field
+    uniqueID: 2444161059
     locked: 0
   - name: Default
     uniqueID: 0

@@ -1,25 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
+using XNodeEditor;
 using static UnityEditor.LightingExplorerTableColumn;
 
 [RequireComponent(typeof(Rigidbody2D), typeof(Collider2D), typeof(Animator))]
 public class PlayerCon : MonoBehaviour
 {
     [Header("- Movement Settings")]
-    [SerializeField, Range(2f, 10f)]
-    private float Speed = 5f;
     [SerializeField, Range(5f, 20f)]
+    private float Speed = 10f;
+    [SerializeField, Range(10f, 20f)]
     private float jumpPower = 10f;
 
     [Space, Header("- Dash Settings")]
     [SerializeField]
     private Collider2D hitBox;
-    [SerializeField, Range(10f, 50f)]
+    [SerializeField, Range(25f, 50f)]
     private float dashSpeed = 30f;
     [SerializeField, Range(0.05f, 0.3f)]
-    private float dashDuration = 0.1f;
+    private float dashDuration = 0.2f;
     [SerializeField, Range(0.1f, 3f)]
     private float Skill1Duration = 1f;
     [SerializeField, Range(0.2f, 3f)]
@@ -38,6 +40,7 @@ public class PlayerCon : MonoBehaviour
     public Dictionary<Player_Type, IpController> Skill2States;
 
     public SpriteRenderer sprite;
+    public float CharacterScale;
 
     //FSM 상태관리
     [field: SerializeField]
@@ -62,8 +65,6 @@ public class PlayerCon : MonoBehaviour
     public Pal_LightCut LightCut { get; private set; }
 
 
-    private Collider2D currentOneWayPlatform;
-
     //제어용 변수
     public bool Direction { get; private set; } = true; // 바라보는 방향
     public bool CanDash { get; set; } = true;
@@ -74,6 +75,8 @@ public class PlayerCon : MonoBehaviour
     public bool IsDead { get; private set; } = false;
     public bool CanMove { get; set; } = true;
 
+    private ContactFilter2D filter;
+    private Collider2D[] collider2Ds = default;
 
     public float InputX { get; private set; }
     public bool JumpInput { get; private set; }
@@ -113,19 +116,20 @@ public class PlayerCon : MonoBehaviour
             { Player_Type.Ignis, ChangeState }
         };
 
-        transform.localScale = new Vector3(0.64f, 0.64f, 1);
+        transform.localScale = new Vector3(CharacterScale, CharacterScale, 0f);
+        filter.SetLayerMask(LayerMask.GetMask("Platform", "Stair"));
     }
 
 
     public IpController GetSkill1State()
     {
-        var type = PlayerMgr.instance.playerType;
+        var type = PlayerMgr.instance.getPlayerType();
         return Skill1States.TryGetValue(type, out var state) ? state : IdleState;
     }
 
     public IpController GetSkill2State()
     {
-        var type = PlayerMgr.instance.playerType;
+        var type = PlayerMgr.instance.getPlayerType();
         return Skill2States.TryGetValue(type, out var state) ? state : IdleState;
     }
     private void OnEnable()
@@ -144,12 +148,24 @@ public class PlayerCon : MonoBehaviour
         }
         ControlMachine.CurrentState.HandleInput();
         ControlMachine.CurrentState.LogicUpdate();
+        ControlMachine.CurrentState.PhysicsUpdate();
  
     }
 
     private void FixedUpdate()
     {
-        ControlMachine.CurrentState.PhysicsUpdate();
+
+        //if (!IsGrounded() && Physics2D.OverlapCollider(Collider, filter, collider2Ds) != 0)
+        //{
+        //    Vector3 normal = hit.normal;
+        
+        //    Vector3 gravityDir = Physics.gravity.normalized;
+        //    Vector3 slideDir = Vector3.ProjectOnPlane(gravityDir, normal);
+        
+        //    Vector3 velocity = rb.velocity;
+        //    Vector3 slideVelocity = Vector3.Project(velocity, slideDir);
+        //    rb.velocity = velocity - slideVelocity;
+        //}
     }
 
     #region 
@@ -157,12 +173,12 @@ public class PlayerCon : MonoBehaviour
     {
         if (inputX < 0 && Direction)
         {
-            transform.localScale = new Vector3(-0.64f, 0.64f, 1);
+            transform.localScale = new Vector3(-CharacterScale, CharacterScale, 0f);
             Direction = false;
         }
         else if (inputX > 0 && !Direction)
         {
-            transform.localScale = new Vector3(0.64f, 0.64f, 1);
+            transform.localScale = new Vector3(CharacterScale, CharacterScale, 0f);
             Direction = true;
         }
     }
@@ -193,7 +209,7 @@ public class PlayerCon : MonoBehaviour
     }
     public bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, 0.4f, LayerMask.GetMask("Platform"));
+        RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, Collider.bounds.size.y / 2f, LayerMask.GetMask("Platform"));
         return hit.collider != null;
     }
 
@@ -223,53 +239,6 @@ public class PlayerCon : MonoBehaviour
         EnableHitBox(false);
         CanMove = false;
         Rigid.velocity = Vector2.zero;
-    }
-
-    public bool IsOnOneWayPlatform()
-    {
-        return currentOneWayPlatform != null && IsGrounded();
-    }
-
-    //OneWayPlatfrom체크용 충돌감지
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (!collision.gameObject.CompareTag("OneWayPlatform"))
-            return;
-
-        foreach (ContactPoint2D contact in collision.contacts)
-        {
-            if (contact.normal.y > 0.5f)
-            {
-                currentOneWayPlatform = collision.collider;
-                break;
-            }
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.collider == currentOneWayPlatform)
-        {
-            currentOneWayPlatform = null;
-        }
-    }
-
-    private IEnumerator EnableOneWayPlatform(Collider2D playerCol, Collider2D platformCol)
-    {
-        yield return new WaitForSeconds(0.35f);
-
-        Physics2D.IgnoreCollision(playerCol, platformCol, false);
-    }
-
-    public void DisableOneWayPlatform() //OneWayPlatfrom체크 탈출용
-    {
-        if (currentOneWayPlatform == null)
-            return;
-
-        Collider2D playerCollider = GetComponent<Collider2D>();
-
-        Physics2D.IgnoreCollision(playerCollider, currentOneWayPlatform, true);
-
-        StartCoroutine(EnableOneWayPlatform(playerCollider, currentOneWayPlatform));
     }
 
     public float GetNormalSpeed() => Speed;
