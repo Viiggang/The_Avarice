@@ -16,7 +16,6 @@ public class JumpState : IpController
 
     public void Enter()
     {
-        // ↓ + Jump → 원웨이 플랫폼 통과
         if (player.IsOnOneWayPlatform() && Input.GetKey(KeyCode.DownArrow))
         {
             player.DisableOneWayPlatform();
@@ -25,7 +24,6 @@ public class JumpState : IpController
             return;
         }
 
-        // 일반 점프
         player.Jump();
         stateMachine.ChangeState(player.AirState);
     }

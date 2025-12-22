@@ -150,7 +150,7 @@ public class SceneTester
     {
         if (Application.isPlaying)
         {
-            if (PlayerMgr.instance.getPlayerType() != Player_Type.NULL)
+            if (PlayerMgr.instance.playerType != Player_Type.NULL)
             {
                 SceneManager.LoadScene(sceneName);
             }

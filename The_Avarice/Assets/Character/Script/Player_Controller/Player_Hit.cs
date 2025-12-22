@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Player_Hit : MonoBehaviour, IDamage
 {
-    Collider2D collider2D;
+    Collider2D col2D;
     public Animator animator;
     public PlayerCon player;
     private Player_ControllMachine stateMachine;
 
     private void OnEnable()
     {
-        collider2D = GetComponent<Collider2D>();
+        col2D = GetComponent<Collider2D>();
         animator = GetComponentInParent<Animator>();
         player = GetComponentInParent<PlayerCon>();
     }

@@ -27,7 +27,6 @@ public class AirState : IpController
 
     public void HandleInput()
     {
-        // 공중에서는 ↓ + Jump 무시 (원웨이 재통과 방지)
         if (Input.GetKeyDown(KeyCode.LeftShift) && player.CanDash)
         {
             stateMachine.ChangeState(player.DashState);
@@ -61,6 +60,5 @@ public class AirState : IpController
 
     public void PhysicsUpdate()
     {
-        // 필요 시 상승 → 하강 애니메이션 전환 처리 가능
     }
 }

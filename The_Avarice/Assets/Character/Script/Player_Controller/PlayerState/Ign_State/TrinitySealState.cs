@@ -11,8 +11,6 @@ public class TrinitySealState : IpController
     private bool ThunderCoolDawn = false;
     private bool IceCoolDawn = false;
 
-    [SerializeField] private float parryWindow = 0.5f;
-
     public TrinitySealState(PlayerCon player, Player_ControllMachine stateMachine)
     {
         this.player = player;

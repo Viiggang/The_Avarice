@@ -28,37 +28,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     public GameObject[] playerPrefab;
     private GameObject player;
-    [field: SerializeField]
-    [Space]
-    [Header("Player_Info")]
-    private float Player_MaxHp = 100f;
-    private float Player_Hp = 100f;
-    private float Player_Attack = 5f;
-    private float Player_addedAtk = 0f;
-    private float Player_Defense = 5f;
-    private float Player_addedDef = 0f;
-    private float Player_Speed = 1f;
 
-    [Header("- Movement Settings")]
-    [Range(2f, 10f)]
-    private float Speed = 5f;
-    [Range(5f, 20f)] 
-    private float jumpPower = 10f;
-
-    [Space, Header("- Dash Settings")]
-    [Range(20f, 50f)] 
-    private float dashSpeed = 30f;
-    [Range(0.05f, 0.3f)]
-    private float dashDuration = 0.1f;
-    [Range(0.1f, 3f)]
-    private float Skill1Duration = 1f;
-    [Range(0.2f, 3f)] 
-    private float dashCooldown = 1f;
-    [Range(0.5f, 3.5f)] 
-    private float skill1Cooldown = 1f;
-    private float resetCooldown = 0f;
-    [Range(0.02f, 0.15f)]
-    private float dashDodge = 0.05f;
 
     [Header("Player_Passive")]
     private int player_passive1 = 0;
@@ -73,6 +43,33 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     private bool onPassive = false;
 
     private int Pal_ShiledPassive = 0;
+
+
+
+    [Header("- Player_Info")]
+    [SerializeField] private float Player_MaxHp = 100f;
+    [SerializeField] private float Player_Hp = 100f;
+    [SerializeField,Tooltip("기초공격력")] private float Player_Attack = 5f;
+    [SerializeField, Tooltip("추가공격력")] private float Player_addedAtk = 0f;
+    [SerializeField, Tooltip("기초방어력")] private float Player_Defense = 5f;
+    [SerializeField, Tooltip("추가방어력")] private float Player_addedDef = 0f;
+
+    [Space ,Header("- Attack Anim Settings")]
+    [Range(1f, 5f), Tooltip("공격 애니메이션 속도(공격속도)")]public float attackSpeed = 1.0f;
+    [Range(1f, 5f), Tooltip("기본 애니메이션 속도")]public float nomal_Speed = 1.0f;
+
+    [Space, Header("- Movement Settings")]
+    [Range(2f, 10f)] public float Speed = 5f;
+    [Range(5f, 20f)] public float jumpPower = 10f;
+
+    [Space, Header("- Dash Settings")]
+    [Range(20f, 50f)] public float dashSpeed = 30f;
+    [Range(0.05f, 0.3f)] public float dashDuration = 0.1f;
+    [Range(0.2f, 3f)] public float dashCooldown = 1f;
+    [Range(0.02f, 0.15f)] public float dashDodge = 0.05f;
+    [Range(0.1f, 3f)] public float skillaccelerate = 1f;
+
+ 
 
     public bool Direction { get; set; } = true; // 바라보는 방향
     public float MaxHp
@@ -111,13 +108,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         set => Player_addedDef = value;
     }
 
-    public float MoveSpeed
-    {
-        get => Player_Speed;
-        set => Player_Speed = value;
-    }
-
-    public float Move_BaseSpeed
+    public float Move_Speed
     {
         get => Speed;
         set => Speed = value;
@@ -141,28 +132,46 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         set => dashDuration = value;
     }
 
-    public float Skill1_Duration
+/*    public float Skill1_Duration
     {
         get => Skill1Duration;
         set => Skill1Duration = value;
     }
-
+*/
     public float DashCooldown
     {
         get => dashCooldown;
         set => dashCooldown = value;
     }
 
-    public float Skill1_Cooldown
+/*    public float Skill1_Cooldown
     {
         get => skill1Cooldown;
         set => skill1Cooldown = value;
-    }
+    }*/
 
-    public float ResetCooldown
+/*    public float ResetCooldown
     {
         get => resetCooldown;
         set => resetCooldown = value;
+    }*/
+
+    public float SkillAccelerate
+    {
+        get => skillaccelerate;
+        set => skillaccelerate = value;
+    }
+
+    public float AttackSpeed
+    {
+        get => attackSpeed;
+        set => attackSpeed = value;
+    }
+
+    public float Nomal_Speed
+    {
+        get => nomal_Speed;
+        set => nomal_Speed = value;
     }
 
     public float DashDodge
@@ -210,12 +219,9 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     
     public void Spawnplayer()
     {
-        StartCoroutine(OnScriptLoaded.WaitUntilActive<Startpoint>(() => { 
-            this.gameObject.transform.position = Startpos.transform.position;
-            player = Instantiate(playerPrefab[(int)playerType].gameObject, Startpos.transform.position, Quaternion.identity);
-            CameraManager.Instance.SetTarget(player.transform);
-        }));
-        
+        this.gameObject.transform.position = Startpos.transform.position;
+        player = Instantiate(playerPrefab[(int)playerType].gameObject, Startpos.transform.position, Quaternion.identity);
+        CameraManager.Instance.SetTarget(player.transform);
     }
 
     public void Update()

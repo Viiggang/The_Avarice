@@ -13,9 +13,6 @@ enum Attack_Type
 public class Player_Atk : MonoBehaviour //�Ϲݰ���
 {
     private Animator animator;
-    [Header("- Attack Info"),SerializeField, Range(0.5f, 2.5f)]
-    private float attackSpeed = 1.0f; // ���ݼӵ�
-    private float nomal_Speed = 1.0f; // ���ݼӵ�
     [SerializeField]
     private int MaxComdo = 3; //�ִ� �޺���
 
@@ -41,7 +38,7 @@ public class Player_Atk : MonoBehaviour //�Ϲݰ���
     public Vector2 hitOffset = Vector2.zero;
 
     [SerializeField] 
-    private float attackRange = 5f;
+  //  private float attackRange = 5f;
     private Rigidbody2D rb;
   
 
@@ -51,7 +48,7 @@ public class Player_Atk : MonoBehaviour //�Ϲݰ���
     private bool bufferedInput = false;// �Է¹���
     private bool isAttacking = false; // ����Ű Ȱ��ȭ ����
 
-    private int currentIndex = 0;
+   // private int currentIndex = 0;
 
 
 
@@ -104,7 +101,7 @@ public class Player_Atk : MonoBehaviour //�Ϲݰ���
             string triggerName = $"Attack{step}Trigger";
             animator.SetTrigger(triggerName);
         }
-        animator.speed = attackSpeed;
+        animator.speed = PlayerMgr.instance.AttackSpeed;
 
         comboWindowOpen = false;
         isAttacking = true;
@@ -131,7 +128,7 @@ public class Player_Atk : MonoBehaviour //�Ϲݰ���
         comboWindowOpen = false;
         bufferedInput = false;
         isAttacking = false;
-        animator.speed = nomal_Speed;
+        animator.speed = PlayerMgr.instance.Nomal_Speed;
 
         // FSM���� �̵� �����ϵ��� ����
         var player = GetComponent<PlayerCon>();
