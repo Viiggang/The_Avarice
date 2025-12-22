@@ -21,10 +21,10 @@ public class DashState : IpController
         player.CanDash = false;
         player.CanMove = false;
 
-        dashDirection = player.Direction ? Vector2.right : Vector2.left;
+        dashDirection = PlayerMgr.instance.Direction ? Vector2.right : Vector2.left;
         player.Anim.SetTrigger("Dash");
         player.EnableHitBox(false);
-        if (PlayerMgr.instance.getPlayerType() == Player_Type.Paladin)
+        if (PlayerMgr.instance.playerType == Player_Type.Paladin)
             player.EnableExtraHitBox1();
 
         player.Rigid.gravityScale = 0f;
@@ -41,7 +41,7 @@ public class DashState : IpController
         player.Rigid.velocity = Vector2.zero;
         player.EnableHitBox(true);
 
-        if (PlayerMgr.instance.getPlayerType() == Player_Type.Paladin)
+        if (PlayerMgr.instance.playerType == Player_Type.Paladin)
             player.EnableExtraHitBox1();
 
         // Äð´Ù¿î ½ÃÀÛ

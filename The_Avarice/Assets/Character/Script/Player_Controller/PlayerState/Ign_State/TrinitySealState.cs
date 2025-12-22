@@ -5,21 +5,61 @@ using UnityEngine;
 public class TrinitySealState : IpController
 {
     private readonly PlayerCon player;
-    private readonly Player_ControllMachine sm;
-
-    [SerializeField] private float parryWindow = 0.5f;
+    private readonly Player_ControllMachine stateMachine;
+    private float timer;
+    private bool FireCoolDawn = false;
+    private bool ThunderCoolDawn = false;
+    private bool IceCoolDawn = false;
 
     public TrinitySealState(PlayerCon player, Player_ControllMachine stateMachine)
     {
         this.player = player;
-        this.sm = stateMachine;
+        this.stateMachine = stateMachine;
     }
 
     public void Enter()
     {
-        player.CanMove = false;
 
+        if (PlayerMgr.instance.Passive.Equals(true))
+        {
+            stateMachine.ChangeState(player.IdleState);
+            return;
+        }
+        player.ResetVelocityX();
+        player.CanMove = false;
+        timer = player.GetSkill1Duration();
+
+
+        switch (PlayerMgr.instance.ElementType)
+        {
+            case Element_Type.Fire:
+                if (FireCoolDawn == false)
+                    player.Anim.SetTrigger("Fire");
+                FireCoolDawn = true;
+                player.StartCoroutine(FireCooldownCoroutine());
+                break;
+            case Element_Type.Thunder:
+                if (ThunderCoolDawn == false)
+                    player.Anim.SetTrigger("Thunder");
+                ThunderCoolDawn= true;
+                player.StartCoroutine(ThunderCooldownCoroutine());
+                break;
+            case Element_Type.Ice:
+                if (IceCoolDawn == false)
+                    player.Anim.SetTrigger("Ice");
+                IceCoolDawn = true;
+                player.StartCoroutine(IceCooldownCoroutine());
+                break;
+
+        }
+
+
+
+
+        PlayerMgr.instance.Passive = true;
     }
+
+
 
     public void Exit()
     {
@@ -28,16 +68,34 @@ public class TrinitySealState : IpController
 
     public void HandleInput()
     {
-        if (!Input.GetKey(KeyCode.A))
-        {
-
-        }
+   
     }
 
-    public void LogicUpdate() { HandleInput(); }
+    public void LogicUpdate() 
+    {
+        timer -= Time.deltaTime;
+        if (timer <= 0)
+        {
+            stateMachine.ChangeState(Mathf.Abs(player.InputX) > 0.01f ? player.MoveState : player.IdleState);
+        }
+    }
     public void PhysicsUpdate() { }
 
- 
 
+    private IEnumerator FireCooldownCoroutine()
+    {
+        yield return new WaitForSeconds(player.GetSkill1Cooldown());
+        FireCoolDawn = false;
+    }
+    private IEnumerator ThunderCooldownCoroutine()
+    {
+        yield return new WaitForSeconds(player.GetSkill1Cooldown());
+        ThunderCoolDawn = false;
+    }
+    private IEnumerator IceCooldownCoroutine()
+    {
+        yield return new WaitForSeconds(player.GetSkill1Cooldown());
+        IceCoolDawn = false;
+    }
 
 }

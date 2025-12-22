@@ -1,270 +1,107 @@
 using System.Collections;
-using UnityEditor.EditorTools;
 using UnityEngine;
 
-[RequireComponent(typeof(Rigidbody), typeof(Collider))]
+[RequireComponent(typeof(Rigidbody2D), typeof(Collider2D))]
 [DisallowMultipleComponent]
-public class ProjectileKinematic : MonoBehaviour, IPoolable
+public class Ign_fireBall : MonoBehaviour
 {
-    [Header("Motion")]
-    public float defaultSpeed = 25f;
-    public float defaultLifetime = 3f;
-    [Tooltip("이 오브젝트가 다른 오브젝트와 충돌 검사할 레이어")]
-    public LayerMask hitLayers = ~0;
+    [SerializeField] 
+    private float speed = 5f;
+    [SerializeField] 
+    private float lifeTime = 3f;
+    [SerializeField] 
+    private Animator animator;
+    [SerializeField] 
+    private LayerMask hitMask;
 
-    [Header("Collision / Physics")]
-    [Tooltip("스피드가 빠를 때 누락(터널링) 방지용 여유값")]
-    public float skinWidth = 0.05f;
-    [Tooltip("Rigidbody의 충돌 감지 모드(권장: ContinuousSpeculative)")]
-    public CollisionDetectionMode preferredCollisionDetection = CollisionDetectionMode.ContinuousSpeculative;
+    private Vector2 direction;
+    private bool isFlying;
+    private float lifeTimer;
+    private float AtkDamage = 1f;
+    private Vector3 initialPosition;
 
-    [Header("Hit / Animation")]
-    public Animator animator;                    
-    public string hitTriggerName = "Hit";
-    public float hitAnimationFallback = 0.4f;    
-    public string hitClipHint = "Hit";
-    public float AtkDamage = 5f;
-
-    Rigidbody rb;
-    Collider[] collidersCache;
-    Vector3 moveDirection = Vector3.forward;
-    float moveSpeed;
-    float lifeTimer;
-    float lifeTime;
-    bool isMoving;
-    bool isHit;
-    Coroutine hitCoroutine;
-
-    #region IPoolable
-    public void OnSpawn()
-    {
-        lifeTimer = 0f;
-        isMoving = false;
-        isHit = false;
-
-        if (rb == null) rb = GetComponent<Rigidbody>();
-        rb.isKinematic = true;
-        rb.useGravity = false;
-        rb.collisionDetectionMode = preferredCollisionDetection;
-
-        EnsureColliders(true);
-
-        if (animator != null) animator.ResetTrigger(hitTriggerName);
-
-        if (hitCoroutine != null)
-        {
-            StopCoroutine(hitCoroutine);
-            hitCoroutine = null;
-        }
-    }
-
-    public void OnDespawn()
-    {
-        isMoving = false;
-        isHit = false;
-
-        if (hitCoroutine != null)
-        {
-            StopCoroutine(hitCoroutine);
-            hitCoroutine = null;
-        }
-
-        if (animator != null) animator.ResetTrigger(hitTriggerName);
-
-        EnsureColliders(true);
-    }
-    #endregion
+    public bool IsActive => gameObject.activeSelf;
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody>();
-        collidersCache = GetComponentsInChildren<Collider>(true);
+        if (animator == null)
+            animator = GetComponent<Animator>();
 
-        if (rb == null)
-            Debug.LogError("[ProjectileKinematic] Rigidbody가 필요합니다 (RequireComponent로 보장되어야 함).");
+        initialPosition = transform.position;
+        gameObject.SetActive(false);
     }
-    public void Launch(Vector3 direction, float speed = -1f, float lifetime = -1f)
-    {
-        if (direction.sqrMagnitude <= 0f) direction = transform.forward;
-        moveDirection = direction.normalized;
-        moveSpeed = (speed > 0f) ? speed : defaultSpeed;
-        lifeTime = (lifetime > 0f) ? lifetime : defaultLifetime;
 
+    private void OnEnable()
+    {
         lifeTimer = 0f;
-        isMoving = true;
-        isHit = false;
-
-        EnsureColliders(true);
-
-        rb.isKinematic = true;
-        rb.useGravity = false;
-        rb.collisionDetectionMode = preferredCollisionDetection;
     }
 
-    private void FixedUpdate()
+    private void Update()
     {
-        if (!isMoving || isHit) return;
+        if (!isFlying) return;
 
-        float dt = Time.fixedDeltaTime;
-        var step = moveSpeed * dt;
-        if (step <= 0f) return;
+        // 이동
+        transform.Translate(direction * speed * Time.deltaTime);
 
-
-        Vector3 current = rb.position;
-        Vector3 next = current + moveDirection * step;
-
-        // 미리 Raycast로 터널링 방지(빠른 프로젝트일 경우 추가 보정)
-        RaycastHit hit;
-        if (Physics.Raycast(current, moveDirection, out hit, step + skinWidth, hitLayers, QueryTriggerInteraction.Collide))
+        // 라이프타임 체크
+        lifeTimer += Time.deltaTime;
+        if (lifeTimer >= lifeTime)
         {
-
-            rb.MovePosition(hit.point);
-            HandleHitInternal(hit.collider, hit.point, hit.normal);
+            StopAndDespawn();
         }
-        else
-        {
-            // 정상 이동
-            rb.MovePosition(next);
+    }
 
-            // 수명 체크 (FixedUpdate에서 관리)
-            lifeTimer += dt;
-            if (lifeTimer >= lifeTime)
+    public void Launch(Vector2 dir, Vector3 startPos)
+    {
+        transform.position = startPos;
+        direction = dir.normalized;
+        lifeTimer = 0f;
+        isFlying = false;
+
+        gameObject.SetActive(true);
+        animator.SetTrigger("Spawn");
+    }
+
+    public void OnSpawnEnd()
+    {
+        isFlying = true;
+        animator.SetTrigger("Fly");
+    }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (!isFlying) return;
+
+        if (((1 << other.gameObject.layer) & hitMask) != 0)
+        {
+            IDamage damage = other.GetComponent<IDamage>(); //충돌한 오브젝트에서 IDamage 인터페이스를 가져옮
+            if (damage != null && other.gameObject.layer == LayerMask.NameToLayer("Enemy")) // 충돌한 오브젝트가 IDamage인터페이스를 가지고있고 레이어가 enemy이라면
             {
-                HandleTimeoutInternal();
+                damage.OnHitDamage(AtkDamage); //인터페이스에 선언된 OnHitDamage()메소드를 호출 = 피격처리
             }
+
+                StopAndDespawn();
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void StopAndDespawn()
     {
-        if (isHit) return;
-        HandleHitInternal(other, transform.position, -transform.forward);
-        IDamage damage = other.GetComponent<IDamage>(); //충돌한 오브젝트에서 IDamage 인터페이스를 가져옮
-        if (damage != null && other.gameObject.layer == LayerMask.NameToLayer("Enemy")) // 충돌한 오브젝트가 IDamage인터페이스를 가지고있고 레이어가 enemy이라면
-        {
-            damage.OnHitDamage(AtkDamage); //인터페이스에 선언된 OnHitDamage()메소드를 호출 = 피격처리
-            if (PlayerMgr.instance.getPlayerType() == Player_Type.Paladin && !PlayerMgr.instance.getonPassive())
-            {
-                PlayerMgr.instance.sumPassiveStack(1);
-            }
-        }
-    }
-    #region Hit / Timeout handling
+        if (!gameObject.activeSelf) return;
 
-    private void HandleHitInternal(Collider other, Vector3 hitPoint, Vector3 hitNormal)
+        isFlying = false;
+        animator.SetTrigger("Despawn");
+    }
+
+    public void OnDespawnEnd()
     {
-        if (isHit) return;
-        isHit = true;
-        isMoving = false;
-
-
-        EnsureColliders(false);
-
-        
-        // 애니메이터 처리
-        if (animator != null)
-        {
-            animator.ResetTrigger(hitTriggerName);
-            animator.SetTrigger(hitTriggerName);
-
-            float wait = FindLikelyHitClipLength();
-            if (wait <= 0f) wait = hitAnimationFallback;
-
-            if (hitCoroutine != null) StopCoroutine(hitCoroutine);
-            hitCoroutine = StartCoroutine(WaitAndReturnAfterSeconds(wait));
-        }
-        else
-        {
-            PoolMgr.Instance.Release(gameObject);
-        }
+        gameObject.SetActive(false);
+        transform.position = initialPosition;
     }
 
-    private void HandleTimeoutInternal()
+    public void SetDirection(Vector2 dir)
     {
-        if (isHit) return;
-        isHit = true;
-        isMoving = false;
-
-        EnsureColliders(false);
-
-        if (animator != null)
-        {
-            animator.ResetTrigger(hitTriggerName);
-            animator.SetTrigger(hitTriggerName);
-
-            float wait = FindLikelyHitClipLength();
-            if (wait <= 0f) wait = hitAnimationFallback;
-
-            if (hitCoroutine != null) StopCoroutine(hitCoroutine);
-            hitCoroutine = StartCoroutine(WaitAndReturnAfterSeconds(wait));
-        }
-        else
-        {
-            PoolMgr.Instance.Release(gameObject);
-        }
+        direction = dir.normalized;
+        if (dir.x < 0) transform.localScale = new Vector3(-1, 1, 1);
+        else if (dir.x > 0) transform.localScale = new Vector3(1, 1, 1);
     }
-
-    private IEnumerator WaitAndReturnAfterSeconds(float seconds)
-    {
-        float t = 0f;
-        while (t < seconds)
-        {
-            t += Time.deltaTime;
-            yield return null;
-        }
-        hitCoroutine = null;
-        PoolMgr.Instance.Release(gameObject);
-    }
-
-    public void OnHitAnimationComplete()
-    {
-        if (hitCoroutine != null)
-        {
-            StopCoroutine(hitCoroutine);
-            hitCoroutine = null;
-        }
-        PoolMgr.Instance.Release(gameObject);
-    }
-
-    private float FindLikelyHitClipLength()
-    {
-        if (animator == null) return -1f;
-        var rc = animator.runtimeAnimatorController;
-        if (rc == null) return -1f;
-        var clips = rc.animationClips;
-        if (clips == null || clips.Length == 0) return -1f;
-
-        for (int i = 0; i < clips.Length; i++)
-            if (string.Equals(clips[i].name, hitClipHint, System.StringComparison.OrdinalIgnoreCase))
-                return clips[i].length;
-        for (int i = 0; i < clips.Length; i++)
-            if (clips[i].name.IndexOf(hitClipHint, System.StringComparison.OrdinalIgnoreCase) >= 0)
-                return clips[i].length;
-        return -1f;
-    }
-
-    #endregion
-
-    private void EnsureColliders(bool enabled)
-    {
-        if (collidersCache == null) collidersCache = GetComponentsInChildren<Collider>(true);
-        for (int i = 0; i < collidersCache.Length; i++)
-        {
-            var c = collidersCache[i];
-            if (c != null) c.enabled = enabled;
-        }
-    }
-
-#if UNITY_EDITOR
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, 0.05f);
-        if (isMoving)
-        {
-            Gizmos.color = Color.cyan;
-            Gizmos.DrawRay(transform.position, moveDirection.normalized * 0.5f);
-        }
-    }
-#endif
 }
