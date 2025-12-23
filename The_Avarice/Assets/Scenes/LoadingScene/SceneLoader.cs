@@ -62,7 +62,7 @@ public class SceneLoader : MonoBehaviour
         loadingCharacter.SetActive(true);
         loadingText.SetActive(true);
 
-        Player_Type type = PlayerMgr.instance.getPlayerType();
+        Player_Type type = PlayerMgr.instance.playerType;
         Animator animator = loadingCharacter.GetComponent<Animator>();
         Text text = loadingText.GetComponent<Text>();
 
@@ -74,7 +74,7 @@ public class SceneLoader : MonoBehaviour
         float past_time = 0;
         float percentage = 0;
 
-        animator.SetInteger("type", (int)PlayerMgr.instance.getPlayerType());
+        animator.SetInteger("type", (int)PlayerMgr.instance.playerType);
 
         while (true)
         {

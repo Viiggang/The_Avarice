@@ -87,7 +87,7 @@ public class Pal_LightCut : MonoBehaviour
             {
                 damage.OnHitDamage(AtkDamage);
                 this.gameObject.SetActive(false);
-                if (PlayerMgr.instance.getPlayerType() == Player_Type.Paladin && !PlayerMgr.instance.getonPassive())
+                if (PlayerMgr.instance.playerType == Player_Type.Paladin && !PlayerMgr.instance.OnPassive)
                 {
                     PlayerMgr.instance.sumPassiveStack(1);
                 }

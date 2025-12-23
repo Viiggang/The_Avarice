@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class Player_Hit : MonoBehaviour, IDamage
 {
-    Collider2D collider2D;
+    Collider2D col2D;
     public Animator animator;
     public PlayerCon player;
     private Player_ControllMachine stateMachine;
 
     private void OnEnable()
     {
-        collider2D = GetComponent<Collider2D>();
+        col2D = GetComponent<Collider2D>();
         animator = GetComponentInParent<Animator>();
         player = GetComponentInParent<PlayerCon>();
     }
@@ -27,7 +27,7 @@ public class Player_Hit : MonoBehaviour, IDamage
         PlayerMgr.instance.sumPlayerHp(damage);
         player.CanMove = false;
         // 일반 피격 로직
-        if (animator != null && 1 <= PlayerMgr.instance.getPlayerHp())
+        if (animator != null && 1 <= PlayerMgr.instance.Hp)
         {
             animator.SetTrigger("Hurt");
         }

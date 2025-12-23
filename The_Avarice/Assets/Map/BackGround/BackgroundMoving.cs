@@ -5,10 +5,10 @@ using UnityEngine.Rendering.Universal.Internal;
 
 public class BackgroundMoving : MonoBehaviour
 {
-    void LateUpdate()
+    void FixedUpdate()
     {
         Vector3 localPosition = Camera.main.transform.localPosition;
-        gameObject.transform.localPosition = new Vector3(localPosition.x, localPosition.y, 0);
+        gameObject.transform.localPosition = new Vector3(localPosition.x, localPosition.y, 0); 
     }
 
     

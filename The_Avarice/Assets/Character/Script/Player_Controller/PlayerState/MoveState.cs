@@ -76,6 +76,7 @@ public class MoveState : IpController
         else
         {
             float speed = player.InputX > 0 ? player.GetNormalSpeed() : -player.GetNormalSpeed();
+            PlayerMgr.instance.Direction = player.InputX > 0;
             player.MoveHorizontally(speed);
         }
        

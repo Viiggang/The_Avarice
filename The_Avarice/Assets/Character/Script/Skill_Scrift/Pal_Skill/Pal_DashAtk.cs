@@ -13,7 +13,7 @@ public class Pal_DashAtk : MonoBehaviour
         if (damage != null && other.gameObject.layer == LayerMask.NameToLayer("Enemy")) 
         {
             damage.OnHitDamage(AtkDamage);
-            if (PlayerMgr.instance.getPlayerType() == Player_Type.Paladin && !PlayerMgr.instance.getonPassive())
+            if (PlayerMgr.instance.playerType == Player_Type.Paladin && !PlayerMgr.instance.OnPassive)
             {
                 PlayerMgr.instance.sumPassiveStack(1);
             }
