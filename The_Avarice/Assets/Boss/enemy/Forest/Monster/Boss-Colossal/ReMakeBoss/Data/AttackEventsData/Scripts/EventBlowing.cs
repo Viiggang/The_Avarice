@@ -43,9 +43,9 @@ public class EventBlowing : BaseAniEvent
         bool isAttackable = CanAttack();
         if (isAttackable)
         {
-            var MaxHp=PlayerMgr.instance.getPlayerMaxHp();
-            float finalAttack = MaxHp*0.1f;
-            Hit.OnHitDamage(finalAttack);
+            //var MaxHp=PlayerMgr.instance.getPlayerMaxHp();
+            //float finalAttack = MaxHp*0.1f;
+            //Hit.OnHitDamage(finalAttack);
         }
     }
     private bool CanAttack()

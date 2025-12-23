@@ -13,10 +13,10 @@ public class ElectAttack2 : BaseAniEvent
         if (Hit == null) return;
 
         // 여기서 체력 받아오기 밑에 변수에 값 셋팅
-        float MaxHp = PlayerMgr.instance.getPlayerMaxHp();
+        //float MaxHp = PlayerMgr.instance.getPlayerMaxHp();
 
 
-        float finalDamage= (MaxHp* damage);
-        Hit.GetComponent<IDamage>().OnHitDamage(-finalDamage);
+       // float finalDamage= (MaxHp* damage);
+        //Hit.GetComponent<IDamage>().OnHitDamage(-finalDamage);
     }
 }

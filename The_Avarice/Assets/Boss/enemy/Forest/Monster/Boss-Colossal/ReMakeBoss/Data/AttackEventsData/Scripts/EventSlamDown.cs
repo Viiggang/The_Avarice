@@ -23,10 +23,10 @@ public class EventSlamDown : BaseAniEvent
         var Hit = Collider.GetComponent<IDamage>();
         player = Collider.GetComponentInParent<PlayerMgr>();
         if (Hit == null || player == null) return;
-        var PlayerMaxHP = player.getPlayerMaxHp();
-        float finallDamage = PlayerMaxHP*0.3f;
-        Hit.OnHitDamage(finallDamage);
-        //기절 어떻게 구현??
+        //var PlayerMaxHP = player.getPlayerMaxHp();
+        //float finallDamage = PlayerMaxHP*0.3f;
+        //Hit.OnHitDamage(finallDamage);
+        ////기절 어떻게 구현??
     }
 }
 

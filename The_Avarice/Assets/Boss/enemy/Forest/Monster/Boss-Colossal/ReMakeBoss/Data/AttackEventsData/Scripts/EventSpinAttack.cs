@@ -25,8 +25,8 @@ public class EventSpinAttack : BaseAniEvent
         var Hit = Collider.GetComponent<IDamage>();
         player = Collider.GetComponentInParent<PlayerMgr>();
         if (Hit == null || player == null) return;
-        var PlayerMaxHP = player.getPlayerMaxHp();
-        float finallDamage = PlayerMaxHP*0.1f;
-        Hit.OnHitDamage(finallDamage);
+        //var PlayerMaxHP = player.getPlayerMaxHp();
+        //float finallDamage = PlayerMaxHP*0.1f;
+        //Hit.OnHitDamage(finallDamage);
     }
 }

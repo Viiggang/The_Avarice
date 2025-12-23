@@ -26,8 +26,8 @@ public class EventPurgeCanoon : BaseAniEvent
         var Hit = Collider.GetComponent<IDamage>();
         player=Collider.GetComponentInParent<PlayerMgr>();
         if (Hit ==null || player==null) return;
-        var PlayerMaxHP = player.getPlayerMaxHp();
-        float finallDamage = PlayerMaxHP;
-        Hit.OnHitDamage(finallDamage);
+        //var PlayerMaxHP = player.getPlayerMaxHp();
+        //float finallDamage = PlayerMaxHP;
+        //Hit.OnHitDamage(finallDamage);
     }
 }

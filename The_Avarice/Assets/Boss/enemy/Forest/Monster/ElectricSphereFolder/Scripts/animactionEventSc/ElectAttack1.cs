@@ -12,11 +12,11 @@ public class ElectAttack1 :BaseAniEvent
         var Hit=Physics2D.OverlapBox(center+Offset,Size,0f,Player);
         if (Hit == null) return;
 
-        // 여기서 체력 받아오기 밑에 변수에 값 셋팅
-        float MaxHp = PlayerMgr.instance.getPlayerMaxHp();
+        //// 여기서 체력 받아오기 밑에 변수에 값 셋팅
+        //float MaxHp = PlayerMgr.instance.getPlayerMaxHp();
 
-        float finalDamage = (MaxHp * damage);
-        Hit.GetComponent<IDamage>().OnHitDamage(-finalDamage);
+        //float finalDamage = (MaxHp * damage);
+        //Hit.GetComponent<IDamage>().OnHitDamage(-finalDamage);
  
     
     }
