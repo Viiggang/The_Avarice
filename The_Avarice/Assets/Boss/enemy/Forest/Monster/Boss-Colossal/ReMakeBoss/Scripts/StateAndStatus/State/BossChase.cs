@@ -21,7 +21,7 @@ public class BossChase : BaseState<BossController>
     
     BossController Data;
     public LayerMask Player;
-    BossAnimactionEvents Bossevents;
+    BossAnimationEvents Bossevents;
     /*
      현재 보스애니메이션 에 값 설정해줘야함
      */

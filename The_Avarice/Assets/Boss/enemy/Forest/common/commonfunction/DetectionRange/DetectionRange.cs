@@ -10,43 +10,30 @@ public class DetectionRange : MonoBehaviour
     public Vector2 size;
     public float angle = 0;
     #endregion
-
-    #region 1초마다 검사할때 사용할 데이터
-    public const float DelayTime = 1f;
-    public float time;
-    #endregion
+ 
 
     #region 탐색할 때 사용되는 변수
     public BossController Controller;
-    public Collider2D[] Colluder2Ds = new Collider2D[1];
+    public Collider2D Colluder2Ds = new Collider2D();
     int Count=0;
     #endregion
-    public void Update()
-    {
-        bool canDetect = time >= DelayTime;
-        if (canDetect)
-        {
-            DetectPlayer();
-        }
-        else
-        {
-            time += Time.deltaTime;
-        }
-    }
+    public void Update() => DetectPlayer();
+
     private void DetectPlayer()
     {
-        Count = Physics2D.OverlapBoxNonAlloc(
-            offset,
-            size,
-            angle,
-            Colluder2Ds,
-            playerLayer
-        );
+       Colluder2Ds = Physics2D.OverlapBox(this.transform.position, size, 0f, playerLayer);
 
-        if (Count > 0)
+        if (Colluder2Ds != null)
         {
-            Controller.TargetPos = Colluder2Ds[0].transform;
+            Controller.TargetPos = Colluder2Ds.transform;
             Destroy(GetComponent<DetectionRange>());
         }
     }
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube( this.transform.position, size);
+    }
+#endif
 }
