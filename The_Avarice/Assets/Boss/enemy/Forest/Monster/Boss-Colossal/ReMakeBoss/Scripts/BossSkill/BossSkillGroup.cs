@@ -29,18 +29,7 @@ public class BossSkillGroup : MonoBehaviour
     public Collider2D colluders;
     public LayerMask p;
     #endregion
-    //private void OnDrawGizmos()
-    //{
-
-    //    Gizmos.color = Color.red;
-    //    Gizmos.DrawWireCube(new Vector3(Transform.position.x + (CurrentSkill.CollisionData.offset.x * Transform.lossyScale.x),
-    //                                    Transform.position.y + (CurrentSkill.CollisionData.offset.y * Transform.lossyScale.y),
-    //                                    0f),
-
-    //                        new Vector3((Transform.lossyScale.x * CurrentSkill.CollisionData.Size.x),
-    //                                    (Transform.lossyScale.y * CurrentSkill.CollisionData.Size.y),
-    //        0f));
-    //}
+ 
     private void Awake()
     {
         //스킬  전부 활성화
@@ -53,6 +42,7 @@ public class BossSkillGroup : MonoBehaviour
             item.coolTime.Available = true;
         }
     }
+
     public BossSkill GetRandomSkill()
     {
         // 현재 페이즈의 스킬 리스트 선택
@@ -68,6 +58,7 @@ public class BossSkillGroup : MonoBehaviour
            .Where(skill => skill != CurrentSkill)
            .ToList();
         }
+
         // 사용 가능한 스킬이 없다면 null 반환
         if (availableSkills.Count == 0) return null;
 

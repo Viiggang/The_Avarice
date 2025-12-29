@@ -8,7 +8,7 @@ public class EventSlamDown : BaseAniEvent
     public override void Execute(BossController controller, params object[] data)
     {
         AttackCollisionData collisionData = new();
-        PlayerMgr player;
+       
         foreach (var item in data)
         {
             if (item is AttackCollisionData Data)
@@ -20,12 +20,12 @@ public class EventSlamDown : BaseAniEvent
         var Collider = Physics2D.OverlapBox(collisionData.offset, collisionData.size, 0f, collisionData.playerLayer);
         if (Collider == null) return;
         Debug.Log($"EventSlamDown : {Collider.name}");
-        var Hit = Collider.GetComponent<IDamage>();
-        player = Collider.GetComponentInParent<PlayerMgr>();
-        if (Hit == null || player == null) return;
-        //var PlayerMaxHP = player.getPlayerMaxHp();
-        //float finallDamage = PlayerMaxHP*0.3f;
-        //Hit.OnHitDamage(finallDamage);
+        var Hit = Collider.GetComponentInChildren<IDamage>();
+       
+        if (Hit == null) return;
+        var PlayerMaxHP = PlayerMgr.instance.MaxHp;
+        float finallDamage = (PlayerMaxHP * 0.3f) * (-1f);
+        Hit.OnHitDamage(finallDamage);
         ////기절 어떻게 구현??
     }
 }

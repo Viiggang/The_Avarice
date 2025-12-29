@@ -11,7 +11,7 @@ public class EventPurgeCanoon : BaseAniEvent
     public override void Execute(BossController controller, params object[] data)
     {
         AttackCollisionData collisionData = new();
-        PlayerMgr player;
+        
         foreach (var item in data)
         {
             if (item is AttackCollisionData Data)
@@ -23,11 +23,11 @@ public class EventPurgeCanoon : BaseAniEvent
         var Collider = Physics2D.OverlapBox(collisionData.offset, collisionData.size, 0f, collisionData.playerLayer);
         if (Collider == null) return;
         Debug.Log($"EventPurgeCanoon : {Collider.name}");
-        var Hit = Collider.GetComponent<IDamage>();
-        player=Collider.GetComponentInParent<PlayerMgr>();
-        if (Hit ==null || player==null) return;
-        //var PlayerMaxHP = player.getPlayerMaxHp();
-        //float finallDamage = PlayerMaxHP;
-        //Hit.OnHitDamage(finallDamage);
+        var Hit = Collider.GetComponentInChildren<IDamage>();
+      
+        if (Hit ==null  ) return;
+        var PlayerMaxHP = PlayerMgr.instance.MaxHp;
+        float finallDamage = PlayerMaxHP;
+        Hit.OnHitDamage(-finallDamage);
     }
 }

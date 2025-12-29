@@ -47,7 +47,7 @@ public class TargetTracker
     public void Chase()
     {
        
-        GizmoTest.Instance.Set(PhysicOffset, PhysicSize);
+        //GizmoTest.Instance.Set(PhysicOffset, PhysicSize);
         if (BossSkill.CollisionData.name == SKILL_PURGEBLOW)
         {
             NextNode.Invoke(); // 공격 트리거

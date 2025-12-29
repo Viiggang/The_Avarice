@@ -188,7 +188,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyObj: {fileID: 6087460984365933127}
   Controller: {fileID: 0}
-  aniEventList: []
+  aniEventList:
+  - {fileID: 11400000, guid: c3b2872e9ec18d64abe10b318209e380, type: 2}
+  - {fileID: 11400000, guid: b4245e9ab0cedd649b505ba17038f7ac, type: 2}
+  - {fileID: 11400000, guid: e5f727b8c7a8fea41969e09921d72429, type: 2}
+  - {fileID: 11400000, guid: 9a644a674d897b34693f99324e3b486a, type: 2}
+  - {fileID: 11400000, guid: e147ef5aeddeb0d4b9eddc1bbdefdd69, type: 2}
+  - {fileID: 11400000, guid: 670c1470799c28d438cc17bdfb486d4d, type: 2}
   bulletPoolManager:
     bulletPrefab: {fileID: 0}
     bulletPos: {fileID: 0}
@@ -347,7 +353,6 @@ MonoBehaviour:
   stateMachine: {fileID: 6679383385569705967}
   stage: {fileID: 353338942894858844}
   aniController: {fileID: 1285777196184605820}
-  DetectionRange: {fileID: 9042614402333008356}
   BossSkillGroup: {fileID: 2101659180156175562}
   SpriteRenderer: {fileID: 4397757711339702236}
   Collider2D: {fileID: 3883869294010197567}
@@ -466,10 +471,8 @@ MonoBehaviour:
   offset: {x: 0, y: 0}
   size: {x: 50, y: 50}
   angle: 0
-  time: 0
   Controller: {fileID: 523732487823140427}
-  Colluder2Ds:
-  - {fileID: 0}
+  Colluder2Ds: {fileID: 0}
 --- !u!61 &3883869294010197567
 BoxCollider2D:
   m_ObjectHideFlags: 0
