@@ -33,6 +33,7 @@ public class BossChase : BaseState<BossController>
         InitializeBossState(Data,  out BossPos, out  Target);
         InitializeTracker(Data, BossPos, Target);
     }
+
     public override void Excute(BossController Data)
     {
         if (Target == null) return;
@@ -41,8 +42,6 @@ public class BossChase : BaseState<BossController>
     }
 
     public override void Exit(BossController Data) => ClearState();
-
-
 
     public void Chase(BossController Data)//추적하는 코드 
     {

@@ -183,22 +183,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917131b55f562af418bc9e0a36d5ad52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AniEventList:
-  - {fileID: 11400000, guid: 6c023300609dbda46bd8880973b2163a, type: 2}
-  - {fileID: 11400000, guid: 6744b786f5b414e49aed7eb6675a010b, type: 2}
-  bulletPrefab: {fileID: 0}
-  bulletPool: []
-  Controller: {fileID: 2984047284662691633}
   DestroyObj: {fileID: 2720447972268135486}
-  bulletPos: {fileID: 0}
-  Player:
-    serializedVersion: 2
-    m_Bits: 512
-  renderer: {fileID: 8004556404834766007}
-  BoxCollider: {fileID: 1362333917332145601}
-  PoolSize: 0
-  offset: {x: 0.24, y: 0, z: 0}
-  size: {x: 0.48, y: 0.56, z: 0}
+  Controller: {fileID: 2984047284662691633}
+  aniEventList: []
+  bulletPoolManager:
+    bulletPrefab: {fileID: 0}
+    bulletPos: {fileID: 0}
+    bulletPool: []
+    poolSize: 0
+    monsterSprite: {fileID: 0}
+  attackCollisionData:
+    boxCollider: {fileID: 1362333917332145601}
+    rigid: {fileID: 5150828911847907311}
+    offset: {x: 0, y: 0, z: 0}
+    size: {x: 0, y: 0, z: 0}
+    playerLayer:
+      serializedVersion: 2
+      m_Bits: 128
 --- !u!95 &3284592254989105247
 Animator:
   serializedVersion: 5
@@ -322,10 +323,11 @@ MonoBehaviour:
   renderer: {fileID: 8004556404834766007}
   playerLayer:
     serializedVersion: 2
-    m_Bits: 512
+    m_Bits: 128
   findcollider: {fileID: 0}
   MonsterTrans: {fileID: 8470561185363764989}
   gizmos: 1
+  time: 0
 --- !u!1 &8918957406063966026
 GameObject:
   m_ObjectHideFlags: 0
@@ -381,6 +383,7 @@ MonoBehaviour:
   statusManager: {fileID: 5548073815360844156}
   Detection: {fileID: 6862495361887614920}
   MonsterTrans: {fileID: 8470561185363764989}
+  MonsterAniEvent: {fileID: 0}
   target: {fileID: 0}
   StatesList:
   - {fileID: 11400000, guid: 2850adb819348c648b222008ec7717a5, type: 2}
@@ -419,12 +422,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: ab1a0bd96e84f68428c15514843a2fa7, type: 2}
-  monsterHp: 1000
-  BoarDamage: 30
+  monsterhp: 1000
+  monsterdamage: 30
   movespeed: 0.3
-  patrolTime: 4
-  IdleTime: 4
-  AttackDistance: 0.3
+  patroltime: 4
+  idletime: 4
+  attackdistance: 0.3
   defense: 1
   time: 0
   moveDir: {x: 0, y: 0, z: 0}

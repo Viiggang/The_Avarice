@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -28,6 +29,6 @@ public class EventPurgeblow : BaseAniEvent
         var PlayerMaxHP = PlayerMgr.instance.MaxHp;
         float finallDamage = (PlayerMaxHP * 0.5f) * (-1f);
 
-        Hit.OnHitDamage(finallDamage);
+        Hit.OnHitDamage(MathF.Ceiling(finallDamage));
     }
 }
