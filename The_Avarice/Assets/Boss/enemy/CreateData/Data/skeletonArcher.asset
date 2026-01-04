@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: skeletonArcher
   m_EditorClassIdentifier: 
   monstername: skeletonArcher
-  hp: 900
+  hp: 1
   damage: 1
   movespeed: 1
   patroltime: 3

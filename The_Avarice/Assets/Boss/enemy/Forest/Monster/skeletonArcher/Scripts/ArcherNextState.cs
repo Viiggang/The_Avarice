@@ -5,7 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ArcherNextState", menuName = "Monster/AnimationEvents/ArcherNextState")]
 public class ArcherNextState : BaseAniEvent
 {
-    public override void Execute(MonsterController controller = null, params object[] data)
+    public override void Execute(MonsterController controller , params object[] data)
     {
      
         const string NextState = "idle";

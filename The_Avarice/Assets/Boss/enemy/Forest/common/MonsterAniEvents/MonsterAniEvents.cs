@@ -92,7 +92,9 @@ public class MonsterAniEvents : MonoBehaviour
     {
         Debug.Log("몬스터 죽음 삭제 실행");
         bulletPoolManager?.ClearPool();
-        Destroy(DestroyObj);
+        string deah = "death";
+        dicAniEvents[deah].Execute( DestroyObj);
+       /// Destroy(DestroyObj);
     }
     /*
      수정해야할 사항들
@@ -118,9 +120,9 @@ public class MonsterAniEvents : MonoBehaviour
 
     public void ElectricAttack(string trigger)
     {
-        dicAniEvents[trigger].Execute(
-            ref attackCollisionData.offset,
-            ref attackCollisionData.size,
+        dicAniEvents[trigger].ElectricAttack(
+            this.transform.position+ attackCollisionData.offset,
+           attackCollisionData.size,
             attackCollisionData.playerLayer);
     }
 

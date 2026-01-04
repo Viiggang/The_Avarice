@@ -92,8 +92,8 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.083333336
-    functionName: skeletonaxemanAttack
-    data: attack1
+    functionName: ElectricAttack
+    data: attack2
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0

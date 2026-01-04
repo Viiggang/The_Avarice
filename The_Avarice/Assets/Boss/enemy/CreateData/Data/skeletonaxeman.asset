@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: skeletonaxeman
   m_EditorClassIdentifier: 
   monstername: skeletonaxeman
-  hp: 1000
+  hp: 1
   damage: 30
   movespeed: 0.3
   patroltime: 4
