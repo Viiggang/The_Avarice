@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7042819692181607701}
@@ -60,18 +60,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0736df4f36364c444987f8cfee28c5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
-  jumpPower: 10
-  hitBox: {fileID: 4722616802733099319}
-  dashSpeed: 10
-  dashDuration: 0.2
-  Skill1Duration: 1.8
-  dashCooldown: 1
   skill1Cooldown: 2.5
-  dashDodge: 0.1
+  Skill1Duration: 1.8
+  hitBox: {fileID: 4722616802733099319}
   ExtraHitBox1: {fileID: 7430462268903728845}
   ExtraHitBox2: {fileID: 1108419300680732767}
   sprite: {fileID: 0}
+  resetCooldown: 0
 --- !u!114 &8418911538494962082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -84,7 +79,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a51984571719de408f7171aefa5f585, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackSpeed: 1.16
   MaxComdo: 3
   atkType: 0
   hitMask:
@@ -239,8 +233,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.020966262, y: 0.015723258}
-  m_Size: {x: 0.4419325, y: 0.64566034}
+  m_Offset: {x: 0.020966262, y: 0.095846534}
+  m_Size: {x: 0.4419325, y: 0.8059069}
   m_Direction: 0
 --- !u!1 &1108419300680732767
 GameObject:
@@ -451,6 +445,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb81eb02dbfa96b44802141857ae5121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sumAtk: 1
 --- !u!50 &5226940421355473026
 Rigidbody2D:
   serializedVersion: 4
@@ -679,6 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb81eb02dbfa96b44802141857ae5121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sumAtk: 1
 --- !u!50 &9112782255435568598
 Rigidbody2D:
   serializedVersion: 4
@@ -797,6 +793,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb81eb02dbfa96b44802141857ae5121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sumAtk: 1
 --- !u!50 &2212924929149847156
 Rigidbody2D:
   serializedVersion: 4
@@ -915,6 +912,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb81eb02dbfa96b44802141857ae5121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sumAtk: 1
 --- !u!50 &5125380318377337496
 Rigidbody2D:
   serializedVersion: 4
@@ -1033,6 +1031,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb81eb02dbfa96b44802141857ae5121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sumAtk: 1
 --- !u!50 &8684369320688434589
 Rigidbody2D:
   serializedVersion: 4
@@ -1663,6 +1662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb81eb02dbfa96b44802141857ae5121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sumAtk: 1
 --- !u!50 &4308526673544200102
 Rigidbody2D:
   serializedVersion: 4
