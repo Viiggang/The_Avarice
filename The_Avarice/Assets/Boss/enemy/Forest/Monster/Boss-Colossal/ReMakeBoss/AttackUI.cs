@@ -10,7 +10,7 @@ public class AttackUI : MonoBehaviour
 
     private void Start()
     {
-        this.gameObject.GetComponentInChildren<Image>().gameObject.SetActive(false);
+       
         ColossalEvent.Instance.OnUiEvent += On;
     }    
         
@@ -20,6 +20,7 @@ public class AttackUI : MonoBehaviour
         obj.SetActive(true);
         Invoke("off", 2f);
     }
-    public void off() => obj.SetActive(false);
+    private void off() => obj.SetActive(false);
 
 }
+ 

@@ -38,7 +38,7 @@ public class ColossalEvent :Singleton<ColossalEvent>
    
     private void Start()
     {
-        UItrigger();
+        //UItrigger();
     }
 #endregion
 }
