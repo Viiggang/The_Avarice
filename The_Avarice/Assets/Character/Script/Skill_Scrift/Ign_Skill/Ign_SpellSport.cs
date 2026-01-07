@@ -4,10 +4,14 @@ using UnityEngine;
 
 public class Ign_SpellSport : MonoBehaviour
 {
+    [Header("- Normal_SKill")]
     public GameObject Fire;
     public GameObject Thunder;
     public GameObject Ice;
-
+    [Space, Header("- Enhance_SKill")]
+    public GameObject Fire2;
+    public GameObject Thunder2;
+    public GameObject Ice2;
     private Animator animator;
 
     void Awake()
@@ -18,7 +22,10 @@ public class Ign_SpellSport : MonoBehaviour
     void OnEnable()
     {
         ResetChildEffects();
-        ActivateChildByType();
+        if (PlayerMgr.instance.Ign_OnPassive)
+            ActivateChildByType();
+        else
+            ActivateChilByType_Onpassive();
     }
 
     private void ResetChildEffects()
@@ -45,6 +52,22 @@ public class Ign_SpellSport : MonoBehaviour
                 break;
             case Element_Type.Ice:
                 if (Ice != null) Ice.SetActive(true);
+                break;
+        }
+    }
+
+    private void ActivateChilByType_Onpassive()
+    {
+        switch (PlayerMgr.instance.ElementType)
+        {
+            case Element_Type.Fire:
+                if (Fire != null) Fire2.SetActive(true);
+                break;
+            case Element_Type.Thunder:
+                if (Thunder != null) Thunder2.SetActive(true);
+                break;
+            case Element_Type.Ice:
+                if (Ice != null) Ice2.SetActive(true);
                 break;
         }
     }

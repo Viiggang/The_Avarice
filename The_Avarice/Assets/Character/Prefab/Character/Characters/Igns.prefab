@@ -53,10 +53,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0736df4f36364c444987f8cfee28c5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skill1Cooldown: 1
+  Skill1Duration: 1
   hitBox: {fileID: 4722616802733099319}
   ExtraHitBox1: {fileID: 0}
   ExtraHitBox2: {fileID: 0}
   sprite: {fileID: 0}
+  resetCooldown: 0
 --- !u!114 &8418911538494962082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -236,8 +239,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.020966262, y: 0.015723258}
-  m_Size: {x: 0.4419325, y: 0.64566034}
+  m_Offset: {x: 0.020966262, y: 0.09483415}
+  m_Size: {x: 0.4419325, y: 0.8038821}
   m_Direction: 0
 --- !u!1 &1754891316756918709
 GameObject:
@@ -330,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb81eb02dbfa96b44802141857ae5121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sumAtk: 1
 --- !u!50 &5226940421355473026
 Rigidbody2D:
   serializedVersion: 4

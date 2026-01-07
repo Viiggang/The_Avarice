@@ -98,7 +98,7 @@ public class PlayerCon : MonoBehaviour
             { Player_Type.Ignis, ChangeState }
         };
 
-        transform.localScale = new Vector3(0.64f, 0.64f, 1);
+        transform.localScale = new Vector3(1.5f, 1.5f, 1);
     }
 
 
@@ -142,12 +142,12 @@ public class PlayerCon : MonoBehaviour
     {
         if (inputX < 0 && Direction)
         {
-            transform.localScale = new Vector3(-0.64f, 0.64f, 1);
+            transform.localScale = new Vector3(-1.5f, 1.54f, 1);
             Direction = false;
         }
         else if (inputX > 0 && !Direction)
         {
-            transform.localScale = new Vector3(0.64f, 0.64f, 1);
+            transform.localScale = new Vector3(1.5f, 1.5f, 1);
             Direction = true;
         }
     }
@@ -180,7 +180,7 @@ public class PlayerCon : MonoBehaviour
     }
     public bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, 0.4f, LayerMask.GetMask("Platform"));
+        RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, 0.8f, LayerMask.GetMask("Platform"));
         return hit.collider != null;
     }
 

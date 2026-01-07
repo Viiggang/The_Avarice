@@ -44,7 +44,8 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     private int Pal_ShiledPassive = 0;
 
-
+    private int Ign_trinityPassive = 0;
+    private bool Ign_onPassive = false;
 
     [Header("- Player_Info")]
     [SerializeField] private float Player_MaxHp = 100f;
@@ -60,7 +61,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     [Space, Header("- Movement Settings")]
     [Range(2f, 10f)] public float Speed = 5f;
-    [Range(5f, 20f)] public float jumpPower = 10f;
+    [Range(5f, 20f)] public float jumpPower = 13f;
 
     [Space, Header("- Dash Settings")]
     [Range(20f, 50f)] public float dashSpeed = 30f;
@@ -209,6 +210,21 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
         get => onPassive;
         set => onPassive = value;
     }
+
+
+    public int Ign_TrinityPassive
+    {
+        get => Ign_trinityPassive;
+        set => Ign_trinityPassive = value;
+    }
+
+    public bool Ign_OnPassive
+    {
+        get => Ign_onPassive;
+        set => Ign_onPassive = value;
+    }
+
+
     [Tooltip("받는 최종데미지의 총량 1이면 100%로 온전한 최종데미지를 넣고 0.5면 최종데미지의 절반만받는다.")]
     public float Guard
     {
