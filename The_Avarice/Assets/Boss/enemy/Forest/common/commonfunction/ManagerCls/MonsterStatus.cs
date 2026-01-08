@@ -20,6 +20,7 @@ public class MonsterStatus : MonoBehaviour, IDamage
     [Leein.InspectorName("몬스터 대기 시간")][SerializeField] private float idletime;
     [Leein.InspectorName("몬스터 공격 거리")][SerializeField] private float attackdistance;
     [Leein.InspectorName("몬스터 방어력")][SerializeField] private float defense;
+    private bool isfacingleft;
     #endregion
     #region
     public float MonsterHp 
@@ -93,11 +94,11 @@ public class MonsterStatus : MonoBehaviour, IDamage
 
     public bool isFacingleft
     {
-        get => isFacingleft;
+        get => isfacingleft;
         set
         {
-            isFacingleft = value;
-            BoxCollider2D.offset = isFacingleft ? defaultOffset : defaultOffset + offsetX; ;
+            isfacingleft = value;
+            BoxCollider2D.offset = isfacingleft ? defaultOffset : defaultOffset + offsetX; ;
         }
     }
     #endregion

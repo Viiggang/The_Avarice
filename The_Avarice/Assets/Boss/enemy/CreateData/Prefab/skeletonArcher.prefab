@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 793935111097309746}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.651, y: -0.584, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -202,12 +202,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: 37be350cced595149a2641706339923a, type: 2}
-  monsterHp: 900
-  BoarDamage: 1
+  monsterhp: 1
+  monsterdamage: 1
   movespeed: 1
-  patrolTime: 3
-  IdleTime: 1
-  AttackDistance: 5
+  patroltime: 3
+  idletime: 1
+  attackdistance: 5
   defense: 500
   time: 0
   moveDir: {x: 0, y: 0, z: 0}
@@ -325,7 +325,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.04, y: -0.21041982}
+  m_Offset: {x: 0.08157742, y: -0.18375811}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -336,7 +336,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.39, y: 0.029634148}
+  m_Size: {x: 0.24922615, y: 0.082957566}
   m_EdgeRadius: 0
 --- !u!1 &4901974441561874126
 GameObject:
@@ -514,9 +514,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyObj: {fileID: 793935111097309746}
   Controller: {fileID: 2240253908836133366}
-  AniEventList:
-  - {fileID: 11400000, guid: e93510725bc8a7b418dac84656d32611, type: 2}
-  - {fileID: 11400000, guid: 6c023300609dbda46bd8880973b2163a, type: 2}
+  aniEventList: []
   bulletPoolManager:
     bulletPrefab: {fileID: 7602449561501811766, guid: 37b8c77610465644a9196b3f818858c5, type: 3}
     bulletPos: {fileID: 2913395379744656817}

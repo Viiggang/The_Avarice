@@ -10,24 +10,14 @@ public class AxemanAttack : BaseAniEvent
         //콜라이더 좌표에서 offset 만큼 보정받은 후 공격
         directionCheck(render,ref Offset);
      
-       
-       
-
         var center= collider.bounds.center;
         var hit =Physics2D.OverlapBox(center+ Offset, size,0f, Player);
-        hit.GetComponent<IDamage>().OnHitDamage(10f);
+        var OnAttack=hit.GetComponent<IDamage>();
+        OnAttack?.OnHitDamage(-10f);
     }
-    public void directionCheck(SpriteRenderer render ,ref Vector3 offet)
-    {
-        if (render.flipX)
-        {
-            offet.x = -0.24f;
-            
-        }
-        else
-        {
-            offet.x = 0.24f;
-        }
-       
-    }
+
+     
+
+    public void directionCheck(SpriteRenderer render ,ref Vector3 offet) => offet.x = (render.flipX) ? -0.24f :  0.24f;
+    
 }

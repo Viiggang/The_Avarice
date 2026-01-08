@@ -16,6 +16,7 @@ public class BossStatus : MonoBehaviour,IDamage
     public float MaxHp;
     public float HalfHp;
 
+ 
     public BossStage BossStage;
     private void OnEnable()
     {
@@ -37,6 +38,7 @@ public class BossStatus : MonoBehaviour,IDamage
         hp -= Damage;
         UIManager.Instance.EventExecute();
         bool isDeath = hp <= 0;
+
         if(hp<= HalfHp)
         {
             BossStage.bossStage = Stage.Stage2;

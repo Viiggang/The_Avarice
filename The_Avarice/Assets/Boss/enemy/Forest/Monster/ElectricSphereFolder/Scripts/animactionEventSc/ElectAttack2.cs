@@ -6,17 +6,17 @@ public class ElectAttack2 : BaseAniEvent
 {
     const float damage = 0.3f;
 
-    public override void Execute(SpriteRenderer render, BoxCollider2D collider, ref Vector3 Offset, ref Vector3 Size, LayerMask Player)//근접 공격
+    public override void ElectricAttack(Vector3 Offset, Vector3 Size, LayerMask Player)//근접 공격
     {
-        var center = collider.bounds.center;
-        var Hit = Physics2D.OverlapBox(center + Offset, Size, 0f, Player);
+        var Hit = Physics2D.OverlapBox(Offset, Size, 0f, Player);
         if (Hit == null) return;
 
-        // 여기서 체력 받아오기 밑에 변수에 값 셋팅
-        //float MaxHp = PlayerMgr.instance.getPlayerMaxHp();
+        //// 여기서 체력 받아오기 밑에 변수에 값 셋팅
+        float MaxHp = PlayerMgr.instance.MaxHp;
 
+        float finalDamage = (MaxHp * damage);
+        var atk = Hit.GetComponent<IDamage>();
+        atk.OnHitDamage(-finalDamage);
 
-       // float finalDamage= (MaxHp* damage);
-        //Hit.GetComponent<IDamage>().OnHitDamage(-finalDamage);
     }
 }

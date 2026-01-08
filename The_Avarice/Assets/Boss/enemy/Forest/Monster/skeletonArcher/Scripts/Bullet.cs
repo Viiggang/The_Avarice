@@ -17,7 +17,7 @@ public class Bullet : MonoBehaviour
     public Vector3 hitsize;
 
     public SpriteRenderer monsterSprite;
-    
+    Coroutine co;
     private void Awake() 
     {
         hitsize = GetComponent<BoxCollider2D>().bounds.size;
@@ -30,11 +30,17 @@ public class Bullet : MonoBehaviour
         dir = monsterSprite.flipX ? new Vector3(-1f, 0, 0) : new Vector3(1f, 0, 0);
         angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0, 0, angle);
-        Invoke("Inactive", 5f);
+        co=StartCoroutine(Inactive());
 
     }
-    private void Inactive()
+    private void OnDisable()
     {
+            if(co !=null)
+                 StopCoroutine(co);
+    }
+    public IEnumerator Inactive()
+    {
+        yield return new WaitForSeconds(2f);
         this.gameObject.SetActive(false);
     }
 
@@ -45,7 +51,8 @@ public class Bullet : MonoBehaviour
         var hitdata=Physics2D.OverlapBox(this.transform.position, hitsize,this.transform.rotation.z,player);
         if(hitdata !=null)
         {
-            hitdata.GetComponent<IDamage>().OnHitDamage(ArcherDamage.Damage);
+            var hit=hitdata.GetComponentInChildren<IDamage>();
+            hit.OnHitDamage(-10f);
             this.gameObject.SetActive(false);
         }
       

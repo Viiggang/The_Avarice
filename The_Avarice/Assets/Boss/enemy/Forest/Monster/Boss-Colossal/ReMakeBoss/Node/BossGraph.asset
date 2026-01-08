@@ -163,9 +163,6 @@ MonoBehaviour:
         node: {fileID: -6607055964449853150}
         reroutePoints: []
       - fieldName: Input
-        node: {fileID: -750615336411693705}
-        reroutePoints: []
-      - fieldName: Input
         node: {fileID: -1670573855248149491}
         reroutePoints: []
       - fieldName: Input
@@ -191,11 +188,11 @@ MonoBehaviour:
   Instance: {fileID: 0}
   Next: {fileID: 0}
   Input: {fileID: 0}
-  timer: 0.84669614
+  timer: 0
   targetNodeName: 
   CurrentSkill:
-    CollisionData: {fileID: 11400000, guid: 908bc2e06f348b8429d38978d4dc2891, type: 2}
-    name: Spin Attack
+    name: 
+    CollisionData: {fileID: 0}
     coolTime:
       Time: 0
       Available: 1
@@ -204,6 +201,9 @@ MonoBehaviour:
     Target: {fileID: 0}
     tracker: {fileID: 0}
     status: {fileID: 0}
+    Player:
+      serializedVersion: 2
+      m_Bits: 640
   Player:
     serializedVersion: 2
     m_Bits: 640
@@ -294,7 +294,6 @@ MonoBehaviour:
   - {fileID: -994025013394174391}
   - {fileID: -780395858672051838}
   - {fileID: -6607055964449853150}
-  - {fileID: -750615336411693705}
   - {fileID: -1670573855248149491}
   - {fileID: 8776738753857892442}
 --- !u!114 &186029791307831488
@@ -310,7 +309,7 @@ MonoBehaviour:
   m_Name: Boss Death
   m_EditorClassIdentifier: 
   graph: {fileID: 11400000}
-  position: {x: -56, y: -1000}
+  position: {x: -200, y: -984}
   ports:
     keys:
     - Input

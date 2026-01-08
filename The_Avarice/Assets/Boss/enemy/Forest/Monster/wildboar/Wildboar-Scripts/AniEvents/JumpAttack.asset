@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: JumpAttack
   m_EditorClassIdentifier: 
   trigger: attack
-  dashForce: 4
-  jumpForce: 4
+  dashForce: 1
+  jumpForce: 1

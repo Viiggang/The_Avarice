@@ -21,28 +21,19 @@ public class BossChase : BaseState<BossController>
     
     BossController Data;
     public LayerMask Player;
-    BossAnimactionEvents Bossevents;
+    BossAnimationEvents Bossevents;
     /*
      현재 보스애니메이션 에 값 설정해줘야함
      */
     Transform BossPos, Target;
     readonly string nextStateNodeName = "Next";
+
     public override void Enter(BossController Data)
     {
-       
-        InitializeBossState(Data, out BossPos, out Target);
+        InitializeBossState(Data,  out BossPos, out  Target);
         InitializeTracker(Data, BossPos, Target);
-        #region 테스트
-        //NodePort port = GetOutputPort("Next");
-
-        //foreach (NodePort connection in port.GetConnections())
-        //{
-
-        //    string portName = connection.node.name; // 연결된 포트 이름
-        //    Debug.Log($" 포트 이름: {portName}");
-        //}
-        #endregion
     }
+
     public override void Excute(BossController Data)
     {
         if (Target == null) return;
@@ -50,12 +41,7 @@ public class BossChase : BaseState<BossController>
         Chase(Data); 
     }
 
-    public override void Exit(BossController Data)
-    {
-        ClearState();
-    }
-
-  
+    public override void Exit(BossController Data) => ClearState();
 
     public void Chase(BossController Data)//추적하는 코드 
     {
@@ -122,27 +108,27 @@ public class BossChase : BaseState<BossController>
     }
     private void InitializeTracker(BossController Data, Transform BossPos, Transform Target)
     {
-        if (Tracker.Target == null)
-        {
+        if (Tracker.Target != null) return;
+        
             SpriteRenderer SR_Data = Data.SpriteRenderer;
             BoxCollider2D collider2D = Data.Collider2D;
             Tracker = new TargetTracker(Target, BossPos, Player);
             Tracker.SetAction(Attack);
-        }
+        
     }
     private void InitializeBossState(BossController Data, out Transform BossPos, out Transform Target)
-    {
+    { 
         timer = 0;
         this.Data = Data;
 
         Bossevents = Data.BossAnimactionEvents;
         BossPos = Data.BossTransform;
-        Target = Data.TargetPos;
+        Target = Data.TargetPos.transform;
         BossSkillGroup = Data.BossSkillGroup;
     }
     private void ClearState()
     {
         timer = 0;
-        CurrentSkill = null;
+       
     }
 }

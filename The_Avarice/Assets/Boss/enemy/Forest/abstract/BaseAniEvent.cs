@@ -9,11 +9,15 @@ public class BaseAniEvent : ScriptableObject
     {
 
     }
+    public virtual void Execute(GameObject deathObject)
+    {
+
+    }
     public virtual void Execute(List<GameObject> bulletList, BulletPos bulletPos)//총알 발사
     {
 
     }
-    public virtual void Execute(MonsterController controller=null, params object[] data)
+    public virtual void Execute(MonsterController controller, params object[] data)
     {
 
     }
@@ -42,6 +46,10 @@ public class BaseAniEvent : ScriptableObject
         //render  flipx로 방향 체크 Dir 값 -1 1
         //rigid 방향으로 addfoce
         //콜라이더 좌표에서 offset 만큼 보정받은 후 공격
+    }
+    public virtual void ElectricAttack( Vector3 Offset,  Vector3 Size, LayerMask Player)
+    {
+
     }
 }
 

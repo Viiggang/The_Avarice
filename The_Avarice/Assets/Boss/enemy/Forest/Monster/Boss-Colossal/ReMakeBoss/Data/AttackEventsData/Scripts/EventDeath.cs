@@ -4,8 +4,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "death", menuName = "Boss/Colossal/CreateAttackEvent/death")]
 public class EventDeath : BaseAniEvent
 {
-    public override void Execute(BossController controller, params object[] data)
+    public override void Execute(GameObject deathObject)
     {
-
+        
+                Destroy(deathObject);
+       
     }
 }

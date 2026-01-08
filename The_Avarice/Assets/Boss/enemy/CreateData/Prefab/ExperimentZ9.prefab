@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyObj: {fileID: 0}
   Controller: {fileID: 0}
-  AniEventList: []
+  aniEventList: []
   bulletPoolManager:
     bulletPrefab: {fileID: 0}
     bulletPos: {fileID: 0}
@@ -73,7 +73,7 @@ Animator:
   m_GameObject: {fileID: 320702381132679090}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c96718c3b546ab642958bd3b6943d5bb, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -353,12 +353,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: ff81a3da3550c174d818d4def393f4ec, type: 2}
-  monsterHp: 0
-  BoarDamage: 0
+  monsterhp: 0
+  monsterdamage: 0
   movespeed: 0
-  patrolTime: 0
-  IdleTime: 0
-  AttackDistance: 0
+  patroltime: 0
+  idletime: 0
+  attackdistance: 0
   defense: 0
   time: 0
   moveDir: {x: 0, y: 0, z: 0}

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5111472238823173949}
   - component: {fileID: 4032832708191818127}
   - component: {fileID: 2669948520638966610}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Paladin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ GameObject:
   - component: {fileID: 402913360527530765}
   - component: {fileID: 4722616802733099319}
   - component: {fileID: 5384076738350343669}
-  m_Layer: 8
+  m_Layer: 7
   m_Name: HitBox
   m_TagString: Player
   m_Icon: {fileID: 0}

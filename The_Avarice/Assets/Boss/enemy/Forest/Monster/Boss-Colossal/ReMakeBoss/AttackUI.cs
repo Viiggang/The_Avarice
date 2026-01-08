@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class AttackUI : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class AttackUI : MonoBehaviour
 
     private void Start()
     {
+       
         ColossalEvent.Instance.OnUiEvent += On;
     }    
         
@@ -18,8 +20,7 @@ public class AttackUI : MonoBehaviour
         obj.SetActive(true);
         Invoke("off", 2f);
     }
-    public void off()
-    {
-        obj.SetActive(false);
-    }
+    private void off() => obj.SetActive(false);
+
 }
+ 

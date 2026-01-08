@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3816570256440019702}
   - component: {fileID: 4397757711339702236}
   - component: {fileID: 2101659180156175562}
-  - component: {fileID: 3056349655953402599}
+  - component: {fileID: 3700124658947919024}
   m_Layer: 6
   m_Name: Animaction
   m_TagString: Untagged
@@ -122,39 +122,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Scale: {fileID: 9100618337034653704}
   bossSkills1:
-  - CollisionData: {fileID: 11400000, guid: 25a52caea1cf6f04e987fb46fc1f17ca, type: 2}
-    name: Slam Down
+  - name: Slam Down
+    CollisionData: {fileID: 11400000, guid: 25a52caea1cf6f04e987fb46fc1f17ca, type: 2}
     coolTime:
       Time: 0
       Available: 0
-  - CollisionData: {fileID: 11400000, guid: a5c11ba91e7ac144b9be0c23e2109e1b, type: 2}
-    name: Blowing
+  - name: Blowing
+    CollisionData: {fileID: 11400000, guid: a5c11ba91e7ac144b9be0c23e2109e1b, type: 2}
     coolTime:
       Time: 0
       Available: 0
-  - CollisionData: {fileID: 11400000, guid: 908bc2e06f348b8429d38978d4dc2891, type: 2}
-    name: Spin Attack
+  - name: Spin Attack
+    CollisionData: {fileID: 11400000, guid: 908bc2e06f348b8429d38978d4dc2891, type: 2}
     coolTime:
       Time: 0
       Available: 0
   bossSkills2:
-  - CollisionData: {fileID: 11400000, guid: a5c11ba91e7ac144b9be0c23e2109e1b, type: 2}
-    name: Blowing
+  - name: Blowing
+    CollisionData: {fileID: 11400000, guid: a5c11ba91e7ac144b9be0c23e2109e1b, type: 2}
     coolTime:
       Time: 0
       Available: 0
-  - CollisionData: {fileID: 11400000, guid: 25a52caea1cf6f04e987fb46fc1f17ca, type: 2}
-    name: Slam Down
+  - name: Slam Down
+    CollisionData: {fileID: 11400000, guid: 25a52caea1cf6f04e987fb46fc1f17ca, type: 2}
     coolTime:
       Time: 0
       Available: 0
-  - CollisionData: {fileID: 11400000, guid: d125a2569dd53de469ad59aba180db3d, type: 2}
-    name: Purgeblow
+  - name: Purgeblow
+    CollisionData: {fileID: 11400000, guid: d125a2569dd53de469ad59aba180db3d, type: 2}
     coolTime:
       Time: 20
       Available: 0
-  - CollisionData: {fileID: 11400000, guid: 27d55600b06a0a24c879270bfc5588c8, type: 2}
-    name: Purgecanoon
+  - name: Purgecanoon
+    CollisionData: {fileID: 11400000, guid: 27d55600b06a0a24c879270bfc5588c8, type: 2}
     coolTime:
       Time: 0
       Available: 0
@@ -162,8 +162,8 @@ MonoBehaviour:
   localPos: {x: 7.776, y: -0.039029896, z: 0}
   data: {fileID: 0}
   CurrentSkill:
-    CollisionData: {fileID: 0}
     name: 
+    CollisionData: {fileID: 0}
     coolTime:
       Time: 0
       Available: 1
@@ -174,7 +174,7 @@ MonoBehaviour:
   p:
     serializedVersion: 2
     m_Bits: 128
---- !u!114 &3056349655953402599
+--- !u!114 &3700124658947919024
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -183,18 +183,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 565974540858529666}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8f0faca9f2353374293a3e8bc259f272, type: 3}
+  m_Script: {fileID: 11500000, guid: c65b985c473f97c46b9cd7eebdb89fdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   DestroyObj: {fileID: 6087460984365933127}
   Controller: {fileID: 0}
-  AniEventList:
-  - {fileID: 11400000, guid: 9a644a674d897b34693f99324e3b486a, type: 2}
-  - {fileID: 11400000, guid: e147ef5aeddeb0d4b9eddc1bbdefdd69, type: 2}
-  - {fileID: 11400000, guid: 670c1470799c28d438cc17bdfb486d4d, type: 2}
+  aniEventList:
   - {fileID: 11400000, guid: c3b2872e9ec18d64abe10b318209e380, type: 2}
   - {fileID: 11400000, guid: b4245e9ab0cedd649b505ba17038f7ac, type: 2}
   - {fileID: 11400000, guid: e5f727b8c7a8fea41969e09921d72429, type: 2}
+  - {fileID: 11400000, guid: 9a644a674d897b34693f99324e3b486a, type: 2}
+  - {fileID: 11400000, guid: e147ef5aeddeb0d4b9eddc1bbdefdd69, type: 2}
+  - {fileID: 11400000, guid: 670c1470799c28d438cc17bdfb486d4d, type: 2}
   bulletPoolManager:
     bulletPrefab: {fileID: 0}
     bulletPos: {fileID: 0}
@@ -202,23 +202,23 @@ MonoBehaviour:
     poolSize: 0
     monsterSprite: {fileID: 0}
   attackCollisionData:
-    boxCollider: {fileID: 3883869294010197567}
-    rigid: {fileID: 225249771455666432}
+    boxCollider: {fileID: 0}
+    rigid: {fileID: 0}
     offset: {x: 0, y: 0, z: 0}
     size: {x: 0, y: 0, z: 0}
     playerLayer:
       serializedVersion: 2
-      m_Bits: 128
+      m_Bits: 0
   BossController: {fileID: 523732487823140427}
   CurrentSkill:
-    CollisionData: {fileID: 0}
     name: 
+    CollisionData: {fileID: 0}
     coolTime:
       Time: 0
       Available: 1
-  SkillGroup: {fileID: 2101659180156175562}
-  BossStage: {fileID: 353338942894858844}
-  BossTransfrom: {fileID: 9100618337034653704}
+  SkillGroup: {fileID: 0}
+  BossStage: {fileID: 0}
+  BossTransfrom: {fileID: 0}
 --- !u!1 &2746505486474306483
 GameObject:
   m_ObjectHideFlags: 0
@@ -353,11 +353,10 @@ MonoBehaviour:
   stateMachine: {fileID: 6679383385569705967}
   stage: {fileID: 353338942894858844}
   aniController: {fileID: 1285777196184605820}
-  DetectionRange: {fileID: 9042614402333008356}
   BossSkillGroup: {fileID: 2101659180156175562}
   SpriteRenderer: {fileID: 4397757711339702236}
   Collider2D: {fileID: 3883869294010197567}
-  BossAnimactionEvents: {fileID: 3056349655953402599}
+  BossAnimactionEvents: {fileID: 3700124658947919024}
 --- !u!114 &353338942894858844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -409,7 +408,6 @@ MonoBehaviour:
   deathNode: {fileID: 0}
   colossalGraph: {fileID: 11400000, guid: 799fae55717835044b7743bb1bb0d5e3, type: 2}
   controller: {fileID: 523732487823140427}
-  PlayerTransform: {fileID: 9042614402333008356}
 --- !u!114 &1285777196184605820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,7 +437,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3730785997546567480}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b88dbc2c4da0d5241a6c256bd77f4bcd, type: 3}
   m_Name: 
@@ -473,10 +471,8 @@ MonoBehaviour:
   offset: {x: 0, y: 0}
   size: {x: 50, y: 50}
   angle: 0
-  time: 0
   Controller: {fileID: 523732487823140427}
-  Colluder2Ds:
-  - {fileID: 0}
+  Colluder2Ds: {fileID: 0}
 --- !u!61 &3883869294010197567
 BoxCollider2D:
   m_ObjectHideFlags: 0

@@ -8,7 +8,7 @@ public class EventSpinAttack : BaseAniEvent
     public override void Execute(BossController controller, params object[] data)
     {
         AttackCollisionData collisionData = new();
-        PlayerMgr player;
+       
         foreach (var item in data)
         {
             if (item is AttackCollisionData Data)
@@ -22,11 +22,11 @@ public class EventSpinAttack : BaseAniEvent
        
         if (Collider == null) return;
         Debug.Log($"EventSpinAttack : {Collider.name}");
-        var Hit = Collider.GetComponent<IDamage>();
-        player = Collider.GetComponentInParent<PlayerMgr>();
-        if (Hit == null || player == null) return;
-        //var PlayerMaxHP = player.getPlayerMaxHp();
-        //float finallDamage = PlayerMaxHP*0.1f;
-        //Hit.OnHitDamage(finallDamage);
+        var Hit = Collider.GetComponentInChildren<IDamage>();
+        
+        if (Hit == null ) return;
+        var PlayerMaxHP = PlayerMgr.instance.MaxHp;
+        float finallDamage = (PlayerMaxHP * 0.1f)*(-1f);
+        Hit.OnHitDamage(finallDamage);
     }
 }

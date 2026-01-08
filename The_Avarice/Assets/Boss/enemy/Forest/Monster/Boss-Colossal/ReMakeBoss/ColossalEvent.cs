@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public class ColossalEvent :Singleton<ColossalEvent>
@@ -36,10 +38,11 @@ public class ColossalEvent :Singleton<ColossalEvent>
    
     private void Start()
     {
-        UItrigger();
+        //UItrigger();
     }
 #endregion
 }
+#if UNITY_EDITOR
 [CustomEditor(typeof(ColossalEvent))]
 public class ColossalEventEditor : Editor
 {
@@ -58,3 +61,4 @@ public class ColossalEventEditor : Editor
         }
     }
 }
+#endif

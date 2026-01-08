@@ -22,12 +22,12 @@ namespace ElectricSphere
 
 
         [SerializeField] private LayerMask PlayerLayer;
-        [SerializeField] private Vector2 Offset;
+        [SerializeField] private Vector3 Offset;
         [SerializeField] private Vector2 Size;
         private float Angle = 0f;
         private void OnEnable()
         {
-            var Collider2D=Physics2D.OverlapBox(Offset, Size, Angle, PlayerLayer);
+            var Collider2D=Physics2D.OverlapBox(this.transform.position+Offset, Size, Angle, PlayerLayer);
             if (!Collider2D) { Debug.Log("전기구체 플레이어 못찾음"); return; }
             target = Collider2D.gameObject.transform;
         }
