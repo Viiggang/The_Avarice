@@ -124,7 +124,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.008858383, y: -0.23031795}
+  m_Offset: {x: 0.008858383, y: -0.20841874}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -135,7 +135,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.23817909, y: 0.043294728}
+  m_Size: {x: 0.23817909, y: 0.087093145}
   m_EdgeRadius: 0
 --- !u!1 &7022943752753413665
 GameObject:
@@ -422,7 +422,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monsterData: {fileID: 11400000, guid: ab1a0bd96e84f68428c15514843a2fa7, type: 2}
-  monsterhp: 1000
+  monsterhp: 1
   monsterdamage: 30
   movespeed: 0.3
   patroltime: 4
