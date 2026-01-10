@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - OneWayPlatform
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Spawning
   - 
   - 
   - 
@@ -29,7 +30,7 @@ TagManager:
   - Minimap
   - 
   - 
-  - 
+  - IgnoreCollider
   - 
   - 
   - 

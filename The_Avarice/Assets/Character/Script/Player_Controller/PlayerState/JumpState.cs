@@ -16,13 +16,19 @@ public class JumpState : IpController
 
     public void Enter()
     {
+        if (player.IsOnOneWayPlatform() && Input.GetKey(KeyCode.DownArrow))
+        {
+            player.DisableOneWayPlatform();
+            player.Rigid.velocity = new Vector2(player.Rigid.velocity.x, -2f);
+            stateMachine.ChangeState(player.AirState);
+            return;
+        }
+
         player.Jump();
-        stateMachine.ChangeState(player.AirState); // 점프 시작 → 공중 상태로 전환
+        stateMachine.ChangeState(player.AirState);
     }
 
-    public void Exit() 
-    {
-    }
+    public void Exit() { }
     public void HandleInput() { }
     public void LogicUpdate() { }
     public void PhysicsUpdate() { }

@@ -24,10 +24,10 @@ public class ChangeState : IpController
             return;
         }
         player.ResetVelocityX();
-        timer = player.GetSkill1Duration();
+        timer = player.GetSkill1Duration() - 0.2f;
         player.CanDash = false;
 
-        if (PlayerMgr.instance.getPlayerType().Equals(Player_Type.Ignis) && PlayerMgr.instance.getPassiveStack() == 20)
+        if (PlayerMgr.instance.playerType.Equals(Player_Type.Ignis) && PlayerMgr.instance.Passive1 == 20)
         {
             player.Anim.SetTrigger("Passive");
        
@@ -37,21 +37,26 @@ public class ChangeState : IpController
             player.Anim.SetTrigger("Change");
         }
 
-        if (PlayerMgr.instance.getElementType().Equals(Element_Type.Fire))
+        if (PlayerMgr.instance.ElementType == (Element_Type.Fire))
         {
-            PlayerMgr.instance.setElementType(Element_Type.Thunder);
+            PlayerMgr.instance.ElementType = Element_Type.Thunder;
         }
-        else if (PlayerMgr.instance.getElementType().Equals(Element_Type.Thunder))
+        else if (PlayerMgr.instance.ElementType == (Element_Type.Thunder))
         {
-            PlayerMgr.instance.setElementType(Element_Type.Ice);
+            PlayerMgr.instance.ElementType = Element_Type.Ice;
         }
         else
         {
-            PlayerMgr.instance.setElementType(Element_Type.Fire);
+            PlayerMgr.instance.ElementType = Element_Type.Fire;
         }
 
         player.StartCoroutine(CooldownCoroutine());
 
+        if(PlayerMgr.instance.Passive.Equals(true))
+        {
+            PlayerMgr.instance.OnPassive = true;
+            PlayerMgr.instance.Passive = false;
+        }
         isOnCooldown = true;
     }
 
@@ -71,10 +76,13 @@ public class ChangeState : IpController
         }
     }
 
-    public void PhysicsUpdate() 
+    public void PhysicsUpdate()
     {
-        float speed = player.InputX > 0 ? player.GetNormalSpeed() : -player.GetNormalSpeed();
-        player.MoveHorizontally(speed);
+        if (player.InputX != 0)
+        {
+            float speed = player.InputX > 0 ? player.GetNormalSpeed() : -player.GetNormalSpeed();
+            player.MoveHorizontally(speed);
+        }
     }
 
     private IEnumerator CooldownCoroutine()

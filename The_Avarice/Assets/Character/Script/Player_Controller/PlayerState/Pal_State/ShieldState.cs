@@ -20,7 +20,7 @@ public class ShieldState : IpController
         player.CanMove = false;
         player.Anim.SetTrigger("ShieldStart");
         player.Anim.SetBool("Shield", true);
-        PlayerMgr.instance.setGuard(0f);
+        PlayerMgr.instance.Guard = 0f;
         player.Anim.SetBool("Counter", true);
         player.StartCoroutine(ParryWindowCoroutine());
     }
@@ -35,7 +35,7 @@ public class ShieldState : IpController
         // 방패 키를 떼면 방어 종료
         if (!Input.GetKey(KeyCode.S))
         {
-            PlayerMgr.instance.setGuard(1f);
+            PlayerMgr.instance.Guard = 1f;
             player.Anim.SetBool("Shield", false);
             player.Anim.SetTrigger("ShieldEnd");
             player.CanMove = true;
@@ -50,7 +50,7 @@ public class ShieldState : IpController
     {
         yield return new WaitForSeconds(parryWindow);
         player.Anim.SetBool("Counter", false);
-        PlayerMgr.instance.setGuard(0.5f);
+        PlayerMgr.instance.Guard = 0.5f;
     }
 
  

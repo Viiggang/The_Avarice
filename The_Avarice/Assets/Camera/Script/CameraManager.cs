@@ -3,7 +3,7 @@ using Cinemachine;
 using UnityEngine.Experimental.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
-public class CameraManager : MonoBehaviour
+public class CameraManager : OnScriptLoaded
 {
     public static CameraManager Instance { get { return _instance; } }
     private static CameraManager _instance;
@@ -19,8 +19,20 @@ public class CameraManager : MonoBehaviour
 
     private Transform target;
 
-    private void Start()
+    private void Awake()
     {
+        if (_instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        _instance = this;
+        DontDestroyOnLoad(gameObject);
+
+        fT = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
+        cF = virtualCamera.GetComponent<CinemachineConfiner>();
+
         tempResolution.x = Screen.width;
         tempResolution.y = Screen.height;
 
@@ -39,21 +51,6 @@ public class CameraManager : MonoBehaviour
         UpdateResolution();
 
         SceneManager.sceneLoaded += SetPixelPerfectUnit;
-    }
-
-    private void Awake()
-    {
-        if (_instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        _instance = this;
-        DontDestroyOnLoad(gameObject);
-
-        fT = virtualCamera.GetCinemachineComponent<CinemachineFramingTransposer>();
-        cF = virtualCamera.GetComponent<CinemachineConfiner>();
     }
 
     private void Update()
@@ -110,16 +107,7 @@ public class CameraManager : MonoBehaviour
 
     public void SetPixelPerfectUnit(Scene scene, LoadSceneMode mode)
     {
-        if (string.Compare(scene.name, "villageScene") == 0)
-        {
-            ppc.assetsPPU = 32;
-            SetLensSize();
-        }
-        else if (string.Compare(scene.name, "forestScene") == 0)
-        {
-            ppc.assetsPPU = 16;
-            SetLensSize();
-        }
-
+        ppc.assetsPPU = 32;
+        SetLensSize();
     }
 }
