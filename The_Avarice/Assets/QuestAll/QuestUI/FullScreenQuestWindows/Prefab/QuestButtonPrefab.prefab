@@ -68,8 +68,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5be48b11b3a3edd48948ce27f62a69bf, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: ead1e7e00a67b434fa1b8d16d96560fc, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -136,7 +136,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   QuestText: {fileID: 2269019138236344947}
   Button: {fileID: 7871796511027989635}
-  quest: {fileID: 0}
 --- !u!1 &8757406986775381338
 GameObject:
   m_ObjectHideFlags: 0

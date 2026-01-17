@@ -10,7 +10,7 @@ namespace QuestSystem
     {
 
         #region 테스트용 공간 다 지워도 되는 부분
-
+        public QuestActionHandler QuestActionHandler;
         public TestQuestManager testmanger;
         public GameObject nullQuestObject;
         #endregion
@@ -87,6 +87,8 @@ namespace QuestSystem
 
             bool flag = runtimeQuests.Count > 0 ? false : true;
             nullQuestObject.SetActive(flag);
+            QuestActionHandler.SetQuest(Dta);
+
         }
 
     

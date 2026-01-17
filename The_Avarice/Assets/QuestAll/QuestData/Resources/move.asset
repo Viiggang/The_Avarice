@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad6ff7a0e8800d40b74f48cc810e97f, type: 3}
+  m_Name: move
+  m_EditorClassIdentifier: 
+  codename: 1
+  description: "\uC88C,\uC6B0 \uBC29\uD5A5\uD0A4\uB85C \uC6C0\uC9C1\uC5EC\uBCF4\uC138\uC694."
+  displayname: "\uC774\uB3D9"
+  Category: {fileID: 11400000, guid: 6645045fc82868a4da54fcda43b9be0e, type: 2}
+  task: {fileID: 11400000, guid: d0644b9424c04d94f9416486be08103f, type: 2}
+  compensation: {fileID: 11400000, guid: ef1fc4fc58cd859409511560190a2325, type: 2}
+  AutoComplete: 1

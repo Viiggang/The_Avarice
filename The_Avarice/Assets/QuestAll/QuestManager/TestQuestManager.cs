@@ -7,7 +7,7 @@ using UnityEngine;
 public class TestQuestManager : MonoBehaviour
 {
   
-    [SerializeField] private Queue<Quest> questQueue = new Queue<Quest>(); 
+    [SerializeField]private Queue<Quest> questQueue = new Queue<Quest>(); 
 
     
 

@@ -137,6 +137,8 @@ namespace QuestSystem
                 questState = QuestState.Complete;
             }
         }
+
+        public Category GetCategory() => this.Category;
     }
 
 }

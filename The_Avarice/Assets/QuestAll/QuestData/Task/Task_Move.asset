@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da07552b39fb9754992b48718e4637b1, type: 3}
+  m_Name: Task_Move
+  m_EditorClassIdentifier: 
+  codename: move
+  description: 
+  taskAction: {fileID: 11400000, guid: 13447790b92f56441bc041e0b0bc4f7b, type: 2}
+  category: {fileID: 11400000, guid: 6645045fc82868a4da54fcda43b9be0e, type: 2}
+  tasktarget:
+  - {fileID: 0}
+  - {fileID: 0}
+  successcount: 0
+  questclearcount: 2
+  taskstate: 0
