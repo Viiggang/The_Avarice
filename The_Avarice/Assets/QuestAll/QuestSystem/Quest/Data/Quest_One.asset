@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Quest_One
   m_EditorClassIdentifier: 
   codename: TESTQUEST
-  description: quest go home
-  displayname: Go Home
+  description: "\uBC29\uD5A5\uD0A4\uB85C \uC6C0\uC9C1\uC5EC\uC138\uC694"
+  displayname: move
   Category: {fileID: 11400000, guid: 1d5be7e1f195b064bb548d90f8fe979d, type: 2}
   task: {fileID: 11400000, guid: b3c0754fa4a806545a1fe81bef1d2b4a, type: 2}
   compensation: {fileID: 11400000, guid: d4dec60108748764ab7c3319e534baf2, type: 2}

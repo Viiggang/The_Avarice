@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Quest_two
   m_EditorClassIdentifier: 
   codename: Test2
-  description: dsdsdsds
-  displayname: Test
+  description: 'Can Dash key: Shift +Right or Left Arrow'
+  displayname: Dash
   Category: {fileID: 11400000, guid: 1d5be7e1f195b064bb548d90f8fe979d, type: 2}
-  task: {fileID: 11400000, guid: b3c0754fa4a806545a1fe81bef1d2b4a, type: 2}
+  task: {fileID: 11400000, guid: c0a8d1c4ff7f4264c9f21c92a4abc6c0, type: 2}
   compensation: {fileID: 11400000, guid: d4dec60108748764ab7c3319e534baf2, type: 2}
   AutoComplete: 1

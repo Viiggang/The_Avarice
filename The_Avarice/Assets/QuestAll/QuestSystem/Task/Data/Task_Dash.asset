@@ -10,14 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: da07552b39fb9754992b48718e4637b1, type: 3}
-  m_Name: Task_
+  m_Name: Task_Dash
   m_EditorClassIdentifier: 
-  codename: task
-  description: "\uBC84\uD2BC 3\uBC88 \uB204\uB974\uAE30"
+  codename: 
+  description: 
   taskAction: {fileID: 11400000, guid: 13447790b92f56441bc041e0b0bc4f7b, type: 2}
   category: {fileID: 11400000, guid: 1d5be7e1f195b064bb548d90f8fe979d, type: 2}
   tasktarget:
-  - {fileID: 11400000, guid: 11cda30c919a1154a95b8660c3bbab1c, type: 2}
+  - {fileID: 11400000, guid: f8ab55fb1db3a7d4caee97ad03e3dea2, type: 2}
   successcount: 0
   questclearcount: 1
-  taskstate: 1
+  taskstate: 0
