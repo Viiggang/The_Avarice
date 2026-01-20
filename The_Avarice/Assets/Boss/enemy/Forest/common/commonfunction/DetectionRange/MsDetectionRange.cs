@@ -90,7 +90,7 @@ public class MsDetectionRange : MonoBehaviour
                 findcollider = null;
                 return;
             }
-
+            time = 0f;
             findcollider = hit;
       }
        else
