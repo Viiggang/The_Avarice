@@ -61,7 +61,7 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
 
     [Space, Header("- Movement Settings")]
     [Range(2f, 10f)] public float Speed = 5f;
-    [Range(5f, 20f)] public float jumpPower = 13f;
+    [Range(5f, 20f)] public float jumpPower = 20f;
 
     [Space, Header("- Dash Settings")]
     [Range(20f, 50f)] public float dashSpeed = 30f;
@@ -70,7 +70,10 @@ public class PlayerMgr : BaseMgr<PlayerMgr>
     [Range(0.02f, 0.15f)] public float dashDodge = 0.05f;
     [Range(0.1f, 3f)] public float skillaccelerate = 1f;
 
- 
+    [Header("Ground Check")]
+    public LayerMask groundLayer;
+    public float maxSlopeAngle = 45f;
+    public float groundRayDistance = 0.05f;
 
     public bool Direction { get; set; } = true; // 바라보는 방향
     public float MaxHp

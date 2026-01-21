@@ -44,11 +44,14 @@ public class AttackState : IpController
 
     public void PhysicsUpdate()
     {
-        RaycastHit2D hit = Physics2D.Raycast(player.Rigid.position, Vector2.down, 0.4f, LayerMask.GetMask("Platform"));
-        if (hit)
+        if (player.IsGrounded())
         {
-            player.Anim.SetBool("isJump", false);
+            player.sprite.sortingOrder = 0;
+            stateMachine.ChangeState(
+                Mathf.Abs(player.InputX) > 0.01f
+                ? player.MoveState
+                : player.IdleState
+            );
         }
-        player.Rigid.velocity = new Vector2(0, player.Rigid.velocity.y);
     }
 }

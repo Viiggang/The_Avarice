@@ -6,6 +6,9 @@ public class AirState : IpController
     private Player_ControllMachine stateMachine;
 
     private bool jumpStarted;
+    private bool DoubleJump;
+
+    private float m_inputX;
 
     public AirState(PlayerCon player, Player_ControllMachine stateMachine)
     {
@@ -18,11 +21,12 @@ public class AirState : IpController
         player.sprite.sortingOrder = 99;
         player.Anim.SetBool("isJump", true);
         jumpStarted = player.Rigid.velocity.y > 0.01f;
+        DoubleJump = true;
+        m_inputX = Mathf.Sign(player.InputX);
     }
 
     public void Exit()
     {
-        player.Anim.SetBool("isJump", false);
     }
 
     public void HandleInput()
@@ -35,6 +39,13 @@ public class AirState : IpController
         {
             stateMachine.ChangeState(player.AttackState);
         }
+
+        if (Input.GetKeyDown(KeyCode.Space) && DoubleJump == true)
+        {
+            player.Anim.SetTrigger("jump2");
+            player.Jump2();
+            DoubleJump = false;
+        }
     }
 
     public void LogicUpdate()
@@ -42,8 +53,17 @@ public class AirState : IpController
         // 공중 이동
         if (Mathf.Abs(player.InputX) > 0.01f)
         {
-            player.MoveHorizontally(player.InputX * player.GetNormalSpeed());
-            player.SetDirection(player.InputX);
+            float checkinput = Mathf.Sign(player.InputX);
+            if (m_inputX != player.InputX)
+            {
+                player.MoveHorizontally(player.InputX * player.GetNormalSpeed() * 0.5f);
+                player.SetDirection(player.InputX);
+            }
+            else
+            {
+                player.MoveHorizontally(player.InputX * player.GetNormalSpeed());
+                player.SetDirection(player.InputX);
+            }
         }
 
         // 착지 처리

@@ -8,6 +8,8 @@ public class Ign_SpellSport : MonoBehaviour
     public GameObject Fire;
     public GameObject Thunder;
     public GameObject Ice;
+
+
     [Space, Header("- Enhance_SKill")]
     public GameObject Fire2;
     public GameObject Thunder2;

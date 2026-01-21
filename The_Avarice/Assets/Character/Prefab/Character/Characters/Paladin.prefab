@@ -67,6 +67,11 @@ MonoBehaviour:
   ExtraHitBox2: {fileID: 1108419300680732767}
   sprite: {fileID: 0}
   resetCooldown: 0
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  maxSlopeAngle: 45
+  groundRayDistance: 0.25
 --- !u!114 &8418911538494962082
 MonoBehaviour:
   m_ObjectHideFlags: 0
