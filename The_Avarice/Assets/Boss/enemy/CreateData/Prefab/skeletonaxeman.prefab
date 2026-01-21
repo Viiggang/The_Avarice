@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8470561185363764989}
   - component: {fileID: 5150828911847907311}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: skeletonaxeman
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 637027979923542495}
   - component: {fileID: 3284592254989105247}
   - component: {fileID: 8004556404834766007}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Animaction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -185,7 +185,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyObj: {fileID: 2720447972268135486}
   Controller: {fileID: 2984047284662691633}
-  aniEventList: []
+  aniEventList:
+  - {fileID: 11400000, guid: 6744b786f5b414e49aed7eb6675a010b, type: 2}
+  - {fileID: 11400000, guid: 6c023300609dbda46bd8880973b2163a, type: 2}
   bulletPoolManager:
     bulletPrefab: {fileID: 0}
     bulletPos: {fileID: 0}
@@ -283,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 247297993179694168}
   - component: {fileID: 6862495361887614920}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: DetectionRange
   m_TagString: Untagged
   m_Icon: {fileID: 0}

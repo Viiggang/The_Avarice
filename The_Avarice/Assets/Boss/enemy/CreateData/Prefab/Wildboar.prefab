@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 3859446066325778214}
   - component: {fileID: 3700563751850058452}
   - component: {fileID: 4394606473116392159}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Animaction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -198,7 +198,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DestroyObj: {fileID: 8513859966435509957}
   Controller: {fileID: 2804614259115556665}
-  aniEventList: []
+  aniEventList:
+  - {fileID: 11400000, guid: 519aec1e208b3014d80fb9b782a93a70, type: 2}
+  - {fileID: 11400000, guid: 6c023300609dbda46bd8880973b2163a, type: 2}
   bulletPoolManager:
     bulletPrefab: {fileID: 0}
     bulletPos: {fileID: 0}
@@ -223,7 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5853853416024356857}
   - component: {fileID: 3858017830962638745}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Wildboar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -283,7 +285,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5454434946948892493}
   - component: {fileID: 7496010005298082371}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Detectionrange
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +343,7 @@ GameObject:
   - component: {fileID: 1522253189212252596}
   - component: {fileID: 2364164235255901135}
   - component: {fileID: 946275238207536713}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: BoarHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}

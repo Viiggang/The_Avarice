@@ -6,8 +6,8 @@ public class EventDeath : BaseAniEvent
 {
     public override void Execute(GameObject deathObject)
     {
-        
-                Destroy(deathObject);
+  
+      Destroy(deathObject);
        
     }
 }

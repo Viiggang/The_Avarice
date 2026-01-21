@@ -310,7 +310,6 @@ GameObject:
   - component: {fileID: 7905072262440034362}
   - component: {fileID: 6679383385569705967}
   - component: {fileID: 1285777196184605820}
-  - component: {fileID: 9042614402333008356}
   - component: {fileID: 8216146968633477634}
   - component: {fileID: 3883869294010197567}
   m_Layer: 6
@@ -430,29 +429,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e4b3545c7c5ccd74185a8aa0a1cc87df, type: 2}
   - {fileID: 11400000, guid: 5c1523159a6d7c745808747877efd7b9, type: 2}
   animator: {fileID: 3816570256440019702}
---- !u!114 &9042614402333008356
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3730785997546567480}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b88dbc2c4da0d5241a6c256bd77f4bcd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Collider: {fileID: 3883869294010197567}
-  size: {x: 26.36, y: 10.68, z: 0}
-  offset: {x: 0, y: 0, z: 0}
-  renderer: {fileID: 4397757711339702236}
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 640
-  findcollider: {fileID: 0}
-  MonsterTrans: {fileID: 9100618337034653704}
-  gizmos: 1
-  time: 0
 --- !u!114 &8216146968633477634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,11 +444,11 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 128
-  offset: {x: 0, y: 0}
+  offset: {x: 0, y: 0, z: 0}
   size: {x: 50, y: 50}
   angle: 0
   Controller: {fileID: 523732487823140427}
-  Colluder2Ds: {fileID: 0}
+  Collider2d: {fileID: 0}
 --- !u!61 &3883869294010197567
 BoxCollider2D:
   m_ObjectHideFlags: 0

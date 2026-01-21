@@ -1,5 +1,7 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements.Experimental;
@@ -20,6 +22,8 @@ public class MonsterStatus : MonoBehaviour, IDamage
     [Leein.InspectorName("몬스터 대기 시간")][SerializeField] private float idletime;
     [Leein.InspectorName("몬스터 공격 거리")][SerializeField] private float attackdistance;
     [Leein.InspectorName("몬스터 방어력")][SerializeField] private float defense;
+    
+    public Action OnDead;
     private bool isfacingleft;
     #endregion
     #region
@@ -32,6 +36,7 @@ public class MonsterStatus : MonoBehaviour, IDamage
             bool isDead = monsterhp <= 0;
             if (isDead)
             {
+                OnDead?.Invoke();
                 movespeed = 0;
                 AniManager.Play("death");
             }
