@@ -196,11 +196,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 917131b55f562af418bc9e0a36d5ad52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DestroyObj: {fileID: 8513859966435509957}
+  DestroyObj: {fileID: 2685450524884068863}
   Controller: {fileID: 2804614259115556665}
   aniEventList:
   - {fileID: 11400000, guid: 519aec1e208b3014d80fb9b782a93a70, type: 2}
   - {fileID: 11400000, guid: 6c023300609dbda46bd8880973b2163a, type: 2}
+  - {fileID: 11400000, guid: 670c1470799c28d438cc17bdfb486d4d, type: 2}
   bulletPoolManager:
     bulletPrefab: {fileID: 0}
     bulletPos: {fileID: 0}
@@ -273,7 +274,7 @@ Rigidbody2D:
     m_Bits: 0
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 4
 --- !u!1 &6739717816615695298
 GameObject:
