@@ -60,6 +60,12 @@ public class PlayerCon : MonoBehaviour
     public bool CanMove { get; set; } = true;
 
 
+   
+    private bool Grounded;
+    private Vector2 groundNormal = Vector2.up;
+    private float slopeAngle;
+
+
     public float InputX { get; private set; }
     public bool JumpInput { get; private set; }
 
@@ -135,6 +141,7 @@ public class PlayerCon : MonoBehaviour
     private void FixedUpdate()
     {
         ControlMachine.CurrentState.PhysicsUpdate();
+        CheckGround();
     }
 
     #region 
@@ -178,16 +185,48 @@ public class PlayerCon : MonoBehaviour
     {
         Rigid.velocity = new Vector2(Rigid.velocity.x, PlayerMgr.instance.JumpPower);
     }
+    public void Jump2()
+    {
+        Rigid.velocity = new Vector2(Rigid.velocity.x, PlayerMgr.instance.JumpPower*0.5f);
+    }
     public bool IsGrounded()
     {
-        RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, 0.8f, LayerMask.GetMask("Platform"));
+        RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, 0.8f, PlayerMgr.instance.groundLayer);
         return hit.collider != null;
     }
 
+    void CheckGround()
+    {
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, PlayerMgr.instance.groundRayDistance, PlayerMgr.instance.groundLayer);
+
+        if (hit)
+        {
+            Grounded = true;
+            groundNormal = hit.normal;
+            slopeAngle = Vector2.Angle(groundNormal, Vector2.up);
+        }
+        else
+        {
+            Grounded = false;
+            groundNormal = Vector2.up;
+            slopeAngle = 0f;
+        }
+    }
 
     public void MoveHorizontally(float speed)
     {
-        Rigid.velocity = new Vector2(speed, Rigid.velocity.y);
+        if (Grounded && slopeAngle > 0.1f && slopeAngle <= PlayerMgr.instance.maxSlopeAngle)
+        {
+            Vector2 slopeDirection = new Vector2(groundNormal.y, -groundNormal.x).normalized;
+
+            Vector2 velocity = slopeDirection * speed;
+            Debug.Log(velocity+" | " +slopeDirection + " | " + speed);
+            Rigid.velocity = velocity;
+        }
+        else
+        {
+            Rigid.velocity = new Vector2(speed, Rigid.velocity.y);
+        }
     }
 
     public void setSkill1Cooldown(float sum)
@@ -232,11 +271,34 @@ public class PlayerCon : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (((1 << collision.gameObject.layer) & PlayerMgr.instance.groundLayer) == 0)
+            return;
+
+        foreach (ContactPoint2D contact in collision.contacts)
+        {
+            // 바닥 접촉 여부 (위쪽 법선)
+            if (contact.normal.y > 0.7f)
+            {
+                Grounded = true;
+                groundNormal = contact.normal;
+                slopeAngle = Vector2.Angle(groundNormal, Vector2.up);
+                return;
+            }
+        }
+    }
+
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider == currentOneWayPlatform)
         {
             currentOneWayPlatform = null;
+        }
+        if (((1 << collision.gameObject.layer) & PlayerMgr.instance.groundLayer) != 0)
+        {
+            Grounded = false;
         }
     }
 

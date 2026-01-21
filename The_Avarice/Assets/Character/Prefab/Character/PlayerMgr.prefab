@@ -49,5 +49,24 @@ MonoBehaviour:
   - {fileID: 582446882768126175, guid: d5b3dfeec8541f5479a45eef6048ccf8, type: 3}
   - {fileID: 8249452600359226883, guid: dd40c0097f1aafb4491d7f874ea67326, type: 3}
   - {fileID: 7960191310067138025, guid: aa28950927d934448b9e43573b1d06f0, type: 3}
-  Player_MaxHp: 100
   Startpos: {fileID: 0}
+  Player_MaxHp: 100
+  Player_Hp: 100
+  Player_Attack: 5
+  Player_addedAtk: 0
+  Player_Defense: 5
+  Player_addedDef: 0
+  attackSpeed: 1
+  nomal_Speed: 1
+  Speed: 5
+  jumpPower: 20
+  dashSpeed: 30
+  dashDuration: 0.1
+  dashCooldown: 1
+  dashDodge: 0.05
+  skillaccelerate: 1
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  maxSlopeAngle: 45
+  groundRayDistance: 0.25

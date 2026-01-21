@@ -87,7 +87,7 @@ public class Player_Atk : MonoBehaviour //�Ϲݰ���
     void PlayAttack(int step)
     {
         comboStep = step;
-        if (PlayerMgr.instance.playerType == Player_Type.Paladin && PlayerMgr.instance.playerType == PlayerMgr.instance.playerType)
+        if (PlayerMgr.instance.playerType == Player_Type.Paladin && PlayerMgr.instance.OnPassive == true)
         {
             animator.SetTrigger("PassiveAtk");
         }
