@@ -11,6 +11,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] GameObject[] WavePosition2;
     [SerializeField] GameObject[] WavePosition3;
 
+    [SerializeField]private GameObject Wall;
+    [SerializeField] private GameObject BlackHole;
     [SerializeField] private Dictionary<WaveStage, Action> sumon ;
     [SerializeField] private int m_livingCount = 0;
     public int livingCount
@@ -77,7 +79,8 @@ public class WaveManager : MonoBehaviour
 
     public void WaveEnd()
     {
-
+        BlackHole.SetActive(true);
+        Wall.SetActive(false);
     }
 
     public   void countUp()
@@ -89,4 +92,9 @@ public class WaveManager : MonoBehaviour
         livingCount -= 1;
 
     }
+    public void On_Invisible()
+    {
+        this.gameObject.SetActive(false);
+    }
+
 }
