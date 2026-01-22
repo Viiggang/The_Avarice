@@ -27,18 +27,24 @@ public class MonsterStatus : MonoBehaviour, IDamage
     private bool isfacingleft;
     #endregion
     #region
+    public float m_invincibilitytime = 0f;
+    private bool invincibility;
+    public bool isDead;
+    
     public float MonsterHp 
     { 
         get => monsterhp;
         set
         {
+            float deadhp = 0f;
             monsterhp = value;
-            bool isDead = monsterhp <= 0;
+            isDead = monsterhp <= deadhp;
             if (isDead)
             {
+                BoxCollider2D.enabled = false;
                 OnDead?.Invoke();
-                movespeed = 0;
-                AniManager.Play("death");
+
+                manager?.isDead();
             }
         }   
     }
@@ -120,7 +126,7 @@ public class MonsterStatus : MonoBehaviour, IDamage
     [SerializeField] private Vector2 offsetX;
     private Vector2 defaultOffset;
     [HideInInspector] public bool lockGizmos = false;
-    [SerializeField] public MonsterAniController AniManager;
+    [SerializeField] public MonsterController manager;
     #endregion
 
 
@@ -148,9 +154,13 @@ public class MonsterStatus : MonoBehaviour, IDamage
 
         ResetValues();
         lockGizmos = false;
-  
+        StartCoroutine(invincibilityTime());
     }
-
+    private IEnumerator invincibilityTime()
+    {
+        yield return new WaitForSeconds(m_invincibilitytime);
+        invincibility = true;
+    }
     private void Update() => OffsetCorrection();
 
     private void OffsetCorrection() => isFacingleft = spriteRenderer.flipX;
@@ -168,8 +178,12 @@ public class MonsterStatus : MonoBehaviour, IDamage
         time = 0;
     }
     //피격 당했을 때 사용되는 함수
-    public void OnHitDamage(float Damage) => MonsterHp += -Damage;
-
+    public void OnHitDamage(float Damage)
+    {
+        if (!invincibility) return;
+        if (isDead) return;
+        MonsterHp += -Damage;
+    }
     #region
     [ContextMenu("Hit")]//테스트용 코드이다.
     public void selfHit() => OnHitDamage(1000);

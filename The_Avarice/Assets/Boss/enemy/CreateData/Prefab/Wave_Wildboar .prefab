@@ -427,18 +427,20 @@ MonoBehaviour:
   monsterData: {fileID: 11400000, guid: 7d865fbd1319b5142807740d7e2b5c0b, type: 2}
   monsterhp: 0
   monsterdamage: 0
-  movespeed: 4
+  movespeed: 0
   patroltime: 0
   idletime: 0
   attackdistance: 0
   defense: 0
+  m_invincibilitytime: 0
+  isDead: 0
   time: 0
   moveDir: {x: 0, y: 0, z: 0}
   BoxCollider2D: {fileID: 946275238207536713}
   spriteRenderer: {fileID: 3700563751850058452}
   offsetX: {x: -0.07, y: 0}
   lockGizmos: 0
-  AniManager: {fileID: 1522253189212252596}
+  manager: {fileID: 2804614259115556665}
 --- !u!61 &946275238207536713
 BoxCollider2D:
   m_ObjectHideFlags: 0

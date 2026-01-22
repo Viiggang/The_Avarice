@@ -17,6 +17,6 @@ MonoBehaviour:
   damage: 1
   movespeed: 0.5
   patroltime: 3
-  idletime: 1
+  idletime: 0.3
   attackdistance: 0.5
   defense: 0

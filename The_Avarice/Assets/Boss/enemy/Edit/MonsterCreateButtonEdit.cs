@@ -32,7 +32,7 @@ namespace MonstersEditor
             var managerComp = childObj_MonsterHandler.AddComponent<MonsterController>();
             var aniManagerComp = childObj_MonsterHandler.AddComponent<MonsterAniController>();
             var statusComp = childObj_MonsterHandler.AddComponent<MonsterStatus>();
-            statusComp.AniManager = aniManagerComp;
+            statusComp.manager = managerComp;
             statusComp.monsterData = data;
             var handlerCollider = childObj_MonsterHandler.AddComponent<BoxCollider2D>();
             handlerCollider.isTrigger = true;

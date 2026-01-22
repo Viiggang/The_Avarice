@@ -27,7 +27,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1149465752016003572}
@@ -188,6 +188,7 @@ MonoBehaviour:
   aniEventList:
   - {fileID: 11400000, guid: 6744b786f5b414e49aed7eb6675a010b, type: 2}
   - {fileID: 11400000, guid: 6c023300609dbda46bd8880973b2163a, type: 2}
+  - {fileID: 11400000, guid: 670c1470799c28d438cc17bdfb486d4d, type: 2}
   bulletPoolManager:
     bulletPrefab: {fileID: 0}
     bulletPos: {fileID: 0}
@@ -431,13 +432,15 @@ MonoBehaviour:
   idletime: 4
   attackdistance: 0.3
   defense: 1
+  m_invincibilitytime: 2
+  isDead: 0
   time: 0
   moveDir: {x: 0, y: 0, z: 0}
   BoxCollider2D: {fileID: 1362333917332145601}
   spriteRenderer: {fileID: 8004556404834766007}
   offsetX: {x: 0, y: 0}
   lockGizmos: 1
-  AniManager: {fileID: 7629215363599470010}
+  manager: {fileID: 2984047284662691633}
 --- !u!61 &1362333917332145601
 BoxCollider2D:
   m_ObjectHideFlags: 0

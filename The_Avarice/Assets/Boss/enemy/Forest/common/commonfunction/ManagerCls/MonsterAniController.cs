@@ -9,6 +9,8 @@ public class MonsterAniController : MonoBehaviour
     private List<MonsterAniData> RunTimeMonsterAniList=new List<MonsterAniData>();//런 타임 때  쓸 List
     [SerializeField] public Animator animator;//현재 해당 게임오브젝트에 붙어 있는 애니메이션 기록
     private Dictionary<string, MonsterAniData> aniDict;// 빠르게 접근하려고 Dictionary 사용
+
+     
     private void Awake()
     {
         RunTimeMonsterAniList = MonsterAniList.Select(Data => Instantiate(Data)).ToList();// 저장한 데이터를 복사 하여 런타임 변수에 삽입
@@ -16,8 +18,11 @@ public class MonsterAniController : MonoBehaviour
         
     }
 
-    public void Play(string PlayName) => aniDict[PlayName].Play(animator);
-
+    public void Play(string PlayName)
+    {
+        
+          aniDict[PlayName].Play(animator);
+    }
     /*
     애니메이션 출력을 확장성,간편하게 사용할 수 있게 하려고 이렇게 설계함
     

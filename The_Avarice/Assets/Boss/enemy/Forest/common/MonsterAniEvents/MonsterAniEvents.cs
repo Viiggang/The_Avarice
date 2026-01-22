@@ -93,8 +93,8 @@ public class MonsterAniEvents : MonoBehaviour
         Debug.Log("몬스터 죽음 삭제 실행");
         bulletPoolManager?.ClearPool();
         string deah = "death";
-        dicAniEvents[deah].Execute( DestroyObj);
-       /// Destroy(DestroyObj);
+        dicAniEvents[deah].Execute(DestroyObj);
+    
     }
     /*
      수정해야할 사항들

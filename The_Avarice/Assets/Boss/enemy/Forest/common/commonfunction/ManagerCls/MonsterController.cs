@@ -1,3 +1,4 @@
+using Colossal;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,8 +44,13 @@ public class MonsterController : MonoBehaviour
     private void Init()
     {
         ///Awake 때 초기화 등 해야할 것들
-        MonsterMachine = new MonsterMachine<MonsterController>(this); //<--몬스터 상태머신 할당 
+        MonsterMachine = new MonsterMachine<MonsterController>(this, statusManager); //<--몬스터 상태머신 할당 
         State = StatesList.ToDictionary(value => value.StateName, value => value); //<--Dictionary 상태 
+    }
+
+    public void isDead()
+    {
+        MonsterMachine.ChangeState(State["death"], this);
     }
 }
 
