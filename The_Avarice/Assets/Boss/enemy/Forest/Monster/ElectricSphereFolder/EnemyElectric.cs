@@ -19,8 +19,10 @@ namespace ElectricSphere
         public Transform pos;
         public BossStage bosspage;
         public Transform target;
-
-
+       
+        [SerializeField] private Animator animator;
+        [SerializeField] private GameObject destroy;
+      
         [SerializeField] private LayerMask PlayerLayer;
         [SerializeField] private Vector3 Offset;
         [SerializeField] private Vector2 Size;
@@ -28,7 +30,7 @@ namespace ElectricSphere
         private void OnEnable()
         {
             var Collider2D=Physics2D.OverlapBox(this.transform.position+Offset, Size, Angle, PlayerLayer);
-            if (!Collider2D) { Debug.Log("¿¸±‚±∏√º «√∑π¿ÃæÓ ∏¯√£¿Ω"); return; }
+            if (!Collider2D) { Debug.Log("Ï†ÑÍ∏∞Íµ¨Ï≤¥ ÌîåÎ†àÏù¥Ïñ¥ Î™ªÏ∞æÏùå"); return; }
             target = Collider2D.gameObject.transform;
         }
         public bool OnChase;
@@ -40,14 +42,16 @@ namespace ElectricSphere
             OnChase = true;
             pos.position = target.position + new Vector3(0f, Ypos, 0f);
             StartCoroutine(ChaseLoop());
+           
         }
 
         private IEnumerator ChaseLoop()
         {
+             
             while (OnChase)
             {
                 float elapsed = 0f;
-                while (elapsed < chaseTime)//chaseTime ¥¬ const float 4f
+                while (elapsed < chaseTime)//chaseTime Îäî const float 4f
                 {
                    
                     EnemyChase.Chase(pos, target, moveSpeed);
@@ -55,7 +59,7 @@ namespace ElectricSphere
                     yield return null;
                 }
 
-                //∞¯∞›
+                //Í≥µÍ≤©
                 if (bosspage.bossStage== Stage.Stage1)
                 {
                     attack = "attack1";
@@ -69,11 +73,17 @@ namespace ElectricSphere
                  
             }
 
-            Debug.Log("√ﬂ¿˚ ¡æ∑·");
+            Debug.Log("Ï∂îÏ†Å Ï¢ÖÎ£å");
         }
         public void StopChase()
         {
             OnChase = false;
+        }
+
+        public void OnDestroythis()
+        {
+            StopAllCoroutines();
+            animator.SetTrigger("death");
         }
     }
 }

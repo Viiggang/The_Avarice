@@ -216,9 +216,9 @@ MonoBehaviour:
     coolTime:
       Time: 0
       Available: 1
-  SkillGroup: {fileID: 0}
-  BossStage: {fileID: 0}
-  BossTransfrom: {fileID: 0}
+  SkillGroup: {fileID: 2101659180156175562}
+  BossStage: {fileID: 353338942894858844}
+  BossTransfrom: {fileID: 9100618337034653704}
 --- !u!1 &2746505486474306483
 GameObject:
   m_ObjectHideFlags: 0

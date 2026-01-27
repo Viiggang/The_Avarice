@@ -6,18 +6,18 @@ using UnityEngine;
 public class ElectAttack1 :BaseAniEvent
 {
     const float damage = 0.15f;
-    public override void ElectricAttack(  Vector3 Offset,   Vector3 Size, LayerMask Player)//±ÙÁ¢ °ø°İ
+    public override void ElectricAttack( Vector3 Offset, Vector3 Size, LayerMask Player)//ê·¼ì ‘ ê³µê²©
     {
     
         var Hit=Physics2D.OverlapBox(Offset,Size,0f,Player);
         if (Hit == null) return;
 
-        //// ¿©±â¼­ Ã¼·Â ¹Ş¾Æ¿À±â ¹Ø¿¡ º¯¼ö¿¡ °ª ¼ÂÆÃ
+        //// ì—¬ê¸°ì„œ ì²´ë ¥ ë°›ì•„ì˜¤ê¸° ë°‘ì— ë³€ìˆ˜ì— ê°’ ì…‹íŒ…
         float MaxHp = PlayerMgr.instance.MaxHp;
 
         float finalDamage = (MaxHp * damage);
         var atk=Hit.GetComponent<IDamage>();
-        atk.OnHitDamage(-finalDamage);
+        atk?.OnHitDamage(-finalDamage);
 
     }
 }

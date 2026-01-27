@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Colossal;
+using ElectricSphere;
 using UnityEditor;
 using UnityEditor.VersionControl;
 using UnityEngine;
@@ -8,16 +9,17 @@ public class BossStatus : MonoBehaviour,IDamage
 {
     [SerializeField]private BossStatusData _Data;
     [SerializeField]private BossStateMachine Machine;
-    //º¸½º ´É·ÂÄ¡ ¿ÜºÎ¿¡¼­ ¹Þ¾Æ¿À±â
-    public string bossName;//º¸½º ÀÌ¸§ (<--ÇÊ¿ä ¾ø±ä ÇÑµ¥ ±¸ºÐ¿ëµµ)
-    public float speed = 0f;//ÀÌµ¿¼Óµµ
-    public int defense = 0;//¹æ¾î·Â
-    public float hp;//Ã¼·Â
+    //ë³´ìŠ¤ ëŠ¥ë ¥ì¹˜ ì™¸ë¶€ì—ì„œ ë°›ì•„ì˜¤ê¸°
+    public string bossName;//ë³´ìŠ¤ ì´ë¦„ (<--í•„ìš” ì—†ê¸´ í•œë° êµ¬ë¶„ìš©ë„)
+    public float speed = 0f;//ì´ë™ì†ë„
+    public int defense = 0;//ë°©ì–´ë ¥
+    public float hp;//ì²´ë ¥
     public float MaxHp;
     public float HalfHp;
 
- 
+     
     public BossStage BossStage;
+    [SerializeField] private EnemyElectric gimic;
     private void OnEnable()
     {
         StatusInitialize();
@@ -25,7 +27,7 @@ public class BossStatus : MonoBehaviour,IDamage
 
     public void StatusInitialize()
     {
-        MaxHp= _Data.hp;//¸Æ½ºÃ¼·Â
+        MaxHp= _Data.hp;//ë§¥ìŠ¤ì²´ë ¥
         speed = _Data.speed;
         defense = _Data.defense;
         hp = _Data.hp;
@@ -46,6 +48,7 @@ public class BossStatus : MonoBehaviour,IDamage
         if (isDeath)
         {
             Machine.SetStateToDeath();
+            gimic.OnDestroythis();
         }
 
     }
@@ -56,18 +59,18 @@ public class BossStatusEditor : Editor
 {
     public override void OnInspectorGUI()
     {
-        // ±âº» ÀÎ½ºÆåÅÍ ±×¸®±â
+        // ê¸°ë³¸ ì¸ìŠ¤íŽ™í„° ê·¸ë¦¬ê¸°
         DrawDefaultInspector();
 
-        // ´ë»ó °¡Á®¿À±â
+        // ëŒ€ìƒ ê°€ì ¸ì˜¤ê¸°
         var data = (BossStatus)target;
 
-        // ¹öÆ° Ãß°¡
-        if (GUILayout.Button("´É·ÂÄ¡ ¸®¼Â"))
+        // ë²„íŠ¼ ì¶”ê°€
+        if (GUILayout.Button("ëŠ¥ë ¥ì¹˜ ë¦¬ì…‹"))
         {
             data.StatusInitialize();
         }
-        if (GUILayout.Button("-100 ´ë¹ÌÁö"))
+        if (GUILayout.Button("-100 ëŒ€ë¯¸ì§€"))
         {
             data.OnHitDamage(100f);
         }
