@@ -21,7 +21,6 @@ namespace ElectricSphere
         public Transform target;
        
         [SerializeField] private Animator animator;
-        [SerializeField] private GameObject destroy;
       
         [SerializeField] private LayerMask PlayerLayer;
         [SerializeField] private Vector3 Offset;

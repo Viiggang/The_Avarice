@@ -12,7 +12,8 @@ public class PathBlockTrigger : MonoBehaviour
          
         if (targetLayer == (1<< collision.gameObject.layer))
         {
-            Wall.SetActive(true);
+            
+            Wall?.SetActive(true);
             Destroy(this.gameObject);
         }
     }
