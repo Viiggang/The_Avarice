@@ -66,6 +66,7 @@ public class PlayerCon : MonoBehaviour
     private float slopeAngle;
 
 
+
     public float InputX { get; private set; }
     public bool JumpInput { get; private set; }
 
@@ -104,7 +105,7 @@ public class PlayerCon : MonoBehaviour
             { Player_Type.Ignis, ChangeState }
         };
 
-        transform.localScale = new Vector3(1.5f, 1.5f, 1);
+        transform.localScale = new Vector3(2f, 2f, 1);
     }
 
 
@@ -149,12 +150,12 @@ public class PlayerCon : MonoBehaviour
     {
         if (inputX < 0 && Direction)
         {
-            transform.localScale = new Vector3(-1.5f, 1.54f, 1);
+            transform.localScale = new Vector3(-2f, 2f, 1);
             Direction = false;
         }
         else if (inputX > 0 && !Direction)
         {
-            transform.localScale = new Vector3(1.5f, 1.5f, 1);
+            transform.localScale = new Vector3(2f, 2f, 1);
             Direction = true;
         }
     }
@@ -191,11 +192,14 @@ public class PlayerCon : MonoBehaviour
     }
     public bool IsGrounded()
     {
+        if(Rigid.velocity.y > 0) 
+            return false;
+
         RaycastHit2D hit = Physics2D.Raycast(Rigid.position, Vector2.down, 0.8f, PlayerMgr.instance.groundLayer);
         return hit.collider != null;
     }
 
-    void CheckGround()
+    public void CheckGround()
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, PlayerMgr.instance.groundRayDistance, PlayerMgr.instance.groundLayer);
 

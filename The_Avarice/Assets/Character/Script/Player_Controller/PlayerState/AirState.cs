@@ -51,7 +51,7 @@ public class AirState : IpController
     public void LogicUpdate()
     {
         // 공중 이동
-        if (Mathf.Abs(player.InputX) > 0.01f)
+        if (Mathf.Abs(player.InputX) > 0.01f && player.Rigid.velocity.y != 0)
         {
             float checkinput = Mathf.Sign(player.InputX);
             if (m_inputX != player.InputX)
@@ -70,6 +70,7 @@ public class AirState : IpController
         if (player.IsGrounded())
         {
             player.sprite.sortingOrder = 0;
+            player.CheckGround();
             stateMachine.ChangeState(
                 Mathf.Abs(player.InputX) > 0.01f
                 ? player.MoveState
